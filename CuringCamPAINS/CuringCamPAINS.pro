@@ -2,4 +2,5 @@ TEMPLATE = subdirs
 
 SUBDIRS += \
     gui \
-    gui
+    gui \
+    logIn
