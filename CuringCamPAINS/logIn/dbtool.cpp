@@ -103,3 +103,25 @@ void DBTool::runQuery(QString str){
     }
 }
 
+bool DBTool::authenticate(QString usr, QString pwd){
+
+    try{
+    QSqlQuery query;
+    QString query_str_id = "SELECT password FROM user WHERE userName='"+usr+"' ;"; //get password
+    query.exec(query_str_id);
+    query.next();
+    std::string result=query.value(0).toString().toStdString();
+    std::string temp=pwd.toStdString();
+
+    if(temp==result){
+        return true;
+    }
+    else{
+        return false;
+    }
+    }
+
+    catch(...){
+        cout<<"error occured"<<endl;
+        return false;}
+}

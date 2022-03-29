@@ -2,6 +2,14 @@
 #define DBTOOL_H
 
 #include <iostream>
+#include <fstream>
+#include <map>
+#include <iostream>
+#include <filesystem>
+#include <vector>
+#include <string>
+
+using namespace std;
 #include <QtSql>
 
 /**
@@ -59,6 +67,9 @@ public:
     bool db_open() { return curr_db ? true : false; }
 
     void runQuery(QString str);
+
+    bool authenticate(QString usr, QString pwd);
+
 
     // Returns a pointer to the current database, only
     // used when absolutely necessary!
