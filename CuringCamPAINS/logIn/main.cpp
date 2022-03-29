@@ -9,7 +9,8 @@ int main(int argc, char* argv[])
     DBTool db("../../database.sqlite");
 
     cout<<db.authenticate("rakotozt","blabl")<<endl;
-      cout<<db.authenticate("hounasm","look")<<endl;
-
+    cout<<db.authenticate("hounasm","look")<<endl;
+    cout<<db.getMaxId()<<endl;
+    // db.addContact("mike","replit","miker","1");
     return 0;
 }

@@ -81,7 +81,7 @@ int DBTool::open_db() {
     }else{
         std::cerr << "Opened database successfully\n";
     }
-
+    cur_id=getMaxId();
     return retCode;
 }
 
@@ -123,5 +123,42 @@ bool DBTool::authenticate(QString usr, QString pwd){
 
     catch(...){
         cout<<"error occured"<<endl;
-        return false;}
+        return false;
+    }
+}
+
+int DBTool::getMaxId(){
+    try{
+    QSqlQuery query;
+    QString query_str_id = "select MAX(userId) from user";
+    query.exec(query_str_id);
+    query.next();
+    std::string result=query.value(0).toString().toStdString();
+    return stoi(result);
+
+}
+    catch(...){
+        cout<<"Error occured"<<endl;
+        return 1;
+    }
+}
+void DBTool::addContact(std::string name,std::string password,std::string userName,std::string isResearcher){
+    cur_id++;
+
+    std::string id = std::to_string(cur_id);
+    std::string initial = "insert into user values (";
+    std::string comma = ",";
+    std::string ending = ");";
+
+    std::string name_to_str = "'" + name + "'";
+    std::string pwd_to_str = "'" +  password + "'";
+    std::string usrName_to_str = "'" +  userName + "'";
+    std::string isResearcher_to_str = "'" +  isResearcher + "'";
+
+    std::string query_str = initial + id + comma + name_to_str+ comma + pwd_to_str + comma + usrName_to_str+comma+isResearcher_to_str  + ending;
+    QString command = QString::fromStdString(query_str);
+
+    std::cout << query_str << std::endl;
+    runQuery(command);
+
 }

@@ -67,10 +67,25 @@ public:
     bool db_open() { return curr_db ? true : false; }
 
     void runQuery(QString str);
+    /**
+     * @brief DBTool::getMaxId
+     * get the max id on the user row
+     */
+    int getMaxId();
 
+    /**
+     * @brief DBTool::authenticate
+     * verify user authentification on the program
+     */
     bool authenticate(QString usr, QString pwd);
+    /**
+     * @brief DBTool::addContact
+     * add contact on the database table
+     */
+    void addContact( std::string name,std::string password,std::string userName,std::string isResearcher);
 
 
+    int cur_id;
     // Returns a pointer to the current database, only
     // used when absolutely necessary!
     QSqlDatabase * db_ref()  { return curr_db; }
