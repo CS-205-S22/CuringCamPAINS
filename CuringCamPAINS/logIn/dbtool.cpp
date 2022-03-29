@@ -103,6 +103,11 @@ void DBTool::runQuery(QString str){
     }
 }
 
+
+/**
+ * @brief DBTool::authenticate
+ * verify user authentification on the program
+ */
 bool DBTool::authenticate(QString usr, QString pwd){
 
     try{
@@ -127,6 +132,11 @@ bool DBTool::authenticate(QString usr, QString pwd){
     }
 }
 
+
+/**
+ * @brief DBTool::getMaxId
+ * get the max id on the user row
+ */
 int DBTool::getMaxId(){
     try{
     QSqlQuery query;
@@ -142,7 +152,13 @@ int DBTool::getMaxId(){
         return 1;
     }
 }
-void DBTool::addContact(std::string name,std::string password,std::string userName,std::string isResearcher){
+
+
+/**
+ * @brief DBTool::addContact
+ * add contact on the database table
+ */
+void DBTool::addUser(std::string name,std::string password,std::string userName,std::string isResearcher){
     cur_id++;
 
     std::string id = std::to_string(cur_id);
@@ -162,3 +178,18 @@ void DBTool::addContact(std::string name,std::string password,std::string userNa
     runQuery(command);
 
 }
+/**
+ * @brief DBTool::removeContactName
+ * remove contact from the table
+ */
+void DBTool::removeUser( std::string name){
+    std::string initial = "DELETE FROM user WHERE name= ";
+    std::string comma = ",";
+    std::string ending = ";";
+    std::string name_to_str = "'" + name + "'";
+     std::string query_str = initial + name_to_str+ending;
+     QString command = QString::fromStdString(query_str);
+     runQuery(command);
+}
+
+

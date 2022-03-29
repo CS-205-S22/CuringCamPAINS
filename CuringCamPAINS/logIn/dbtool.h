@@ -79,10 +79,15 @@ public:
      */
     bool authenticate(QString usr, QString pwd);
     /**
-     * @brief DBTool::addContact
-     * add contact on the database table
+     * @brief DBTool::addUser
+     * add user on the database table
      */
-    void addContact( std::string name,std::string password,std::string userName,std::string isResearcher);
+    void addUser( std::string name,std::string password,std::string userName,std::string isResearcher);
+    /**
+     * @brief DBTool::removeUser
+     * remove user from the table
+     */
+    void removeUser( std::string name);
 
 
     int cur_id;

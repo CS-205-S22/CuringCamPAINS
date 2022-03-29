@@ -11,6 +11,7 @@ int main(int argc, char* argv[])
     cout<<db.authenticate("rakotozt","blabl")<<endl;
     cout<<db.authenticate("hounasm","look")<<endl;
     cout<<db.getMaxId()<<endl;
-    // db.addContact("mike","replit","miker","1");
+     db.addUser("mike","replit","miker","1");
+    db.removeUser("mike");
     return 0;
 }
