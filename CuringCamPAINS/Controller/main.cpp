@@ -1,9 +1,19 @@
 #include <iostream>
-
+#include <QCoreApplication>
+#include "database.h"
+#include "login.h"
 using namespace std;
 
-int main()
+int main(int argc, char* argv[])
 {
-    cout << "Hello World!" << endl;
+    //    QCoreApplication a(argc, argv); //Need to initialize
+    //        Database db("../../database.sqlite");
+    string parameters[] = {"userId", "name", "password", "userName","isResearcher"};
+    string values[] = {"4", "Lita", "pluss", "litat","0"};
+    //  db.write("user",parameters,5,values);
+    //    db.remove("user","name","Lita");
+    Login l("../../database.sqlite");
+    l.signUp("hounasm","look");
+
     return 0;
 }

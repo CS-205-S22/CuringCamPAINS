@@ -6,17 +6,13 @@ SavedMessages::SavedMessages()
 }
 
 void SavedMessages::createMessage(string title, string message) {
-    QString Qtitle = QString::fromUtf8(title.c_str());
-    QString Qmessage = QString::fromUtf8(message.c_str());
-    this->db.write();
+    //this->db.write(title,message);
 }
 
 void SavedMessages::viewMessage(string title) {
-    QString Qtitle = QString::fromUtf8(title.c_str());
-    this->db.read();
+    //this->db.read(title);
 }
 
 void SavedMessages::deleteMessage(string title) {
-    QString Qtitle = QString::fromUtf8(title.c_str());
-    this->db.remove();
+    //this->db.remove(title);
 }
