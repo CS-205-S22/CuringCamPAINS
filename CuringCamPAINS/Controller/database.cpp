@@ -2,7 +2,6 @@
 #include <cstdlib>
 
 
-
 Database::Database() {
     std::cerr << "Name must be provided to Database Class "
               << "during creation.\n";
@@ -106,7 +105,7 @@ void Database::runQuery(QString str){
 }
 
 void Database::write(string table_name,string parameters[],int param_size,string values[] ){
-
+try{
     QSqlQuery query;
     string temp; // temporary variable
     string temp2;// temporary variable
@@ -131,5 +130,58 @@ void Database::write(string table_name,string parameters[],int param_size,string
         string rec=":"+parameters[i];
     query.bindValue(QString::fromStdString(rec),QString::fromStdString(values[i]));
     }
+     cout<<"Here"<<endl;
     query.exec(); //execute the command
+    cout<<"Succesful writing"<<endl;
+}
+    catch (const std::bad_alloc&) {
+      cout<<"error"<<endl;
+    }
+}
+
+
+/**
+ * @brief Database::remove
+ * remove
+ */
+void Database::remove(string table_name,string parameters,string conditions){
+    QSqlQuery query;
+    std::string com = "DELETE FROM "+ table_name+ " WHERE "+parameters+"=:"+parameters;
+   cout<<com<<endl;
+    query.prepare(QString::fromStdString(com));
+    string temp =":"+parameters;
+    query.bindValue(QString::fromStdString(temp),QString::fromStdString(conditions));
+    query.exec(); //execute the command
+    cout<<"Succesful delete"<<endl;
+}
+
+
+
+
+/**
+ * @brief DBTool::authenticate
+ * verify user authentification on the program
+ */
+bool Database::authenticate(QString usr, QString pwd){
+
+    try{
+    QSqlQuery query;
+    QString query_str_id = "SELECT password FROM user WHERE userName='"+usr+"' ;"; //get password
+    query.exec(query_str_id);
+    query.next();
+    std::string result=query.value(0).toString().toStdString();
+    std::string temp=pwd.toStdString();
+
+    if(temp==result){
+        return true;
+    }
+    else{
+        return false;
+    }
+    }
+
+    catch(...){
+        cout<<"error occured"<<endl;
+        return false;
+    }
 }

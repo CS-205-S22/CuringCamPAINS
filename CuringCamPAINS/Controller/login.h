@@ -2,14 +2,15 @@
 #define LOGIN_H
 #include "database.h"
 
-class Login
+class Login:public Database
 {
 public:
-    Login();
+    Login(std::string name);
     void getUserNameInput();
     void getPasswordInput();
     void signUp();
     void validateAccount();
+    void signUp(string usr, string pwd);
 private:
     std:: string username;
     std::string password;

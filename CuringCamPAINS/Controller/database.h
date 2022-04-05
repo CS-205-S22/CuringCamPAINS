@@ -26,8 +26,8 @@ private:
 
 public:
 
-    // Constructor that if called will cause the program to exit
-    // indicating that more information should be provided.
+//    // Constructor that if called will cause the program to exit
+//    // indicating that more information should be provided.
     Database();
 
     // Constructors for loading a database file in the current
@@ -59,9 +59,9 @@ public:
 
     void write(string table_name, string parameters[],int param_size,string values[] );
     void read();
-    void remove();
+    void remove(string table_name,string parameters,string condition);
     void check();
-
+    bool authenticate(QString usr, QString pwd);
 
 };
 
