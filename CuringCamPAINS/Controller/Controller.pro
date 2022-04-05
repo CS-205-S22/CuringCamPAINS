@@ -9,10 +9,12 @@ SOURCES += \
         csv.cpp \
         database.cpp \
         login.cpp \
-        main.cpp
+        main.cpp \
+        savedmessages.cpp
 
 HEADERS += \
     csv.h \
     database.h \
-    login.h
+    login.h \
+    savedmessages.h
 

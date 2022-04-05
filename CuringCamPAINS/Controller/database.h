@@ -19,6 +19,8 @@ public:
     void read();
     void remove();
     void check();
+
+    //maybe have an open? i might be confused but refer to slack for question
 private:
 
 };
