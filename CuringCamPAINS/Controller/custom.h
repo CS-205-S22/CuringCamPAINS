@@ -12,7 +12,7 @@ public:
     void addBackground();
     void updateNotification();
     void displayGuide();
-
+    int getLevel();
 private:
     int level = 1;
 };

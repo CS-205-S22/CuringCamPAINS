@@ -4,6 +4,7 @@
 #include "database.h"
 #include "login.h"
 #include "contactlist.h"
+#include "custom.h"
 using namespace std;
 
 int main(int argc, char* argv[])
@@ -35,5 +36,11 @@ int main(int argc, char* argv[])
 //    ContactList cl;
 //    cl.getUserInput();
 
+    //Custom Testing:
+//Custom cust;
+//cust.displayGuide();
+//cust.addBackground();
+//cust.levelUp();
+//cust.getLevel();
     return 0;
 }
