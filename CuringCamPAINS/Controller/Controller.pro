@@ -8,11 +8,13 @@ QT += sql
 SOURCES += \
         csv.cpp \
         database.cpp \
+        log.cpp \
         login.cpp \
         main.cpp
 
 HEADERS += \
     csv.h \
     database.h \
+    log.h \
     login.h
 
