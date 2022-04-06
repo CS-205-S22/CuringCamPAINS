@@ -6,12 +6,16 @@ CONFIG -= app_bundle
 QT += core
 QT += sql
 SOURCES += \
+        contact.cpp \
+        contactlist.cpp \
         csv.cpp \
         database.cpp \
         login.cpp \
         main.cpp
 
 HEADERS += \
+    contact.h \
+    contactlist.h \
     csv.h \
     database.h \
     login.h
