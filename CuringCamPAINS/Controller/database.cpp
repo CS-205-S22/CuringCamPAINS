@@ -112,38 +112,39 @@ void Database::runQuery(QString str){
  * @param param_size number of elements in the column
  * @param values: string array about the values for each column
  */
-void Database::write(string table_name,string parameters[],int param_size,string values[] ){
+void Database::write(string table_name, string parameters[], int param_size, string values[] ){
 try{
     QSqlQuery query;
     string temp; // temporary variable
     string temp2;// temporary variable
-    temp=parameters[0]; //first parameters value
-    temp2=":"+parameters[0]; //first parameter value in form of ":parameter"
+    temp = parameters[0]; //first parameters value
+    temp2 = ":" + parameters[0]; //first parameter value in form of ":parameter"
 
     //concatenate the parameters to get the form param1,param2,param3
     for (int i = 1; i < param_size; i++) {
 
-        temp+=","+parameters[i];
-        temp2+=",:"+parameters[i];
+        temp += "," + parameters[i];
+        temp2 += ",:" + parameters[i];
     }
     //write the query in form of
     //INSERT INTO table_name (param1,param2,param3)"+" VALUES "+" (val1,val2,val3)"
-    string com="INSERT INTO "+ table_name +"("+temp+")"+" VALUES "+" ("+temp2 +")";
-    std::cout<<com<<endl;
+    string com = "INSERT INTO " + table_name + "(" + temp + ")" + " VALUES " + " (" + temp2 + ")";
+    std::cout << com << endl;
 
-     query.prepare(QString::fromStdString(com));
-     //use bindValue
-     //query.bindValue(:param1,val1);
-     for (int i = 0; i < param_size; i++){
-        string rec=":"+parameters[i];
-    query.bindValue(QString::fromStdString(rec),QString::fromStdString(values[i]));
+    query.prepare(QString::fromStdString(com));
+
+    //use bindValue
+    //query.bindValue(:param1,val1);
+    for (int i = 0; i < param_size; i++){
+        string rec = ":" + parameters[i];
+        query.bindValue(QString::fromStdString(rec), QString::fromStdString(values[i]));
     }
-     cout<<"Here"<<endl;
+    cout << "Here" << endl;
     query.exec(); //execute the command
-    cout<<"Succesful writing"<<endl;
-}
+    cout << "Succesful writing" << endl;
+    }
     catch (const std::bad_alloc&) {
-      cout<<"error"<<endl;
+        cout << "error" << endl;
     }
 }
 

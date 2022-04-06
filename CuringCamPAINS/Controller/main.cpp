@@ -8,8 +8,9 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-    //    QCoreApplication a(argc, argv); //Need to initialize
-    //        Database db("../../database.sqlite");
+        QCoreApplication a(argc, argv); //Need to initialize
+//        Database db("../../database.sqlite");
+//        db.remove("contact", "firstName", "Tafita");
 //    string parameters[] = {"userId", "name", "password", "userName","isResearcher"};
 //    string values[] = {"4", "Lita", "pluss", "litat","0"};
     //  db.write("user",parameters,5,values);
@@ -18,9 +19,9 @@ int main(int argc, char* argv[])
 //    l.signUp("hounasm","look");
 
     //Saved Messages Testing:
-//    SavedMessages s("../../database.sqlite");
-//    s.createMessage("Test","testing this message");
-//    s.deleteMessage("Test");
+    SavedMessages s("../../database.sqlite");
+    s.createMessage("Test","testing this message");
+    s.deleteMessage("Test");
 
 
 //    //    QCoreApplication a(argc, argv); //Need to initialize
@@ -32,8 +33,15 @@ int main(int argc, char* argv[])
 //    Login login("../../database.sqlite");
 //    login.signUp("hounasm","look");
 
-//    ContactList cl;
-//    cl.getUserInput();
+    s.remove("contact", "firstName", "Oyu");
+    s.remove("contact", "firstName", "Max");
+    s.remove("contact", "firstName", "Josh");
+    s.remove("contact", "firstName", "Tafita");
+    s.remove("contact", "firstName", "Rory");
+
+    ContactList cl("../../database.sqlite");
+    cl.getUserInput();
+
 
     return 0;
 }
