@@ -61,8 +61,8 @@ public:
     void read();
     void remove(string table_name,string parameters,string condition);
     void check();
+private:
     bool authenticate(QString usr, QString pwd);
-
 };
 
 #endif // DATABASE_H
