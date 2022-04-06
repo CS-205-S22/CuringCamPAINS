@@ -1,6 +1,7 @@
 #ifndef CUSTOM_H
 #define CUSTOM_H
-
+#include <iostream>
+#include <fstream>
 
 class Custom
 {
@@ -10,6 +11,7 @@ public:
     void levelUp();
     void addBackground();
     void updateNotification();
+    void displayGuide();
 
 private:
     int level = 1;

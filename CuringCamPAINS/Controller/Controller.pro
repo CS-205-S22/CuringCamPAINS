@@ -14,8 +14,6 @@ SOURCES += \
         login.cpp \
         main.cpp \
         savedmessages.cpp \
-        user.cpp \
-        userguide.cpp
 
 HEADERS += \
     contact.h \
@@ -25,6 +23,4 @@ HEADERS += \
     database.h \
     login.h \
     savedmessages.h \
-    user.h \
-    userguide.h
 
