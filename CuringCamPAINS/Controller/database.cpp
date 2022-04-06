@@ -104,6 +104,14 @@ void Database::runQuery(QString str){
     }
 }
 
+/**
+ * @brief Database:write
+ * Method to write file in the database
+ * @param table_name : name of the table in the database
+ * @param parameters: string array about the column names in the table
+ * @param param_size number of elements in the column
+ * @param values: string array about the values for each column
+ */
 void Database::write(string table_name,string parameters[],int param_size,string values[] ){
 try{
     QSqlQuery query;
@@ -141,26 +149,30 @@ try{
 
 
 /**
- * @brief Database::remove
- * remove
+ * @brief Database:remove
+ * Method to remove a row in the database based on a given condition
+ * @param table_name : name of the table in the database
+ * @param parameters: column names in the table
+ * @param condition: values of the condition
+ * Example: DELETE * FROM user where name="Tafita"
+ * In this specific example table_name="user" , parameters=name , condition = "Tafita"
  */
-void Database::remove(string table_name,string parameters,string conditions){
+void Database::remove(string table_name,string parameter,string conditions){
     QSqlQuery query;
-    std::string com = "DELETE FROM "+ table_name+ " WHERE "+parameters+"=:"+parameters;
+    std::string com = "DELETE FROM "+ table_name+ " WHERE "+parameter+"=:"+parameter;
    cout<<com<<endl;
     query.prepare(QString::fromStdString(com));
-    string temp =":"+parameters;
+    string temp =":"+parameter;
     query.bindValue(QString::fromStdString(temp),QString::fromStdString(conditions));
     query.exec(); //execute the command
     cout<<"Succesful delete"<<endl;
 }
 
-
-
-
 /**
- * @brief DBTool::authenticate
- * verify user authentification on the program
+ * @brief Database:authenticate
+ * Method to verify if a user with a certain username and passwrd is in the database
+ * @param usr : the username
+ * @param pwd : password
  */
 bool Database::authenticate(QString usr, QString pwd){
 

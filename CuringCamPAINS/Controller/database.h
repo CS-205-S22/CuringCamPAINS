@@ -26,8 +26,8 @@ private:
 
 public:
 
-//    // Constructor that if called will cause the program to exit
-//    // indicating that more information should be provided.
+    //    // Constructor that if called will cause the program to exit
+    //    // indicating that more information should be provided.
     Database();
 
     // Constructors for loading a database file in the current
@@ -56,13 +56,35 @@ public:
 
     void runQuery(QString str);
 
-
+    /**
+     * @brief Database:write
+     * Method to write file in the database
+     * @param table_name : name of the table in the database
+     * @param parameters: string array about the column names in the table
+     * @param param_size number of columns in the table
+     * @param values: string array about the values to be put into each column
+     */
     void write(string table_name, string parameters[],int param_size,string values[] );
     void read();
-    void remove(string table_name,string parameters,string condition);
+    /**
+     * @brief Database:remove
+     * Method to remove a row in the database based on a given condition
+     * @param table_name : name of the table in the database
+     * @param parameters: column name in the table
+     * @param condition: values of the condition
+     * Example: DELETE * FROM user where name="Tafita"
+     * In this specific example table_name="user" , parameter=name , condition = "Tafita"
+     */
+    void remove(string table_name,string parameter,string condition);
     void check();
-    bool authenticate(QString usr, QString pwd);
+    /**
+     * @brief Database:authenticate
+     * Method to verify if a user with a certain username and passwrd is in the database
+     * @param usr : the username
+     * @param pwd : password
+     */
 
+    bool authenticate(QString usr, QString pwd);
 };
 
 #endif // DATABASE_H
