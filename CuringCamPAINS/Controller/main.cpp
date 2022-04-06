@@ -13,11 +13,11 @@ int main(int argc, char* argv[])
 //    string values[] = {"4", "Lita", "pluss", "litat","0"};
 //    //  db.write("user",parameters,5,values);
 //    //    db.remove("user","name","Lita");
-//    Login l("../../database.sqlite");
-//    l.signUp("hounasm","look");
+    Login login("../../database.sqlite");
+    login.signUp("hounasm","look");
 
-    ContactList cl;
-    cl.getUserInput();
+//    ContactList cl;
+//    cl.getUserInput();
 
     return 0;
 }
