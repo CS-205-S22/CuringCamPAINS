@@ -6,6 +6,8 @@ CONFIG -= app_bundle
 QT += core
 QT += sql
 SOURCES += \
+        contact.cpp \
+        contactlist.cpp \
         csv.cpp \
         custom.cpp \
         database.cpp \
@@ -16,6 +18,8 @@ SOURCES += \
         userguide.cpp
 
 HEADERS += \
+    contact.h \
+    contactlist.h \
     csv.h \
     custom.h \
     database.h \
