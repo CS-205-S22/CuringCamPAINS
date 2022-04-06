@@ -157,12 +157,12 @@ try{
  * Example: DELETE * FROM user where name="Tafita"
  * In this specific example table_name="user" , parameters=name , condition = "Tafita"
  */
-void Database::remove(string table_name,string parameters,string conditions){
+void Database::remove(string table_name,string parameter,string conditions){
     QSqlQuery query;
-    std::string com = "DELETE FROM "+ table_name+ " WHERE "+parameters+"=:"+parameters;
+    std::string com = "DELETE FROM "+ table_name+ " WHERE "+parameter+"=:"+parameter;
    cout<<com<<endl;
     query.prepare(QString::fromStdString(com));
-    string temp =":"+parameters;
+    string temp =":"+parameter;
     query.bindValue(QString::fromStdString(temp),QString::fromStdString(conditions));
     query.exec(); //execute the command
     cout<<"Succesful delete"<<endl;

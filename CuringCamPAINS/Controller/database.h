@@ -61,8 +61,8 @@ public:
      * Method to write file in the database
      * @param table_name : name of the table in the database
      * @param parameters: string array about the column names in the table
-     * @param param_size number of elements in the column
-     * @param values: string array about the values for each column
+     * @param param_size number of columns in the table
+     * @param values: string array about the values to be put into each column
      */
     void write(string table_name, string parameters[],int param_size,string values[] );
     void read();
@@ -70,12 +70,12 @@ public:
      * @brief Database:remove
      * Method to remove a row in the database based on a given condition
      * @param table_name : name of the table in the database
-     * @param parameters: column names in the table
+     * @param parameters: column name in the table
      * @param condition: values of the condition
      * Example: DELETE * FROM user where name="Tafita"
-     * In this specific example table_name="user" , parameters=name , condition = "Tafita"
+     * In this specific example table_name="user" , parameter=name , condition = "Tafita"
      */
-    void remove(string table_name,string parameters,string condition);
+    void remove(string table_name,string parameter,string condition);
     void check();
     /**
      * @brief Database:authenticate
