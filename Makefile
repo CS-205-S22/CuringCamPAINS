@@ -14,3 +14,9 @@ drop_contact_table:
 
 build_contact_table:
 	sqlite3 ./database.sqlite < database_sqlite/00_build_db/build_contact_tables.sql
+
+drop_savedmessages_table:
+	sqlite3 ./database.sqlite < database_sqlite/00_build_db/drop_savedmessages_tables.sql
+
+build_savedmessages_table:
+	sqlite3 ./database.sqlite < database_sqlite/00_build_db/build_savedmessages_tables.sql

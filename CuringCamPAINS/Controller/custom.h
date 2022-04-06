@@ -9,11 +9,10 @@ public:
 
     void levelUp();
     void addBackground();
-    void addAvatar();
     void updateNotification();
 
 private:
-    int level = 0;
+    int level = 1;
 };
 
 #endif // CUSTOM_H

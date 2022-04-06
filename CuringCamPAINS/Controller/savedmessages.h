@@ -5,16 +5,16 @@
 
 using namespace std;
 
-class SavedMessages
+class SavedMessages:public Database
 {
 public:
-    SavedMessages();
+    SavedMessages(string name);
 
     void createMessage(string title, string message);
     void viewMessage(string title);
     void deleteMessage(string title);
 
-    Database db;
+    int messageId = 0;
 };
 
 #endif // SAVEDMESSAGES_H

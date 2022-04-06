@@ -10,7 +10,7 @@ public:
     void viewMessage();
     void viewGuide();
 
-    SavedMessages sm;
+    //SavedMessages sm;
 };
 
 #endif // USER_H

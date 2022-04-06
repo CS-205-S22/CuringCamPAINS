@@ -1,18 +1,22 @@
 #include "savedmessages.h"
 
-SavedMessages::SavedMessages()
+SavedMessages::SavedMessages(std::string name):Database(name)
 {
 
 }
 
 void SavedMessages::createMessage(string title, string message) {
-    //this->db.write(title,message);
+    string cols[] = {"messageId","messageTitle", "messageText"};
+    string messageId = to_string(this->messageId);
+    string messages[] = {messageId, title, message};
+    write("savedmessages", cols, 3, messages);
+    this->messageId++;
 }
 
 void SavedMessages::viewMessage(string title) {
-    //this->db.read(title);
+    //read(title);
 }
 
 void SavedMessages::deleteMessage(string title) {
-    //this->db.remove(title);
+    remove("savedmessages", "messageTitle", title);
 }

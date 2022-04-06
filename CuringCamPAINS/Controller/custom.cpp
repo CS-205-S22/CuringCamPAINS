@@ -15,9 +15,6 @@ void Custom::addBackground()
 
 }
 
-void Custom::addAvatar() {
-
-}
 
 void Custom::updateNotification() {
 
