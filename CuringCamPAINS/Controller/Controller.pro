@@ -11,6 +11,7 @@ SOURCES += \
         csv.cpp \
         custom.cpp \
         database.cpp \
+        log.cpp \
         login.cpp \
         main.cpp \
         savedmessages.cpp \
@@ -21,6 +22,8 @@ HEADERS += \
     csv.h \
     custom.h \
     database.h \
+    log.h \
     login.h \
     savedmessages.h \
+
 
