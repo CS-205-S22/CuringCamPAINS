@@ -9,6 +9,7 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
+
     //    QCoreApplication a(argc, argv); //Need to initialize
 
     ////Used to test the database class
@@ -32,6 +33,14 @@ int main(int argc, char* argv[])
     ////Used to test the contact List
     //    ContactList cl;
     //    cl.getUserInput();
+    //    ContactList cl("../../database.sqlite");
+    //    cl.remove("contact", "firstName", "Oyu");
+    //    cl.remove("contact", "firstName", "Max");
+    //    cl.remove("contact", "firstName", "Josh");
+    //    cl.remove("contact", "firstName", "Tafita");
+    //    cl.remove("contact", "firstName", "Rory");
+    //    cl.remove("contact", "firstName", "Justin");
+    //    cl.getUserInput();
 
 
     //Used to test the Custom
@@ -41,5 +50,6 @@ int main(int argc, char* argv[])
     //cust.levelUp();
     //cust.getLevel();
     cust.updateNotification();
+
     return 0;
 }

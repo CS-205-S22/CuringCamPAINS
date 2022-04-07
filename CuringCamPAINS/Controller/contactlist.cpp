@@ -1,8 +1,11 @@
 #include "contactlist.h"
 
-ContactList::ContactList()
+const int TREATMENT = 0;
+const int CONTROL = 1;
+const int NOCONTACT = 2;
+
+ContactList::ContactList(string name):Database(name)
 {
-    count = 0;
     masterList = new vector<Contact*>();
     treatmentGroup = new vector<Contact*>();
     controlGroup = new vector<Contact*>();
@@ -18,9 +21,9 @@ void ContactList::getUserInput() {
         cin >> ch;
 
         if (ch == 'F') {
-            cout << "Enter the file name." << endl;
-            cin >> filename;
-
+//            cout << "Enter the file name." << endl;
+//            cin >> filename;
+            filename = "contacts.csv";
             readFile(filename);
         } else if (ch == 'M') {
             getManualEntry();
@@ -35,12 +38,14 @@ void ContactList::getUserInput() {
 void ContactList::readFile(string name) {
     ifstream file;
     string line;
+
     string firstName;
     string lastName;
     string cellStr;
     string email;
     string hAdd;
     string ageStr;
+    string cols[] = {"contactId", "contactListId", "firstName", "lastName", "phoneNumber", "emailAddress", "homeAddress", "dateOfBirth"};
 
     file.open(name, fstream::in);
 
@@ -49,6 +54,8 @@ void ContactList::readFile(string name) {
         exit(1);
     } else {
         getline(file, line);  //first row
+
+        cout << "REading the file." << endl;
 
         while(getline(file, line)) {
             stringstream strStream(line);
@@ -61,13 +68,17 @@ void ContactList::readFile(string name) {
 
             Contact* c = new Contact(firstName, lastName, cellStr, email, hAdd, stoi(ageStr));
             masterList->push_back(c);
+
+            string id = to_string(c->id);
+            string listIdStr = to_string(c->contactListId);
+            string inputs[] = {id, listIdStr, firstName, lastName, cellStr, email, hAdd, ageStr};
+            write("contact", cols, 8, inputs);
         }
     }
 
     file.close();
 
     divideIntoGroups();
-
 }
 
 void ContactList::getManualEntry() {
@@ -91,27 +102,52 @@ void ContactList::getManualEntry() {
     cout << "Age: ";
     cin >> ageStr;
 
-    addContact(firstName, lastName, cellStr, email, hAdd, stoi(ageStr));
+    addContact(firstName, lastName, cellStr, email, hAdd, ageStr);
 }
 
 void ContactList::divideIntoGroups() {
     for (unsigned i = 0; i < masterList->size(); i++) {    //print all splitted strings
           if (i % 3 == 0) {
               treatmentGroup->push_back(masterList->at(i));
+              masterList->at(i)->contactListId = TREATMENT;
           } else if (i % 3 == 1) {
               controlGroup->push_back(masterList->at(i));
+              masterList->at(i)->contactListId = CONTROL;
           } else {
               noContactGroup->push_back(masterList->at(i));
+              masterList->at(i)->contactListId = NOCONTACT;
           }
     }
 
     print();
 }
 
-void ContactList::addContact(string fn, string ln, string cellNum, string email, string hAdd, int age){
+bool ContactList::containsContact(string str) {
+
+    for (unsigned i = 0; i < masterList->size(); i++) {
+        if (str.compare(masterList->at(i)->cellNum) == 0)
+            return true;
+    }
+
+    return false;
+}
+
+void ContactList::addContact(string fn, string ln, string cellNum, string email, string hAdd, string age){
     int size = masterList->size();
-    Contact* c = new Contact(fn, ln, cellNum, email, hAdd, age);
+
+    if (containsContact(cellNum)) {
+        cout << "Contact is already saved!" << endl;
+        return;
+    }
+
+    Contact* c = new Contact(fn, ln, cellNum, email, hAdd, stoi(age));
     masterList->push_back(c);
+
+    string cols[] = {"contactId", "contactListId", "firstName", "lastName", "phoneNumber", "emailAddress", "homeAddress", "dateOfBirth"};
+    string id = to_string(c->id);
+    string listIdStr = to_string(c->contactListId);
+    string inputs[] = {id, listIdStr, fn, ln, cellNum, email, hAdd, age};
+    write("contact", cols, 8, inputs);
 
     if (size % 3 == 0) {
         treatmentGroup->push_back(c);
