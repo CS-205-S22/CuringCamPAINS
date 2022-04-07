@@ -3,7 +3,7 @@
 #include "contacts.h"
 
 using namespace std;
-ContactList cList("../../database.sqlite");
+//ContactList cList("../../database.sqlite");
 
 Dashboard::Dashboard(QWidget *parent)
     : QWidget(parent)
