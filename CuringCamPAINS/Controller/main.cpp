@@ -42,6 +42,6 @@ Custom cust;
 //cust.addBackground();
 //cust.levelUp();
 //cust.getLevel();
-cust.updateNotification();
+//cust.updateNotification();
     return 0;
 }
