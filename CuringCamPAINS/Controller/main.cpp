@@ -18,6 +18,36 @@ int main(int argc, char* argv[])
     //    string values[] = {"4", "Lita", "pluss", "litat","0"};
     //  db.write("user",parameters,5,values);
     //    db.remove("user","name","Lita");
+<<<<<<< HEAD
+//    Login l("../../database.sqlite");
+//    l.signUp("hounasm","look");
+
+    //Saved Messages Testing:
+//    SavedMessages s("../../database.sqlite");
+//    s.createMessage("Test","testing this message");
+//    s.deleteMessage("Test");
+
+
+//    //    QCoreApplication a(argc, argv); //Need to initialize
+//    //        Database db("../../database.sqlite");
+//    string parameters[] = {"userId", "name", "password", "userName","isResearcher"};
+//    string values[] = {"4", "Lita", "pluss", "litat","0"};
+//    //  db.write("user",parameters,5,values);
+//    //    db.remove("user","name","Lita");
+//    Login login("../../database.sqlite");
+//    login.signUp("hounasm","look");
+
+//    ContactList cl;
+//    cl.getUserInput();
+
+    //Custom Testing:
+Custom cust;
+//cust.displayGuide();
+//cust.addBackground();
+//cust.levelUp();
+//cust.getLevel();
+//cust.updateNotification();
+=======
 
     ////Used to test the login class
 //            Login l("../../database.sqlite");
@@ -51,5 +81,6 @@ int main(int argc, char* argv[])
     //cust.getLevel();
     cust.updateNotification();
 
+>>>>>>> f1f34014cb719353bd70cb62627426f4670f6e5f
     return 0;
 }
