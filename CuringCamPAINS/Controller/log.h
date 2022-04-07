@@ -6,7 +6,7 @@
 #include "database.h"
 using namespace std;
 
-class LogForm{
+class LogForm:public Database{
 public:
     //all of the get and set methods
     void clearLogForm();
