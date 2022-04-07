@@ -1,6 +1,5 @@
 #include "dashboard.h"
 #include "ui_dashboard.h"
-#include "contacts.h"
 
 using namespace std;
 ContactList cList("../../database.sqlite");

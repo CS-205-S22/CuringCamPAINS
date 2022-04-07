@@ -5,6 +5,7 @@
 #include "../Controller/database.h"
 #include <QMessageBox>
 #include <QWidget>
+#include "contacts.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Dashboard; }
