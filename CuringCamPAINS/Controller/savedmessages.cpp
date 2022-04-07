@@ -1,6 +1,6 @@
 #include "savedmessages.h"
 
-SavedMessages::SavedMessages(std::string name):Database(name)
+SavedMessages::SavedMessages(string name):Database(name)
 {
 
 }

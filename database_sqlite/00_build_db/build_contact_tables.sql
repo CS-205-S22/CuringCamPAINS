@@ -6,7 +6,7 @@ create table contact (
       phoneNumber     CHAR NOT NULL,
       emailAddress     CHAR NOT NULL,
       homeAddress     CHAR NOT NULL,
-      dateOfBirth CHAR NOT NULL
+      age INT NOT NULL
        );
 
 

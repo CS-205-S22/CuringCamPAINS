@@ -8,9 +8,9 @@
 #include <vector>
 #include <string>
 #include <stdlib.h>
+#include <QtSql>
 
 using namespace std;
-#include <QtSql>
 
 class Database
 {

@@ -19,12 +19,18 @@ public:
 
     void update(string fn, string ln, string num, string email, string hAdd, int age);
 
+    int id;
     string firstName;
     string lastName;
     string cellNum;
     string emailAddress;
     string homeAddress; //??? do we need it?
     int age;  //age or birthday
+    int contactListId;
+    //LogForm object
+
+private:
+    static int counter;
 };
 
 #endif // CONTACT_H

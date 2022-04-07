@@ -1,5 +1,10 @@
 QT       += core gui
 
+CONFIG += qt
+
+QT += core
+QT += sql
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -9,13 +14,18 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    contacts.cpp \
     main.cpp \
-    dashboard.cpp
+    dashboard.cpp \
+    ../Controller/contactlist.cpp
 
 HEADERS += \
-    dashboard.h
+    contacts.h \
+    dashboard.h \
+    ../Controller/contactlist.h
 
 FORMS += \
+    contacts.ui \
     dashboard.ui
 
 # Default rules for deployment.

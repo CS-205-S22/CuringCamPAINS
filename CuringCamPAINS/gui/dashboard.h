@@ -1,6 +1,9 @@
 #ifndef DASHBOARD_H
 #define DASHBOARD_H
 
+#include "../Controller/contactlist.h"
+#include "../Controller/database.h"
+#include <QMessageBox>
 #include <QWidget>
 #include <QColorDialog>
 
@@ -16,12 +19,15 @@ public:
     Dashboard(QWidget *parent = nullptr);
     ~Dashboard();
 
+     QMessageBox::StandardButton restart;
+
 private slots:
     void on_pushButton_5_clicked();
 
     void on_pushButton_clicked();
 
     void on_pushButton_3_clicked();
+    void on_contactsButton_clicked();
 
 private:
     Ui::Dashboard *ui;

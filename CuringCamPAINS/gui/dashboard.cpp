@@ -1,5 +1,9 @@
 #include "dashboard.h"
 #include "ui_dashboard.h"
+#include "contacts.h"
+
+using namespace std;
+ContactList cList("../../database.sqlite");
 
 Dashboard::Dashboard(QWidget *parent)
     : QWidget(parent)
@@ -27,6 +31,7 @@ void Dashboard::on_pushButton_clicked()
 }
 
 
+
 void Dashboard::on_pushButton_3_clicked()
 {
     QWidget* widget = new QWidget(this);
@@ -42,5 +47,12 @@ void Dashboard::on_pushButton_3_clicked()
     widget->setAutoFillBackground(true);
     widget->setPalette(pal);
     widget->show();
+}
+
+void Dashboard::on_contactsButton_clicked()
+{
+    Contacts contacts;
+    contacts.setModal(true);
+    contacts.exec();
 }
 
