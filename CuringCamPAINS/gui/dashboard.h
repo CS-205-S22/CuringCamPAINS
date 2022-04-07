@@ -20,6 +20,8 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_contactsButton_clicked();
+
 private:
     Ui::Dashboard *ui;
 };

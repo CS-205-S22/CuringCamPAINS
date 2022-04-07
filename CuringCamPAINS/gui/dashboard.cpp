@@ -1,5 +1,6 @@
 #include "dashboard.h"
 #include "ui_dashboard.h"
+#include "contacts.h"
 
 Dashboard::Dashboard(QWidget *parent)
     : QWidget(parent)
@@ -24,5 +25,13 @@ void Dashboard::on_pushButton_5_clicked()
 void Dashboard::on_pushButton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
+}
+
+
+void Dashboard::on_contactsButton_clicked()
+{
+    Contacts contacts;
+    contacts.setModal(true);
+    contacts.exec();
 }
 
