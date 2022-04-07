@@ -1,0 +1,5 @@
+Log Form - JOSH
+Create Message - To create a new message simply press the resources tab on the dashboard. This tab will bring you to a new page where you can press the “Create Message” button. The button will prompt you to enter a message. The message should be entered as follows: Title, Message – where title is the name of how you would like to remember the message, and message is the text to save. 
+View Message - To view a saved message simply press the resources tab on the dashboard. This tab will bring you to a new page where you can press the “View Messages” button. When prompted, insert the name of the title of the message you are looking to view.
+Change Background Color - To change the background color simply press the resources tab on the dashboard. This tab will bring you to a new page where you can press the “Change Color” button. This button will open a color palette. Choose the desired color and press “Ok”. 
+Download Data - TAFITA

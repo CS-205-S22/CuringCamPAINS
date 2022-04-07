@@ -10,18 +10,23 @@ void Custom::levelUp()
     this->level++;
 }
 
-void Custom::addBackground()
-{
-
+int Custom::getLevel() {
+    return this->level;
 }
 
-void Custom::updateNotification() {
+void Custom::addBackground()
+{
+    //qt palette
+}
 
+void Custom::updateNotification()
+{
+    //clock notifc
 }
 
 void Custom::displayGuide() {
     std::fstream fh;
-    fh.open("userguide.txt");
+    fh.open("../../userGuide.txt");
     if (fh.is_open()) {
         std::string line;
         while (getline(fh, line)) {

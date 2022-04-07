@@ -1,6 +1,9 @@
 #include "dashboard.h"
 #include "ui_dashboard.h"
 
+using namespace std;
+ContactList cList("../../database.sqlite");
+
 Dashboard::Dashboard(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::Dashboard)
@@ -24,5 +27,11 @@ void Dashboard::on_pushButton_5_clicked()
 void Dashboard::on_pushButton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
+}
+
+
+void Dashboard::on_pushButton_2_clicked()
+{
+
 }
 

@@ -1,5 +1,10 @@
 QT       += core gui
 
+CONFIG += qt
+
+QT += core
+QT += sql
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -10,10 +15,16 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
-    dashboard.cpp
+    dashboard.cpp \
+    ../Controller/contact.cpp \
+    ../Controller/contactlist.cpp \
+    ../Controller/database.cpp
 
 HEADERS += \
-    dashboard.h
+    dashboard.h \
+    ../Controller/contact.h \
+    ../Controller/contactlist.h \
+    ../Controller/database.h
 
 FORMS += \
     dashboard.ui

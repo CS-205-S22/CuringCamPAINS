@@ -4,11 +4,12 @@
 #include "database.h"
 #include "login.h"
 #include "contactlist.h"
+#include "custom.h"
 using namespace std;
 
 int main(int argc, char* argv[])
 {
-        QCoreApplication a(argc, argv); //Need to initialize
+//        QCoreApplication a(argc, argv); //Need to initialize
 //        Database db("../../database.sqlite");
 //        db.remove("contact", "firstName", "Tafita");
 //    string parameters[] = {"userId", "name", "password", "userName","isResearcher"};
@@ -19,9 +20,9 @@ int main(int argc, char* argv[])
 //    l.signUp("hounasm","look");
 
     //Saved Messages Testing:
-    SavedMessages s("../../database.sqlite");
-    s.createMessage("Test","testing this message");
-    s.deleteMessage("Test");
+//    SavedMessages s("../../database.sqlite");
+//    s.createMessage("Test","testing this message");
+//    s.deleteMessage("Test");
 
 
 //    //    QCoreApplication a(argc, argv); //Need to initialize
@@ -33,15 +34,22 @@ int main(int argc, char* argv[])
 //    Login login("../../database.sqlite");
 //    login.signUp("hounasm","look");
 
-    s.remove("contact", "firstName", "Oyu");
-    s.remove("contact", "firstName", "Max");
-    s.remove("contact", "firstName", "Josh");
-    s.remove("contact", "firstName", "Tafita");
-    s.remove("contact", "firstName", "Rory");
-
+    //Contacts Testing:
     ContactList cl("../../database.sqlite");
-    cl.getUserInput();
+    cl.remove("contact", "firstName", "Oyu");
+    cl.remove("contact", "firstName", "Max");
+    cl.remove("contact", "firstName", "Josh");
+    cl.remove("contact", "firstName", "Tafita");
+    cl.remove("contact", "firstName", "Rory");
+    cl.remove("contact", "firstName", "Justin");
+//    cl.getUserInput();
 
 
+    //Custom Testing:
+//Custom cust;
+//cust.displayGuide();
+//cust.addBackground();
+//cust.levelUp();
+//cust.getLevel();
     return 0;
 }

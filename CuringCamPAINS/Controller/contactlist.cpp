@@ -55,6 +55,8 @@ void ContactList::readFile(string name) {
     } else {
         getline(file, line);  //first row
 
+        cout << "REading the file." << endl;
+
         while(getline(file, line)) {
             stringstream strStream(line);
             getline(strStream, firstName, ',');
