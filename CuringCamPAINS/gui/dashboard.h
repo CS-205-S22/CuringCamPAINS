@@ -5,7 +5,7 @@
 #include "../Controller/database.h"
 #include <QMessageBox>
 #include <QWidget>
-#include "contacts.h"
+#include <QColorDialog>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Dashboard; }
@@ -26,6 +26,7 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_pushButton_3_clicked();
     void on_contactsButton_clicked();
 
 private:

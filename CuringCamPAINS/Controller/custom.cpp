@@ -23,7 +23,8 @@ int Custom::getLevel() {
 
 void Custom::addBackground()
 {
-
+    //going to wait to implement this code within the ui slot, this allows me to user QColorDialog getColor() and
+    //set color. getColor() gives the user a color wheel to allow them to choose whatever they'd like
 }
 
 /**
@@ -47,7 +48,7 @@ void Custom::updateNotification()
     int wday=timeinfo->tm_wday;
     //0 = sunday ... 6 = saturday
     if (wday == 0 || wday == 1) {
-        random = rand() % 4 + 0;
+        random = rand() % 4 + 0; //ignore error because arc4random doesn't work on lab machine
         std::cout << messages[random] << std::endl;
     }
 }
