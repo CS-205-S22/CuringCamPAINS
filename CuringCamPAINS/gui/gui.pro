@@ -1,5 +1,10 @@
 QT       += core gui
 
+CONFIG += qt
+
+QT += core
+QT += sql
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -18,7 +23,6 @@ HEADERS += \
     contacts.h \
     dashboard.h \
     ../Controller/contactlist.h
-
 
 FORMS += \
     contacts.ui \

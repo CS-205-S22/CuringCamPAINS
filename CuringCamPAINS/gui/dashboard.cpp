@@ -2,6 +2,9 @@
 #include "ui_dashboard.h"
 #include "contacts.h"
 
+using namespace std;
+ContactList cList("../../database.sqlite");
+
 Dashboard::Dashboard(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::Dashboard)

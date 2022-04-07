@@ -1,12 +1,13 @@
 #include "contacts.h"
 #include "ui_contacts.h"
 
+ContactList *contactList;
 Contacts::Contacts(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Contacts)
 {
     ui->setupUi(this);
-    this->contactList = new ContactList;
+    contactList = new ContactList;
 }
 
 Contacts::~Contacts()
@@ -19,6 +20,6 @@ void Contacts::on_pushButton_3_clicked()
 {
     contactList->addContact((ui->lineEditFirstName->text()).toStdString(), (ui->lineEditLastName->text()).toStdString(),
                             (ui->lineEditPhone->text()).toStdString(), (ui->lineEditEmail->text()).toStdString(),
-                            (ui->lineEditAddress->text()).toStdString(), stoi((ui->lineEditAge->text()).toStdString()));
+                            (ui->lineEditAddress->text()).toStdString(), (ui->lineEditAge->text()).toStdString());
 }
 

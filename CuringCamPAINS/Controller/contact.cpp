@@ -1,35 +1,44 @@
 #include "contact.h"
 
+int Contact::counter = 0;
+
 Contact::Contact()
 {
 
 }
 
 Contact::Contact(string fn, string ln, string num, int a) {
+    id = ++counter;
     firstName = fn;
     lastName = ln;
     cellNum = num;
     age = a;
     emailAddress = "";
     homeAddress = "";
+    contactListId = id % 3;
 }
 
 Contact::Contact(string fn, string ln, string num, string email, int a) {
+    id = ++counter;
     firstName = fn;
     lastName = ln;
     cellNum = num;
     age = a;
     emailAddress = email;
     homeAddress = "";
+    contactListId = id % 3;
 }
 
 Contact::Contact(string fn, string ln, string num, string email, string hAdd, int a) {
+    id = ++counter;
     firstName = fn;
     lastName = ln;
     cellNum = num;
     age = a;
     emailAddress = email;
     homeAddress = hAdd;
+//    contactListId = listId;
+    contactListId = id % 3;
 }
 
 void Contact::setCellNum(string num) {

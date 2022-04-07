@@ -1,6 +1,9 @@
 #ifndef DASHBOARD_H
 #define DASHBOARD_H
 
+#include "../Controller/contactlist.h"
+#include "../Controller/database.h"
+#include <QMessageBox>
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -14,6 +17,8 @@ class Dashboard : public QWidget
 public:
     Dashboard(QWidget *parent = nullptr);
     ~Dashboard();
+
+     QMessageBox::StandardButton restart;
 
 private slots:
     void on_pushButton_5_clicked();

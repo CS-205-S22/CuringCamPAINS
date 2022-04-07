@@ -15,7 +15,7 @@ class Contacts : public QDialog
 public:
     explicit Contacts(QWidget *parent = nullptr);
     ~Contacts();
-    ContactList *contactList;
+
 
 private slots:
 
