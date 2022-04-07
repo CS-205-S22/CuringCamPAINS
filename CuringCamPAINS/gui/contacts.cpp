@@ -1,13 +1,14 @@
 #include "contacts.h"
 #include "ui_contacts.h"
 
-ContactList *contactList;
+ContactList* contactList;
 Contacts::Contacts(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Contacts)
 {
     ui->setupUi(this);
     contactList = new ContactList;
+
 }
 
 Contacts::~Contacts()

@@ -20,8 +20,8 @@ int main(int argc, char* argv[])
     //    db.remove("user","name","Lita");
 
     ////Used to test the login class
-    //        Login l("../../database.sqlite");
-    //        l.signUp("hounasm","look");
+//            Login l("../../database.sqlite");
+//            l.signUp("hounasm","look");
 
 
     ////Used to test the saved messages

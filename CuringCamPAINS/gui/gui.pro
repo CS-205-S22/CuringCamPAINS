@@ -17,12 +17,14 @@ SOURCES += \
     contacts.cpp \
     main.cpp \
     dashboard.cpp \
-    ../Controller/contactlist.cpp
+    ../Controller/contactlist.cpp \
+       ../Controller/database.cpp
 
 HEADERS += \
     contacts.h \
     dashboard.h \
-    ../Controller/contactlist.h
+    ../Controller/contactlist.h \
+   ../Controller/database.h
 
 FORMS += \
     contacts.ui \
