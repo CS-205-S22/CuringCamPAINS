@@ -37,10 +37,11 @@ int main(int argc, char* argv[])
 //    cl.getUserInput();
 
     //Custom Testing:
-//Custom cust;
+Custom cust;
 //cust.displayGuide();
 //cust.addBackground();
 //cust.levelUp();
 //cust.getLevel();
+cust.updateNotification();
     return 0;
 }
