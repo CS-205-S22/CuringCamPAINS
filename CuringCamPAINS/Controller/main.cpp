@@ -19,7 +19,6 @@ int main(int argc, char* argv[])
     //  db.write("user",parameters,5,values);
     //    db.remove("user","name","Lita");
 
-
     ////Used to test the login class
 //            Login l("../../database.sqlite");
 //            l.signUp("hounasm","look");
