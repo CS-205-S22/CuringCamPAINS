@@ -35,21 +35,22 @@ int main(int argc, char* argv[])
 //    login.signUp("hounasm","look");
 
     //Contacts Testing:
-    ContactList cl("../../database.sqlite");
-    cl.remove("contact", "firstName", "Oyu");
-    cl.remove("contact", "firstName", "Max");
-    cl.remove("contact", "firstName", "Josh");
-    cl.remove("contact", "firstName", "Tafita");
-    cl.remove("contact", "firstName", "Rory");
-    cl.remove("contact", "firstName", "Justin");
+//    ContactList cl("../../database.sqlite");
+//    cl.remove("contact", "firstName", "Oyu");
+//    cl.remove("contact", "firstName", "Max");
+//    cl.remove("contact", "firstName", "Josh");
+//    cl.remove("contact", "firstName", "Tafita");
+//    cl.remove("contact", "firstName", "Rory");
+//    cl.remove("contact", "firstName", "Justin");
 //    cl.getUserInput();
 
 
     //Custom Testing:
-//Custom cust;
+Custom cust;
 //cust.displayGuide();
 //cust.addBackground();
 //cust.levelUp();
 //cust.getLevel();
+cust.updateNotification();
     return 0;
 }
