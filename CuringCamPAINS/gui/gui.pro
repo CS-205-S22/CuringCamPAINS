@@ -17,16 +17,20 @@ SOURCES += \
     contacts.cpp \
     main.cpp \
     dashboard.cpp \
-    ../Controller/contactlist.cpp
+    ../Controller/contactlist.cpp \
+    ../Controller/database.cpp \
+    ../Controller/contact.cpp \
 
 HEADERS += \
     contacts.h \
     dashboard.h \
-    ../Controller/contactlist.h
+    ../Controller/contactlist.h \
+    ../Controller/database.h \
+    ../Controller/contact.h \
 
 FORMS += \
     contacts.ui \
-    dashboard.ui
+    dashboard.ui \
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

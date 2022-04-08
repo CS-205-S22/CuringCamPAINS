@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "../Controller/contactlist.h"
+// #include "../Controller/database.h"
 
 namespace Ui {
 class Contacts;
@@ -15,7 +16,7 @@ class Contacts : public QDialog
 public:
     explicit Contacts(QWidget *parent = nullptr);
     ~Contacts();
-
+    ContactList *contactList;
 
 private slots:
 
