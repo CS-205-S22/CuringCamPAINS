@@ -18,7 +18,6 @@ int main(int argc, char* argv[])
     //    string values[] = {"4", "Lita", "pluss", "litat","0"};
     //  db.write("user",parameters,5,values);
     //    db.remove("user","name","Lita");
-<<<<<<< HEAD
 //    Login l("../../database.sqlite");
 //    l.signUp("hounasm","look");
 
@@ -47,7 +46,6 @@ Custom cust;
 //cust.levelUp();
 //cust.getLevel();
 //cust.updateNotification();
-=======
 
     ////Used to test the login class
     //        Login l("../../database.sqlite");
@@ -74,13 +72,12 @@ Custom cust;
 
 
     //Used to test the Custom
-    Custom cust;
+    //Custom cust;
     //cust.displayGuide();
     //cust.addBackground();
     //cust.levelUp();
     //cust.getLevel();
-    cust.updateNotification();
+   // cust.updateNotification();
 
->>>>>>> f1f34014cb719353bd70cb62627426f4670f6e5f
     return 0;
 }

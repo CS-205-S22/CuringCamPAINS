@@ -1,9 +1,9 @@
 #include "dashboard.h"
 #include "ui_dashboard.h"
-#include "contacts.h"
+//#include "contacts.h"
 
 using namespace std;
-ContactList cList("../../database.sqlite");
+//ContactList cList("../../database.sqlite");
 
 Dashboard::Dashboard(QWidget *parent)
     : QWidget(parent)
@@ -51,8 +51,8 @@ void Dashboard::on_pushButton_3_clicked()
 
 void Dashboard::on_contactsButton_clicked()
 {
-    Contacts contacts;
-    contacts.setModal(true);
-    contacts.exec();
+//    Contacts contacts;
+//    contacts.setModal(true);
+//    contacts.exec();
 }
 
