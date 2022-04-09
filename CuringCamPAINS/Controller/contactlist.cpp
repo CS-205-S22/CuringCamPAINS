@@ -1,4 +1,5 @@
 #include "contactlist.h"
+#include <QDir>
 
 const int TREATMENT = 0;
 const int CONTROL = 1;
@@ -10,6 +11,7 @@ ContactList::ContactList(string name):Database(name)
     treatmentGroup = new vector<Contact*>();
     controlGroup = new vector<Contact*>();
     noContactGroup = new vector<Contact*>();
+//    readFile("contacts.csv");
 }
 
 void ContactList::getUserInput() {
@@ -46,6 +48,9 @@ void ContactList::readFile(string name) {
     string hAdd;
     string ageStr;
     string cols[] = {"contactId", "contactListId", "firstName", "lastName", "phoneNumber", "emailAddress", "homeAddress", "dateOfBirth"};
+
+    cerr << name << endl;
+    cout << QDir::currentPath().toStdString() << endl;
 
     file.open(name, fstream::in);
 

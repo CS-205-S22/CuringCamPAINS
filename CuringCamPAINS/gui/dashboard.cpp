@@ -2,7 +2,7 @@
 #include "ui_dashboard.h"
 
 using namespace std;
-ContactList cList("../../database.sqlite");
+
 
 Dashboard::Dashboard(QWidget *parent)
     : QWidget(parent)
@@ -32,6 +32,19 @@ void Dashboard::on_pushButton_clicked()
 
 void Dashboard::on_pushButton_2_clicked()
 {
+//    ContactList cList("../../../../database.sqlite");
+//    cList.readFile("../../../contacts.csv");
 
+//    restart = QMessageBox::information(this, "Status update",
+//                                       "Contact upload is successful!\n",
+//                                       QMessageBox::Yes | QMessageBox::No );
+//    if (restart == QMessageBox::Yes) {
+////        cList.remove("contact", "firstName", "Oyu");
+////        cList.remove("contact", "firstName", "Max");
+////        cList.remove("contact", "firstName", "Josh");
+////        cList.remove("contact", "firstName", "Tafita");
+////        cList.remove("contact", "firstName", "Rory");
+//        close();
+//    }
 }
 
