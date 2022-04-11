@@ -51,8 +51,8 @@ void Dashboard::on_pushButton_3_clicked()
 
 void Dashboard::on_contactsButton_clicked()
 {
-//    Contacts contacts;
-//    contacts.setModal(true);
-//    contacts.exec();
+    //    Contacts contacts;
+    //    contacts.setModal(true);
+    //    contacts.exec();
 }
 
