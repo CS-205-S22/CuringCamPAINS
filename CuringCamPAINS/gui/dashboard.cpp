@@ -32,6 +32,6 @@ void Dashboard::on_pushButton_clicked()
 
 void Dashboard::on_pushButton_2_clicked()
 {
-
+    cList.readFile("contacts.csv");
 }
 
