@@ -6,11 +6,13 @@ class Login:public Database
 {
 public:
     Login(std::string name);
+    ~Login();
     void getUserNameInput();
     void getPasswordInput();
     void signUp();
     void validateAccount();
-    void signUp(string usr, string pwd);
+    bool signUp(string usr, string pwd);
+    void close();
 private:
     std:: string username;
     std::string password;

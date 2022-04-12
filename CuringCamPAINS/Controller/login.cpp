@@ -4,6 +4,12 @@ Login::Login(std::string name):Database (name)
 {
 
 }
+
+Login::~Login(){
+    curr_db->close();
+    curr_db = NULL;
+}
+
 void Login::getUserNameInput(){
     cout<<"Enter username: ";
     cin >> username; // Get user input from the keyboard
@@ -17,17 +23,28 @@ void Login::getPasswordInput(){
 
 void Login::signUp(){
     if(authenticate(QString::fromStdString(username),QString::fromStdString(password))==true){
-            cout<<"Login successful"<<endl;
-            return ;
-}
+        cout<<"Login successful"<<endl;
+        return ;
+    }
     else {cout<<"Login unsuccessful"<<endl;}
 }
 
 
-void Login::signUp(string usr, string pwd){
+bool Login::signUp(string usr, string pwd){
+    cout<<usr<<endl;
+    cout<<pwd<<endl;
     if(authenticate(QString::fromStdString(usr),QString::fromStdString(pwd))==true){
-            cout<<"Login successful"<<endl;
-            return ;
+        cout<<"Login successful"<<endl;
+        return true ;
+    }
+    else {cout<<"Login unsuccessful"<<endl;
+        return false;}
 }
-    else {cout<<"Login unsuccessful"<<endl;}
+
+void Login::close(){
+
+        //std::cerr << "closing object\n";
+
+        curr_db->close();
+        curr_db = NULL;
 }
