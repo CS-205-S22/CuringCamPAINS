@@ -31,6 +31,10 @@ private slots:
 
     void on_changeColor_clicked();
 
+    void on_createMessage_clicked();
+
+    void on_resourcesButton_clicked();
+
 private:
     Ui::Dashboard *ui;
 };
