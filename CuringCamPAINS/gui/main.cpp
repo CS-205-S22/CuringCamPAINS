@@ -11,6 +11,6 @@ int main(int argc, char *argv[])
     return a.exec();
 //    LoginGUI l ;
 //    l.show();
-    return a.exec();
+//    return a.exec();
 
 }

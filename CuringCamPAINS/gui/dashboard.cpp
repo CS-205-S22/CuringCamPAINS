@@ -5,7 +5,7 @@
 
 using namespace std;
 //ContactList cList("../../database.sqlite");
-SavedMessages sm("../../database.sqlite");
+SavedMessages sm("../../../../../database.sqlite");
 
 Dashboard::Dashboard(QWidget *parent)
     : QWidget(parent)
