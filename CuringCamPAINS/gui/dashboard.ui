@@ -64,7 +64,7 @@
      <string>Contacts</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="resourcesButton">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -355,6 +355,95 @@
        </widget>
       </widget>
      </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="resources">
+    <widget class="QPushButton" name="changeColor">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>120</y>
+       <width>171</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Change Color</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="createMessage">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>220</y>
+       <width>171</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Create Message</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="createMessagePage">
+    <widget class="QLabel" name="titleLabel">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>130</y>
+       <width>58</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Title:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="textLabel">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>200</y>
+       <width>58</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Text:</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="inputTitle">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>130</y>
+       <width>131</width>
+       <height>21</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="inputText">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>200</y>
+       <width>131</width>
+       <height>21</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="saveMessage">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>250</y>
+       <width>141</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Save Message</string>
+     </property>
     </widget>
    </widget>
    <widget class="QWidget" name="page_2"/>

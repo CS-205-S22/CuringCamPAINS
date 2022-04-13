@@ -26,6 +26,7 @@ SOURCES += \
     ../Controller/database.cpp \
     ../Controller/login.cpp \
     ../Controller/contact.cpp \
+    ../Controller/savedmessages.cpp \
     registrationgui.cpp
 
 HEADERS += \
@@ -35,6 +36,7 @@ HEADERS += \
     ../Controller/database.h \
     ../Controller/contact.h \
     ../Controller/login.h \
+    ../Controller/savedmessage.h \
     logingui.h \
     registrationgui.h
 

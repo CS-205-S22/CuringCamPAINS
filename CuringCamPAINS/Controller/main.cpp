@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
 //    Login l("../../database.sqlite");
 //    l.signUp("hounasm","look");
 
-    //Saved Messages Testing:
+    ///Saved Messages Testing:
 //    SavedMessages s("../../database.sqlite");
 //    s.createMessage("Test","testing this message");
 //    s.deleteMessage("Test");
