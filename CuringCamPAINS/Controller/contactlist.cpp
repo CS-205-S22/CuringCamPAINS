@@ -5,13 +5,16 @@ const int TREATMENT = 0;
 const int CONTROL = 1;
 const int NOCONTACT = 2;
 
+ContactList::ContactList() {
+
+}
+
 ContactList::ContactList(string name):Database(name)
 {
     masterList = new vector<Contact*>();
     treatmentGroup = new vector<Contact*>();
     controlGroup = new vector<Contact*>();
     noContactGroup = new vector<Contact*>();
-//    readFile("contacts.csv");
 }
 
 void ContactList::getUserInput() {

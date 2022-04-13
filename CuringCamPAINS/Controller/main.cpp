@@ -9,11 +9,13 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-//        QCoreApplication a(argc, argv); //Need to initialize
-//        Database db("../../database.sqlite");
-//        db.remove("contact", "firstName", "Tafita");
-//    string parameters[] = {"userId", "name", "password", "userName","isResearcher"};
-//    string values[] = {"4", "Lita", "pluss", "litat","0"};
+
+    //    QCoreApplication a(argc, argv); //Need to initialize
+
+    ////Used to test the database class
+    //        Database db("../../database.sqlite");
+    //    string parameters[] = {"userId", "name", "password", "userName","isResearcher"};
+    //    string values[] = {"4", "Lita", "pluss", "litat","0"};
     //  db.write("user",parameters,5,values);
     //    db.remove("user","name","Lita");
 //    Login l("../../database.sqlite");
@@ -34,16 +36,8 @@ int main(int argc, char* argv[])
 //    Login login("../../database.sqlite");
 //    login.signUp("hounasm","look");
 
-    //Contacts Testing:
-//    ContactList cl("../../database.sqlite");
-//    cl.remove("contact", "firstName", "Oyu");
-//    cl.remove("contact", "firstName", "Max");
-//    cl.remove("contact", "firstName", "Josh");
-//    cl.remove("contact", "firstName", "Tafita");
-//    cl.remove("contact", "firstName", "Rory");
-//    cl.remove("contact", "firstName", "Justin");
+//    ContactList cl;
 //    cl.getUserInput();
-
 
     //Custom Testing:
 Custom cust;
@@ -51,6 +45,39 @@ Custom cust;
 //cust.addBackground();
 //cust.levelUp();
 //cust.getLevel();
-cust.updateNotification();
+//cust.updateNotification();
+
+    ////Used to test the login class
+//            Login l("../../database.sqlite");
+//            l.signUp("hounasm","look");
+
+
+    ////Used to test the saved messages
+    //    SavedMessages s("../../database.sqlite");
+    //    s.createMessage("Test","testing this message");
+    //    s.deleteMessage("Test");
+
+
+    ////Used to test the contact List
+    //    ContactList cl;
+    //    cl.getUserInput();
+    //    ContactList cl("../../database.sqlite");
+    //    cl.remove("contact", "firstName", "Oyu");
+    //    cl.remove("contact", "firstName", "Max");
+    //    cl.remove("contact", "firstName", "Josh");
+    //    cl.remove("contact", "firstName", "Tafita");
+    //    cl.remove("contact", "firstName", "Rory");
+    //    cl.remove("contact", "firstName", "Justin");
+    //    cl.getUserInput();
+
+
+    //Used to test the Custom
+    //Custom cust;
+    //cust.displayGuide();
+    //cust.addBackground();
+    //cust.levelUp();
+    //cust.getLevel();
+   // cust.updateNotification();
+
     return 0;
 }

@@ -28,7 +28,7 @@
    <property name="title">
     <string/>
    </property>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="dashboardButton">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -46,7 +46,7 @@
      <string>Dashboard</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="contactsButton">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -210,7 +210,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="page">
     <widget class="QScrollArea" name="scrollArea">
