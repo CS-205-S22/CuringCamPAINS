@@ -1,9 +1,11 @@
 #include "dashboard.h"
 #include "ui_dashboard.h"
+#include "../Controller/savedmessages.h"
 //#include "contacts.h"
 
 using namespace std;
 //ContactList cList("../../database.sqlite");
+SavedMessages sm("../../database.sqlite");
 
 Dashboard::Dashboard(QWidget *parent)
     : QWidget(parent)
@@ -62,9 +64,20 @@ void Dashboard::on_changeColor_clicked()
 void Dashboard::on_createMessage_clicked()
 {
     //will now prompt user to enter title and text of desired message
-    cout << "nice job!!" << endl;
+    ui->stackedWidget->setCurrentIndex(2);
 }
 
 
-
+void Dashboard::on_saveMessage_clicked()
+{
+    this->title = ui->inputTitle->text().toStdString();
+    this->text = ui->inputText->text().toStdString();
+    //call saved messages create message
+    cout << title << endl;
+    cout << text << endl;
+    sm.createMessage(this->title, this->text);
+    ui->inputTitle->clear();
+    ui->inputText->clear();
+    ui->stackedWidget->setCurrentIndex(1);
+}
 

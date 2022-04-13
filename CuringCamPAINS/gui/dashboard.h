@@ -38,7 +38,11 @@ private slots:
 
     void on_changeColor_clicked();
 
+    void on_saveMessage_clicked();
+
 private:
     Ui::Dashboard *ui;
+
+    string title, text;
 };
 #endif // DASHBOARD_H
