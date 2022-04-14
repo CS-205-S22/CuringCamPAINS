@@ -28,9 +28,10 @@ void SavedMessages::createMessage(string title, string message) {
  * Database's read function and inputs the necessary parameters.
  * @param title - title of the message
  */
-void SavedMessages::viewMessage(string title) {
-    //read(title);
-    //waiting on database read function
+vector<string> SavedMessages::viewMessage(string title) {
+    this->retStrings.clear();
+    this->retStrings = read("savedmessages", "messageTitle", title);
+    return retStrings;
 }
 
 /**
