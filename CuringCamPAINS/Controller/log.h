@@ -9,6 +9,7 @@ using namespace std;
 class LogForm:public Database{
 public:
     LogForm(string name);
+    LogForm();
     //all of the get and set methods
     void clearLogForm();
     void editLogForm();

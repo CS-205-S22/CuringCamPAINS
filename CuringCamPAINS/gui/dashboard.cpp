@@ -160,11 +160,10 @@ void Dashboard::on_nameButton_clicked()
             //logForm.logInput[3],logForm.logInput[4],logForm.logInput[5],
             //logForm.logInput[6],logForm.logInput[7]);
     logForm.saveLogForm(logForm.name, logForm.age, logForm.phoneNumber, logForm.numOfAttempts,
-                        logForm.methodOfContact, logForm.reaction, logForm.date, logForm.committed);
+                       logForm.methodOfContact, logForm.reaction, logForm.date, logForm.committed);
     //logForm.saveLogForm("John Cena", "19", "1111112", "3", "text", "unsure", "April 7th, 2022", "false");
-    //logForm.deleteLog("3333333");
-    //logForm.deleteLog("4444444");
     //logForm.deleteLog("111");
+
 }
 void Dashboard::on_backButton_clicked()
 {
