@@ -11,8 +11,6 @@ ContactList cList("../../database.sqlite");
 SavedMessages sm("../../../../../database.sqlite");
 LogForm logForm("../../../../../database.sqlite");
 
-
-
 Dashboard::Dashboard(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::Dashboard)

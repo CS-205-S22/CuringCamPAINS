@@ -8,15 +8,6 @@ QT += sql
 
 LIBS += -pthread
 
-#include "contacttest.h"
-#include "contactlisttest.h"
-#include "csvtest.h"
-#include "customtest.h"
-#include "databasetest.h"
-#include "logtest.h"
-#include "logintest.h"
-
-
 SOURCES += ../../gtest/googletest/src/gtest-all.cc
 
 INCLUDEPATH +=  ../../gtest \
