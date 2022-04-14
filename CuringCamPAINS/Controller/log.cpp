@@ -64,8 +64,8 @@ void LogForm::saveLogForm(string fullName, string age, string phoneNumber, strin
     string messages[] = {logId, fullName, age, phoneNumber, numOfAttempts, methodOfContact,
                          reaction, dateContacted, isCommitted};
     write("logForm", cols, 9, messages);
+    //this->logId = getMaxId("logForm", "logId");
     this->logId++;
-
 }
 
 void LogForm::deleteLog(string phoneNumber){

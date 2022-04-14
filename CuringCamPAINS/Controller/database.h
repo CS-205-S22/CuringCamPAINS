@@ -65,7 +65,7 @@ public:
      * @param values: string array about the values to be put into each column
      */
     void write(string table_name, string parameters[],int param_size,string values[] );
-    void read();
+    vector<string> read(string table_name,string parameter,string conditions);
     /**
      * @brief Database:remove
      * Method to remove a row in the database based on a given condition
@@ -85,6 +85,8 @@ public:
      */
 
     bool authenticate(QString usr, QString pwd);
+
+    int getMaxId(string table_name,string id_name);
 };
 
 #endif // DATABASE_H
