@@ -129,7 +129,7 @@ try{
     //write the query in form of
     //INSERT INTO table_name (param1,param2,param3)"+" VALUES "+" (val1,val2,val3)"
     string com = "INSERT INTO " + table_name + "(" + temp + ")" + " VALUES " + " (" + temp2 + ")";
-    std::cout << com << endl;
+//    std::cout << com << endl;
 
     query.prepare(QString::fromStdString(com));
 
@@ -139,8 +139,9 @@ try{
         string rec = ":" + parameters[i];
         query.bindValue(QString::fromStdString(rec), QString::fromStdString(values[i]));
     }
-    cout << "Here" << endl;
+//    cout << "Here" << endl;
     query.exec(); //execute the command
+//    cout << QDir::currentPath().toStdString() << endl;
     cout << "Succesful writing" << endl;
     }
     catch (const std::bad_alloc&) {
@@ -238,4 +239,13 @@ int Database::getMaxId(string table_name,string id_name){
         cout<<"Error occured"<<endl;
         return 1;
     }
+}
+
+
+void Database::closeDB() {
+
+    //std::cerr << "closing object\n";
+
+    curr_db->close();
+    curr_db = NULL;
 }
