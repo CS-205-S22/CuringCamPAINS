@@ -21,9 +21,8 @@ drop_savedmessages_table:
 build_savedmessages_table:
 	sqlite3 ./database.sqlite < database_sqlite/00_build_db/build_savedmessages_tables.sql
 
-drop_log_table:
-	sqlite3 ./database.sqlite < database_sqlite/00_build_db/drop_log_tables.sql
+drop_logForm_table:
+	sqlite3 ./database.sqlite < database_sqlite/00_build_db/drop_logForm_tables.sql
 
-
-build_log_table:
-	sqlite3 ./database.sqlite < database_sqlite/00_build_db/build_log_tables.sql
+build_logForm_table:
+	sqlite3 ./database.sqlite < database_sqlite/00_build_db/build_logForm_tables.sql

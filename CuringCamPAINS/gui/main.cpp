@@ -9,10 +9,26 @@ int main(int argc, char *argv[])
 //    Dashboard w;
 //    w.show();
 
-    Contacts c;
-    c.show();
+//    Contacts c;
+//    c.show();
 
 //    LoginGUI l ;
 //    l.show();
+
+    Dashboard w;
+    w.show();
+
     return a.exec();
+//    LoginGUI l ;
+//    l.show();
+
+
+
+    //    Dashboard w;
+    //    w.show();
+    //    return a.exec();
+//    LoginGUI l ;
+//    l.show();
+
+//    return a.exec();
 }

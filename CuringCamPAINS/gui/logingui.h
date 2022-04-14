@@ -29,7 +29,7 @@ private:
     Ui::LoginGUI *ui;
     Dashboard *dashBoard;
     registrationGUI *registration;
-
+    Login *s;
 };
 
 #endif // LOGINGUI_H

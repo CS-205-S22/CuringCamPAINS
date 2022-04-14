@@ -1,5 +1,6 @@
 #include "logingui.h"
 #include "ui_logingui.h"
+#include "dashboard.h"
 #include <QMessageBox>
 
 LoginGUI::LoginGUI(QWidget *parent) :
@@ -21,15 +22,21 @@ void LoginGUI::on_submission_pressed()
     string username=usr.toStdString();
     string password=pwd.toStdString();
 
-    Login s("../../../../../database.sqlite");
+    s = new Login("../../../../../database.sqlite");
     //        s.signUp("hounasm","look");
     //        s.close();
 
     //    if(username ==  "test" && password == "test") {
-    if(s.signUp(username,password)==true) {
+    if(s->signUp(username,password)==true) {
         //        QMessageBox::information(this, "Login", "Username and password is correct");
+//        hide();
+//        dashBoard = new Dashboard(this);
+//        cout<<"Here2"<<endl;
+//        dashBoard->show();
+
+        QMessageBox::information(this, "Login", "Username and password is correct");
+        hide();
         dashBoard=new Dashboard(this);
-        cout<<"Here2"<<endl;
         dashBoard->show();
 
     }
@@ -40,7 +47,8 @@ void LoginGUI::on_submission_pressed()
 
 void LoginGUI::on_registration_clicked()
 {
-    registration=new registrationGUI(this);
+    registration = new registrationGUI(this);
     registration->show();
+
 }
 

@@ -170,6 +170,22 @@ void Database::remove(string table_name,string parameter,string conditions){
 //    cout<<"Succesful delete"<<endl;
 }
 
+vector<string> Database::read(string table_name,string parameter,string conditions) {
+    QSqlQuery query;
+    std::string com = "SELECT* FROM "+ table_name + " WHERE "+parameter+"=:"+parameter;
+    cout<<com<<endl;
+    query.prepare(QString::fromStdString(com));
+    string temp =":"+parameter;
+    query.bindValue(QString::fromStdString(temp),QString::fromStdString(conditions));
+    query.exec(); //execute the command
+    vector<string> messages;
+    while(query.next()) {
+        QString text = query.value(2).toString();
+        messages.push_back(text.toStdString());
+    }
+    return messages;
+}
+
 /**
  * @brief Database:authenticate
  * Method to verify if a user with a certain username and passwrd is in the database
@@ -198,5 +214,29 @@ bool Database::authenticate(QString usr, QString pwd){
     catch(...){
         cout<<"error occured"<<endl;
         return false;
+    }
+}
+
+
+
+/**
+ * @brief DBTool::getMaxId
+ * get the max id on the user row
+ */
+int Database::getMaxId(string table_name,string id_name){
+    try{
+    QSqlQuery query;
+    QString id= QString::fromStdString(id_name);
+    QString table=QString::fromStdString(table_name);
+    QString query_str_id = "select MAX("+id+") from "+table;
+    query.exec(query_str_id);
+    query.next();
+    std::string result=query.value(0).toString().toStdString();
+    return stoi(result);
+
+}
+    catch(...){
+        cout<<"Error occured"<<endl;
+        return 1;
     }
 }
