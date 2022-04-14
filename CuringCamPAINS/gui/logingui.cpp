@@ -29,9 +29,10 @@ void LoginGUI::on_submission_pressed()
     //    if(username ==  "test" && password == "test") {
     if(s->signUp(username,password)==true) {
         QMessageBox::information(this, "Login", "Username and password is correct");
-        hide();
-        dashBoard=new Dashboard(this);
-        dashBoard->show();
+
+        //        dashBoard=new Dashboard(this);
+        //        this->hide();
+        //        dashBoard->show();
 
     }
     else {
@@ -43,6 +44,7 @@ void LoginGUI::on_registration_clicked()
 {
     registration=new registrationGUI(this);
     registration->show();
+
 
 }
 
