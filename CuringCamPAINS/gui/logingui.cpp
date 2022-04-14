@@ -21,15 +21,16 @@ void LoginGUI::on_submission_pressed()
     string username=usr.toStdString();
     string password=pwd.toStdString();
 
-    Login s("../../../../../database.sqlite");
+    s = new Login("../../../../../database.sqlite");
     //        s.signUp("hounasm","look");
     //        s.close();
 
     //    if(username ==  "test" && password == "test") {
-    if(s.signUp(username,password)==true) {
+    if(s->signUp(username,password)==true) {
         //        QMessageBox::information(this, "Login", "Username and password is correct");
         dashBoard=new Dashboard(this);
         cout<<"Here2"<<endl;
+        // this->hide();
         dashBoard->show();
 
     }
