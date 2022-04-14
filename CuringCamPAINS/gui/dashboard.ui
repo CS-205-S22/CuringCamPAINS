@@ -28,7 +28,7 @@
    <property name="title">
     <string/>
    </property>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="dashboardButton">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -46,7 +46,7 @@
      <string>Dashboard</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="contactsButton">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -64,7 +64,7 @@
      <string>Contacts</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="resourcesButton">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -355,6 +355,34 @@
        </widget>
       </widget>
      </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page_3">
+    <widget class="QPushButton" name="changeColor">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>120</y>
+       <width>171</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Change Color</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="createMessage">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>220</y>
+       <width>171</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Create Message</string>
+     </property>
     </widget>
    </widget>
    <widget class="QWidget" name="page_2"/>
