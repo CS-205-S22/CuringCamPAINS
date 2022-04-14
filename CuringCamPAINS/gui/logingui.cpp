@@ -30,6 +30,7 @@ void LoginGUI::on_submission_pressed()
         hide();
         dashBoard->show();
 
+
     }
     else {
         QMessageBox::warning(this,"Login", "Username and password is not correct");

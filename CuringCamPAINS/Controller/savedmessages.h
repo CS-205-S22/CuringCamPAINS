@@ -28,6 +28,8 @@ public:
      */
     void deleteMessage(string title);
 
+    int getMessageMaxId();
+
     //messageId to be incremented for each write to the database
     int messageId = getMaxId("savedmessages", "messageId");
 
