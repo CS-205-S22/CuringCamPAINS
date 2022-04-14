@@ -21,12 +21,6 @@ Dashboard::~Dashboard()
 }
 
 
-void Dashboard::on_pushButton_5_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(1);
-}
-
-
 void Dashboard::on_resourcesButton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
@@ -70,8 +64,6 @@ void Dashboard::on_saveMessage_clicked()
     this->title = ui->inputTitle->text().toStdString();
     this->text = ui->inputText->text().toStdString();
     //call saved messages create message
-    cout << title << endl;
-    cout << text << endl;
     sm.createMessage(this->title, this->text);
     ui->inputTitle->clear();
     ui->inputText->clear();

@@ -210,7 +210,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="page">
     <widget class="QScrollArea" name="scrollArea">
@@ -358,7 +358,7 @@
     </widget>
    </widget>
    <widget class="QWidget" name="resources">
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>180</x>
@@ -461,7 +461,7 @@
     </widget>
    </widget>
    <widget class="QWidget" name="viewMessagePage">
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>130</x>
