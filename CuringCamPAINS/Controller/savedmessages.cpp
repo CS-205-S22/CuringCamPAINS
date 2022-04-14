@@ -43,3 +43,7 @@ vector<string> SavedMessages::viewMessage(string title) {
 void SavedMessages::deleteMessage(string title) {
     remove("savedmessages", "messageTitle", title);
 }
+
+int SavedMessages::getMessageMaxId() {
+    return getMaxId("savedmessages", "messageId");
+}

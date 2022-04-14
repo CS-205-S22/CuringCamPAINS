@@ -21,6 +21,7 @@ private slots:
 
 private:
     Ui::registrationGUI *ui;
+    Database *dbb;
 };
 
 #endif // REGISTRATIONGUI_H

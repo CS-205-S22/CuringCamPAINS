@@ -43,13 +43,12 @@ void Dashboard::on_resourcesButton_clicked()
 
 void Dashboard::on_contactsButton_clicked()
 {
-    cList.readFile("contacts.csv");
+    cList.readFile("../../../contacts.csv");
 
     //    Contacts contacts;
     //    contacts.setModal(true);
     //    contacts.exec();
 }
-
 
 void Dashboard::on_changeColor_clicked()
 {
@@ -78,7 +77,10 @@ void Dashboard::on_createMessage_clicked()
     ui->stackedWidget->setCurrentIndex(2);
 }
 
-
+/**
+ * @brief The saveMessage button is on the create message page. After clicking save message, the input title and text is saved to the
+ * global strings.
+ */
 void Dashboard::on_saveMessage_clicked()
 {
     this->title = ui->inputTitle->text().toStdString();
@@ -90,19 +92,29 @@ void Dashboard::on_saveMessage_clicked()
     ui->stackedWidget->setCurrentIndex(1);
 }
 
-
+/**
+ * @brief Upon pressing the dashboard button, the user is brought back to the main dashboard page.
+ */
 void Dashboard::on_dashboardButton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
 }
 
-
+/**
+ * @brief One viewMessage button on the resources page, the user is brought to the view message page which asks for an input title.
+ */
 void Dashboard::on_viewMessage_clicked()
 {
     ui->stackedWidget->setCurrentIndex(3);
 }
 
-
+/**
+ * @brief The viewButton is on the view message page. Once the view button is pressed, the title is updated to be the input string
+ * on the label. The function creates a vector that is set equal to the SavedMessages viewMessage function that takes the
+ * updated title. If the vector is empty, the function outputs an error message informing the user of the mistake. Otherwise,
+ * the function creates a QString and loops through the vector. At each iteration, the QString gets the index messsage appended
+ * to the string. After the loop breaks, the QString is displayed on a label on the page. Lastly, the input is cleared.
+ */
 void Dashboard::on_viewButton_clicked()
 {
     this->title = ui->inputTitle_2->text().toStdString();
@@ -119,7 +131,11 @@ void Dashboard::on_viewButton_clicked()
     ui->inputTitle_2->clear();
 }
 
-
+/**
+ * @brief The deleteButton is on the delete message page. Once the title is inserted by the user, the title variable is updated
+ * to be the input string on the label. The SavedMessages deleteMessage function is called on the new title. The function then
+ * clears the label and returns the user back to the resources page.
+ */
 void Dashboard::on_deleteButton_clicked()
 {
     this->title = ui->inputTitle_3->text().toStdString();
@@ -128,7 +144,10 @@ void Dashboard::on_deleteButton_clicked()
     ui->stackedWidget->setCurrentIndex(1);
 }
 
-
+/**
+ * @brief Upon pressing the delete message button on the resources page, the page will be set to the fourth page which is where
+ * the user inputs the title of the message wanting to be deleted.
+ */
 void Dashboard::on_deleteMessage_clicked()
 {
     ui->stackedWidget->setCurrentIndex(4);
@@ -165,6 +184,11 @@ void Dashboard::on_nameButton_clicked()
     //logForm.deleteLog("111");
 
 }
+
+/**
+ * @brief On pressing the back button on page 3, the view message page, the program clears the label and resets the view to the
+ * resources page.
+ */
 void Dashboard::on_backButton_clicked()
 {
     ui->displayText->clear();
