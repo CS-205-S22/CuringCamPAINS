@@ -85,6 +85,8 @@ public:
      */
 
     bool authenticate(QString usr, QString pwd);
+
+    int getMaxId(string table_name,string id_name);
 };
 
 #endif // DATABASE_H

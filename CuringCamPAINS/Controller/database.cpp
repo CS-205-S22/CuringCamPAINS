@@ -199,3 +199,27 @@ bool Database::authenticate(QString usr, QString pwd){
         return false;
     }
 }
+
+
+
+/**
+ * @brief DBTool::getMaxId
+ * get the max id on the user row
+ */
+int Database::getMaxId(string table_name,string id_name){
+    try{
+    QSqlQuery query;
+    QString id= QString::fromStdString(id_name);
+    QString table=QString::fromStdString(table_name);
+    QString query_str_id = "select MAX("+id+") from "+table;
+    query.exec(query_str_id);
+    query.next();
+    std::string result=query.value(0).toString().toStdString();
+    return stoi(result);
+
+}
+    catch(...){
+        cout<<"Error occured"<<endl;
+        return 1;
+    }
+}
