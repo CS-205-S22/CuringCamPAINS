@@ -240,3 +240,12 @@ int Database::getMaxId(string table_name,string id_name){
         return 1;
     }
 }
+
+
+void Database::closeDB() {
+
+    //std::cerr << "closing object\n";
+
+    curr_db->close();
+    curr_db = NULL;
+}
