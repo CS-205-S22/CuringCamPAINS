@@ -18,8 +18,10 @@ int main(int argc, char* argv[])
     //void LogForm::saveLogForm(string fullName, int age, string phoneNumber, int numOfAttempts,
                               //string methodOfContact, string reaction, string dateContacted,
                               //bool isCommitted){
-        QCoreApplication a(argc, argv); //Need to initialize
-        Database db("../../database.sqlite");
+//        QCoreApplication a(argc, argv); //Need to initialize
+//        Database db("../../database.sqlite");
+
+
 
         //LogForm log = LogForm("../../database.sqlite");
         //log.saveLogForm("Joshua Garcia", 19, "1111112", 3, "text", "unsure", "April 7th, 2022", false);
@@ -37,8 +39,8 @@ int main(int argc, char* argv[])
 
     ////Used to test the database class
             //Database db("../../database.sqlite");
-            int out=db.getMaxId("savedmessages","messageId");
-            cout<<out<<endl;
+//            int out=db.getMaxId("savedmessages","messageId");
+//            cout<<out<<endl;
     //    string parameters[] = {"userId", "name", "password", "userName","isResearcher"};
     //    string values[] = {"4", "Lita", "pluss", "litat","0"};
     //  db.write("user",parameters,5,values);
@@ -86,13 +88,13 @@ int main(int argc, char* argv[])
     ////Used to test the contact List
     //    ContactList cl;
     //    cl.getUserInput();
-    //    ContactList cl("../../database.sqlite");
-    //    cl.remove("contact", "firstName", "Oyu");
-    //    cl.remove("contact", "firstName", "Max");
-    //    cl.remove("contact", "firstName", "Josh");
-    //    cl.remove("contact", "firstName", "Tafita");
-    //    cl.remove("contact", "firstName", "Rory");
-    //    cl.remove("contact", "firstName", "Justin");
+//        ContactList cl("../../database.sqlite");
+//        cl.remove("contact", "firstName", "Oyu");
+//        cl.remove("contact", "firstName", "Max");
+//        cl.remove("contact", "firstName", "Josh");
+//        cl.remove("contact", "firstName", "Tafita");
+//        cl.remove("contact", "firstName", "Rory");
+//        cl.remove("contact", "firstName", "Justin");
     //    cl.getUserInput();
 
 

@@ -8,11 +8,8 @@ using namespace std;
 
 ContactList cList("../../database.sqlite");
 
-//ContactList cList("../../database.sqlite");
 SavedMessages sm("../../../../../database.sqlite");
 LogForm logForm("../../../../../database.sqlite");
-
-
 
 Dashboard::Dashboard(QWidget *parent)
     : QWidget(parent)
@@ -33,7 +30,6 @@ Dashboard::~Dashboard()
 void Dashboard::on_pushButton_5_clicked()
 {
  ui->stackedWidget->setCurrentIndex(5);
-
 }
 
 

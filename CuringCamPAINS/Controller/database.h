@@ -9,6 +9,7 @@
 #include <string>
 #include <stdlib.h>
 #include <QtSql>
+#include <QDir>
 
 using namespace std;
 
@@ -87,6 +88,7 @@ public:
     bool authenticate(QString usr, QString pwd);
 
     int getMaxId(string table_name,string id_name);
+    void closeDB();
 };
 
 #endif // DATABASE_H

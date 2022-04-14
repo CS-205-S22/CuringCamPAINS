@@ -3,9 +3,9 @@
 #include "dbtool.h"
 using namespace std;
 
-int main(int argc, char* argv[])
+int main()
 {
-    QCoreApplication a(argc, argv); //Need to initialize
+
     DBTool db("../../database.sqlite");
 
     cout<<db.authenticate("rakotozt","blabl")<<endl;
