@@ -13,7 +13,9 @@ int main(int argc, char* argv[])
     //    QCoreApplication a(argc, argv); //Need to initialize
 
     ////Used to test the database class
-    //        Database db("../../database.sqlite");
+            Database db("../../database.sqlite");
+            int out=db.getMaxId("savedmessages","messageId");
+            cout<<out<<endl;
     //    string parameters[] = {"userId", "name", "password", "userName","isResearcher"};
     //    string values[] = {"4", "Lita", "pluss", "litat","0"};
     //  db.write("user",parameters,5,values);
