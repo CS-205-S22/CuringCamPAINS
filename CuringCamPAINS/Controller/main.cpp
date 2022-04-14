@@ -21,11 +21,11 @@ int main(int argc, char* argv[])
         QCoreApplication a(argc, argv); //Need to initialize
         Database db("../../database.sqlite");
 
-        LogForm log = LogForm("../../database.sqlite");
-        log.saveLogForm("Joshua Garcia", 19, "1111112", 3, "text", "unsure", "April 7th, 2022", false);
-        log.saveLogForm("Oyu Gantumur", 21, "2222222", 8, "text", "excited", "March 7th, 2022", false);
-        log.saveLogForm("Max Turkot", 20, "3333333", 1, "text", "happy", "January 5th, 2022", false);
-        log.saveLogForm("Tafita", 21, "4444444", 1, "text", "happy", "January 5th, 2022", true);
+        //LogForm log = LogForm("../../database.sqlite");
+        //log.saveLogForm("Joshua Garcia", 19, "1111112", 3, "text", "unsure", "April 7th, 2022", false);
+        //log.saveLogForm("Oyu Gantumur", 21, "2222222", 8, "text", "excited", "March 7th, 2022", false);
+        //log.saveLogForm("Max Turkot", 20, "3333333", 1, "text", "happy", "January 5th, 2022", false);
+        //log.saveLogForm("Tafita", 21, "4444444", 1, "text", "happy", "January 5th, 2022", true);
         //log.deleteLog("2222222");
 
 
@@ -44,7 +44,7 @@ int main(int argc, char* argv[])
 //    Login l("../../database.sqlite");
 //    l.signUp("hounasm","look");
 
-    //Saved Messages Testing:
+    ///Saved Messages Testing:
 //    SavedMessages s("../../database.sqlite");
 //    s.createMessage("Test","testing this message");
 //    s.deleteMessage("Test");

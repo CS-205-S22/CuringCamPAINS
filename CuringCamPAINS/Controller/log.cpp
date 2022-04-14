@@ -8,13 +8,13 @@ LogForm::LogForm(string name):Database(name)
 void LogForm::clearLogForm(){
     name = "";
     phoneNumber = "";
-    numOfAttempts = 0;
-    methodOfContact.clear();
-    reaction.clear();
-    date.clear();
+    numOfAttempts = "";
+    methodOfContact = "";
+    reaction = "";
+    date = "";
 
     //should committed = NULL?
-    committed = false;
+    committed = "";
 }
 
 void LogForm::editLogForm(){
@@ -50,9 +50,9 @@ string LogForm::boolToString(bool tof){
     //return( "" );
 }
 
-void LogForm::saveLogForm(string fullName, int age, string phoneNumber, int numOfAttempts,
+void LogForm::saveLogForm(string fullName, string age, string phoneNumber, string numOfAttempts,
                           string methodOfContact, string reaction, string dateContacted,
-                          bool isCommitted){
+                          string isCommitted){
 
     //NEED TO MAKE SURE THE ID IS DIFFERENT (Go through the ID's in the database
 
@@ -61,7 +61,8 @@ void LogForm::saveLogForm(string fullName, int age, string phoneNumber, int numO
 
     string logId = to_string(this->logId);
 
-    string messages[] = {logId, fullName, to_string(age), phoneNumber, to_string(numOfAttempts), methodOfContact, reaction, dateContacted, boolToString(isCommitted)};
+    string messages[] = {logId, fullName, age, phoneNumber, numOfAttempts, methodOfContact,
+                         reaction, dateContacted, isCommitted};
     write("logForm", cols, 9, messages);
     this->logId++;
 
