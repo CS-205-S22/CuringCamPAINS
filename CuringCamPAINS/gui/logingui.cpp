@@ -28,10 +28,13 @@ void LoginGUI::on_submission_pressed()
     //    if(username ==  "test" && password == "test") {
     if(s->signUp(username,password)==true) {
         //        QMessageBox::information(this, "Login", "Username and password is correct");
-        dashBoard=new Dashboard(this);
-        cout<<"Here2"<<endl;
-        // this->hide();
-        dashBoard->show();
+//        hide();
+//        dashBoard = new Dashboard(this);
+//        cout<<"Here2"<<endl;
+//        dashBoard->show();
+        Dashboard dashboard;
+        dashboard.setModal(true);
+        dashboard.exec();
 
     }
     else {
@@ -41,7 +44,7 @@ void LoginGUI::on_submission_pressed()
 
 void LoginGUI::on_registration_clicked()
 {
-    registration=new registrationGUI(this);
+    registration = new registrationGUI(this);
     registration->show();
 }
 
