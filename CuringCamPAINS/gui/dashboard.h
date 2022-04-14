@@ -23,7 +23,6 @@ public:
      QMessageBox::StandardButton restart;
 
 private slots:
-    void on_pushButton_5_clicked();
 
     //void on_pushButton_clicked();
 

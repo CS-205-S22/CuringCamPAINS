@@ -169,6 +169,21 @@ void Database::remove(string table_name,string parameter,string conditions){
 //    cout<<"Succesful delete"<<endl;
 }
 
+void Database::read(string table_name,string parameter,string conditions) {
+    QSqlQuery query;
+    std::string com = "SELECT* FROM "+ table_name + " WHERE "+parameter+"=:"+parameter;
+    cout<<com<<endl;
+    query.prepare(QString::fromStdString(com));
+    string temp =":"+parameter;
+    query.bindValue(QString::fromStdString(temp),QString::fromStdString(conditions));
+    query.exec(); //execute the command
+
+    while(query.next()) {
+        QString text = query.value(0).toString();
+
+    }
+}
+
 /**
  * @brief Database:authenticate
  * Method to verify if a user with a certain username and passwrd is in the database
