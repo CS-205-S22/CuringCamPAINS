@@ -3,6 +3,7 @@
 
 #include "gtest/gtest.h"
 #include "../Controller/contactlist.h"
+#include "../Controller/contact.h"
 
 class ContactListTest : public ::testing::Test {
 public:
