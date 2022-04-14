@@ -47,7 +47,7 @@ void Dashboard::on_changeColor_clicked()
     feed += to_string(g) += ", ";
     feed += to_string(b) += ", ";
     feed += to_string(25) += ")";
-    QString style = QString::fromUtf8(feed.c_str());;
+    QString style = QString::fromUtf8(feed.c_str());
     setStyleSheet(style);
 }
 
@@ -86,10 +86,17 @@ void Dashboard::on_viewMessage_clicked()
 void Dashboard::on_viewButton_clicked()
 {
     this->title = ui->inputTitle_2->text().toStdString();
-    sm.viewMessage(this->title);
-    //will need to display this...
+    vector<string> toView = sm.viewMessage(this->title);
+    if (toView.empty()) {
+        ui->displayText->setText("No messages with input title.");
+    } else {
+        QString insert;
+        for (int i = 0; i < (int)toView.size(); i++) {
+            insert += QString::fromUtf8(toView.at(i).c_str()) + " ";
+        }
+        ui->displayText->setText(insert);
+    }
     ui->inputTitle_2->clear();
-    ui->stackedWidget->setCurrentIndex(1);
 }
 
 
@@ -105,5 +112,12 @@ void Dashboard::on_deleteButton_clicked()
 void Dashboard::on_deleteMessage_clicked()
 {
     ui->stackedWidget->setCurrentIndex(4);
+}
+
+
+void Dashboard::on_backButton_clicked()
+{
+    ui->displayText->clear();
+    ui->stackedWidget->setCurrentIndex(1);
 }
 
