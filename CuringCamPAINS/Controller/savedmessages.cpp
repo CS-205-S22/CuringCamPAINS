@@ -30,7 +30,19 @@ void SavedMessages::createMessage(string title, string message) {
  */
 vector<string> SavedMessages::viewMessage(string title) {
     this->retStrings.clear();
-    this->retStrings = read("savedmessages", "messageTitle", title);
+    this->retStrings = readText("savedmessages", "messageTitle", title);
+    return retStrings;
+}
+
+/**
+ * @brief Function reads a saved message from the savedmessages table within the system's database for the user to view.
+ * Function has one parameter, string title. This is the title of the desired message. The function inherits the
+ * Database's read function and inputs the necessary parameters.
+ * @param title - title of the message
+ */
+vector<string> SavedMessages::viewTitles() {
+    this->retStrings.clear();
+    this->retStrings = readTitle("savedmessages", "messageTitle");
     return retStrings;
 }
 

@@ -104,6 +104,17 @@ void Dashboard::on_dashboardButton_clicked()
 void Dashboard::on_viewMessage_clicked()
 {
     ui->stackedWidget->setCurrentIndex(3);
+    vector<string> titles = sm.viewTitles();
+    if (titles.empty()) {
+        ui->titlesOutput->setText("No saved messages.");
+    } else {
+        QString display;
+        for (int i = 0; i < (int)titles.size() - 1; i++) {
+            display += QString::fromUtf8(titles.at(i).c_str()) += ",  ";
+        }
+        display += QString::fromUtf8(titles.at(titles.size() -1).c_str());
+        ui->titlesOutput->setText(display);
+    }
 }
 
 /**

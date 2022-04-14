@@ -23,6 +23,12 @@ public:
      */
     vector<string> viewMessage(string title);
     /**
+     * @brief Function reads a saved message from the savedmessages table within the system's database for
+     * the user to view.
+     * @param title - title of the message
+     */
+    vector<string> viewTitles();
+    /**
      * @brief Function deletes a saved message from the savedmessages table within the system's database.
      * @param title - title of the message
      */
