@@ -8,18 +8,29 @@ using namespace std;
 
 class LogForm:public Database{
 public:
+    LogForm(string name);
     //all of the get and set methods
     void clearLogForm();
     void editLogForm();
-    void saveLogForm();
-private:
+    void saveLogForm(string fullName, string age, string phoneNumber, string numOfAttempts,
+                              string methodOfContact, string reaction, string dateContacted,
+                              string isCommitted);
+    void deleteLog(string phoneNumber);
+    string boolToString(bool tof);
+    int logId = 0;
+
+//private:
     string name;
     string phoneNumber;
-    int numOfAttempts;
-    vector<string> methodOfContact;
-    vector<string> reaction;
-    vector<string> date;
-    bool committed;
+    string numOfAttempts;
+    string age;
+    string methodOfContact;
+    string reaction;
+    string date;
+    string committed;
+    string logInput[8];
+
+    //int logId = 0;
 };
 
 //THIS MIGHT NOT BE NECESSARY SINCE WE ARE USING THE DATABASE

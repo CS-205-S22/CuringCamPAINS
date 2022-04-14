@@ -169,7 +169,7 @@ void Database::remove(string table_name,string parameter,string conditions){
 //    cout<<"Succesful delete"<<endl;
 }
 
-void Database::read(string table_name,string parameter,string conditions) {
+vector<string> Database::read(string table_name,string parameter,string conditions) {
     QSqlQuery query;
     std::string com = "SELECT* FROM "+ table_name + " WHERE "+parameter+"=:"+parameter;
     cout<<com<<endl;
@@ -177,11 +177,12 @@ void Database::read(string table_name,string parameter,string conditions) {
     string temp =":"+parameter;
     query.bindValue(QString::fromStdString(temp),QString::fromStdString(conditions));
     query.exec(); //execute the command
-
+    vector<string> messages;
     while(query.next()) {
-        QString text = query.value(0).toString();
-
+        QString text = query.value(2).toString();
+        messages.push_back(text.toStdString());
     }
+    return messages;
 }
 
 /**

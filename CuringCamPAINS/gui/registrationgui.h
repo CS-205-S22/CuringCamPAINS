@@ -2,6 +2,7 @@
 #define REGISTRATIONGUI_H
 
 #include <QDialog>
+#include "dashboard.h"
 
 namespace Ui {
 class registrationGUI;
@@ -14,6 +15,9 @@ class registrationGUI : public QDialog
 public:
     explicit registrationGUI(QWidget *parent = nullptr);
     ~registrationGUI();
+
+private slots:
+    void on_buttonBox_accepted();
 
 private:
     Ui::registrationGUI *ui;

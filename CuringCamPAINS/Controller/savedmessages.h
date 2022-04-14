@@ -21,7 +21,7 @@ public:
      * the user to view.
      * @param title - title of the message
      */
-    void viewMessage(string title);
+    vector<string> viewMessage(string title);
     /**
      * @brief Function deletes a saved message from the savedmessages table within the system's database.
      * @param title - title of the message
@@ -29,7 +29,9 @@ public:
     void deleteMessage(string title);
 
     //messageId to be incremented for each write to the database
-    int messageId = 0;
+    int messageId = getMaxId("savedmessages", "messageId");
+
+    vector<string> retStrings;
 };
 
 #endif // SAVEDMESSAGES_H

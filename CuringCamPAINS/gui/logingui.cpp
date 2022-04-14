@@ -1,5 +1,6 @@
 #include "logingui.h"
 #include "ui_logingui.h"
+#include "dashboard.h"
 #include <QMessageBox>
 
 LoginGUI::LoginGUI(QWidget *parent) :
@@ -32,9 +33,11 @@ void LoginGUI::on_submission_pressed()
 //        dashBoard = new Dashboard(this);
 //        cout<<"Here2"<<endl;
 //        dashBoard->show();
-        Dashboard dashboard;
-        dashboard.setModal(true);
-        dashboard.exec();
+
+        QMessageBox::information(this, "Login", "Username and password is correct");
+        hide();
+        dashBoard=new Dashboard(this);
+        dashBoard->show();
 
     }
     else {
@@ -46,5 +49,6 @@ void LoginGUI::on_registration_clicked()
 {
     registration = new registrationGUI(this);
     registration->show();
+
 }
 

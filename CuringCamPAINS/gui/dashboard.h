@@ -47,6 +47,12 @@ private slots:
 
     void on_deleteMessage_clicked();
 
+
+    void on_nameButton_clicked();
+
+    void on_backButton_clicked();
+    void on_pushButton_5_clicked();
+
 private:
     Ui::Dashboard *ui;
 
