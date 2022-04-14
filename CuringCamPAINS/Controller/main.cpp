@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
 //    Login l("../../database.sqlite");
 //    l.signUp("hounasm","look");
 
-    //Saved Messages Testing:
+    ///Saved Messages Testing:
 //    SavedMessages s("../../database.sqlite");
 //    s.createMessage("Test","testing this message");
 //    s.deleteMessage("Test");
@@ -61,13 +61,13 @@ int main(int argc, char* argv[])
     ////Used to test the contact List
     //    ContactList cl;
     //    cl.getUserInput();
-    //    ContactList cl("../../database.sqlite");
-    //    cl.remove("contact", "firstName", "Oyu");
-    //    cl.remove("contact", "firstName", "Max");
-    //    cl.remove("contact", "firstName", "Josh");
-    //    cl.remove("contact", "firstName", "Tafita");
-    //    cl.remove("contact", "firstName", "Rory");
-    //    cl.remove("contact", "firstName", "Justin");
+        ContactList cl("../../database.sqlite");
+        cl.remove("contact", "firstName", "Oyu");
+        cl.remove("contact", "firstName", "Max");
+        cl.remove("contact", "firstName", "Josh");
+        cl.remove("contact", "firstName", "Tafita");
+        cl.remove("contact", "firstName", "Rory");
+        cl.remove("contact", "firstName", "Justin");
     //    cl.getUserInput();
 
 

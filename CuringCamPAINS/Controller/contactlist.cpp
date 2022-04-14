@@ -15,6 +15,8 @@ ContactList::ContactList(string name):Database(name)
     treatmentGroup = new vector<Contact*>();
     controlGroup = new vector<Contact*>();
     noContactGroup = new vector<Contact*>();
+
+    readFromDB();
 }
 
 void ContactList::getUserInput() {
@@ -74,6 +76,11 @@ void ContactList::readFile(string name) {
             getline(strStream, hAdd, ',');
             getline(strStream, ageStr, ',');
 
+            if (containsContact(cellStr)) {
+                cout << "Contact is already saved!" << endl;
+                continue;
+            }
+
             Contact* c = new Contact(firstName, lastName, cellStr, email, hAdd, stoi(ageStr));
             masterList->push_back(c);
 
@@ -127,7 +134,7 @@ void ContactList::divideIntoGroups() {
           }
     }
 
-    print();
+//    print();
 }
 
 bool ContactList::containsContact(string str) {
@@ -165,7 +172,7 @@ void ContactList::addContact(string fn, string ln, string cellNum, string email,
         noContactGroup->push_back(c);
     }
 
-    print();
+//    print();
 }
 
 void ContactList::addContact(Contact *c) {
@@ -198,6 +205,37 @@ void ContactList::print() {
     }
 }
 
+void ContactList::readFromDB() {
+    QSqlQuery query;
+    QString str = "select * from contact;";
+    int id;
+    int listId;
+    string firstName;
+    string lastName;
+    string cellStr;
+    string email;
+    string homeAdd;
+    int age;
+
+    if (!query.exec(str)){
+        qDebug()<<"error running query for Players\n";
+    } else {
+        while (query.next()) {
+            id = stoi(query.value("contactId").toString().toStdString());
+            listId = stoi(query.value("contactListId").toString().toStdString());
+            firstName = query.value("firstName").toString().toStdString();
+            lastName = query.value("lastName").toString().toStdString();
+            cellStr = query.value("phoneNumber").toString().toStdString();
+            email = query.value("emailAddress").toString().toStdString();
+            homeAdd = query.value("homeAddress").toString().toStdString();
+            age = stoi(query.value("dateOfBirth").toString().toStdString());
+
+            Contact* c = new Contact(id, listId, firstName, lastName, cellStr, email, homeAdd, age);
+
+            masterList->push_back(c);
+        }
+    }
+}
 
 
 

@@ -25,6 +25,7 @@ public:
     void updateContact(); //update all information??
     void print();
     void writeToDB();
+    void readFromDB();
 
 //    Database* db;
     int count;

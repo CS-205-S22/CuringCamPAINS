@@ -25,12 +25,10 @@ public:
 private slots:
     void on_pushButton_5_clicked();
 
-    void on_pushButton_clicked();
+    //void on_pushButton_clicked();
 
-    void on_pushButton_3_clicked();
+    //void on_pushButton_3_clicked();
     void on_contactsButton_clicked();
-
-//    void on_changeColor_clicked();
 
     void on_createMessage_clicked();
 
@@ -38,7 +36,21 @@ private slots:
 
     void on_changeColor_clicked();
 
+    void on_saveMessage_clicked();
+
+    void on_dashboardButton_clicked();
+
+    void on_viewMessage_clicked();
+
+    void on_viewButton_clicked();
+
+    void on_deleteButton_clicked();
+
+    void on_deleteMessage_clicked();
+
 private:
     Ui::Dashboard *ui;
+
+    string title, text;
 };
 #endif // DASHBOARD_H

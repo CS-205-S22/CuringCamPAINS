@@ -20,7 +20,11 @@ public:
 
 private slots:
 
-    void on_pushButton_3_clicked();
+    void on_saveButton_clicked();
+
+    void on_uploadFile_clicked();
+
+    void on_cancelButton_clicked();
 
 private:
     Ui::Contacts *ui;
