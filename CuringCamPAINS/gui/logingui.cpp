@@ -23,22 +23,11 @@ void LoginGUI::on_submission_pressed()
     string password=pwd.toStdString();
 
     s = new Login("../../../../../database.sqlite");
-    //        s.signUp("hounasm","look");
-    //        s.close();
-
     //    if(username ==  "test" && password == "test") {
     if(s->signUp(username,password)==true) {
         //        QMessageBox::information(this, "Login", "Username and password is correct");
-//        hide();
-//        dashBoard = new Dashboard(this);
-//        cout<<"Here2"<<endl;
-//        dashBoard->show();
-
-        QMessageBox::information(this, "Login", "Username and password is correct");
-
-        //        dashBoard=new Dashboard(this);
-        //        this->hide();
-        //        dashBoard->show();
+        dashBoard = new Dashboard(this);
+        dashBoard->show();
 
     }
     else {
