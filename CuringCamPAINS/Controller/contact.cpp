@@ -7,6 +7,18 @@ Contact::Contact()
 
 }
 
+Contact::Contact(int id, int listId, string fn, string ln, string num, string email, string hAdd, int a) {
+    this->id = id;
+    contactListId = listId;
+    firstName = fn;
+    lastName = ln;
+    cellNum = num;
+    age = a;
+    emailAddress = email;
+    homeAddress = hAdd;
+    counter = id;
+}
+
 Contact::Contact(string fn, string ln, string num, int a) {
     id = ++counter;
     firstName = fn;

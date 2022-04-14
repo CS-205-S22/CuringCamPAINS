@@ -9,6 +9,7 @@ class Contact
 {
 public:
     Contact();
+    Contact(int id, int listId, string fn, string ln, string num, string email, string hAdd, int age);
     Contact(string fn, string ln, string num, int age); //required sections
     Contact(string fn, string ln, string num, string email, int age);
     Contact(string fn, string ln, string num, string email, string hAdd, int age);

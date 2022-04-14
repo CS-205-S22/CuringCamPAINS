@@ -9,6 +9,7 @@
 #include <string>
 #include <stdlib.h>
 #include <QtSql>
+#include <QDir>
 
 using namespace std;
 

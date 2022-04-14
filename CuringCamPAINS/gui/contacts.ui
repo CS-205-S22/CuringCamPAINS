@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="uploadFile">
    <property name="geometry">
     <rect>
      <x>120</x>
@@ -26,7 +26,7 @@
     <string>Upload File</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="cancelButton">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -154,7 +154,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="saveButton">
    <property name="geometry">
     <rect>
      <x>310</x>
