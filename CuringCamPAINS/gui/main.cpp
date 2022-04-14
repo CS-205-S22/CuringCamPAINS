@@ -9,8 +9,10 @@ int main(int argc, char *argv[])
 
 
     //Run this if you want to demonstrate the login
-        Dashboard w;
-        w.show();
+//        Dashboard w;
+//        w.show();
+    Contacts c;
+    c.show();
         return a.exec();
 
     ////Run this only if you want to demonstrate the Login
