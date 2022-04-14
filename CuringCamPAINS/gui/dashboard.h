@@ -7,6 +7,7 @@
 #include <QWidget>
 #include <QColorDialog>
 
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class Dashboard; }
 QT_END_NAMESPACE
@@ -28,6 +29,12 @@ private slots:
 
     void on_pushButton_3_clicked();
     void on_contactsButton_clicked();
+
+//    void on_changeColor_clicked();
+
+    void on_createMessage_clicked();
+
+    void on_resourcesButton_clicked();
 
     void on_changeColor_clicked();
 

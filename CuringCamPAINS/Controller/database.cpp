@@ -183,6 +183,7 @@ bool Database::authenticate(QString usr, QString pwd){
     QString query_str_id = "SELECT password FROM user WHERE userName='"+usr+"' ;"; //get password
     query.exec(query_str_id);
     query.next();
+    cout<<"Here"<<endl;
     std::string result=query.value(0).toString().toStdString();
     std::string temp=pwd.toStdString();
 

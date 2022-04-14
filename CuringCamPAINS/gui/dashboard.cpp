@@ -23,33 +23,47 @@ void Dashboard::on_pushButton_5_clicked()
     ui->stackedWidget->setCurrentIndex(1);
 }
 
+void Dashboard::on_pushButton_3_clicked()
+{
+    //ui->stackedWidget->setCurrentIndex(1);
+}
 
 void Dashboard::on_pushButton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
 }
 
-
-
-void Dashboard::on_pushButton_3_clicked()
+void Dashboard::on_resourcesButton_clicked()
 {
-    QWidget* widget = new QWidget(this);
-    //set to size of dashboard
-    widget->setGeometry(0,0,1289,729);
-    QColorDialog dialog;
-    QPalette pal = QPalette();
-    QColor color = dialog.getColor();
-    //set low alpha for transparency
-    color.setAlpha(50);
-    pal.setColor(QPalette::Background, color);
-    dialog.setAttribute(Qt::WA_TranslucentBackground);
-    widget->setAutoFillBackground(true);
-    widget->setPalette(pal);
-    widget->show();
+    ui->stackedWidget->setCurrentIndex(1);
 }
 
 void Dashboard::on_contactsButton_clicked()
 {
-
+    //    Contacts contacts;
+    //    contacts.setModal(true);
+    //    contacts.exec();
 }
+
+
+void Dashboard::on_changeColor_clicked()
+{
+    QColorDialog dialog;
+    QColor color = dialog.getColor();
+    //set low alpha for transparency
+    color.setAlpha(50);
+    QString colName = color.name();
+    QString style = "background-color: " + colName;
+    this->setStyleSheet(style);
+}
+
+
+void Dashboard::on_createMessage_clicked()
+{
+    //will now prompt user to enter title and text of desired message
+    cout << "nice job!!" << endl;
+}
+
+
+
 

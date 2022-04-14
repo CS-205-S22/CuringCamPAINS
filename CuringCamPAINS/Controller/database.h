@@ -15,7 +15,7 @@ using namespace std;
 
 class Database
 {
-private:
+protected:
 
     /// Name of the database.
     std::string db_name;
