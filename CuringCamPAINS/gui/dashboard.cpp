@@ -43,7 +43,7 @@ void Dashboard::on_resourcesButton_clicked()
 
 void Dashboard::on_contactsButton_clicked()
 {
-    cList.readFile("contacts.csv");
+    cList.readFile("../../../contacts.csv");
 
     //    Contacts contacts;
     //    contacts.setModal(true);
