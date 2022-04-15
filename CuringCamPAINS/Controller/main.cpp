@@ -86,8 +86,8 @@ int main(int argc, char* argv[])
 
 
     ////Used to test the contact List
-    //    ContactList cl;
-    //    cl.getUserInput();
+//        ContactList cl;
+//        cl.getUserInput();
 //        ContactList cl("../../database.sqlite");
 //        cl.remove("contact", "firstName", "Oyu");
 //        cl.remove("contact", "firstName", "Max");
@@ -96,6 +96,10 @@ int main(int argc, char* argv[])
 //        cl.remove("contact", "firstName", "Rory");
 //        cl.remove("contact", "firstName", "Justin");
     //    cl.getUserInput();
+    ContactList cl("../../test.sqlite");
+    cl.remove("contact", "firstName", "Justin");
+    cl.remove("contact", "firstName", "Matt");
+    cl.remove("contact", "firstName", "Steve");
 
 
     //Used to test the Custom
