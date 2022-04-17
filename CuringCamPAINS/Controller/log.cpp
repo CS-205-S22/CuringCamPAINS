@@ -5,6 +5,10 @@ LogForm::LogForm(string name):Database(name)
 
 }
 
+LogForm::LogForm(){
+
+}
+
 void LogForm::clearLogForm(){
     name = "";
     phoneNumber = "";
@@ -59,7 +63,8 @@ void LogForm::saveLogForm(string fullName, string age, string phoneNumber, strin
     //this will write everything to the database
     string cols[] = {"logId","fullName", "age", "phoneNumber", "numOfAttempts", "methodOfContact", "reaction", "dateContacted", "isCommitted"};
 
-    string logId = to_string(this->logId);
+    //string logId = to_string(this->logId);
+    string logId = to_string(getMaxId("logForm", "logId")+1);
 
     string messages[] = {logId, fullName, age, phoneNumber, numOfAttempts, methodOfContact,
                          reaction, dateContacted, isCommitted};
