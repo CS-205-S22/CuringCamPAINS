@@ -1,5 +1,7 @@
 #include "contact.h"
 
+using namespace std;
+
 int Contact::counter = 0;
 
 Contact::Contact()
@@ -17,6 +19,8 @@ Contact::Contact(int id, int listId, string fn, string ln, string num, string em
     emailAddress = email;
     homeAddress = hAdd;
     counter = id;
+    cerr << "First name: " << fn << endl;
+    cerr << "ID: " << to_string(id) << endl;
 }
 
 Contact::Contact(string fn, string ln, string num, int a) {
@@ -51,6 +55,8 @@ Contact::Contact(string fn, string ln, string num, string email, string hAdd, in
     homeAddress = hAdd;
 //    contactListId = listId;
     contactListId = id % 3;
+    cerr << "First name: " << fn << endl;
+    cerr << to_string(id) << endl;
 }
 
 void Contact::setCellNum(string num) {
