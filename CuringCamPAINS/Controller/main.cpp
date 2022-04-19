@@ -110,5 +110,14 @@ int main(int argc, char* argv[])
     //cust.getLevel();
    // cust.updateNotification();
 
+
+    //Used to test the table to csv method
+    Database db("../../database.sqlite");
+    string parameters[]={"userId","name","password","userName","isResearcher"};
+    int param_size=5;
+    string outFile="../../test.csv";
+    db.tableToCsv("user",parameters,param_size,outFile);
+
+
     return 0;
 }

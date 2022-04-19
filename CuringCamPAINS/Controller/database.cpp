@@ -263,3 +263,48 @@ void Database::closeDB() {
     curr_db->close();
     curr_db = NULL;
 }
+
+
+/**
+ * @brief Database:tableToCsv
+ * Export the data from a table into a csv file
+ * @param table_name : name of the table
+ * @param parameters[]: name of the table headers
+ * @param outFile: Address of the output file
+ */
+
+void Database::tableToCsv(string table_name,string parameters[],int  param_size,string outFile){
+   //open the file using the ofstream handler
+    std::ofstream myfile;
+    myfile.open (outFile);
+
+    //append the header of each columns on the file
+    string temp=parameters[0];
+    for (int i=1;i<param_size;i++){
+     temp=temp+","+parameters[i];
+    }
+    myfile <<temp+"\n";
+
+    //execute the query to fetch the data on the table
+    string query_str="select * from "+table_name;
+    QSqlQuery query;
+    QString query_str_id = QString::fromStdString(query_str);
+    query.exec(query_str_id);
+
+    //extract the data from the query result
+    //write the output on the database
+    while(query.next()){
+    std::string out;
+    out=out+query.value(0).toString().toStdString();
+    for (int i=1;i<param_size;i++){
+     out=out+","+query.value(i).toString().toStdString();
+    }
+    myfile <<out+"\n";
+
+    }
+
+    //close the database
+    myfile.close();
+    cout<<"Writing successful"<<endl;
+
+}

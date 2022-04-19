@@ -2,15 +2,13 @@
 #define CSV_H
 #include "database.h"
 
-
-
-
 class Csv
 {
 public:
     Csv();
     void download();
     void writeFile();
+    void readFile(string fileName);
 private:
     string fileName;
     string locationToBeSaved;
