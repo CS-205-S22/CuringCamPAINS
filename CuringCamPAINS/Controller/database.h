@@ -68,6 +68,7 @@ public:
     void write(string table_name, string parameters[],int param_size,string values[] );
     vector<string> readText(string table_name,string parameter,string conditions);
     vector<string> readTitle(string table_name,string parameter);
+
     /**
      * @brief Database:remove
      * Method to remove a row in the database based on a given condition
@@ -78,18 +79,39 @@ public:
      * In this specific example table_name="user" , parameter=name , condition = "Tafita"
      */
     void remove(string table_name,string parameter,string condition);
+
     void check();
+
     /**
      * @brief Database:authenticate
      * Method to verify if a user with a certain username and passwrd is in the database
      * @param usr : the username
      * @param pwd : password
      */
-
     bool authenticate(QString usr, QString pwd);
 
+    /**
+     * @brief Database:getMaxId
+     * Return the maximum id in the specificied table
+     * @param table_name : name of the table
+     * @param id_name : name of the id
+     */
     int getMaxId(string table_name,string id_name);
+
+    /**
+     * @brief Database:closeDB
+     * Close the database
+     */
     void closeDB();
+
+    /**
+     * @brief Database:tableToCsv
+     * Export the data from a table into a csv file
+     * @param table_name : name of the table
+     * @param parameters[]: name of the table headers
+     * @param outFile: Address of the output file
+     */
+    void tableToCsv(string table_name,string parameters[], int param_size,string outFile);
 };
 
 #endif // DATABASE_H
