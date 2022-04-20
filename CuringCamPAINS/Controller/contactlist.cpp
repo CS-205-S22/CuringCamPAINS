@@ -159,7 +159,7 @@ void ContactList::addContact(Contact *c) {
 //    int size = masterList->size();
     masterList->push_back(c);
 
-    cerr << "Master list size: " << masterList->size() << endl;
+//    cerr << "Master list size: " << masterList->size() << endl;
 
     string cols[] = {"contactId", "contactListId", "firstName", "lastName", "phoneNumber", "emailAddress", "homeAddress", "dateOfBirth"};
     string id = to_string(c->id);
