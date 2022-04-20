@@ -20,7 +20,7 @@ TEST(write,writeDBTest ) {
     string id =std::to_string(old+1);
     string parameters[] = {"userId", "name", "password", "userName","isResearcher"};
     string values[] = {id, "Test", "pluss", "litat","0"};
-    dbb->write("user",parameters,5,values);
+    dbb->write("user",values);
     int result=dbb->getMaxId("user","userId");
     int expected=6;
     ASSERT_EQ(result, expected);

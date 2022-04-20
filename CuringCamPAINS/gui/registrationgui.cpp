@@ -25,7 +25,7 @@ void registrationGUI::on_buttonBox_accepted()
 
     string parameters[]={"userId","name","password","userName","isResearcher"};
     string values[]={new_id, new_name,new_password,new_username,new_isResearcher};
-    dbb->write("user",parameters,5,values);
+    dbb->write("user",values);
 
 }
 

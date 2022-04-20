@@ -87,7 +87,7 @@ void ContactList::readFile(string name) {
             string id = to_string(c->id);
             string listIdStr = to_string(c->contactListId);
             string inputs[] = {id, listIdStr, firstName, lastName, cellStr, email, hAdd, ageStr};
-            write("contact", cols, 8, inputs);
+            write("contact", inputs);
 
             divideIntoGroups(c);
         }
@@ -145,7 +145,7 @@ void ContactList::addContact(string fn, string ln, string cellNum, string email,
     string id = to_string(c->id);
     string listIdStr = to_string(c->contactListId);
     string inputs[] = {id, listIdStr, fn, ln, cellNum, email, hAdd, age};
-    write("contact", cols, 8, inputs);
+    write("contact", inputs);
 
     divideIntoGroups(c);
 //    print();
@@ -165,7 +165,7 @@ void ContactList::addContact(Contact *c) {
     string id = to_string(c->id);
     string listIdStr = to_string(c->contactListId);
     string inputs[] = {id, listIdStr, c->firstName, c->lastName, c->cellNum, c->emailAddress, c->homeAddress, to_string(c->age)};
-    write("contact", cols, 8, inputs);
+    write("contact", inputs);
 
     divideIntoGroups(c);
 }

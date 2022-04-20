@@ -18,7 +18,7 @@ void SavedMessages::createMessage(string title, string message) {
     string cols[] = {"messageId","messageTitle", "messageText"};
     string messageId = to_string(this->messageId);
     string messages[] = {messageId, title, message};
-    write("savedmessages", cols, 3, messages);
+    write("savedmessages", messages);
     this->messageId++;
 }
 

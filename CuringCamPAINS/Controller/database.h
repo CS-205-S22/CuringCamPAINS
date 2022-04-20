@@ -57,6 +57,10 @@ public:
 
     void runQuery(QString str);
 
+
+
+
+
     /**
      * @brief Database:write
      * Method to write file in the database
@@ -65,8 +69,25 @@ public:
      * @param param_size number of columns in the table
      * @param values: string array about the values to be put into each column
      */
-    void write(string table_name, string parameters[],int param_size,string values[] );
+    void write(string table_name,string values[] );
+
+
+    /**
+     * @brief Database:readText
+     * Method get the content of a table on for a specific conditions
+     * @param table_name : name of the table in the database
+     * @param parameters: column names in the table
+     * @param condition: values of the condition
+     */
     vector<string> readText(string table_name,string parameter,string conditions);
+
+    /**
+     * @brief Database:readTitle
+     * Method get the the title from savedmessage table
+     * @param table_name : name of the table in the database
+     * @param parameters: column names in the table
+     * @param condition: values of the condition
+     */
     vector<string> readTitle(string table_name,string parameter);
 
     /**
@@ -111,7 +132,18 @@ public:
      * @param parameters[]: name of the table headers
      * @param outFile: Address of the output file
      */
-    void tableToCsv(string table_name,string parameters[], int param_size,string outFile);
+    void tableToCsv(string table_name,string outFile);
+
+    /**
+     * @brief Database:exportTableToCsv
+     * Export the data from a table into a csv file
+     * @param outFile: Address of the output file
+     */
+    void exportTableToCsv(string table_name,string outFile);
+
+    void updateColumn(string table_name);
+    vector<string> parameters;
+    int param_size;
 };
 
 #endif // DATABASE_H

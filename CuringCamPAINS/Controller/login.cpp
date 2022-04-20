@@ -9,18 +9,28 @@ Login::~Login(){
     curr_db->close();
     curr_db = NULL;
 }
-
+/**
+ * @brief Login::getUserInput
+ * Get the user name input through command line
+ */
 void Login::getUserNameInput(){
     cout<<"Enter username: ";
     cin >> username; // Get user input from the keyboard
 }
 
-
+/**
+ * @brief Login::getPasswordInput
+ * Get the user password input through command line
+ */
 void Login::getPasswordInput(){
     cout<<"Enter password: ";
     cin >> password; // Get user input from the keyboard
 }
 
+/**
+ * @brief Login::signUp
+ * Verify if the user is valid
+ */
 void Login::signUp(){
     if(authenticate(QString::fromStdString(username),QString::fromStdString(password))==true){
         cout<<"Login successful"<<endl;
@@ -29,10 +39,15 @@ void Login::signUp(){
     else {cout<<"Login unsuccessful"<<endl;}
 }
 
-
+/**
+ * @brief Login::signUp
+ * Verify if the user is valid
+ * @param usr:the username
+ * @param pwd: password
+ */
 bool Login::signUp(string usr, string pwd){
-    cout<<usr<<endl;
-    cout<<pwd<<endl;
+    //    cout<<usr<<endl;
+    //    cout<<pwd<<endl;
     if(authenticate(QString::fromStdString(usr),QString::fromStdString(pwd))==true){
         cout<<"Login successful"<<endl;
         return true ;
@@ -40,11 +55,14 @@ bool Login::signUp(string usr, string pwd){
     else {cout<<"Login unsuccessful"<<endl;
         return false;}
 }
-
+/**
+ * @brief Login::close
+ * Close the login file
+ */
 void Login::close(){
 
-        //std::cerr << "closing object\n";
+    //std::cerr << "closing object\n";
 
-        curr_db->close();
-        curr_db = NULL;
+    curr_db->close();
+    curr_db = NULL;
 }
