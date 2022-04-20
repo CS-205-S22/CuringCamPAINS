@@ -9,14 +9,18 @@ Csv::Csv()
  * Download a table on a specified database to the desired output file
  * @param dbName: name of the database
  * @param table_name : name of the table
- * @param parameters[]: name of the table headers
-* @param param_size: size of the parameters
  * @param outFile: Address of the output file
  */
-void Csv::download(string dbName, string table_name, string *parameters, int param_size, string outFile){
+void Csv::download(string dbName, string table_name, string outFile){
     Database temp(dbName);
     temp.tableToCsv(table_name, outFile);
 }
+
+/**
+ * @brief Csv::readFile
+ * Read csv file and save the reading into a vector
+ * @param fname: name of the file
+ */
 void Csv::readFile(string fname){
     content.empty();
     vector<string> row;
@@ -40,10 +44,14 @@ void Csv::readFile(string fname){
         cout<<"Could not open the file\n";
 }
 
-
-    void Csv::printFileReading(string fname){
+/**
+ * @brief Csv::printFileReading
+ * Print the file reading from the vector
+ * @param fname: name of the file
+ */
+void Csv::printFileReading(string fname){
     readFile( fname);
- // print the array
+    // print the array
     for(int i=0;i<content.size();i++)
     {
         for(int j=0;j<content[i].size();j++)
@@ -53,8 +61,21 @@ void Csv::readFile(string fname){
         cout<<"\n";
     }
 
-    }
+}
 
+/**
+ * @brief Csv::writeFile
+ * Write the designated file with the desired input
+ * @param fileName: name of the file
+ * @param input: the information entered
+ */
+void Csv::writeFile(string fileName,string input){
+    std::ofstream myfile;
+    myfile.open (fileName);
+    myfile <<input;
+    myfile.close();
+
+}
 
 
 

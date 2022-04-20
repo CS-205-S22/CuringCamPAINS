@@ -166,7 +166,7 @@ void Database::write(string table_name, string values[] ){
 void Database::remove(string table_name,string parameter,string conditions){
     QSqlQuery query;
     std::string com = "DELETE FROM "+ table_name+ " WHERE "+parameter+"=:"+parameter;
-    cout<<com<<endl;
+    //    cout<<com<<endl;
     query.prepare(QString::fromStdString(com));
     string temp =":"+parameter;
     query.bindValue(QString::fromStdString(temp),QString::fromStdString(conditions));
@@ -185,7 +185,7 @@ void Database::remove(string table_name,string parameter,string conditions){
 vector<string> Database::readText(string table_name,string parameter,string conditions) {
     QSqlQuery query;
     std::string com = "SELECT* FROM "+ table_name + " WHERE "+parameter+"=:"+parameter;
-    cout<<com<<endl;
+    //    cout<<com<<endl;
     query.prepare(QString::fromStdString(com));
     string temp =":"+parameter;
     query.bindValue(QString::fromStdString(temp),QString::fromStdString(conditions));
@@ -209,7 +209,7 @@ vector<string> Database::readText(string table_name,string parameter,string cond
 vector<string> Database::readTitle(string table_name,string parameter) {
     QSqlQuery query;
     std::string com = "SELECT "+ parameter + " FROM "+table_name;
-    cout<<com<<endl;
+    //    cout<<com<<endl;
     query.prepare(QString::fromStdString(com));
     query.exec(); //execute the command
     vector<string> titles;
@@ -341,7 +341,7 @@ void Database::tableToCsv(string table_name,string outFile){
 void Database::updateColumn(string table_name){
     parameters.clear(); //clear the previous parameters containers
     string query_str="PRAGMA table_info("+table_name+");"; //write the string
-    cout<<query_str<<endl;
+    //    cout<<query_str<<endl;
 
     //perform the query
     QSqlQuery query;
@@ -357,5 +357,5 @@ void Database::updateColumn(string table_name){
     }
     //update the parameter size
     param_size=parameters.size();
-//    cout<<param_size<<endl;
+    //    cout<<param_size<<endl;
 }
