@@ -86,12 +86,12 @@ void ResourcesGui::on_pushButton_deleteMessage_clicked()
  */
 void ResourcesGui::on_pushButton_saveMessage_clicked()
 {
-    this->title = ui->label_title->text().toStdString();
-    this->text = ui->label_text->text().toStdString();
+    this->title = ui->lineEdit_title->text().toStdString();
+    this->text = ui->lineEdit_text->text().toStdString();
     //call saved messages create message
     sm.createMessage(this->title, this->text);
-    ui->label_title->clear();
-    ui->label_text->clear();
+    ui->lineEdit_title->clear();
+    ui->lineEdit_text->clear();
     ui->stackedWidget_resources->setCurrentIndex(0);
 }
 
