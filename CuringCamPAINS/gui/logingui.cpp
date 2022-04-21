@@ -22,14 +22,10 @@ void LoginGUI::on_submission_pressed()
     string password=pwd.toStdString();
 
     s = new Login("../../../../../database.sqlite");
-    //    if(username ==  "test" && password == "test") {
     if(s->signUp(username,password)==true) {
-        //        QMessageBox::information(this, "Login", "Username and password is correct");
         dashboardGui = new DashboardGui();
         hide();
         dashboardGui->show();
-
-
     }
     else {
         QMessageBox::warning(this,"Login", "Username and password is not correct");

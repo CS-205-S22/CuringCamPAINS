@@ -34,7 +34,10 @@ void DashboardGui::on_pushButton_resources_clicked()
 
 void DashboardGui::on_pushButton_data_clicked()
 {
-
+    Csv *c=new Csv();
+    c->download("../../../../../database.sqlite","logForm","../../../../../data_downloaded.csv");
+    QMessageBox::warning(this,"Download", "The csv file is downloaded in main file");
+    ui->stackedWidget_main->setCurrentIndex(0);
 }
 
 void DashboardGui::on_pushButton_logout_clicked()

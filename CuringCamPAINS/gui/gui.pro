@@ -29,6 +29,7 @@ SOURCES += \
     ../Controller/contact.cpp \
     ../Controller/savedmessages.cpp \
     ../Controller/log.cpp \
+    ../Controller/csv.cpp \
     registrationgui.cpp \
     resourcesgui.cpp
 
@@ -44,6 +45,7 @@ HEADERS += \
     loggui.h \
     logingui.h \
     registrationgui.h \
+    ../Controller/csv.h \
     resourcesgui.h
 
 FORMS += \

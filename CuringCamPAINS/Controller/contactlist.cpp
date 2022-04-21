@@ -141,7 +141,6 @@ void ContactList::addContact(string fn, string ln, string cellNum, string email,
     Contact* c = new Contact(fn, ln, cellNum, email, hAdd, stoi(age));
     masterList->push_back(c);
 
-    string cols[] = {"contactId", "contactListId", "firstName", "lastName", "phoneNumber", "emailAddress", "homeAddress", "dateOfBirth"};
     string id = to_string(c->id);
     string listIdStr = to_string(c->contactListId);
     string inputs[] = {id, listIdStr, fn, ln, cellNum, email, hAdd, age};
@@ -161,7 +160,6 @@ void ContactList::addContact(Contact *c) {
 
     cerr << "Master list size: " << masterList->size() << endl;
 
-    string cols[] = {"contactId", "contactListId", "firstName", "lastName", "phoneNumber", "emailAddress", "homeAddress", "dateOfBirth"};
     string id = to_string(c->id);
     string listIdStr = to_string(c->contactListId);
     string inputs[] = {id, listIdStr, c->firstName, c->lastName, c->cellNum, c->emailAddress, c->homeAddress, to_string(c->age)};
