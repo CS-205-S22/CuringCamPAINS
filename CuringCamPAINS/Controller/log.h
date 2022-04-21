@@ -14,8 +14,8 @@ public:
     void clearLogForm();
     void editLogForm();
     void saveLogForm(string fullName, string age, string phoneNumber, string numOfAttempts,
-                              string methodOfContact, string reaction, string dateContacted,
-                              string isCommitted);
+                     string methodOfContact, string reaction, string dateContacted,
+                     string isCommitted);
     void deleteLog(string phoneNumber);
     string boolToString(bool tof);
     int logId = 0;
