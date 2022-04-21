@@ -8,6 +8,9 @@
 class ContactListTest : public ::testing::Test {
 public:
     ContactListTest();
+
+protected:
+//    ContactList* cl/* = new ContactList("../../test.sqlite")*/;
 };
 
 #endif // CONTACTLISTTEST_H

@@ -87,13 +87,13 @@ void ContactList::readFile(string name) {
             string id = to_string(c->id);
             string listIdStr = to_string(c->contactListId);
             string inputs[] = {id, listIdStr, firstName, lastName, cellStr, email, hAdd, ageStr};
-            write("contact", cols, 8, inputs);
+            write("contact", inputs);
+
+            divideIntoGroups(c);
         }
     }
 
     file.close();
-
-    divideIntoGroups();
 }
 
 void ContactList::getManualEntry() {
@@ -120,31 +120,14 @@ void ContactList::getManualEntry() {
     addContact(firstName, lastName, cellStr, email, hAdd, ageStr);
 }
 
-void ContactList::divideIntoGroups() {
-    for (unsigned i = 0; i < masterList->size(); i++) {    //print all splitted strings
-          if (i % 3 == 0) {
-              treatmentGroup->push_back(masterList->at(i));
-              masterList->at(i)->contactListId = TREATMENT;
-          } else if (i % 3 == 1) {
-              controlGroup->push_back(masterList->at(i));
-              masterList->at(i)->contactListId = CONTROL;
-          } else {
-              noContactGroup->push_back(masterList->at(i));
-              masterList->at(i)->contactListId = NOCONTACT;
-          }
+void ContactList::divideIntoGroups(Contact* c) {
+    if (c->contactListId == 0) {
+        treatmentGroup->push_back(c);
+    } else if (c->contactListId == 1) {
+        controlGroup->push_back(c);
+    } else {
+        noContactGroup->push_back(c);
     }
-
-//    print();
-}
-
-bool ContactList::containsContact(string str) {
-
-    for (unsigned i = 0; i < masterList->size(); i++) {
-        if (str.compare(masterList->at(i)->cellNum) == 0)
-            return true;
-    }
-
-    return false;
 }
 
 void ContactList::addContact(string fn, string ln, string cellNum, string email, string hAdd, string age){
@@ -162,30 +145,49 @@ void ContactList::addContact(string fn, string ln, string cellNum, string email,
     string id = to_string(c->id);
     string listIdStr = to_string(c->contactListId);
     string inputs[] = {id, listIdStr, fn, ln, cellNum, email, hAdd, age};
-    write("contact", cols, 8, inputs);
+    write("contact", inputs);
 
-    if (size % 3 == 0) {
-        treatmentGroup->push_back(c);
-    } else if (size % 3 == 1) {
-        controlGroup->push_back(c);
-    } else {
-        noContactGroup->push_back(c);
-    }
-
+    divideIntoGroups(c);
 //    print();
 }
 
 void ContactList::addContact(Contact *c) {
-    int size = masterList->size();
+    if (containsContact(c->cellNum)){
+        cout << "Contact is already saved." << endl;
+        return;
+    }
+//    int size = masterList->size();
     masterList->push_back(c);
 
-    if (size % 3 == 0) {
-        treatmentGroup->push_back(c);
-    } else if (size % 3 == 1) {
-        controlGroup->push_back(c);
-    } else {
-        noContactGroup->push_back(c);
+    cerr << "Master list size: " << masterList->size() << endl;
+
+    string cols[] = {"contactId", "contactListId", "firstName", "lastName", "phoneNumber", "emailAddress", "homeAddress", "dateOfBirth"};
+    string id = to_string(c->id);
+    string listIdStr = to_string(c->contactListId);
+    string inputs[] = {id, listIdStr, c->firstName, c->lastName, c->cellNum, c->emailAddress, c->homeAddress, to_string(c->age)};
+    write("contact", inputs);
+
+    divideIntoGroups(c);
+}
+
+bool ContactList::containsContact(string str) {
+
+    for (unsigned i = 0; i < masterList->size(); i++) {
+        if (str.compare(masterList->at(i)->cellNum) == 0)
+            return true;
     }
+
+    return false;
+}
+
+void ContactList::deleteContact(string cellStr) {
+    for (unsigned i = 0; i < masterList->size(); i++) {
+        if (cellStr.compare(masterList->at(i)->cellNum) == 0) {
+            masterList->erase(masterList->begin() + i);
+        }
+    }
+
+    remove("contact", "phoneNumber", cellStr);
 }
 
 void ContactList::print() {
@@ -230,9 +232,10 @@ void ContactList::readFromDB() {
             homeAdd = query.value("homeAddress").toString().toStdString();
             age = stoi(query.value("dateOfBirth").toString().toStdString());
 
-            Contact* c = new Contact(id, listId, firstName, lastName, cellStr, email, homeAdd, age);
-
-            masterList->push_back(c);
+            if (!containsContact(cellStr)) {
+                Contact* c = new Contact(id, listId, firstName, lastName, cellStr, email, homeAdd, age);
+                masterList->push_back(c);
+            }
         }
     }
 }

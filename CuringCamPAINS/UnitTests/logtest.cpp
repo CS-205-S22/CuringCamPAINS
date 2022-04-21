@@ -3,8 +3,12 @@
 LogTest::LogTest() {
 }
 
-LogForm logFile = LogForm("../../../../../database.sqlite");
+//LogForm logFile = LogForm("../../../../../database.sqlite");
 //LogForm logFile = LogForm();
+
+//LogForm logFile = LogForm("../../../../../database.sqlite");
+LogForm logFile = LogForm("../../test.sqlite");
+
 
 TEST(Log, UnimplementedTest) {
     //ASSERT_TRUE(false) << "This test was not implemented. Failing...";

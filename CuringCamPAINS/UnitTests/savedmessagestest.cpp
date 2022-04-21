@@ -13,13 +13,20 @@ TEST(SavedMessages, UnimplementedTest) {
 
 
 TEST(createMessage, createMessageTest) {
-    sm.createMessage("TestCLass", "Is this working?");
+    sm.createMessage("TestClass", "Is this working?");
     //use query
+    QSqlQuery q;
+    q.exec("SELECT messageTitle FROM savedmessages");
+    string ret;
+    while(q.next()) {
+        ret = q.value(0).toString().toStdString();
+    }
+    ASSERT_EQ(ret, "TestClass");
 }
 
 TEST(viewMessage, createMessageTest) {
     vector<string> ret;
-    ret = sm.viewMessage("TestCLass");
+    ret = sm.viewMessage("TestClass");
     ASSERT_EQ("Is this working?", ret.at(0));
 }
 
