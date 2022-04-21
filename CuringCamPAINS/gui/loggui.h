@@ -2,6 +2,7 @@
 #define LOGGUI_H
 
 #include <QWidget>
+#include <QMessageBox>
 #include "../Controller/log.h"
 
 namespace Ui {
@@ -15,6 +16,7 @@ class LogGui : public QWidget
 public:
     explicit LogGui(QWidget *parent = nullptr);
     ~LogGui();
+    void autofill();
 
 private slots:
     void on_pushButton_enter_clicked();

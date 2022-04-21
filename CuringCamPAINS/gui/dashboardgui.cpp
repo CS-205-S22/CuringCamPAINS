@@ -45,5 +45,6 @@ void DashboardGui::on_pushButton_logout_clicked()
 void DashboardGui::on_pushButton_log_clicked()
 {
     ui->stackedWidget_main->setCurrentIndex(3);
+    logGui->autofill();
 }
 
