@@ -1,5 +1,5 @@
-#ifndef CONTACTS_H
-#define CONTACTS_H
+#ifndef CONTACTS_OLD_H
+#define CONTACTS_OLD_H
 
 #include <QDialog>
 #include "../Controller/contactlist.h"
@@ -30,4 +30,4 @@ private:
     Ui::Contacts *ui;
 };
 
-#endif // CONTACTS_H
+#endif // CONTACTS_OLD_H

@@ -1,6 +1,5 @@
-#include "contacts.h"
+#include "contacts_old.h"
 #include "ui_contacts.h"
-
 
 Contacts::Contacts(QWidget *parent) :
     QDialog(parent),

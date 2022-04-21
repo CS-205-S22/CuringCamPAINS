@@ -8,8 +8,8 @@ using namespace std;
 
 ContactList cList("../../database.sqlite");
 
-SavedMessages sm("../../../../../database.sqlite");
-LogForm logForm("../../../../../database.sqlite");
+SavedMessages sm1("../../../../../database.sqlite");
+LogForm logForm1("../../../../../database.sqlite");
 
 Dashboard::Dashboard(QWidget *parent)
     : QWidget(parent)
@@ -84,7 +84,7 @@ void Dashboard::on_saveMessage_clicked()
     this->title = ui->inputTitle->text().toStdString();
     this->text = ui->inputText->text().toStdString();
     //call saved messages create message
-    sm.createMessage(this->title, this->text);
+    sm1.createMessage(this->title, this->text);
     ui->inputTitle->clear();
     ui->inputText->clear();
     ui->stackedWidget->setCurrentIndex(1);
@@ -104,7 +104,7 @@ void Dashboard::on_dashboardButton_clicked()
 void Dashboard::on_viewMessage_clicked()
 {
     ui->stackedWidget->setCurrentIndex(3);
-    vector<string> titles = sm.viewTitles();
+    vector<string> titles = sm1.viewTitles();
     if (titles.empty()) {
         ui->titlesOutput->setText("No saved messages.");
     } else {
@@ -127,7 +127,7 @@ void Dashboard::on_viewMessage_clicked()
 void Dashboard::on_viewButton_clicked()
 {
     this->title = ui->inputTitle_2->text().toStdString();
-    vector<string> toView = sm.viewMessage(this->title);
+    vector<string> toView = sm1.viewMessage(this->title);
     if (toView.empty()) {
         ui->displayText->setText("No messages with input title.");
     } else {
@@ -148,7 +148,7 @@ void Dashboard::on_viewButton_clicked()
 void Dashboard::on_deleteButton_clicked()
 {
     this->title = ui->inputTitle_3->text().toStdString();
-    sm.deleteMessage(this->title);
+    sm1.deleteMessage(this->title);
     ui->inputTitle_3->clear();
     ui->stackedWidget->setCurrentIndex(1);
 }
@@ -160,7 +160,7 @@ void Dashboard::on_deleteButton_clicked()
 void Dashboard::on_deleteMessage_clicked()
 {
     ui->stackedWidget->setCurrentIndex(4);
-    vector<string> titles = sm.viewTitles();
+    vector<string> titles = sm1.viewTitles();
     if (titles.empty()) {
         ui->allTitles->setText("No saved messages.");
     } else {
@@ -177,29 +177,29 @@ void Dashboard::on_deleteMessage_clicked()
 
 void Dashboard::on_nameButton_clicked()
 {
-    logForm.name = ui->nameLineEdit->text().toStdString();
-    logForm.age = ui->ageLineEdit->text().toStdString();
-    logForm.phoneNumber = ui->pnLineEdit->text().toStdString();
-    logForm.numOfAttempts = ui->numAttemptsLineEdit->text().toStdString();
-    logForm.methodOfContact = ui->methodOfContactLineEdit->text().toStdString();
-    logForm.reaction = ui->reactionLineEdit->text().toStdString();
-    logForm.date = ui->dateContactedLineEdit->text().toStdString();
-    logForm.committed = ui->isCommittedLineEdit->text().toStdString();
+    logForm1.name = ui->nameLineEdit->text().toStdString();
+    logForm1.age = ui->ageLineEdit->text().toStdString();
+    logForm1.phoneNumber = ui->pnLineEdit->text().toStdString();
+    logForm1.numOfAttempts = ui->numAttemptsLineEdit->text().toStdString();
+    logForm1.methodOfContact = ui->methodOfContactLineEdit->text().toStdString();
+    logForm1.reaction = ui->reactionLineEdit->text().toStdString();
+    logForm1.date = ui->dateContactedLineEdit->text().toStdString();
+    logForm1.committed = ui->isCommittedLineEdit->text().toStdString();
 
-    /*logForm.logInput[0] = ui->nameLineEdit->text().toStdString();
-    logForm.logInput[1] = ui->ageLineEdit->text().toStdString();
-    logForm.logInput[2] = ui->pnLineEdit->text().toStdString();
-    logForm.logInput[3] = ui->numAttemptsLineEdit->text().toStdString();
-    logForm.logInput[4] = ui->methodOfContactLineEdit->text().toStdString();
-    logForm.logInput[5] = ui->reactionLineEdit->text().toStdString();
-    logForm.logInput[6] = ui->dateContactedLineEdit->text().toStdString();
-    logForm.logInput[7] = ui->isCommittedLineEdit->text().toStdString();*/
+    /*logForm1.logInput[0] = ui->nameLineEdit->text().toStdString();
+    logForm1.logInput[1] = ui->ageLineEdit->text().toStdString();
+    logForm1.logInput[2] = ui->pnLineEdit->text().toStdString();
+    logForm1.logInput[3] = ui->numAttemptsLineEdit->text().toStdString();
+    logForm1.logInput[4] = ui->methodOfContactLineEdit->text().toStdString();
+    logForm1.logInput[5] = ui->reactionLineEdit->text().toStdString();
+    logForm1.logInput[6] = ui->dateContactedLineEdit->text().toStdString();
+    logForm1.logInput[7] = ui->isCommittedLineEdit->text().toStdString();*/
 
-    //logForm.saveLogForm(logForm.logInput[0],logForm.logInput[1],logForm.logInput[2],
-            //logForm.logInput[3],logForm.logInput[4],logForm.logInput[5],
-            //logForm.logInput[6],logForm.logInput[7]);
-    logForm.saveLogForm(logForm.name, logForm.age, logForm.phoneNumber, logForm.numOfAttempts,
-                       logForm.methodOfContact, logForm.reaction, logForm.date, logForm.committed);
+    //logForm1.saveLogForm(logForm1.logInput[0],logForm1.logInput[1],logForm1.logInput[2],
+            //logForm1.logInput[3],logForm1.logInput[4],logForm1.logInput[5],
+            //logForm1.logInput[6],logForm1.logInput[7]);
+    logForm1.saveLogForm(logForm1.name, logForm1.age, logForm1.phoneNumber, logForm1.numOfAttempts,
+                       logForm1.methodOfContact, logForm1.reaction, logForm1.date, logForm1.committed);
     //logForm.saveLogForm("John Cena", "19", "1111112", "3", "text", "unsure", "April 7th, 2022", "false");
     //logForm.deleteLog("111");
 
