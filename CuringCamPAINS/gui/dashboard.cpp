@@ -205,7 +205,7 @@ void Dashboard::on_nameButton_clicked()
             ui->isCommittedLineEdit->text().toStdString() == ""){
         QMessageBox::information(this,tr("EMPTY PROMPT(S)"), tr("Please fill in every prompt!"));
     //CHECKS IF THE PERSON IS AT LEAST 18
-    }else if (ui->ageLineEdit->text().toStdString() < "18"){
+    }else if (stoi(ui->ageLineEdit->text().toStdString()) < 18){
         QMessageBox::information(this,tr("INVALID AGE"), tr("This person has to be 18 or older!"));
         //what else can I do because if I type 'a' then that will still be accepted as a name
 
