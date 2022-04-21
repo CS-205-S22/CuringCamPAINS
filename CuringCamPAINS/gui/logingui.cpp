@@ -1,6 +1,5 @@
 #include "logingui.h"
 #include "ui_logingui.h"
-#include "dashboard.h"
 #include <QMessageBox>
 
 LoginGUI::LoginGUI(QWidget *parent) :

@@ -18,13 +18,11 @@ CONFIG += c++11
 #TEMPLATE = app
 
 SOURCES += \
-    contacts_old.cpp \
     contactsgui.cpp \
     dashboardgui.cpp \
     loggui.cpp \
     logingui.cpp \
     main.cpp \
-    dashboard.cpp \
     ../Controller/contactlist.cpp \
     ../Controller/database.cpp \
     ../Controller/login.cpp \
@@ -35,9 +33,7 @@ SOURCES += \
     resourcesgui.cpp
 
 HEADERS += \
-    contacts_old.h \
     contactsgui.h \
-    dashboard.h \
     ../Controller/contactlist.h \
     ../Controller/database.h \
     ../Controller/contact.h \
@@ -51,9 +47,7 @@ HEADERS += \
     resourcesgui.h
 
 FORMS += \
-    contacts_old.ui \
     contactsgui.ui \
-    dashboard.ui \
     dashboardgui.ui \
     loggui.ui \
     logingui.ui \

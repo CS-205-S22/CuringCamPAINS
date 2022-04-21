@@ -2,7 +2,7 @@
 #define REGISTRATIONGUI_H
 
 #include <QDialog>
-#include "dashboard.h"
+#include "../Controller/database.h"
 
 namespace Ui {
 class registrationGUI;

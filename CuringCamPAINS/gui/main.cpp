@@ -1,6 +1,4 @@
-#include "dashboard.h"
 #include "logingui.h"
-#include "contacts_old.h"
 #include <QApplication>
 #include "dashboardgui.h"
 
