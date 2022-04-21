@@ -2,7 +2,7 @@
 #define LOGINGUI_H
 
 #include <QDialog>
-#include "dashboard.h"
+#include "dashboardgui.h"
 #include "../Controller/login.h"
 #include "../Controller/database.h"
 #include "registrationgui.h"
@@ -27,7 +27,7 @@ private slots:
 
 private:
     Ui::LoginGUI *ui;
-    Dashboard *dashBoard;
+    DashboardGui *dashboardGui;
     registrationGUI *registration;
     Login *s;
 };

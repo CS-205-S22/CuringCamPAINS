@@ -18,35 +18,41 @@ CONFIG += c++11
 #TEMPLATE = app
 
 SOURCES += \
-    contacts.cpp \
+    contactsgui.cpp \
+    dashboardgui.cpp \
+    loggui.cpp \
     logingui.cpp \
     main.cpp \
-    dashboard.cpp \
     ../Controller/contactlist.cpp \
     ../Controller/database.cpp \
     ../Controller/login.cpp \
     ../Controller/contact.cpp \
     ../Controller/savedmessages.cpp \
     ../Controller/log.cpp \
-    registrationgui.cpp
+    registrationgui.cpp \
+    resourcesgui.cpp
 
 HEADERS += \
-    contacts.h \
-    dashboard.h \
+    contactsgui.h \
     ../Controller/contactlist.h \
     ../Controller/database.h \
     ../Controller/contact.h \
     ../Controller/login.h \
     ../Controller/savedmessage.h \
     ..Controller/log.h \
+    dashboardgui.h \
+    loggui.h \
     logingui.h \
-    registrationgui.h
+    registrationgui.h \
+    resourcesgui.h
 
 FORMS += \
-    contacts.ui \
-    dashboard.ui \
+    contactsgui.ui \
+    dashboardgui.ui \
+    loggui.ui \
     logingui.ui \
-    registrationgui.ui
+    registrationgui.ui \
+    resourcesgui.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

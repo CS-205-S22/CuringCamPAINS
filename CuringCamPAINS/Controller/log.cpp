@@ -77,5 +77,11 @@ void LogForm::deleteLog(string phoneNumber){
     remove("logForm", "phoneNumber", phoneNumber);
 }
 
+//void LogGui::clearLog() {
 
+//}
+
+//void LogGui::enterLogForm() {
+
+//}
 
