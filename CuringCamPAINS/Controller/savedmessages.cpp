@@ -54,6 +54,7 @@ vector<string> SavedMessages::viewTitles() {
  */
 void SavedMessages::deleteMessage(string title) {
     remove("savedmessages", "messageTitle", title);
+    //check if now empty, can reset id
 }
 
 int SavedMessages::getMessageMaxId() {

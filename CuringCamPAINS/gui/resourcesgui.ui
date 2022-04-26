@@ -17,9 +17,9 @@
    <item row="0" column="0">
     <widget class="QStackedWidget" name="stackedWidget_resources">
      <property name="currentIndex">
-      <number>1</number>
+      <number>2</number>
      </property>
-     <widget class="QWidget" name="page">
+     <widget class="QWidget" name="buttonsPage">
       <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
@@ -61,7 +61,7 @@
        </layout>
       </widget>
      </widget>
-     <widget class="QWidget" name="page_2">
+     <widget class="QWidget" name="createMessagePage">
       <widget class="QLineEdit" name="lineEdit_text">
        <property name="geometry">
         <rect>
@@ -122,7 +122,7 @@
        </property>
       </widget>
      </widget>
-     <widget class="QWidget" name="page_3">
+     <widget class="QWidget" name="viewMessagePage">
       <widget class="QWidget" name="layoutWidget_2">
        <property name="geometry">
         <rect>
@@ -156,26 +156,13 @@
        <property name="geometry">
         <rect>
          <x>260</x>
-         <y>280</y>
+         <y>270</y>
          <width>100</width>
          <height>32</height>
         </rect>
        </property>
        <property name="text">
         <string>Back</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_displayText">
-       <property name="geometry">
-        <rect>
-         <x>200</x>
-         <y>240</y>
-         <width>191</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string/>
        </property>
       </widget>
       <widget class="QLabel" name="label_titlesOutput">
@@ -191,8 +178,21 @@
         <string/>
        </property>
       </widget>
+      <widget class="QTextEdit" name="textEdit_textOutput">
+       <property name="geometry">
+        <rect>
+         <x>143</x>
+         <y>313</y>
+         <width>331</width>
+         <height>131</height>
+        </rect>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+      </widget>
      </widget>
-     <widget class="QWidget" name="page_4">
+     <widget class="QWidget" name="deleteMessagePage">
       <widget class="QWidget" name="layoutWidget_3">
        <property name="geometry">
         <rect>

@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QColorDialog>
+#include <sstream>
 #include "../Controller/savedmessages.h"
 
 using namespace std;
@@ -19,6 +20,7 @@ public:
     explicit ResourcesGui(QWidget *parent = nullptr);
     ~ResourcesGui();
 
+    void multipleTitles();
 private slots:
     void on_pushButton_changeColor_clicked();
 
