@@ -195,6 +195,7 @@ void ResourcesGui::on_pushButton_delete_clicked()
         sm.deleteMessage(this->title);
     }
     ui->inputTitle_3->clear();
+    ui->label_allTitles->clear();
     ui->stackedWidget_resources->setCurrentIndex(0);
 }
 
