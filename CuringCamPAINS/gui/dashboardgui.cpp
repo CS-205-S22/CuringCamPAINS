@@ -44,7 +44,7 @@ void DashboardGui::displayButtons() {
     }
 }
 
-/* SLOT for getting number of buttons.
+/* SLOT for buttons.
  * */
 void DashboardGui::openLogForm()
 {
@@ -58,6 +58,21 @@ void DashboardGui::openLogForm()
     Contact* save = contactsGui->contactList->treatmentGroup->at(pos);
     contactsGui->contactList->treatmentGroup->erase(contactsGui->contactList->treatmentGroup->begin() + pos);
     contactsGui->contactList->treatmentGroup->push_back(save);
+
+
+    //now shuffle buttons
+    this->deleteButtons();
+    //this->displayButtons();
+}
+
+void DashboardGui::deleteButtons() {
+    for(int i = 0; i < ui->verticalLayout->count(); i++){
+        ui->verticalLayout->itemAt(i)->widget()->hide();
+        delete ui->verticalLayout->itemAt(i)->widget();
+        /*DynamicButton *button = qobject_cast<DynamicButton*>(ui->verticalLayout->itemAt(i)->widget());
+        button->hide();
+        delete button;*/
+    }
 }
 
 void DashboardGui::on_pushButton_contacts_clicked()
@@ -83,7 +98,7 @@ void DashboardGui::on_pushButton_logout_clicked()
     this->close();
 }
 
-void DashboardGui::on_pushButton_log_clicked()
+void DashboardGui::on_pushButton_update_clicked()
 {
     ui->stackedWidget_main->setCurrentIndex(3);
     logGui->autofill();

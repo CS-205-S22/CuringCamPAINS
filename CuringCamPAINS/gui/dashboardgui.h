@@ -17,7 +17,7 @@ class DashboardGui : public QWidget
 
 public:
     explicit DashboardGui(QWidget *parent = nullptr);
-
+    void deleteButtons();
     void displayButtons();
     ~DashboardGui();
 
@@ -33,7 +33,7 @@ private slots:
 
     void on_pushButton_data_clicked();
 
-    void on_pushButton_log_clicked();
+    void on_pushButton_update_clicked();
 
 private:
     Ui::DashboardGui *ui;

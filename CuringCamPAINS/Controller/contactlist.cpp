@@ -128,7 +128,6 @@ void ContactList::divideIntoGroups(Contact* c) {
     } else {
         noContactGroup->push_back(c);
     }
-    cerr << treatmentGroup->size() << endl;
 }
 
 void ContactList::addContact(string fn, string ln, string cellNum, string email, string hAdd, string age){
