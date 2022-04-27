@@ -16,7 +16,7 @@ ContactList::ContactList(string name):Database(name)
     controlGroup = new vector<Contact*>();
     noContactGroup = new vector<Contact*>();
 
-    readFromDB();
+//    readFromDB();
 }
 
 void ContactList::getUserInput() {
