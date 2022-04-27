@@ -5,6 +5,7 @@
 #include "contactsgui.h"
 #include "loggui.h"
 #include "resourcesgui.h"
+#include "dynamicbutton.h"
 #include "../Controller/csv.h"
 namespace Ui {
 class DashboardGui;
@@ -16,9 +17,12 @@ class DashboardGui : public QWidget
 
 public:
     explicit DashboardGui(QWidget *parent = nullptr);
+    void deleteButtons();
+    void displayButtons();
     ~DashboardGui();
 
 private slots:
+    void openLogForm();
     void on_pushButton_dashboard_clicked();
 
     void on_pushButton_contacts_clicked();
@@ -29,7 +33,7 @@ private slots:
 
     void on_pushButton_data_clicked();
 
-    void on_pushButton_log_clicked();
+    void on_pushButton_update_clicked();
 
 private:
     Ui::DashboardGui *ui;

@@ -37,7 +37,7 @@ public:
     int getMessageMaxId();
 
     //messageId to be incremented for each write to the database
-    int messageId = getMaxId("savedmessages", "messageId");
+    int messageId = getMaxId("savedmessages", "messageId") + 1;
 
     vector<string> retStrings;
 };
