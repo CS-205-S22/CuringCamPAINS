@@ -10,7 +10,7 @@ LogTest::LogTest() {
 LogForm logFile = LogForm("../../test.sqlite");
 
 
-TEST(Log, UnimplementedTest) {
+TEST(Log, SaveLog) {
     //ASSERT_TRUE(false) << "This test was not implemented. Failing...";
     ASSERT_EQ(logFile.name, "");
     ASSERT_EQ(logFile.age, "");

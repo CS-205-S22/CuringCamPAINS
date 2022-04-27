@@ -22,7 +22,6 @@ void ResourcesGui::on_pushButton_changeColor_clicked()
     QColor color = dialog.getColor();
     QString colName = color.name();
 
-
     int r, g, b;
     char const *hexColor = colName.toUtf8().data();
     std::sscanf(hexColor, "#%02x%02x%02x", &r, &g, &b);
