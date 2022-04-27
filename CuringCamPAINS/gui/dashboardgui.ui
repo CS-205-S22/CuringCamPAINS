@@ -168,7 +168,7 @@
     </rect>
    </property>
    <widget class="QWidget" name="page">
-    <widget class="QPushButton" name="pushButton_log">
+    <widget class="QPushButton" name="pushButton_update">
      <property name="geometry">
       <rect>
        <x>530</x>
@@ -178,8 +178,19 @@
       </rect>
      </property>
      <property name="text">
-      <string>Log</string>
+      <string>Update</string>
      </property>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>29</x>
+       <y>39</y>
+       <width>481</width>
+       <height>451</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout"/>
     </widget>
    </widget>
   </widget>

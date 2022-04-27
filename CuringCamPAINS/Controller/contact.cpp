@@ -19,8 +19,6 @@ Contact::Contact(int id, int listId, string fn, string ln, string num, string em
     emailAddress = email;
     homeAddress = hAdd;
     counter = id;
-    cerr << "First name: " << fn << endl;
-    cerr << "ID: " << to_string(id) << endl;
 }
 
 Contact::Contact(string fn, string ln, string num, int a) {
