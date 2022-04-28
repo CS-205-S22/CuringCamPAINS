@@ -5,7 +5,7 @@
 #include "contactsgui.h"
 #include "loggui.h"
 #include "resourcesgui.h"
-
+#include "../Controller/csv.h"
 namespace Ui {
 class DashboardGui;
 }
@@ -36,6 +36,7 @@ private:
     ContactsGui *contactsGui = new ContactsGui();
     LogGui *logGui = new LogGui();
     ResourcesGui *resourcesGui = new ResourcesGui();
+
 };
 
 #endif // DASHBOARDGUI_H

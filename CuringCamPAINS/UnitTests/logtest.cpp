@@ -10,7 +10,8 @@ LogTest::LogTest() {
 LogForm logFile = LogForm("../../test.sqlite");
 
 
-TEST(Log, SaveLog) {
+
+TEST(Log, saveLogFormTest) {
     //ASSERT_TRUE(false) << "This test was not implemented. Failing...";
     ASSERT_EQ(logFile.name, "");
     ASSERT_EQ(logFile.age, "");
@@ -21,13 +22,49 @@ TEST(Log, SaveLog) {
     ASSERT_EQ(logFile.date, "");
     ASSERT_EQ(logFile.committed, "");
 
-    logFile.saveLogForm("John Doe", "21", "123123", "5", "text", "excited", "March 20th, 2022", "false");
-    ASSERT_EQ(logFile.name, "John Doe");
-    ASSERT_EQ(logFile.age, "21");
-    ASSERT_EQ(logFile.phoneNumber, "123123");
-    ASSERT_EQ(logFile.numOfAttempts, "5");
-    ASSERT_EQ(logFile.methodOfContact, "text");
-    ASSERT_EQ(logFile.reaction, "excited");
-    ASSERT_EQ(logFile.date, "March 20th, 2022");
-    ASSERT_EQ(logFile.committed, "false");
+    //logFile.saveLogForm("John Doe", "21", "123123", "5", "text", "excited", "March 20th, 2022", "false");
+    QSqlQuery q;
+    q.exec("SELECT fullName FROM logForm");
+    string str;
+    while(q.next()){
+        str = q.value(0).toString().toStdString();
+    }
+    ASSERT_EQ(str,"John Doe");
+
+    q.exec("SELECT age FROM logForm");
+    while(q.next()){
+        str = q.value(0).toString().toStdString();
+    }
+    ASSERT_EQ(str,"21");
+
+    q.exec("SELECT phoneNumber FROM logForm");
+    while(q.next()){
+        str = q.value(0).toString().toStdString();
+    }
+    ASSERT_EQ(str,"123123");
+
+    q.exec("SELECT numOfAttempts FROM logForm");
+    while(q.next()){
+        str = q.value(0).toString().toStdString();
+    }
+    ASSERT_EQ(str,"5");
+
+    q.exec("SELECT methodOfContact FROM logForm");
+    while(q.next()){
+        str = q.value(0).toString().toStdString();
+    }
+    ASSERT_EQ(str,"text");
+
+    q.exec("SELECT reaction FROM logForm");
+    while(q.next()){
+        str = q.value(0).toString().toStdString();
+    }
+    ASSERT_EQ(str,"excited");
+
+    q.exec("SELECT isCommitted FROM logForm");
+    while(q.next()){
+        str = q.value(0).toString().toStdString();
+    }
+    ASSERT_EQ(str,"false");
+
 }

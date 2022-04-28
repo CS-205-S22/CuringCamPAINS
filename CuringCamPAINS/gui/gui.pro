@@ -20,6 +20,7 @@ CONFIG += c++11
 SOURCES += \
     contactsgui.cpp \
     dashboardgui.cpp \
+    dynamicbutton.cpp \
     loggui.cpp \
     logingui.cpp \
     main.cpp \
@@ -29,6 +30,7 @@ SOURCES += \
     ../Controller/contact.cpp \
     ../Controller/savedmessages.cpp \
     ../Controller/log.cpp \
+    ../Controller/csv.cpp \
     registrationgui.cpp \
     resourcesgui.cpp
 
@@ -41,9 +43,11 @@ HEADERS += \
     ../Controller/savedmessage.h \
     ..Controller/log.h \
     dashboardgui.h \
+    dynamicbutton.h \
     loggui.h \
     logingui.h \
     registrationgui.h \
+    ../Controller/csv.h \
     resourcesgui.h
 
 FORMS += \
