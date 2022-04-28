@@ -40,6 +40,10 @@ private slots:
 
     void on_pushButton_delete_clicked();
 
+    void on_pushButton_back2_clicked();
+
+    void on_pushButton_back3_clicked();
+
 private:
     Ui::ResourcesGui *ui;
     string title, text;

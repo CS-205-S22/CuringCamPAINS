@@ -181,19 +181,6 @@
     </rect>
    </property>
    <widget class="QWidget" name="page">
-    <widget class="QPushButton" name="pushButton_update">
-     <property name="geometry">
-      <rect>
-       <x>530</x>
-       <y>40</y>
-       <width>100</width>
-       <height>32</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Update</string>
-     </property>
-    </widget>
     <widget class="QWidget" name="verticalLayoutWidget">
      <property name="geometry">
       <rect>
