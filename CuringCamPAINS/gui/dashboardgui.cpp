@@ -75,7 +75,7 @@ void DashboardGui::openLogForm()
 
     //now shuffle buttons
     this->deleteButtons();
-    //this->displayButtons();
+    this->displayButtons();
 }
 
 void DashboardGui::deleteButtons() {
