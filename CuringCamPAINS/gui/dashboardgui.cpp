@@ -16,7 +16,7 @@ DashboardGui::DashboardGui(int cur_usrId, QWidget *parent) :
     int h=ui->label_image->height();
     ui->label_image->setPixmap(pix.scaled(w,h,Qt::KeepAspectRatio));
 
-//    ui->label_image->setText("Tafita");
+    //    ui->label_image->setText("Tafita");
     resourcesGui = new ResourcesGui(cur_usrId);
     ui->stackedWidget_main->addWidget(contactsGui);
     ui->stackedWidget_main->addWidget(resourcesGui);
@@ -33,17 +33,22 @@ DashboardGui::~DashboardGui()
 void DashboardGui::on_pushButton_dashboard_clicked()
 {
     ui->stackedWidget_main->setCurrentIndex(0);
-    this->displayButtons();
+    if (numContacts != (int)contactsGui->contactList->treatmentGroup->size()) {
+        this->displayButtons();
+        numContacts = (int)contactsGui->contactList->treatmentGroup->size();
+    }
 }
 
 void DashboardGui::displayButtons() {
     //add buttons here
-    //    if(count == 1) {
+
+
+
+    if (ui->verticalLayout->count() != 0) {
+        deleteButtons();
+    }
+
     vector<string> contacts;
-
-    //do we increase the size of the treatment group size when we manually add a contact?
-    //wait when we manually add, does it directly go to the treatment group?
-
     for (int i = 0; i < (int)contactsGui->contactList->treatmentGroup->size(); i++) {
         contacts.push_back(contactsGui->contactList->treatmentGroup->at(i)->firstName);
     }
@@ -52,14 +57,15 @@ void DashboardGui::displayButtons() {
     //cerr << "CONTACTS VECTOR SIZE: " << contacts.size() << endl;
 
     DynamicButton *button;
+    DynamicButton::setID();
     for (int i = 0; i < (int)contacts.size(); i++) {
         button = new DynamicButton(this);  // Create a dynamic button object
         /* Set the text with name of contact
            * */
 
-        if (std::find(buttonList.begin(), buttonList.end(), contacts.at(i)) != buttonList.end()) {
-            continue;
-        } else {
+        //if (std::find(buttonList.begin(), buttonList.end(), contacts.at(i)) != buttonList.end()) {
+            //continue;
+        //} else {
 
             button->setText(QString::fromStdString(contacts.at(i)));
             /* Adding a button to the bed with a vertical layout
@@ -75,9 +81,10 @@ void DashboardGui::displayButtons() {
             dynButtonList.push_back(button);
             connect(button, SIGNAL(clicked()), this, SLOT(openLogForm()));
 
-        }
+
         count++;
     }
+    contacts.clear();
 }
 
     /* SLOT for buttons.
@@ -97,7 +104,7 @@ void DashboardGui::displayButtons() {
         logGui->autofill(button->text().toStdString(), to_string(treatmentContact->age), treatmentContact->cellNum);
 
         cerr << "AFTER AUTOFILL" << endl;
-        int pos = button->ResID - 1;
+        int pos = button->resID - 1;
         Contact* save = contactsGui->contactList->treatmentGroup->at(pos);
         contactsGui->contactList->treatmentGroup->erase(contactsGui->contactList->treatmentGroup->begin() + pos);
         contactsGui->contactList->treatmentGroup->push_back(save);
@@ -112,7 +119,9 @@ void DashboardGui::displayButtons() {
 
     //open log form
 
-    int pos = button->ResID - 1;
+
+    //add this contact to the back of the vector
+    int pos = button->resID - 1;
     Contact* save = contactsGui->contactList->treatmentGroup->at(pos);
     contactsGui->contactList->treatmentGroup->erase(contactsGui->contactList->treatmentGroup->begin() + pos);
     contactsGui->contactList->treatmentGroup->push_back(save);*/
@@ -157,8 +166,8 @@ void DashboardGui::on_pushButton_logout_clicked()
 {
     LoginGUI *l= new LoginGUI();
     hide();
-   l->show();
-//    this->close();
+    l->show();
+    //    this->close();
 }
 
 

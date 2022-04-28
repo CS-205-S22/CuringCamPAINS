@@ -52,6 +52,7 @@ private:
     ContactsGui *contactsGui;
     LogGui *logGui;
     ResourcesGui *resourcesGui;
+    int numContacts = 0;
 
 
 };
