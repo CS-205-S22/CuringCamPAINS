@@ -18,6 +18,7 @@ class LoginGUI : public QDialog
 public:
     explicit LoginGUI(QWidget *parent = nullptr);
     ~LoginGUI();
+    int curr_usrId;
 
 
 private slots:
@@ -30,6 +31,7 @@ private:
     DashboardGui *dashboardGui;
     registrationGUI *registration;
     Login *s;
+
 };
 
 #endif // LOGINGUI_H

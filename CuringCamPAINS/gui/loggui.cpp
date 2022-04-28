@@ -1,14 +1,17 @@
 #include "loggui.h"
 #include "ui_loggui.h"
 
-LogForm logForm("../../../../../database.sqlite");
 
-LogGui::LogGui(QWidget *parent) :
+
+
+LogGui::LogGui(int usr,QWidget *parent) :
     QWidget(parent),
     ui(new Ui::LogGui)
 {
+    cur_usr=usr;
     ui->setupUi(this);
     ui->stackedWidget_log->setCurrentIndex(0);
+    logForm=new LogForm(usr,"../../../../../database.sqlite");
 }
 
 LogGui::~LogGui()
@@ -61,14 +64,14 @@ void LogGui::on_pushButton_enter_clicked()
     }else{
 
 
-    logForm.name = ui->lineEdit_name->text().toStdString();
-    logForm.age = ui->lineEdit_age->text().toStdString();
-    logForm.phoneNumber = ui->lineEdit_phoneNumber->text().toStdString();
-    logForm.numOfAttempts = ui->lineEdit_numOfAttempts->text().toStdString();
-    logForm.methodOfContact = ui->lineEdit_methodOfContact->text().toStdString();
-    logForm.reaction = ui->lineEdit_reaction->text().toStdString();
-    logForm.date = ui->lineEdit_date->text().toStdString();
-    logForm.committed = ui->lineEdit_committed->text().toStdString();
+    logForm->name = ui->lineEdit_name->text().toStdString();
+    logForm->age = ui->lineEdit_age->text().toStdString();
+    logForm->phoneNumber = ui->lineEdit_phoneNumber->text().toStdString();
+    logForm->numOfAttempts = ui->lineEdit_numOfAttempts->text().toStdString();
+    logForm->methodOfContact = ui->lineEdit_methodOfContact->text().toStdString();
+    logForm->reaction = ui->lineEdit_reaction->text().toStdString();
+    logForm->date = ui->lineEdit_date->text().toStdString();
+    logForm->committed = ui->lineEdit_committed->text().toStdString();
 
     /*logForm.logInput[0] = ui->nameLineEdit->text().toStdString();
     logForm.logInput[1] = ui->ageLineEdit->text().toStdString();
@@ -83,8 +86,8 @@ void LogGui::on_pushButton_enter_clicked()
             logForm.logInput[3],logForm.logInput[4],logForm.logInput[5],
             logForm.logInput[6],logForm.logInput[7]);*/
 
-    logForm.saveLogForm(logForm.name, logForm.age, logForm.phoneNumber, logForm.numOfAttempts,
-                       logForm.methodOfContact, logForm.reaction, logForm.date, logForm.committed);
+    logForm->saveLogForm(logForm->name, logForm->age, logForm->phoneNumber, logForm->numOfAttempts,
+                       logForm->methodOfContact, logForm->reaction, logForm->date, logForm->committed);
     //logForm.saveLogForm("John Cena", "19", "1111112", "3", "text", "unsure", "April 7th, 2022", "false");
     //logForm.deleteLog("111");
     }

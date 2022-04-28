@@ -10,8 +10,8 @@
 class ContactList:public Database
 {
 public:
-    ContactList();
-    ContactList(string name);
+    ContactList(int cur_id);
+    ContactList(int cur_id,string name);
 //    ContactList(Database d);
 
     void getUserInput();
@@ -27,6 +27,7 @@ public:
     void writeToDB();
     void readFromDB();
 
+   int usr_id;
     vector<Contact*>* masterList;
     vector<Contact*>* treatmentGroup;
     vector<Contact*>* controlGroup;

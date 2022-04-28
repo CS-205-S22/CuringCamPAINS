@@ -27,7 +27,8 @@ void LoginGUI::on_submission_pressed()
 
     s = new Login("../../../../../database.sqlite");
     if(s->signUp(username,password)==true) {
-        dashboardGui = new DashboardGui();
+        curr_usrId=s->getUserId(username);
+        dashboardGui = new DashboardGui(curr_usrId);
         hide();
         dashboardGui->show();
     }
@@ -41,4 +42,3 @@ void LoginGUI::on_registration_clicked()
     registration = new registrationGUI(this);
     registration->show();
 }
-

@@ -50,9 +50,11 @@ int main(int argc, char* argv[])
     //    l.signUp("hounasm","look");
 
     ///Saved Messages Testing:
-    //    SavedMessages s("../../database.sqlite");
-    //    s.createMessage("Test","testing this message");
-    //    s.deleteMessage("Test");
+        SavedMessages s(1,"../../database.sqlite");
+        s.createMessage("Test","testing this message");
+        vector<string> temp=s.readTitle("savedmessages","1","messageTitle");
+        cout<<temp.at(0)<<endl;
+//        s.deleteMessage("Test");
 
 
     //    //    QCoreApplication a(argc, argv); //Need to initialize
@@ -128,8 +130,12 @@ int main(int argc, char* argv[])
 ////    test.download(dbbName,"user",parameters,param_size,outFile);
 
 
-    Database db("../../database.sqlite");
-//    db.updateColumn("user");
-    db.tableToCsv("savedmessages","../../savedmessages.csv");
+//    Database db("../../database.sqlite");
+////    db.updateColumn("user");
+//    db.tableToCsv("savedmessages","../../savedmessages.csv");
+
+//        Login db("../../database.sqlite");
+//        cout<<db.getUserId("rex")<<endl;
+
     return 0;
 }

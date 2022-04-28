@@ -72,6 +72,7 @@ public:
     void write(string table_name,string values[] );
 
 
+
     /**
      * @brief Database:readText
      * Method get the content of a table on for a specific conditions
