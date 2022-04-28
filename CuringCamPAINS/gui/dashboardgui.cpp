@@ -16,7 +16,7 @@ DashboardGui::DashboardGui(int cur_usrId, QWidget *parent) :
     int h=ui->label_image->height();
     ui->label_image->setPixmap(pix.scaled(w,h,Qt::KeepAspectRatio));
 
-//    ui->label_image->setText("Tafita");
+    //    ui->label_image->setText("Tafita");
     resourcesGui = new ResourcesGui(cur_usrId);
     ui->stackedWidget_main->addWidget(contactsGui);
     ui->stackedWidget_main->addWidget(resourcesGui);
@@ -33,12 +33,17 @@ DashboardGui::~DashboardGui()
 void DashboardGui::on_pushButton_dashboard_clicked()
 {
     ui->stackedWidget_main->setCurrentIndex(0);
-    this->displayButtons();
+    if (numContacts != (int)contactsGui->contactList->treatmentGroup->size()) {
+        this->displayButtons();
+        numContacts = (int)contactsGui->contactList->treatmentGroup->size();
+    }
 }
 
 void DashboardGui::displayButtons() {
-
     //add buttons here
+    if (ui->verticalLayout->count() != 0) {
+        deleteButtons();
+    }
     vector<string> contacts;
     for (int i = 0; i < (int)contactsGui->contactList->treatmentGroup->size(); i++) {
         contacts.push_back(contactsGui->contactList->treatmentGroup->at(i)->firstName);
@@ -115,8 +120,8 @@ void DashboardGui::on_pushButton_logout_clicked()
 {
     LoginGUI *l= new LoginGUI();
     hide();
-   l->show();
-//    this->close();
+    l->show();
+    //    this->close();
 }
 
 void DashboardGui::on_pushButton_update_clicked()
