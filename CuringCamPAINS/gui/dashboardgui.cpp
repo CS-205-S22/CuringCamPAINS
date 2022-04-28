@@ -14,6 +14,8 @@ DashboardGui::DashboardGui(int cur_usrId, QWidget *parent) :
     ui->stackedWidget_main->addWidget(contactsGui);
     ui->stackedWidget_main->addWidget(resourcesGui);
     ui->stackedWidget_main->addWidget(logGui);
+
+    connect(resourcesGui, SIGNAL(changeColorSignal()), this, SLOT(changeColor()));
 }
 
 DashboardGui::~DashboardGui()
@@ -106,5 +108,10 @@ void DashboardGui::on_pushButton_update_clicked()
 {
     ui->stackedWidget_main->setCurrentIndex(3);
     logGui->autofill();
+}
+
+void DashboardGui::changeColor()
+{
+    setStyleSheet(resourcesGui->getSyle());
 }
 

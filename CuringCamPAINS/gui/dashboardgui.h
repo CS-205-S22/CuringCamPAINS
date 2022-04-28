@@ -23,6 +23,7 @@ public:
 
 private slots:
     void openLogForm();
+
     void on_pushButton_dashboard_clicked();
 
     void on_pushButton_contacts_clicked();
@@ -34,6 +35,8 @@ private slots:
     void on_pushButton_data_clicked();
 
     void on_pushButton_update_clicked();
+
+    void changeColor();
 
 private:
     Ui::DashboardGui *ui;

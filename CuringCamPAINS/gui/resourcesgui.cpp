@@ -27,23 +27,32 @@ ResourcesGui::~ResourcesGui()
     delete ui;
 }
 
+QString ResourcesGui::getSyle() {
+    return this->style;
+}
+
 void ResourcesGui::on_pushButton_changeColor_clicked()
 {
     QColorDialog dialog;
     QColor color = dialog.getColor();
     QString colName = color.name();
 
-
     int r, g, b;
     char const *hexColor = colName.toUtf8().data();
     std::sscanf(hexColor, "#%02x%02x%02x", &r, &g, &b);
-    string feed = "background-color: rgb(";
+    string feed = "QStackedWidget { background-color: rgb(";
     feed += to_string(r) += ", ";
     feed += to_string(g) += ", ";
     feed += to_string(b) += ", ";
-    feed += to_string(25) += ")";
+    feed += to_string(25) += ") }\n";
+    feed += "QGroupBox { background-color: rgb(";
+    feed += to_string(r) += ", ";
+    feed += to_string(g) += ", ";
+    feed += to_string(b) += ", ";
+    feed += to_string(25) += ") }\n";
     QString style = QString::fromUtf8(feed.c_str());
-    setStyleSheet(style);
+    this->style = style;
+    emit changeColorSignal();
 }
 
 void ResourcesGui::on_pushButton_createMessage_clicked()

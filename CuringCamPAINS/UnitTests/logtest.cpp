@@ -10,6 +10,7 @@ LogTest::LogTest() {
 LogForm logFile = LogForm(1,"../../test.sqlite");
 
 
+
 TEST(Log, saveLogFormTest) {
     //ASSERT_TRUE(false) << "This test was not implemented. Failing...";
     ASSERT_EQ(logFile.name, "");

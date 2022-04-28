@@ -20,6 +20,7 @@ public:
     explicit ResourcesGui(QWidget *parent = nullptr);
     explicit ResourcesGui(int usr,QWidget *parent = nullptr);
     ~ResourcesGui();
+    QString getSyle();
 
     void multipleTitles();
     int cur_usr;
@@ -44,6 +45,10 @@ private:
     Ui::ResourcesGui *ui;
     string title, text;
     SavedMessages *sm;
+    QString style;
+
+signals:
+    void changeColorSignal();
 };
 
 #endif // RESOURCESGUI_H
