@@ -64,3 +64,20 @@ void Login::close(){
     curr_db->close();
     curr_db = NULL;
 }
+
+int Login::getUserId( string usrname){
+    QSqlQuery query;
+    string table_name="user";
+    string parameter="userName";
+     string output="userId";
+    std::string com = "SELECT "+output+" FROM "+ table_name + " WHERE "+parameter+"=:"+parameter;
+    cout<<com<<endl;
+    query.prepare(QString::fromStdString(com));
+    string temp =":"+parameter;
+    query.bindValue(QString::fromStdString(temp),QString::fromStdString(usrname));
+    query.exec(); //execute the command
+    query.next();
+    int out =stoi(query.value(0).toString().toStdString());
+    return out;
+
+}

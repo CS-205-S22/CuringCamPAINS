@@ -114,7 +114,6 @@ void Database::runQuery(QString str){
  */
 void Database::write(string table_name, string values[] ){
     try{
-
         //get the column names
         updateColumn(table_name);
 
@@ -133,7 +132,7 @@ void Database::write(string table_name, string values[] ){
         //write the query in form of
         //INSERT INTO table_name (param1,param2,param3)"+" VALUES "+" (val1,val2,val3)"
         string com = "INSERT INTO " + table_name + "(" + temp + ")" + " VALUES " + " (" + temp2 + ")";
-        //    std::cout << com << endl;
+             std::cout << com << endl;
 
         query.prepare(QString::fromStdString(com));
 
@@ -152,6 +151,8 @@ void Database::write(string table_name, string values[] ){
         cout << "error" << endl;
     }
 }
+
+
 
 
 /**

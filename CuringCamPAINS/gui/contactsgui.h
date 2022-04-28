@@ -14,9 +14,10 @@ class ContactsGui : public QWidget
     Q_OBJECT
 
 public:
-    explicit ContactsGui(QWidget *parent = nullptr);
+     explicit ContactsGui(int cur, QWidget *parent = nullptr);
     ~ContactsGui();
     ContactList *contactList;
+    int cur_usr;
 
 private slots:
     void on_pushButton_uploadFile_clicked();

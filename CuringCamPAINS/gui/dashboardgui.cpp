@@ -1,12 +1,16 @@
 #include "dashboardgui.h"
 #include "ui_dashboardgui.h"
 
-DashboardGui::DashboardGui(QWidget *parent) :
+
+
+DashboardGui::DashboardGui(int cur_usrId, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::DashboardGui)
 {
     ui->setupUi(this);
-
+    contactsGui = new ContactsGui(cur_usrId);
+    logGui = new LogGui(cur_usrId);
+    resourcesGui = new ResourcesGui(cur_usrId);
     ui->stackedWidget_main->addWidget(contactsGui);
     ui->stackedWidget_main->addWidget(resourcesGui);
     ui->stackedWidget_main->addWidget(logGui);

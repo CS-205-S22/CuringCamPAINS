@@ -1,7 +1,6 @@
 #include "resourcesgui.h"
 #include "ui_resourcesgui.h"
 
-SavedMessages sm("../../../../../database.sqlite");
 
 ResourcesGui::ResourcesGui(QWidget *parent) :
     QWidget(parent),
@@ -9,6 +8,18 @@ ResourcesGui::ResourcesGui(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->stackedWidget_resources->setCurrentIndex(0);
+    sm = new SavedMessages("../../../../../database.sqlite");
+
+}
+
+ResourcesGui::ResourcesGui(int usr,QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::ResourcesGui)
+{
+    cur_usr=usr;
+    ui->setupUi(this);
+    ui->stackedWidget_resources->setCurrentIndex(0);
+    sm = new SavedMessages(usr,"../../../../../database.sqlite");
 }
 
 ResourcesGui::~ResourcesGui()
@@ -47,7 +58,7 @@ void ResourcesGui::on_pushButton_createMessage_clicked()
 void ResourcesGui::on_pushButton_viewMessage_clicked()
 {
     ui->stackedWidget_resources->setCurrentIndex(2);
-    vector<string> titles = sm.viewTitles();
+    vector<string> titles = sm->viewTitles();
     if (titles.empty()) {
         ui->label_titlesOutput->setText("No saved messages.");
     } else {
@@ -67,7 +78,7 @@ void ResourcesGui::on_pushButton_viewMessage_clicked()
 void ResourcesGui::on_pushButton_deleteMessage_clicked()
 {
     ui->stackedWidget_resources->setCurrentIndex(3);
-    vector<string> titles = sm.viewTitles();
+    vector<string> titles = sm->viewTitles();
     if (titles.empty()) {
         ui->label_titleDeleteMessage->setText("No saved messages.");
     } else {
@@ -89,7 +100,7 @@ void ResourcesGui::on_pushButton_saveMessage_clicked()
     this->title = ui->lineEdit_title->text().toStdString();
     this->text = ui->lineEdit_text->text().toStdString();
     //call saved messages create message
-    sm.createMessage(this->title, this->text);
+    sm->createMessage(this->title, this->text);
     ui->lineEdit_title->clear();
     ui->lineEdit_text->clear();
     ui->stackedWidget_resources->setCurrentIndex(0);
@@ -109,7 +120,7 @@ void ResourcesGui::on_pushButton_view_clicked()
     if (title.find(",") != std::string::npos) {
         this->multipleTitles();
     } else {
-        vector<string> toView = sm.viewMessage(this->title);
+        vector<string> toView = sm->viewMessage(this->title);
         if (toView.empty()) {
             ui->textEdit_textOutput->setText("No messages with input title.");
         } else {
@@ -142,7 +153,7 @@ void ResourcesGui::multipleTitles() {
     }
     vector<vector<string>> messages;
     for(int i = 0; i < (int)titles.size(); i++) {
-        messages.push_back(sm.viewMessage(titles.at(i)));
+        messages.push_back(sm->viewMessage(titles.at(i)));
     }
     if(messages.empty()) {
         ui->textEdit_textOutput->setText("No messages with input titles.");
@@ -189,10 +200,10 @@ void ResourcesGui::on_pushButton_delete_clicked()
             titles.push_back(substr);
         }
         for (int i = 0; i < (int)titles.size(); i++) {
-            sm.deleteMessage(titles.at(i));
+            sm->deleteMessage(titles.at(i));
         }
     } else {
-        sm.deleteMessage(this->title);
+        sm->deleteMessage(this->title);
     }
     ui->inputTitle_3->clear();
     ui->label_allTitles->clear();

@@ -16,7 +16,7 @@ class DashboardGui : public QWidget
     Q_OBJECT
 
 public:
-    explicit DashboardGui(QWidget *parent = nullptr);
+    explicit DashboardGui(int userId,QWidget *parent = nullptr);
     void deleteButtons();
     void displayButtons();
     ~DashboardGui();
@@ -37,9 +37,13 @@ private slots:
 
 private:
     Ui::DashboardGui *ui;
-    ContactsGui *contactsGui = new ContactsGui();
-    LogGui *logGui = new LogGui();
-    ResourcesGui *resourcesGui = new ResourcesGui();
+//    ContactsGui *contactsGui = new ContactsGui();
+//    LogGui *logGui = new LogGui();
+//    ResourcesGui *resourcesGui = new ResourcesGui();
+    ContactsGui *contactsGui;
+    LogGui *logGui;
+    ResourcesGui *resourcesGui;
+
 
 };
 

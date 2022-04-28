@@ -1,6 +1,6 @@
 create table contact (
       contactId         INT NOT NULL UNIQUE,
-      treatmentId         INT NOT NULL UNIQUE,
+      treatmentId         INT NOT NULL ,
       userId     INT NOT NULL,
       firstName     CHAR NOT NULL,
       lastName     CHAR NOT NULL,

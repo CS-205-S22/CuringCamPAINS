@@ -9,6 +9,7 @@ class SavedMessages:public Database
 {
 public:
     SavedMessages(string name);
+    SavedMessages(int usr, string name);
 
     /**
      * @brief Function writes a saved message to the savedmessages table within the system's database.
@@ -36,10 +37,30 @@ public:
 
     int getMessageMaxId();
 
+    /**
+     * @brief Database:readText
+     * Method get the content of a table on for a specific conditions
+     * @param table_name : name of the table in the database
+     * @param parameters: column names in the table
+     * @param condition: values of the condition
+     */
+    vector<string> readText(string table_name,string usr_id,string parameter,string conditions);
+
+    /**
+     * @brief Database:readTitle
+     * Method get the the title from savedmessage table
+     * @param table_name : name of the table in the database
+     * @param parameters: column names in the table
+     * @param condition: values of the condition
+     */
+    vector<string> readTitle(string table_name,string usr_id,string parameter);
+
     //messageId to be incremented for each write to the database
     int messageId = getMaxId("savedmessages", "messageId") + 1;
 
     vector<string> retStrings;
+
+    int cur_id;
 };
 
 #endif // SAVEDMESSAGES_H

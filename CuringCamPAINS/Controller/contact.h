@@ -9,11 +9,11 @@ using namespace std;
 class Contact
 {
 public:
-    Contact();
-    Contact(int id, int listId, string fn, string ln, string num, string email, string hAdd, int age);
-    Contact(string fn, string ln, string num, int age); //required sections
-    Contact(string fn, string ln, string num, string email, int age);
-    Contact(string fn, string ln, string num, string email, string hAdd, int age);
+    Contact(int usr_cur);
+    Contact(int usr_cur,int id, int listId, string fn, string ln, string num, string email, string hAdd, int age);
+    Contact(int usr_cur,string fn, string ln, string num, int age); //required sections
+    Contact(int usr_cur,string fn, string ln, string num, string email, int age);
+    Contact(int usr_cur,string fn, string ln, string num, string email, string hAdd, int age);
     void setCellNum(string num);
     void setEmail(string email);
     void setHomeAdd(string hAdd);
@@ -21,6 +21,7 @@ public:
 
     void update(string fn, string ln, string num, string email, string hAdd, int age);
 
+    int usr_id;
     int id;
     string firstName;
     string lastName;

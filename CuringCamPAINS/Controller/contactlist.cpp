@@ -5,12 +5,13 @@ const int TREATMENT = 0;
 const int CONTROL = 1;
 const int NOCONTACT = 2;
 
-ContactList::ContactList() {
-
+ContactList::ContactList(int cur_id) {
+usr_id=cur_id;
 }
 
-ContactList::ContactList(string name):Database(name)
+ContactList::ContactList(int cur_id,string name):Database(name)
 {
+    usr_id=cur_id;
     masterList = new vector<Contact*>();
     treatmentGroup = new vector<Contact*>();
     controlGroup = new vector<Contact*>();
@@ -81,7 +82,7 @@ void ContactList::readFile(string name) {
                 continue;
             }
 
-            Contact* c = new Contact(firstName, lastName, cellStr, email, hAdd, stoi(ageStr));
+            Contact* c = new Contact(usr_id, firstName, lastName, cellStr, email, hAdd, stoi(ageStr));
             masterList->push_back(c);
 
             string id = to_string(c->id);
@@ -138,12 +139,12 @@ void ContactList::addContact(string fn, string ln, string cellNum, string email,
         return;
     }
 
-    Contact* c = new Contact(fn, ln, cellNum, email, hAdd, stoi(age));
+    Contact* c = new Contact(usr_id,fn, ln, cellNum, email, hAdd, stoi(age));
     masterList->push_back(c);
 
     string id = to_string(c->id);
     string listIdStr = to_string(c->contactListId);
-    string inputs[] = {id, listIdStr, fn, ln, cellNum, email, hAdd, age};
+    string inputs[] = {id, listIdStr, std::to_string(usr_id),fn, ln, cellNum, email, hAdd, age};
     write("contact", inputs);
 
     divideIntoGroups(c);
@@ -207,7 +208,8 @@ void ContactList::print() {
 
 void ContactList::readFromDB() {
     QSqlQuery query;
-    QString str = "select * from contact;";
+    QString  temp=QString::fromStdString(std::to_string(usr_id));
+    QString str = "select * from contact where userId="+temp+";";
     int id;
     int listId;
     string firstName;
@@ -218,11 +220,11 @@ void ContactList::readFromDB() {
     int age;
 
     if (!query.exec(str)){
-        qDebug()<<"error running query for Players\n";
+        qDebug()<<"error running query\n";
     } else {
         while (query.next()) {
             id = stoi(query.value("contactId").toString().toStdString());
-            listId = stoi(query.value("contactListId").toString().toStdString());
+            listId = stoi(query.value("treatmentId").toString().toStdString());
             firstName = query.value("firstName").toString().toStdString();
             lastName = query.value("lastName").toString().toStdString();
             cellStr = query.value("phoneNumber").toString().toStdString();
@@ -231,7 +233,7 @@ void ContactList::readFromDB() {
             age = stoi(query.value("dateOfBirth").toString().toStdString());
 
             if (!containsContact(cellStr)) {
-                Contact* c = new Contact(id, listId, firstName, lastName, cellStr, email, homeAdd, age);
+                Contact* c = new Contact(usr_id,id, listId, firstName, lastName, cellStr, email, homeAdd, age);
                 masterList->push_back(c);
                 divideIntoGroups(c);
             }
