@@ -17,7 +17,7 @@
    <item row="0" column="0">
     <widget class="QStackedWidget" name="stackedWidget_resources">
      <property name="currentIndex">
-      <number>0</number>
+      <number>3</number>
      </property>
      <widget class="QWidget" name="buttonsPage">
       <widget class="QWidget" name="layoutWidget">
@@ -128,7 +128,7 @@
         <rect>
          <x>140</x>
          <y>180</y>
-         <width>331</width>
+         <width>341</width>
          <height>61</height>
         </rect>
        </property>
@@ -141,7 +141,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit_titleView"/>
+         <widget class="QComboBox" name="comboBox_choices"/>
         </item>
         <item>
          <widget class="QPushButton" name="pushButton_view">
@@ -155,27 +155,14 @@
       <widget class="QPushButton" name="pushButton_back">
        <property name="geometry">
         <rect>
-         <x>260</x>
-         <y>270</y>
+         <x>250</x>
+         <y>250</y>
          <width>100</width>
          <height>32</height>
         </rect>
        </property>
        <property name="text">
         <string>Back</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_titlesOutput">
-       <property name="geometry">
-        <rect>
-         <x>130</x>
-         <y>150</y>
-         <width>331</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string/>
        </property>
       </widget>
       <widget class="QTextEdit" name="textEdit_textOutput">
@@ -189,22 +176,6 @@
        </property>
        <property name="autoFillBackground">
         <bool>false</bool>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_directions">
-       <property name="geometry">
-        <rect>
-         <x>140</x>
-         <y>250</y>
-         <width>331</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Seperate multiple titles with comma and no space</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </widget>
@@ -227,7 +198,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="inputTitle_3"/>
+         <widget class="QComboBox" name="comboBox_choicesDelete"/>
         </item>
         <item>
          <widget class="QPushButton" name="pushButton_delete">
@@ -237,35 +208,6 @@
          </widget>
         </item>
        </layout>
-      </widget>
-      <widget class="QLabel" name="label_allTitles">
-       <property name="geometry">
-        <rect>
-         <x>150</x>
-         <y>200</y>
-         <width>311</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_directions2">
-       <property name="geometry">
-        <rect>
-         <x>150</x>
-         <y>310</y>
-         <width>321</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Seperate multiple titles with comma and no space</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
       </widget>
      </widget>
      <widget class="QWidget" name="page_editProfile">

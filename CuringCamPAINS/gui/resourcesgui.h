@@ -22,7 +22,6 @@ public:
     ~ResourcesGui();
     QString getSyle();
 
-    void multipleTitles();
     int cur_usr;
 private slots:
     void on_pushButton_changeColor_clicked();
