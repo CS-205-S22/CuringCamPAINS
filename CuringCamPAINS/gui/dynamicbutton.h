@@ -11,7 +11,6 @@ class DynamicButton : public QPushButton
     ~DynamicButton();
     int resID;   // A variable counter buttons rooms
     int getID();        // Function to return a local number buttons
-    //static void setID();
     static void setID()
     {
         buttonID = 0;
