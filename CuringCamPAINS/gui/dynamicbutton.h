@@ -9,8 +9,13 @@ class DynamicButton : public QPushButton
     public:
         explicit DynamicButton(QWidget *parent = 0);
     ~DynamicButton();
-    int ResID;   // A static variable counter buttons rooms
+    int resID;   // A variable counter buttons rooms
     int getID();        // Function to return a local number buttons
+    //static void setID();
+    static void setID()
+    {
+        buttonID = 0;
+    }
 
 
 public slots:

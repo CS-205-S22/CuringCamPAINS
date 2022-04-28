@@ -37,12 +37,14 @@ void DashboardGui::on_pushButton_dashboard_clicked()
 }
 
 void DashboardGui::displayButtons() {
+
     //add buttons here
     vector<string> contacts;
     for (int i = 0; i < (int)contactsGui->contactList->treatmentGroup->size(); i++) {
         contacts.push_back(contactsGui->contactList->treatmentGroup->at(i)->firstName);
     }
     DynamicButton *button;
+    DynamicButton::setID();
     for (int i = 0; i < (int)contacts.size(); i++) {
         button = new DynamicButton(this);  // Create a dynamic button object
         /* Set the text with name of contact
@@ -55,6 +57,7 @@ void DashboardGui::displayButtons() {
            * */
         connect(button, SIGNAL(clicked()), this, SLOT(openLogForm()));
     }
+    contacts.clear();
 }
 
 /* SLOT for buttons.
@@ -67,7 +70,9 @@ void DashboardGui::openLogForm()
 
     //open log form
 
-    int pos = button->ResID - 1;
+
+    //add this contact to the back of the vector
+    int pos = button->resID - 1;
     Contact* save = contactsGui->contactList->treatmentGroup->at(pos);
     contactsGui->contactList->treatmentGroup->erase(contactsGui->contactList->treatmentGroup->begin() + pos);
     contactsGui->contactList->treatmentGroup->push_back(save);
