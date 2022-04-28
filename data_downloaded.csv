@@ -1,0 +1,2 @@
+logId,fullName,age,phoneNumber,numOfAttempts,methodOfContact,reaction,dateContacted,isCommitted
+2,John Doe,18,1111111,4,text,happy,4/20/2022,false

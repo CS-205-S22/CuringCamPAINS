@@ -16,8 +16,10 @@ LogGui::~LogGui()
     delete ui;
 }
 
-void LogGui::autofill() {
-    QString name = QString("John Doe");
+void LogGui::autofill(string buttonName, string contactAge, string contactPN) {
+    QString name = QString::fromStdString(buttonName);
+    QString age = QString::fromStdString(contactAge);
+    QString phoneNumber = QString::fromStdString(contactPN);
     QString committed = QString("false");
 
     time_t now = time(0);
@@ -41,7 +43,9 @@ void LogGui::autofill() {
     string date = mon_string + "/" + day_string + "/" + year_string;
 
     ui->lineEdit_name->setText(name);
+    ui->lineEdit_age->setText(age);
     ui->lineEdit_committed->setText(committed);
+    ui->lineEdit_phoneNumber->setText(phoneNumber);
     ui->lineEdit_date->setText(QString::fromStdString (date));
 }
 
@@ -96,4 +100,6 @@ void LogGui::on_pushButton_enter_clicked()
                        logForm.methodOfContact, logForm.reaction, logForm.date, logForm.committed);
     //logForm.deleteLog("111");
     }
+
+    //ui->stackedWidget_main->setCurrentIndex(0);
 }

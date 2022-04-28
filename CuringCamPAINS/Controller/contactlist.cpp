@@ -16,7 +16,7 @@ ContactList::ContactList(string name):Database(name)
     controlGroup = new vector<Contact*>();
     noContactGroup = new vector<Contact*>();
 
-    readFromDB();
+//    readFromDB();
 }
 
 void ContactList::getUserInput() {
@@ -55,17 +55,17 @@ void ContactList::readFile(string name) {
     string cols[] = {"contactId", "contactListId", "firstName", "lastName", "phoneNumber", "emailAddress", "homeAddress", "dateOfBirth"};
 
     cerr << name << endl;
-    cout << QDir::currentPath().toStdString() << endl;
+    cerr << QDir::currentPath().toStdString() << endl;
 
     file.open(name, fstream::in);
 
     if (!file.is_open()) {
-        cout << "Error reading file.\n";
+        cerr << "Error reading file.\n";
         exit(1);
     } else {
         getline(file, line);  //first row
 
-        cout << "REading the file." << endl;
+        cerr << "REading the file." << endl;
 
         while(getline(file, line)) {
             stringstream strStream(line);
@@ -141,7 +141,6 @@ void ContactList::addContact(string fn, string ln, string cellNum, string email,
     Contact* c = new Contact(fn, ln, cellNum, email, hAdd, stoi(age));
     masterList->push_back(c);
 
-    string cols[] = {"contactId", "contactListId", "firstName", "lastName", "phoneNumber", "emailAddress", "homeAddress", "dateOfBirth"};
     string id = to_string(c->id);
     string listIdStr = to_string(c->contactListId);
     string inputs[] = {id, listIdStr, fn, ln, cellNum, email, hAdd, age};
@@ -161,7 +160,6 @@ void ContactList::addContact(Contact *c) {
 
     cerr << "Master list size: " << masterList->size() << endl;
 
-    string cols[] = {"contactId", "contactListId", "firstName", "lastName", "phoneNumber", "emailAddress", "homeAddress", "dateOfBirth"};
     string id = to_string(c->id);
     string listIdStr = to_string(c->contactListId);
     string inputs[] = {id, listIdStr, c->firstName, c->lastName, c->cellNum, c->emailAddress, c->homeAddress, to_string(c->age)};
@@ -235,12 +233,19 @@ void ContactList::readFromDB() {
             if (!containsContact(cellStr)) {
                 Contact* c = new Contact(id, listId, firstName, lastName, cellStr, email, homeAdd, age);
                 masterList->push_back(c);
+                divideIntoGroups(c);
             }
         }
     }
 }
 
-
+Contact* ContactList::findByFirstName(string name) {
+    for (unsigned i = 0; i < treatmentGroup->size(); i++) {
+        if(name.compare(treatmentGroup->at(i)->firstName) == 0) {
+            return treatmentGroup->at(i);
+        }
+    }
+}
 
 
 

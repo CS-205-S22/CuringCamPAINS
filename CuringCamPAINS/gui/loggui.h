@@ -16,7 +16,7 @@ class LogGui : public QWidget
 public:
     explicit LogGui(QWidget *parent = nullptr);
     ~LogGui();
-    void autofill();
+    void autofill(string buttonName, string contactAge, string contactPN);
 
 private slots:
     void on_pushButton_enter_clicked();

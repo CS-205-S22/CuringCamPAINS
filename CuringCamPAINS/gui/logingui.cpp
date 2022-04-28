@@ -1,12 +1,16 @@
 #include "logingui.h"
 #include "ui_logingui.h"
 #include <QMessageBox>
-
+#include <QPixmap>
 LoginGUI::LoginGUI(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::LoginGUI)
 {
     ui->setupUi(this);
+    QPixmap pix("../../../../../CuringCamPAINS.png");
+    int w=ui->logo->width();
+    int h=ui->logo->height();
+    ui->logo->setPixmap(pix.scaled(w,h,Qt::KeepAspectRatio));
 }
 
 LoginGUI::~LoginGUI()
@@ -22,14 +26,10 @@ void LoginGUI::on_submission_pressed()
     string password=pwd.toStdString();
 
     s = new Login("../../../../../database.sqlite");
-    //    if(username ==  "test" && password == "test") {
     if(s->signUp(username,password)==true) {
-        //        QMessageBox::information(this, "Login", "Username and password is correct");
         dashboardGui = new DashboardGui();
         hide();
         dashboardGui->show();
-
-
     }
     else {
         QMessageBox::warning(this,"Login", "Username and password is not correct");

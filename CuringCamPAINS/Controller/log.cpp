@@ -60,8 +60,6 @@ void LogForm::saveLogForm(string fullName, string age, string phoneNumber, strin
 
     //NEED TO MAKE SURE THE ID IS DIFFERENT (Go through the ID's in the database
 
-    //this will write everything to the database
-    string cols[] = {"logId","fullName", "age", "phoneNumber", "numOfAttempts", "methodOfContact", "reaction", "dateContacted", "isCommitted"};
 
     //string logId = to_string(this->logId);
     string logId = to_string(getMaxId("logForm", "logId")+1);

@@ -20,31 +20,116 @@ DashboardGui::~DashboardGui()
 void DashboardGui::on_pushButton_dashboard_clicked()
 {
     ui->stackedWidget_main->setCurrentIndex(0);
+    this->displayButtons();
 }
 
-void DashboardGui::on_pushButton_contacts_clicked()
-{
-    ui->stackedWidget_main->setCurrentIndex(1);
+void DashboardGui::displayButtons() {
+    //add buttons here
+    //    if(count == 1) {
+    vector<string> contacts;
+
+    //do we increase the size of the treatment group size when we manually add a contact?
+    //wait when we manually add, does it directly go to the treatment group?
+
+    for (int i = 0; i < (int)contactsGui->contactList->treatmentGroup->size(); i++) {
+        contacts.push_back(contactsGui->contactList->treatmentGroup->at(i)->firstName);
+    }
+
+    //cerr << "TREATMENT GROUP SIZE: " << contactsGui->contactList->treatmentGroup->size() << endl;
+    //cerr << "CONTACTS VECTOR SIZE: " << contacts.size() << endl;
+
+    DynamicButton *button;
+    for (int i = 0; i < (int)contacts.size(); i++) {
+        button = new DynamicButton(this);  // Create a dynamic button object
+        /* Set the text with name of contact
+           * */
+
+        if (std::find(buttonList.begin(), buttonList.end(), contacts.at(i)) != buttonList.end()) {
+            continue;
+        } else {
+
+            button->setText(QString::fromStdString(contacts.at(i)));
+            /* Adding a button to the bed with a vertical layout
+           * */
+            ui->verticalLayout->addWidget(button);
+            /* Connect the signal to the slot pressing buttons produce numbers
+           * */
+            cerr << "BEFORE" << endl;
+            con = contactsGui->contactList->treatmentGroup->at(i);
+            cerr << con->firstName << endl;
+            button->name = con->firstName;
+            buttonList.push_back(button->name);
+            dynButtonList.push_back(button);
+            connect(button, SIGNAL(clicked()), this, SLOT(openLogForm()));
+
+        }
+        count++;
+    }
 }
 
-void DashboardGui::on_pushButton_resources_clicked()
-{
-    ui->stackedWidget_main->setCurrentIndex(2);
-}
+    /* SLOT for buttons.
+ * */
+    void DashboardGui::openLogForm()
+    {
+        /* To determine the object that caused the signal
+     * */
+        DynamicButton *button = (DynamicButton*) sender();
+        cerr << "AFTER CLICKED: " << con->firstName << endl;
+        Contact* treatmentContact = contactsGui->contactList->findByFirstName(button->name);
+        //open log form
+        cerr << "BEFORE CHANGE SCREEN" << endl;
+        ui->stackedWidget_main->setCurrentIndex(3);
+        cerr << "AFTER CHANGE SCREEN" << endl;
+        logGui->autofill(button->text().toStdString(), to_string(treatmentContact->age), treatmentContact->cellNum);
 
-void DashboardGui::on_pushButton_data_clicked()
-{
+        cerr << "AFTER AUTOFILL" << endl;
+        int pos = button->ResID - 1;
+        Contact* save = contactsGui->contactList->treatmentGroup->at(pos);
+        contactsGui->contactList->treatmentGroup->erase(contactsGui->contactList->treatmentGroup->begin() + pos);
+        contactsGui->contactList->treatmentGroup->push_back(save);
 
-}
 
-void DashboardGui::on_pushButton_logout_clicked()
-{
-    this->close();
-}
+        //now shuffle buttons
+        //this->deleteButtons();
+        //this->displayButtons();
+    }
 
-void DashboardGui::on_pushButton_log_clicked()
-{
-    ui->stackedWidget_main->setCurrentIndex(3);
-    logGui->autofill();
-}
+    void DashboardGui::deleteButtons() {
+        for(int i = 0; i < ui->verticalLayout->count(); i++){
+            ui->verticalLayout->itemAt(i)->widget()->hide();
+            delete ui->verticalLayout->itemAt(i)->widget();
+            /*DynamicButton *button = qobject_cast<DynamicButton*>(ui->verticalLayout->itemAt(i)->widget());
+        button->hide();
+        delete button;*/
+        }
+    }
+
+    void DashboardGui::on_pushButton_contacts_clicked()
+    {
+        ui->stackedWidget_main->setCurrentIndex(1);
+    }
+
+    void DashboardGui::on_pushButton_resources_clicked()
+    {
+        ui->stackedWidget_main->setCurrentIndex(2);
+    }
+
+    void DashboardGui::on_pushButton_data_clicked()
+    {
+        Csv *c=new Csv();
+        c->download("../../../../../database.sqlite","logForm","../../../../../data_downloaded.csv");
+        QMessageBox::warning(this,"Download", "The csv file is downloaded in main file");
+        ui->stackedWidget_main->setCurrentIndex(0);
+    }
+
+    void DashboardGui::on_pushButton_logout_clicked()
+    {
+        this->close();
+    }
+
+    void DashboardGui::on_pushButton_update_clicked()
+    {
+        ui->stackedWidget_main->setCurrentIndex(3);
+        //logGui->autofill();
+    }
 

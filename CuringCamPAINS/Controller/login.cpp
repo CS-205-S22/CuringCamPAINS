@@ -46,8 +46,6 @@ void Login::signUp(){
  * @param pwd: password
  */
 bool Login::signUp(string usr, string pwd){
-    //    cout<<usr<<endl;
-    //    cout<<pwd<<endl;
     if(authenticate(QString::fromStdString(usr),QString::fromStdString(pwd))==true){
         cout<<"Login successful"<<endl;
         return true ;
