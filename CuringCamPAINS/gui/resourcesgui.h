@@ -19,6 +19,7 @@ class ResourcesGui : public QWidget
 public:
     explicit ResourcesGui(QWidget *parent = nullptr);
     ~ResourcesGui();
+    QString getSyle();
 
     void multipleTitles();
 private slots:
@@ -41,6 +42,10 @@ private slots:
 private:
     Ui::ResourcesGui *ui;
     string title, text;
+    QString style;
+
+signals:
+    void changeColorSignal();
 };
 
 #endif // RESOURCESGUI_H

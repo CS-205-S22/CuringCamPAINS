@@ -1,12 +1,16 @@
 #include "logingui.h"
 #include "ui_logingui.h"
 #include <QMessageBox>
-
+#include <QPixmap>
 LoginGUI::LoginGUI(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::LoginGUI)
 {
     ui->setupUi(this);
+    QPixmap pix("../../../../../CuringCamPAINS.png");
+    int w=ui->logo->width();
+    int h=ui->logo->height();
+    ui->logo->setPixmap(pix.scaled(w,h,Qt::KeepAspectRatio));
 }
 
 LoginGUI::~LoginGUI()

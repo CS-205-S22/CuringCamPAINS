@@ -1,11 +1,10 @@
 #include "dynamicbutton.h"
-
+int DynamicButton::buttonID = 0;
 DynamicButton::DynamicButton(QWidget *parent) :
     QPushButton(parent)
 {
-    ResID++;            // Increment of counter by one
-    buttonID = ResID;   /* Assigning a button number which will be further work with buttons
-                         * */
+    ResID = ++buttonID;// Increment of counter by one
+    //buttonID = ResID;   /* Assigning a button number which will be further work with buttons*/
 
 }
 
@@ -24,4 +23,4 @@ int DynamicButton::getID()
 /* Initialize static class variable.
  * Static class variable must be initialized without fail
  * */
-int DynamicButton::ResID = 0;
+//int DynamicButton::ResID = 0;
