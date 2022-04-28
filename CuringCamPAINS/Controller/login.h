@@ -37,6 +37,8 @@ public:
      *Close the login
      */
     void close();
+
+    int getUserId(string usrname);
 private:
     std:: string username;
     std::string password;

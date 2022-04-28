@@ -5,6 +5,11 @@ SavedMessages::SavedMessages(string name):Database(name)
 
 }
 
+SavedMessages::SavedMessages(int id,string name):Database(name)
+{
+    cur_id=id;
+}
+
 /**
  * @brief Function writes a saved message to the savedmessages table within the system's database. The function
  * takes a string title and message, which is taken from the user input. The function creates a string array
@@ -15,9 +20,9 @@ SavedMessages::SavedMessages(string name):Database(name)
  * @param message - text of the desired saved message
  */
 void SavedMessages::createMessage(string title, string message) {
-    string cols[] = {"messageId","messageTitle", "messageText"};
     string messageId = to_string(this->messageId);
-    string messages[] = {messageId, title, message};
+    cout<<messageId<<endl;
+    string messages[] = {messageId,std::to_string(cur_id), title, message};
     write("savedmessages", messages);
     this->messageId++;
 }
@@ -30,7 +35,7 @@ void SavedMessages::createMessage(string title, string message) {
  */
 vector<string> SavedMessages::viewMessage(string title) {
     this->retStrings.clear();
-    this->retStrings = readText("savedmessages", "messageTitle", title);
+    this->retStrings = readText("savedmessages",std::to_string(cur_id), "messageTitle", title);
     return retStrings;
 }
 
@@ -42,7 +47,7 @@ vector<string> SavedMessages::viewMessage(string title) {
  */
 vector<string> SavedMessages::viewTitles() {
     this->retStrings.clear();
-    this->retStrings = readTitle("savedmessages", "messageTitle");
+    this->retStrings = readTitle("savedmessages",std::to_string(cur_id), "messageTitle");
     return retStrings;
 }
 
@@ -53,10 +58,73 @@ vector<string> SavedMessages::viewTitles() {
  * @param title - title of the message
  */
 void SavedMessages::deleteMessage(string title) {
-    remove("savedmessages", "messageTitle", title);
+    remove("savedmessages",std::to_string(cur_id), "messageTitle", title);
     //check if now empty, can reset id
+}
+
+/**
+ * @brief Database:readText
+ * Method get the content of a table on for a specific conditions
+ * @param table_name : name of the table in the database
+ * @param parameters: column names in the table
+ * @param condition: values of the condition
+ */
+vector<string> SavedMessages::readText(string table_name,string usr_id,string parameter,string condition) {
+    QSqlQuery query;
+    std::string com = "SELECT * FROM "+ table_name + " WHERE "+parameter+"=:"+parameter+" AND userId="+usr_id;
+    query.prepare(QString::fromStdString(com));
+    string temp =":"+parameter;
+    query.bindValue(QString::fromStdString(temp),QString::fromStdString(condition));
+    query.exec(); //execute the command
+    vector<string> messages;
+    while(query.next()) {
+        QString text = query.value(2).toString();
+        messages.push_back(text.toStdString());
+    }
+    return messages;
 }
 
 int SavedMessages::getMessageMaxId() {
     return getMaxId("savedmessages", "messageId");
+}
+
+/**
+ * @brief SavedMessages:readTitle
+ * Method get the the title from savedmessage table
+ * @param table_name : name of the table in the database
+ * @param parameters: column names in the table
+ * @param condition: values of the condition
+ */
+vector<string> SavedMessages::readTitle(string table_name,string usr_id, string parameter) {
+    QSqlQuery query;
+    std::string com = "SELECT "+ parameter + " FROM "+table_name+" WHERE userId="+usr_id;
+    query.prepare(QString::fromStdString(com));
+    query.exec(); //execute the command
+    vector<string> titles;
+    while(query.next()) {
+        QString text = query.value("messageTitle").toString();
+        titles.push_back(text.toStdString());
+    }
+
+    return titles;
+}
+
+/**
+ * @brief Database:remove
+ * Method to remove a row in the database based on a given condition
+ * @param table_name : name of the table in the database
+ * @param parameters: column names in the table
+ * @param condition: values of the condition
+ * Example: DELETE * FROM user where name="Tafita"
+ * In this specific example table_name="user" , parameters=name , condition = "Tafita"
+ */
+void SavedMessages::remove(string table_name,string usr_id, string parameter,string conditions){
+    QSqlQuery query;
+    std::string com = "DELETE FROM "+ table_name+ " WHERE "+parameter+"=:"+parameter+" AND userId="+usr_id;
+    //    cout<<com<<endl;
+    query.prepare(QString::fromStdString(com));
+    string temp =":"+parameter;
+    query.bindValue(QString::fromStdString(temp),QString::fromStdString(conditions));
+    query.exec(); //execute the command
+    //    cout<<"Succesful delete"<<endl;
 }

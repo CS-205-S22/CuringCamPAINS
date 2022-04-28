@@ -4,12 +4,13 @@ using namespace std;
 
 int Contact::counter = 0;
 
-Contact::Contact()
+Contact::Contact(int usr_cur)
 {
-
+usr_id=usr_cur;
 }
 
-Contact::Contact(int id, int listId, string fn, string ln, string num, string email, string hAdd, int a) {
+Contact::Contact(int usr_cur,int id, int listId, string fn, string ln, string num, string email, string hAdd, int a) {
+    usr_id=usr_cur;
     this->id = id;
     contactListId = listId;
     firstName = fn;
@@ -21,7 +22,8 @@ Contact::Contact(int id, int listId, string fn, string ln, string num, string em
     counter = id;
 }
 
-Contact::Contact(string fn, string ln, string num, int a) {
+Contact::Contact(int usr_cur,string fn, string ln, string num, int a) {
+    usr_id=usr_cur;
     id = ++counter;
     firstName = fn;
     lastName = ln;
@@ -32,7 +34,8 @@ Contact::Contact(string fn, string ln, string num, int a) {
     contactListId = id % 3;
 }
 
-Contact::Contact(string fn, string ln, string num, string email, int a) {
+Contact::Contact(int usr_cur,string fn, string ln, string num, string email, int a) {
+    usr_id=usr_cur;
     id = ++counter;
     firstName = fn;
     lastName = ln;
@@ -43,7 +46,8 @@ Contact::Contact(string fn, string ln, string num, string email, int a) {
     contactListId = id % 3;
 }
 
-Contact::Contact(string fn, string ln, string num, string email, string hAdd, int a) {
+Contact::Contact(int usr_cur,string fn, string ln, string num, string email, string hAdd, int a) {
+    usr_id=usr_cur;
     id = ++counter;
     firstName = fn;
     lastName = ln;

@@ -18,7 +18,7 @@ class DashboardGui : public QWidget
     Q_OBJECT
 
 public:
-    explicit DashboardGui(QWidget *parent = nullptr);
+    explicit DashboardGui(int userId,QWidget *parent = nullptr);
     void deleteButtons();
     void displayButtons();
     ~DashboardGui();
@@ -26,6 +26,7 @@ public:
 
 private slots:
     void openLogForm();
+
     void on_pushButton_dashboard_clicked();
 
     void on_pushButton_contacts_clicked();
@@ -38,14 +39,20 @@ private slots:
 
     void on_pushButton_update_clicked();
 
+    void changeColor();
+
 private:
     Ui::DashboardGui *ui;
-    ContactsGui *contactsGui = new ContactsGui();
-    LogGui *logGui = new LogGui();
-    ResourcesGui *resourcesGui = new ResourcesGui();
     vector<string> buttonList;
     vector<DynamicButton*> dynButtonList;
     int count = 1;
+//    ContactsGui *contactsGui = new ContactsGui();
+//    LogGui *logGui = new LogGui();
+//    ResourcesGui *resourcesGui = new ResourcesGui();
+    ContactsGui *contactsGui;
+    LogGui *logGui;
+    ResourcesGui *resourcesGui;
+
 
 };
 

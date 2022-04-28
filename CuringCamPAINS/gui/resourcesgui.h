@@ -18,9 +18,12 @@ class ResourcesGui : public QWidget
 
 public:
     explicit ResourcesGui(QWidget *parent = nullptr);
+    explicit ResourcesGui(int usr,QWidget *parent = nullptr);
     ~ResourcesGui();
+    QString getSyle();
 
     void multipleTitles();
+    int cur_usr;
 private slots:
     void on_pushButton_changeColor_clicked();
 
@@ -41,6 +44,11 @@ private slots:
 private:
     Ui::ResourcesGui *ui;
     string title, text;
+    SavedMessages *sm;
+    QString style;
+
+signals:
+    void changeColorSignal();
 };
 
 #endif // RESOURCESGUI_H

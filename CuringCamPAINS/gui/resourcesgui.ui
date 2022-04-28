@@ -17,7 +17,7 @@
    <item row="0" column="0">
     <widget class="QStackedWidget" name="stackedWidget_resources">
      <property name="currentIndex">
-      <number>3</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="buttonsPage">
       <widget class="QWidget" name="layoutWidget">
@@ -265,6 +265,47 @@
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="page_editProfile">
+      <widget class="QPushButton" name="pushButton_picture">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>260</y>
+         <width>181</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Uptade Picture</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_image">
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>60</y>
+         <width>141</width>
+         <height>121</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>210</y>
+         <width>121</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Update Name</string>
        </property>
       </widget>
      </widget>

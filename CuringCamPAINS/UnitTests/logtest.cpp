@@ -4,7 +4,15 @@ LogTest::LogTest() {
 }
 
 //LogForm logFile = LogForm("../../../../../database.sqlite");
-LogForm logFile = LogForm("../../test.sqlite");
+
+
+
+//LogForm logFile = LogForm();
+
+//LogForm logFile = LogForm("../../../../../database.sqlite");
+LogForm logFile = LogForm(1,"../../test.sqlite");
+
+
 
 
 TEST(Log, saveLogFormTest) {
