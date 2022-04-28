@@ -50,9 +50,11 @@ int main(int argc, char* argv[])
     //    l.signUp("hounasm","look");
 
     ///Saved Messages Testing:
-//        SavedMessages s(1,"../../database.sqlite");
-//        s.createMessage("Test","testing this message");
-////        s.deleteMessage("Test");
+        SavedMessages s(1,"../../database.sqlite");
+        s.createMessage("Test","testing this message");
+        vector<string> temp=s.readTitle("savedmessages","1","messageTitle");
+        cout<<temp.at(0)<<endl;
+//        s.deleteMessage("Test");
 
 
     //    //    QCoreApplication a(argc, argv); //Need to initialize

@@ -1,7 +1,7 @@
 #include "dashboardgui.h"
 #include "ui_dashboardgui.h"
-
-
+#include <QPixmap>
+#include "logingui.h"
 
 DashboardGui::DashboardGui(int cur_usrId, QWidget *parent) :
     QWidget(parent),
@@ -10,6 +10,13 @@ DashboardGui::DashboardGui(int cur_usrId, QWidget *parent) :
     ui->setupUi(this);
     contactsGui = new ContactsGui(cur_usrId);
     logGui = new LogGui(cur_usrId);
+
+    QPixmap pix("../../../../../user.png");
+    int w=ui->label_image->width();
+    int h=ui->label_image->height();
+    ui->label_image->setPixmap(pix.scaled(w,h,Qt::KeepAspectRatio));
+
+//    ui->label_image->setText("Tafita");
     resourcesGui = new ResourcesGui(cur_usrId);
     ui->stackedWidget_main->addWidget(contactsGui);
     ui->stackedWidget_main->addWidget(resourcesGui);
@@ -101,7 +108,10 @@ void DashboardGui::on_pushButton_data_clicked()
 
 void DashboardGui::on_pushButton_logout_clicked()
 {
-    this->close();
+    LoginGUI *l= new LoginGUI();
+    hide();
+   l->show();
+//    this->close();
 }
 
 void DashboardGui::on_pushButton_update_clicked()

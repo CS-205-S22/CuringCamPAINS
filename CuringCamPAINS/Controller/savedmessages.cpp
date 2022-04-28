@@ -58,7 +58,7 @@ vector<string> SavedMessages::viewTitles() {
  * @param title - title of the message
  */
 void SavedMessages::deleteMessage(string title) {
-    remove("savedmessages", "messageTitle", title);
+    remove("savedmessages",std::to_string(cur_id), "messageTitle", title);
     //check if now empty, can reset id
 }
 
@@ -71,7 +71,7 @@ void SavedMessages::deleteMessage(string title) {
  */
 vector<string> SavedMessages::readText(string table_name,string usr_id,string parameter,string condition) {
     QSqlQuery query;
-    std::string com = "SELECT* FROM "+ table_name + " WHERE "+parameter+"=:"+parameter+" AND userId="+usr_id;
+    std::string com = "SELECT * FROM "+ table_name + " WHERE "+parameter+"=:"+parameter+" AND userId="+usr_id;
     query.prepare(QString::fromStdString(com));
     string temp =":"+parameter;
     query.bindValue(QString::fromStdString(temp),QString::fromStdString(condition));
@@ -97,13 +97,34 @@ int SavedMessages::getMessageMaxId() {
  */
 vector<string> SavedMessages::readTitle(string table_name,string usr_id, string parameter) {
     QSqlQuery query;
-    std::string com = "SELECT "+ parameter + " FROM "+table_name+" AND userId="+usr_id;
+    std::string com = "SELECT "+ parameter + " FROM "+table_name+" WHERE userId="+usr_id;
     query.prepare(QString::fromStdString(com));
     query.exec(); //execute the command
     vector<string> titles;
     while(query.next()) {
-        QString text = query.value(0).toString();
+        QString text = query.value("messageTitle").toString();
         titles.push_back(text.toStdString());
     }
+
     return titles;
+}
+
+/**
+ * @brief Database:remove
+ * Method to remove a row in the database based on a given condition
+ * @param table_name : name of the table in the database
+ * @param parameters: column names in the table
+ * @param condition: values of the condition
+ * Example: DELETE * FROM user where name="Tafita"
+ * In this specific example table_name="user" , parameters=name , condition = "Tafita"
+ */
+void SavedMessages::remove(string table_name,string usr_id, string parameter,string conditions){
+    QSqlQuery query;
+    std::string com = "DELETE FROM "+ table_name+ " WHERE "+parameter+"=:"+parameter+" AND userId="+usr_id;
+    //    cout<<com<<endl;
+    query.prepare(QString::fromStdString(com));
+    string temp =":"+parameter;
+    query.bindValue(QString::fromStdString(temp),QString::fromStdString(conditions));
+    query.exec(); //execute the command
+    //    cout<<"Succesful delete"<<endl;
 }

@@ -115,7 +115,7 @@
      </font>
     </property>
     <property name="text">
-     <string>John Doe</string>
+     <string/>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>

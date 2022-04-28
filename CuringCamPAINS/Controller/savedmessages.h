@@ -55,6 +55,16 @@ public:
      */
     vector<string> readTitle(string table_name,string usr_id,string parameter);
 
+    /**
+     * @brief Database:remove
+     * Method to remove a row in the database based on a given condition
+     * @param table_name : name of the table in the database
+     * @param parameters: column name in the table
+     * @param condition: values of the condition
+     */
+    void remove(string table_name,string usr_id,string parameter,string condition);
+
+
     //messageId to be incremented for each write to the database
     int messageId = getMaxId("savedmessages", "messageId") + 1;
 
