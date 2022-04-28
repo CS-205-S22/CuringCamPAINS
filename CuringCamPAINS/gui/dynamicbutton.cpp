@@ -5,7 +5,7 @@ DynamicButton::DynamicButton(QWidget *parent) :
 {
     resID = ++buttonID;// Increment of counter by one
     //buttonID = ResID;   /* Assigning a button number which will be further work with buttons*/
-
+    //name = "empty";
 }
 
 DynamicButton::~DynamicButton()

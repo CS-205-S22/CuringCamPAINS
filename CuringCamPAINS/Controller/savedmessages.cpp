@@ -78,7 +78,7 @@ vector<string> SavedMessages::readText(string table_name,string usr_id,string pa
     query.exec(); //execute the command
     vector<string> messages;
     while(query.next()) {
-        QString text = query.value(2).toString();
+        QString text = query.value(3).toString();
         messages.push_back(text.toStdString());
     }
     return messages;

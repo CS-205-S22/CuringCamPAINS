@@ -19,8 +19,10 @@ LogGui::~LogGui()
     delete ui;
 }
 
-void LogGui::autofill() {
-    QString name = QString("John Doe");
+void LogGui::autofill(string buttonName, string contactAge, string contactPN) {
+    QString name = QString::fromStdString(buttonName);
+    QString age = QString::fromStdString(contactAge);
+    QString phoneNumber = QString::fromStdString(contactPN);
     QString committed = QString("false");
 
     time_t now = time(0);
@@ -28,10 +30,25 @@ void LogGui::autofill() {
     int mon = 1 + ltm->tm_mon;
     int day = ltm->tm_mday;
     int year = 1900 + ltm->tm_year;
-    string date = to_string(mon) + "/" + to_string(day) + "/" + to_string(year);
+
+    string day_string = to_string(day);
+    string mon_string = to_string(mon);
+    string year_string = to_string(year);
+
+    if(day < 10){
+        day_string = "0" + day_string;
+    }
+    if(mon < 10){
+        mon_string = "0" + mon_string;
+    }
+
+
+    string date = mon_string + "/" + day_string + "/" + year_string;
 
     ui->lineEdit_name->setText(name);
+    ui->lineEdit_age->setText(age);
     ui->lineEdit_committed->setText(committed);
+    ui->lineEdit_phoneNumber->setText(phoneNumber);
     ui->lineEdit_date->setText(QString::fromStdString (date));
 }
 
@@ -54,6 +71,15 @@ void LogGui::on_pushButton_enter_clicked()
         QMessageBox::information(this,tr("INVALID AGE"), tr("This person has to be 18 or older!"));
         //what else can I do because if I type 'a' then that will still be accepted as a name
 
+    //CHECK IF THE PHONE-NUMBER IS VALID :)
+    }else if (ui->lineEdit_phoneNumber->text().toStdString().size() != 10){
+        QMessageBox::information(this,tr("INVALID PHONE-NUMBER"), tr("The format for the phone-number is \n XXXXXXXXXX"));
+
+
+    //CHECK IF THE DATE IS CORRECT
+    }else if (ui->lineEdit_date->text().toStdString().size() != 10){
+        QMessageBox::information(this,tr("INVALID DATE"), tr("The format for the date is \n mm/dd/yyyy"));
+
     //CHECK IF VALID isCommitted RESPONSE
     }else if(ui->lineEdit_committed->text().toStdString() != "False" &&
              ui->lineEdit_committed->text().toStdString() != "false" &&
@@ -73,6 +99,10 @@ void LogGui::on_pushButton_enter_clicked()
     logForm->date = ui->lineEdit_date->text().toStdString();
     logForm->committed = ui->lineEdit_committed->text().toStdString();
 
+
+    logForm->saveLogForm(logForm->name, logForm->age, logForm->phoneNumber, logForm->numOfAttempts,
+                       logForm->methodOfContact, logForm->reaction, logForm->date, logForm->committed);
+
     /*logForm.logInput[0] = ui->nameLineEdit->text().toStdString();
     logForm.logInput[1] = ui->ageLineEdit->text().toStdString();
     logForm.logInput[2] = ui->pnLineEdit->text().toStdString();
@@ -89,6 +119,9 @@ void LogGui::on_pushButton_enter_clicked()
     logForm->saveLogForm(logForm->name, logForm->age, logForm->phoneNumber, logForm->numOfAttempts,
                        logForm->methodOfContact, logForm->reaction, logForm->date, logForm->committed);
     //logForm.saveLogForm("John Cena", "19", "1111112", "3", "text", "unsure", "April 7th, 2022", "false");
+
     //logForm.deleteLog("111");
     }
+
+    //ui->stackedWidget_main->setCurrentIndex(0);
 }

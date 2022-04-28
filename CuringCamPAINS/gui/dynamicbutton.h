@@ -11,10 +11,14 @@ class DynamicButton : public QPushButton
     ~DynamicButton();
     int resID;   // A variable counter buttons rooms
     int getID();        // Function to return a local number buttons
+
+    std::string name;
+
     static void setID()
     {
         buttonID = 0;
     }
+
 
 
 public slots:

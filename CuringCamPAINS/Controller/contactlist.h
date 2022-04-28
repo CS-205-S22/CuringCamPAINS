@@ -26,6 +26,7 @@ public:
     void print();
     void writeToDB();
     void readFromDB();
+    Contact* findByFirstName(string name);
 
    int usr_id;
     vector<Contact*>* masterList;

@@ -56,17 +56,17 @@ void ContactList::readFile(string name) {
     string cols[] = {"contactId", "contactListId", "firstName", "lastName", "phoneNumber", "emailAddress", "homeAddress", "dateOfBirth"};
 
     cerr << name << endl;
-    cout << QDir::currentPath().toStdString() << endl;
+    cerr << QDir::currentPath().toStdString() << endl;
 
     file.open(name, fstream::in);
 
     if (!file.is_open()) {
-        cout << "Error reading file.\n";
+        cerr << "Error reading file.\n";
         exit(1);
     } else {
         getline(file, line);  //first row
 
-        cout << "REading the file." << endl;
+        cerr << "REading the file." << endl;
 
         while(getline(file, line)) {
             stringstream strStream(line);
@@ -241,7 +241,13 @@ void ContactList::readFromDB() {
     }
 }
 
-
+Contact* ContactList::findByFirstName(string name) {
+    for (unsigned i = 0; i < treatmentGroup->size(); i++) {
+        if(name.compare(treatmentGroup->at(i)->firstName) == 0) {
+            return treatmentGroup->at(i);
+        }
+    }
+}
 
 
 

@@ -3,13 +3,13 @@
 
 
 
-ContactsGui::ContactsGui(int usr,QWidget *parent) :
+ContactsGui::ContactsGui(int usr, QWidget *parent) :
         QWidget(parent),
         ui(new Ui::ContactsGui) {
     cur_usr=usr;
     ui->setupUi(this);
     ui->stackedWidget_contacts->setCurrentIndex(0);
-    contactList = new ContactList(cur_usr,"../../../../../database.sqlite");
+    contactList = new ContactList(cur_usr, "../../../../../database.sqlite");
 }
 
 ContactsGui::~ContactsGui() {
@@ -17,7 +17,7 @@ ContactsGui::~ContactsGui() {
 }
 
 void ContactsGui::on_pushButton_uploadFile_clicked() {
-    contactList->readFile("../../../contacts.csv");
+    contactList->readFile("../../../../contacts.csv");
 }
 
 void ContactsGui::on_pushButton_save_clicked() {

@@ -7,6 +7,8 @@
 #include "resourcesgui.h"
 #include "dynamicbutton.h"
 #include "../Controller/csv.h"
+
+using namespace std;
 namespace Ui {
 class DashboardGui;
 }
@@ -20,6 +22,7 @@ public:
     void deleteButtons();
     void displayButtons();
     ~DashboardGui();
+    Contact* con;
 
 private slots:
     void openLogForm();
@@ -40,6 +43,9 @@ private slots:
 
 private:
     Ui::DashboardGui *ui;
+    vector<string> buttonList;
+    vector<DynamicButton*> dynButtonList;
+    int count = 1;
 //    ContactsGui *contactsGui = new ContactsGui();
 //    LogGui *logGui = new LogGui();
 //    ResourcesGui *resourcesGui = new ResourcesGui();

@@ -35,24 +35,4 @@ public:
     //int logId = 0;
 };
 
-//THIS MIGHT NOT BE NECESSARY SINCE WE ARE USING THE DATABASE
-//class LogGui{
-//public:
-
-//    void clearLog();
-//    void enterLogForm();
-
-//private:
-//    vector<LogForm> logForms;
-//    int numOfContacts;
-//};
-
-
-
-//class Log
-//{
-//public:
-//    Log();
-//};
-
 #endif // LOG_H
