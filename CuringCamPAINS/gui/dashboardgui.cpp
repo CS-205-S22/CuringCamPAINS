@@ -16,7 +16,9 @@ DashboardGui::DashboardGui(int cur_usrId, QWidget *parent) :
     int h=ui->label_image->height();
     ui->label_image->setPixmap(pix.scaled(w,h,Qt::KeepAspectRatio));
 
-    //    ui->label_image->setText("Tafita");
+    Database *dbb=new Database("../../../../../database.sqlite");
+    string name=dbb->getter("user","name","userId",std::to_string(cur_usrId));
+     ui->label_name->setText(QString::fromStdString(name));
     resourcesGui = new ResourcesGui(cur_usrId);
     ui->stackedWidget_main->addWidget(contactsGui);
     ui->stackedWidget_main->addWidget(resourcesGui);
