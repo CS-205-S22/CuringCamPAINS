@@ -114,7 +114,9 @@ void ResourcesGui::on_pushButton_deleteMessage_clicked()
 {
     ui->stackedWidget_resources->setCurrentIndex(3);
     vector<string> titles = sm->viewTitles();
-
+    if (title.empty()) {
+        return;
+    }
     for (int i = 0; i < (int)titles.size() - 1; i++) {
         ui->comboBox_choicesDelete->addItem(QString::fromUtf8(titles.at(i).c_str()));
     }
@@ -148,6 +150,18 @@ void ResourcesGui::on_pushButton_saveMessage_clicked()
     sm->createMessage(this->title, this->text);
     ui->lineEdit_title->clear();
     ui->lineEdit_text->clear();
+    ui->stackedWidget_resources->setCurrentIndex(0);
+}
+
+
+void ResourcesGui::on_pushButton_back2_clicked()
+{
+    ui->stackedWidget_resources->setCurrentIndex(0);
+}
+
+
+void ResourcesGui::on_pushButton_back3_clicked()
+{
     ui->stackedWidget_resources->setCurrentIndex(0);
 }
 

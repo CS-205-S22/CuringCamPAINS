@@ -131,6 +131,7 @@ public:
      */
 
     void updateColumn(string table_name);
+
     vector<string> parameters;
     int param_size;
 };

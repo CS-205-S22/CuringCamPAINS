@@ -14,6 +14,7 @@ class DynamicButton : public QPushButton
 
     std::string name;
 
+    //static function to set button IDs back to 0
     static void setID()
     {
         buttonID = 0;

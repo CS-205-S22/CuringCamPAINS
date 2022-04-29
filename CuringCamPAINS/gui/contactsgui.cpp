@@ -17,7 +17,7 @@ ContactsGui::~ContactsGui() {
 }
 
 void ContactsGui::on_pushButton_uploadFile_clicked() {
-    contactList->readFile("../../../../contacts.csv");
+    contactList->readFile("../../../contacts.csv");
 }
 
 void ContactsGui::on_pushButton_save_clicked() {
