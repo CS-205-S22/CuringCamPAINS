@@ -124,6 +124,7 @@ void DashboardGui::openLogForm()
  * and deletes each widget(button).
  */
 void DashboardGui::deleteButtons() {
+    cerr << ui->verticalLayout->count() << endl;
     for(int i = 0; i < ui->verticalLayout->count(); i++){
         ui->verticalLayout->itemAt(i)->widget()->hide();
         delete ui->verticalLayout->itemAt(i)->widget();
@@ -131,6 +132,7 @@ void DashboardGui::deleteButtons() {
         button->hide();
         delete button;*/
     }
+    cerr << ui->verticalLayout->count() << endl;
 }
 
 /**
