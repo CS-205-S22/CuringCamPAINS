@@ -122,19 +122,18 @@ void DashboardGui::openLogForm()
 }
 
 /**
- * @brief Function deletes all buttons from the dashboard display. Loops through the count of objects on the vertical layout
- * and deletes each widget(button).
+ * @brief Function deletes all buttons from the dashboard display. Loops through the vertical layout while it is not null. At each
+ * iteration it deletes each of the items on the layout at the 0th index.
  */
 void DashboardGui::deleteButtons() {
-    cerr << ui->verticalLayout->count() << endl;
-    for(int i = 0; i < ui->verticalLayout->count(); i++){
-        ui->verticalLayout->itemAt(i)->widget()->hide();
-        delete ui->verticalLayout->itemAt(i)->widget();
-        /*DynamicButton *button = qobject_cast<DynamicButton*>(ui->verticalLayout->itemAt(i)->widget());
-        button->hide();
-        delete button;*/
+    if ( ui->verticalLayout != NULL )
+    {
+        QLayoutItem* item;
+        while ( ( item = ui->verticalLayout->itemAt(0) ) != NULL )
+        {
+            delete item->widget();
+        }
     }
-    cerr << ui->verticalLayout->count() << endl;
 }
 
 /**
