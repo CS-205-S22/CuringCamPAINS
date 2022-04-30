@@ -130,7 +130,8 @@ int main(int argc, char* argv[])
 ////    test.download(dbbName,"user",parameters,param_size,outFile);
 
 
-//    Database db("../../database.sqlite");
+    Database db("../../database.sqlite");
+    cout<<db.getter("user","name","userId","1")<<endl;
 ////    db.updateColumn("user");
 //    db.tableToCsv("savedmessages","../../savedmessages.csv");
 
