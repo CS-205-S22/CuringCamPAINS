@@ -17,7 +17,13 @@ ContactsGui::~ContactsGui() {
 }
 
 void ContactsGui::on_pushButton_uploadFile_clicked() {
-    contactList->readFile("../../../contacts.csv");
+    QString fileName = QFileDialog::getOpenFileName(this,
+        tr("Upload Contacts"), "/Desktop", tr("Contacts Files (*.csv)"));
+    string fname = fileName.toStdString();
+
+    cerr << "FILE NAME: " << fname << endl;
+    contactList->readFile(fname);
+//    contactList->readFile("../../../contacts.csv");
 
 //    QString path = QFileDialog::getExistingDirectory (this, tr("Directory"), directory.path());
 //    if ( path.isNull() == false )
@@ -25,7 +31,7 @@ void ContactsGui::on_pushButton_uploadFile_clicked() {
 //        directory.setPath(path);
 //    }
 
-    QMessageBox::information(this,tr("Successful upload!"), tr("Your file is successfully uploaded"));
+    QMessageBox::information(this, tr("Successful upload!"), tr("Your file is successfully uploaded"));
 }
 
 void ContactsGui::on_pushButton_save_clicked() {

@@ -158,7 +158,14 @@ void DashboardGui::on_pushButton_resources_clicked()
 void DashboardGui::on_pushButton_data_clicked()
 {
     Csv *c=new Csv();
-    c->download("../../../../../database.sqlite","logForm","../../../../../data_downloaded.csv");
+    QString fileName = QFileDialog::getOpenFileName(this,
+        tr("Download Data"), "/Desktop", tr("Data File (*.csv)"));
+    string fname = fileName.toStdString();
+
+    cerr << "CSV FILE NAME: " << fname << endl;
+
+    c->download("../../../../../database.sqlite", "logForm", fname);
+//    c->download("../../../../../database.sqlite", "logForm", "../../../../../data_downloaded.csv");
     QMessageBox::warning(this,"Download", "The csv file is downloaded in main file");
     ui->stackedWidget_main->setCurrentIndex(0);
 }

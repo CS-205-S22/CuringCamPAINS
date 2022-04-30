@@ -132,7 +132,7 @@ void Database::write(string table_name, string values[] ){
         //write the query in form of
         //INSERT INTO table_name (param1,param2,param3)"+" VALUES "+" (val1,val2,val3)"
         string com = "INSERT INTO " + table_name + "(" + temp + ")" + " VALUES " + " (" + temp2 + ")";
-        std::cout << com << endl;
+//        std::cout << com << endl;
 
         query.prepare(QString::fromStdString(com));
 
@@ -221,7 +221,7 @@ void Database::closeDB() {
  * @param parameters[]: name of the table headers
  * @param outFile: Address of the output file
  */
-void Database::tableToCsv(string table_name,string outFile){
+void Database::tableToCsv(string table_name, string outFile){
 
     //get the column names
     updateColumn(table_name);

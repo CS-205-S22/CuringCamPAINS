@@ -77,6 +77,8 @@ void ContactList::readFile(string name) {
             getline(strStream, hAdd, ',');
             getline(strStream, ageStr, ',');
 
+            cout << "NAME: " << firstName << endl;
+
             if (containsContact(cellStr)) {
                 cout << "Contact is already saved!" << endl;
                 continue;
