@@ -12,8 +12,8 @@ Csv::Csv()
  * @param outFile: Address of the output file
  */
 void Csv::download(string dbName, string table_name, string outFile){
-    Database temp(dbName);
-    temp.tableToCsv(table_name, outFile);
+    temp=new Database(dbName);
+    temp->tableToCsv(table_name, outFile);
 }
 
 /**

@@ -1,0 +1,7 @@
+logId,fullName,age,phoneNumber,numOfAttempts,methodOfContact,reaction,dateContacted,isCommitted
+2,John Doe,18,1111111,4,text,happy,4/20/2022,false
+3,John Doe,19,1234567,5,text,nervous,04/25/2022,false
+4,John Doe,18,717-111-11111,5,text,happy,04/25/2022,false
+5,Josh,34,3456789012,2,text,adf,04/27/2022,false
+6,Josh,34,3456789012,2,text,adf,04/27/2022,false
+7,Tafita,56,5678901234,2,text,kjnaf,04/27/2022,false

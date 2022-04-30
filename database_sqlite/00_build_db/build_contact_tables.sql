@@ -1,6 +1,7 @@
 create table contact (
       contactId         INT NOT NULL UNIQUE,
-      contactListId     INT NOT NULL,
+      treatmentId         INT NOT NULL ,
+      userId     INT NOT NULL,
       firstName     CHAR NOT NULL,
       lastName     CHAR NOT NULL,
       phoneNumber     CHAR NOT NULL,

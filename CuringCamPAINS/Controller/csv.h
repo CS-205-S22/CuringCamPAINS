@@ -42,6 +42,7 @@ private:
     string fileName;
     string locationToBeSaved;
     string data;
+    Database *temp;
 
 };
 

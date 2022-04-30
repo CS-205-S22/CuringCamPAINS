@@ -114,7 +114,6 @@ void Database::runQuery(QString str){
  */
 void Database::write(string table_name, string values[] ){
     try{
-
         //get the column names
         updateColumn(table_name);
 
@@ -133,7 +132,7 @@ void Database::write(string table_name, string values[] ){
         //write the query in form of
         //INSERT INTO table_name (param1,param2,param3)"+" VALUES "+" (val1,val2,val3)"
         string com = "INSERT INTO " + table_name + "(" + temp + ")" + " VALUES " + " (" + temp2 + ")";
-        //    std::cout << com << endl;
+        std::cout << com << endl;
 
         query.prepare(QString::fromStdString(com));
 
@@ -152,6 +151,8 @@ void Database::write(string table_name, string values[] ){
         cout << "error" << endl;
     }
 }
+
+
 
 
 /**
@@ -174,82 +175,6 @@ void Database::remove(string table_name,string parameter,string conditions){
     //    cout<<"Succesful delete"<<endl;
 }
 
-/**
- * @brief Database:readText
- * Method get the content of a table on for a specific conditions
- * @param table_name : name of the table in the database
- * @param parameters: column names in the table
- * @param condition: values of the condition
- */
-
-vector<string> Database::readText(string table_name,string parameter,string conditions) {
-    QSqlQuery query;
-    std::string com = "SELECT* FROM "+ table_name + " WHERE "+parameter+"=:"+parameter;
-    //    cout<<com<<endl;
-    query.prepare(QString::fromStdString(com));
-    string temp =":"+parameter;
-    query.bindValue(QString::fromStdString(temp),QString::fromStdString(conditions));
-    query.exec(); //execute the command
-    vector<string> messages;
-    while(query.next()) {
-        QString text = query.value(2).toString();
-        messages.push_back(text.toStdString());
-    }
-    return messages;
-}
-
-
-/**
- * @brief Database:readTitle
- * Method get the the title from savedmessage table
- * @param table_name : name of the table in the database
- * @param parameters: column names in the table
- * @param condition: values of the condition
- */
-vector<string> Database::readTitle(string table_name,string parameter) {
-    QSqlQuery query;
-    std::string com = "SELECT "+ parameter + " FROM "+table_name;
-    //    cout<<com<<endl;
-    query.prepare(QString::fromStdString(com));
-    query.exec(); //execute the command
-    vector<string> titles;
-    while(query.next()) {
-        QString text = query.value(0).toString();
-        titles.push_back(text.toStdString());
-    }
-    return titles;
-}
-
-/**
- * @brief Database:authenticate
- * Method to verify if a user with a certain username and passwrd is in the database
- * @param usr : the username
- * @param pwd : password
- */
-bool Database::authenticate(QString usr, QString pwd){
-
-    try{
-        QSqlQuery query;
-        QString query_str_id = "SELECT password FROM user WHERE userName='"+usr+"' ;"; //get password
-        query.exec(query_str_id);
-        query.next();
-        //    cout<<"Here"<<endl;
-        std::string result=query.value(0).toString().toStdString();
-        std::string temp=pwd.toStdString();
-
-        if(temp==result){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-
-    catch(...){
-        cout<<"error occured"<<endl;
-        return false;
-    }
-}
 
 
 
@@ -260,6 +185,11 @@ bool Database::authenticate(QString usr, QString pwd){
 int Database::getMaxId(string table_name,string id_name){
     try{
         QSqlQuery query;
+        query.exec("SELECT COUNT(messageId) FROM savedmessages");
+        query.next();
+        if (query.value(0).toString() == "0") {
+            return 0;
+        }
         QString id= QString::fromStdString(id_name);
         QString table=QString::fromStdString(table_name);
         QString query_str_id = "select MAX("+id+") from "+table;
@@ -267,7 +197,6 @@ int Database::getMaxId(string table_name,string id_name){
         query.next();
         std::string result=query.value(0).toString().toStdString();
         return stoi(result);
-
     }
     catch(...){
         cout<<"Error occured"<<endl;
@@ -334,14 +263,13 @@ void Database::tableToCsv(string table_name,string outFile){
 }
 
 /**
- * @brief Database:exportTableToCsv
- * Export the data from a table into a csv file
- * @param outFile: Address of the output file
+ * @brief Database:updateColumn
+ * Get the name of the fields name for the designated table
+ * @param table_name: name of the table
  */
 void Database::updateColumn(string table_name){
     parameters.clear(); //clear the previous parameters containers
     string query_str="PRAGMA table_info("+table_name+");"; //write the string
-    //    cout<<query_str<<endl;
 
     //perform the query
     QSqlQuery query;
@@ -355,7 +283,27 @@ void Database::updateColumn(string table_name){
         parameters.push_back(out);
 
     }
-    //update the parameter size
     param_size=parameters.size();
-    //    cout<<param_size<<endl;
+}
+
+
+/**
+ * @brief Database:getter
+ * Get the element on a sepecific field with a specific argument
+ * @param table_name: name of the table
+ * @param targetColumn: name of the table column
+ * @param paramater: name of the chosen column
+ * @param condition: the condition value
+ */
+string Database::getter(string table_name,string targetColumn, string parameter,string condition){
+    QSqlQuery query;
+    std::string com = "SELECT "+targetColumn+" FROM "+ table_name + " WHERE "+parameter+"=:"+parameter+";";
+    query.prepare(QString::fromStdString(com));
+    string temp =":"+parameter;
+    query.bindValue(QString::fromStdString(temp),QString::fromStdString(condition));
+    query.exec(); //execute the command
+    vector<string> messages;
+    query.next();
+    string text = query.value(0).toString().toStdString();
+    return text;
 }

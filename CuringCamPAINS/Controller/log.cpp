@@ -1,12 +1,12 @@
 #include "log.h"
 
-LogForm::LogForm(string name):Database(name)
+LogForm::LogForm(int id,string name):Database(name)
 {
-
+usr_id=id;
 }
 
-LogForm::LogForm(){
-
+LogForm::LogForm(int id){
+usr_id=id;
 }
 
 void LogForm::clearLogForm(){
@@ -60,13 +60,11 @@ void LogForm::saveLogForm(string fullName, string age, string phoneNumber, strin
 
     //NEED TO MAKE SURE THE ID IS DIFFERENT (Go through the ID's in the database
 
-    //this will write everything to the database
-    string cols[] = {"logId","fullName", "age", "phoneNumber", "numOfAttempts", "methodOfContact", "reaction", "dateContacted", "isCommitted"};
 
     //string logId = to_string(this->logId);
     string logId = to_string(getMaxId("logForm", "logId")+1);
 
-    string messages[] = {logId, fullName, age, phoneNumber, numOfAttempts, methodOfContact,
+    string messages[] = {logId, std::to_string(usr_id),fullName, age, phoneNumber, numOfAttempts, methodOfContact,
                          reaction, dateContacted, isCommitted};
     write("logForm", messages);
     //this->logId = getMaxId("logForm", "logId");

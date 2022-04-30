@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QColorDialog>
+#include <sstream>
 #include "../Controller/savedmessages.h"
 
 using namespace std;
@@ -17,8 +18,11 @@ class ResourcesGui : public QWidget
 
 public:
     explicit ResourcesGui(QWidget *parent = nullptr);
+    explicit ResourcesGui(int usr,QWidget *parent = nullptr);
     ~ResourcesGui();
+    QString getSyle();
 
+    int cur_usr;
 private slots:
     void on_pushButton_changeColor_clicked();
 
@@ -36,9 +40,18 @@ private slots:
 
     void on_pushButton_delete_clicked();
 
+    void on_pushButton_back2_clicked();
+
+    void on_pushButton_back3_clicked();
+
 private:
     Ui::ResourcesGui *ui;
     string title, text;
+    SavedMessages *sm;
+    QString style;
+
+signals:
+    void changeColorSignal();
 };
 
 #endif // RESOURCESGUI_H
