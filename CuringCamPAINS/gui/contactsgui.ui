@@ -13,27 +13,27 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
     <widget class="QStackedWidget" name="stackedWidget_contacts">
      <widget class="QWidget" name="page">
       <widget class="QLineEdit" name="lineEdit_age">
        <property name="geometry">
         <rect>
-         <x>310</x>
-         <y>290</y>
-         <width>113</width>
-         <height>21</height>
+         <x>300</x>
+         <y>390</y>
+         <width>131</width>
+         <height>31</height>
         </rect>
        </property>
       </widget>
       <widget class="QLabel" name="label_age">
        <property name="geometry">
         <rect>
-         <x>210</x>
-         <y>290</y>
-         <width>91</width>
-         <height>16</height>
+         <x>180</x>
+         <y>390</y>
+         <width>101</width>
+         <height>21</height>
         </rect>
        </property>
        <property name="text">
@@ -43,18 +43,18 @@
       <widget class="QLineEdit" name="lineEdit_email">
        <property name="geometry">
         <rect>
-         <x>310</x>
-         <y>230</y>
-         <width>113</width>
-         <height>21</height>
+         <x>300</x>
+         <y>270</y>
+         <width>131</width>
+         <height>31</height>
         </rect>
        </property>
       </widget>
       <widget class="QPushButton" name="pushButton_save">
        <property name="geometry">
         <rect>
-         <x>320</x>
-         <y>330</y>
+         <x>310</x>
+         <y>480</y>
          <width>100</width>
          <height>32</height>
         </rect>
@@ -66,10 +66,10 @@
       <widget class="QLabel" name="label_lastName">
        <property name="geometry">
         <rect>
-         <x>210</x>
-         <y>170</y>
-         <width>71</width>
-         <height>16</height>
+         <x>180</x>
+         <y>145</y>
+         <width>81</width>
+         <height>21</height>
         </rect>
        </property>
        <property name="text">
@@ -79,18 +79,18 @@
       <widget class="QLineEdit" name="lineEdit_firstName">
        <property name="geometry">
         <rect>
-         <x>310</x>
-         <y>140</y>
-         <width>113</width>
-         <height>21</height>
+         <x>300</x>
+         <y>80</y>
+         <width>131</width>
+         <height>31</height>
         </rect>
        </property>
       </widget>
       <widget class="QPushButton" name="pushButton_uploadFile">
        <property name="geometry">
         <rect>
-         <x>200</x>
-         <y>330</y>
+         <x>190</x>
+         <y>480</y>
          <width>100</width>
          <height>32</height>
         </rect>
@@ -102,30 +102,30 @@
       <widget class="QLineEdit" name="lineEdit_lastName">
        <property name="geometry">
         <rect>
-         <x>310</x>
-         <y>170</y>
-         <width>113</width>
-         <height>21</height>
+         <x>300</x>
+         <y>140</y>
+         <width>131</width>
+         <height>31</height>
         </rect>
        </property>
       </widget>
       <widget class="QLineEdit" name="lineEdit_phone">
        <property name="geometry">
         <rect>
-         <x>310</x>
+         <x>300</x>
          <y>200</y>
-         <width>113</width>
-         <height>21</height>
+         <width>131</width>
+         <height>31</height>
         </rect>
        </property>
       </widget>
       <widget class="QLabel" name="label_email">
        <property name="geometry">
         <rect>
-         <x>210</x>
-         <y>230</y>
+         <x>180</x>
+         <y>280</y>
          <width>91</width>
-         <height>16</height>
+         <height>21</height>
         </rect>
        </property>
        <property name="text">
@@ -135,20 +135,20 @@
       <widget class="QLineEdit" name="lineEdit_address">
        <property name="geometry">
         <rect>
-         <x>310</x>
-         <y>260</y>
-         <width>113</width>
-         <height>21</height>
+         <x>300</x>
+         <y>330</y>
+         <width>131</width>
+         <height>31</height>
         </rect>
        </property>
       </widget>
       <widget class="QLabel" name="label_address">
        <property name="geometry">
         <rect>
-         <x>210</x>
-         <y>260</y>
-         <width>91</width>
-         <height>16</height>
+         <x>180</x>
+         <y>330</y>
+         <width>111</width>
+         <height>31</height>
         </rect>
        </property>
        <property name="text">
@@ -158,10 +158,10 @@
       <widget class="QLabel" name="label_phone">
        <property name="geometry">
         <rect>
-         <x>210</x>
-         <y>200</y>
-         <width>91</width>
-         <height>16</height>
+         <x>180</x>
+         <y>210</y>
+         <width>101</width>
+         <height>21</height>
         </rect>
        </property>
        <property name="text">
@@ -171,14 +171,46 @@
       <widget class="QLabel" name="label_firstName">
        <property name="geometry">
         <rect>
-         <x>210</x>
-         <y>140</y>
-         <width>71</width>
-         <height>16</height>
+         <x>180</x>
+         <y>80</y>
+         <width>91</width>
+         <height>31</height>
         </rect>
        </property>
        <property name="text">
         <string>First Name:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_phoneErrorMessage">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>240</y>
+         <width>251</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_ageErrorMessage">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>430</y>
+         <width>251</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </widget>
@@ -187,6 +219,16 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>lineEdit_firstName</tabstop>
+  <tabstop>lineEdit_lastName</tabstop>
+  <tabstop>lineEdit_phone</tabstop>
+  <tabstop>lineEdit_email</tabstop>
+  <tabstop>lineEdit_address</tabstop>
+  <tabstop>lineEdit_age</tabstop>
+  <tabstop>pushButton_save</tabstop>
+  <tabstop>pushButton_uploadFile</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

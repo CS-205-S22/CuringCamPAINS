@@ -15,18 +15,45 @@ ContactsGui::~ContactsGui() {
 
 void ContactsGui::on_pushButton_uploadFile_clicked() {
     contactList->readFile("../../../contacts.csv");
+
+//    QString path = QFileDialog::getExistingDirectory (this, tr("Directory"), directory.path());
+//    if ( path.isNull() == false )
+//    {
+//        directory.setPath(path);
+//    }
+
+    QMessageBox::information(this,tr("Successful upload!"), tr("Your file is successfully uploaded"));
 }
 
 void ContactsGui::on_pushButton_save_clicked() {
-    contactList->addContact((ui->lineEdit_firstName->text()).toStdString(), (ui->lineEdit_lastName->text()).toStdString(),
-                            (ui->lineEdit_phone->text()).toStdString(), (ui->lineEdit_email->text()).toStdString(),
-                            (ui->lineEdit_address->text()).toStdString(), (ui->lineEdit_age->text()).toStdString());
+    string firstName = (ui->lineEdit_firstName->text()).toStdString();
+    string lastName = (ui->lineEdit_lastName->text()).toStdString();
+    string phoneNum = (ui->lineEdit_phone->text()).toStdString();
+    string email = (ui->lineEdit_email->text()).toStdString();
+    string address = (ui->lineEdit_address->text()).toStdString();
+    string age = (ui->lineEdit_age->text()).toStdString();
 
-    ui->lineEdit_firstName->clear();
-    ui->lineEdit_lastName->clear();
-    ui->lineEdit_phone->clear();
-    ui->lineEdit_email->clear();
-    ui->lineEdit_address->clear();
-    ui->lineEdit_age->clear();
+    if (phoneNum.length() != 10) {
+//        ui->label_phoneErrorMessage->setStyleSheet("{color: #FF0000}");
+        ui->label_phoneErrorMessage->setText("Invalid phone number!");
+    }
+
+    if (stoi(age) < 18) {
+        ui->label_ageErrorMessage->setText("The contact has to be above 18!");
+        return;
+    } else {
+
+        contactList->addContact(firstName, lastName, phoneNum, email, address, age);
+        QMessageBox::information(this, tr("Successful entry!"), tr("The contact is saved!"));
+
+        ui->lineEdit_firstName->clear();
+        ui->lineEdit_lastName->clear();
+        ui->lineEdit_phone->clear();
+        ui->lineEdit_email->clear();
+        ui->lineEdit_address->clear();
+        ui->lineEdit_age->clear();
+        ui->label_ageErrorMessage->clear();
+        ui->label_phoneErrorMessage->clear();
+    }
 }
 

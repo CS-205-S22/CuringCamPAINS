@@ -235,6 +235,7 @@ void ContactList::readFromDB() {
             if (!containsContact(cellStr)) {
                 Contact* c = new Contact(id, listId, firstName, lastName, cellStr, email, homeAdd, age);
                 masterList->push_back(c);
+                divideIntoGroups(c);
             }
         }
     }
