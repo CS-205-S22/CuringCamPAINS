@@ -1,5 +1,6 @@
 #include "contactsgui.h"
 #include "ui_contactsgui.h"
+#include "dashboardgui.h"
 
 
 
@@ -31,5 +32,7 @@ void ContactsGui::on_pushButton_save_clicked() {
     ui->lineEdit_email->clear();
     ui->lineEdit_address->clear();
     ui->lineEdit_age->clear();
+
+
 }
 

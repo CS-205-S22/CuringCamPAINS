@@ -33,10 +33,19 @@ DashboardGui::~DashboardGui()
 void DashboardGui::on_pushButton_dashboard_clicked()
 {
     ui->stackedWidget_main->setCurrentIndex(0);
+    cerr << "NUM CONTACTS BEFORE: " << numContacts << endl;
     if (numContacts != (int)contactsGui->contactList->treatmentGroup->size()) {
         this->displayButtons();
         numContacts = (int)contactsGui->contactList->treatmentGroup->size();
+        cerr << "NUM CONTACTS IN IF STATMENT: " << numContacts << endl;
     }
+    cerr << "NUM CONTACTS OUTSIDE IF STATMENT: " << numContacts << endl;
+    cerr << "SIZE OF TREATMENT GROUP: " << (int)contactsGui->contactList->treatmentGroup->size() << endl;
+
+
+     //It seems like the problem is the size of the treatment group is not increasing when a contact is being
+     //manually added
+
 }
 
 void DashboardGui::displayButtons() {
@@ -102,7 +111,6 @@ void DashboardGui::displayButtons() {
         ui->stackedWidget_main->setCurrentIndex(3);
         cerr << "AFTER CHANGE SCREEN" << endl;
         logGui->autofill(button->text().toStdString(), to_string(treatmentContact->age), treatmentContact->cellNum);
-
         cerr << "AFTER AUTOFILL" << endl;
         int pos = button->resID - 1;
         Contact* save = contactsGui->contactList->treatmentGroup->at(pos);
@@ -114,23 +122,6 @@ void DashboardGui::displayButtons() {
         //this->deleteButtons();
         //this->displayButtons();
     }
-
-    /*DynamicButton *button = (DynamicButton*) sender();
-
-    //open log form
-
-
-    //add this contact to the back of the vector
-    int pos = button->resID - 1;
-    Contact* save = contactsGui->contactList->treatmentGroup->at(pos);
-    contactsGui->contactList->treatmentGroup->erase(contactsGui->contactList->treatmentGroup->begin() + pos);
-    contactsGui->contactList->treatmentGroup->push_back(save);*/
-
-
-    //now shuffle buttons
-    //this->deleteButtons();
-    //this->displayButtons();
-//}
 
 
     void DashboardGui::deleteButtons() {
@@ -180,5 +171,9 @@ void DashboardGui::on_pushButton_logout_clicked()
 void DashboardGui::changeColor()
 {
     setStyleSheet(resourcesGui->getSyle());
+}
+
+void DashboardGui::increaseNumContacts(){
+    numContacts++;
 }
 

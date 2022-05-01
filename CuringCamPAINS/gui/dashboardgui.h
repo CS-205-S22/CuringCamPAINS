@@ -21,6 +21,7 @@ public:
     explicit DashboardGui(int userId,QWidget *parent = nullptr);
     void deleteButtons();
     void displayButtons();
+    void increaseNumContacts();
     ~DashboardGui();
     Contact* con;
 

@@ -141,6 +141,7 @@ void ContactList::addContact(string fn, string ln, string cellNum, string email,
 
     Contact* c = new Contact(usr_id,fn, ln, cellNum, email, hAdd, stoi(age));
     masterList->push_back(c);
+    //treatmentGroup->push_back(c); //THIS IS WHAT JOSH ADDED
 
     string id = to_string(c->id);
     string listIdStr = to_string(c->contactListId);

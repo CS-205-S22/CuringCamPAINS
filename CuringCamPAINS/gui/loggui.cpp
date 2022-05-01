@@ -47,6 +47,9 @@ void LogGui::autofill(string buttonName, string contactAge, string contactPN) {
 
     ui->lineEdit_name->setText(name);
     ui->lineEdit_age->setText(age);
+    ui->lineEdit_numOfAttempts->setText("");
+    ui->lineEdit_methodOfContact->setText("");
+    ui->lineEdit_reaction->setText("");
     ui->lineEdit_committed->setText(committed);
     ui->lineEdit_phoneNumber->setText(phoneNumber);
     ui->lineEdit_date->setText(QString::fromStdString (date));
@@ -102,6 +105,15 @@ void LogGui::on_pushButton_enter_clicked()
 
     logForm->saveLogForm(logForm->name, logForm->age, logForm->phoneNumber, logForm->numOfAttempts,
                        logForm->methodOfContact, logForm->reaction, logForm->date, logForm->committed);
+    //ui->lineEdit_name->setText(name);
+    //ui->lineEdit_age->setText(age);
+    ui->lineEdit_numOfAttempts->setText("");
+    ui->lineEdit_methodOfContact->setText("");
+    ui->lineEdit_reaction->setText("");
+    //ui->lineEdit_committed->setText(committed);
+    //ui->lineEdit_phoneNumber->setText(phoneNumber);
+    //ui->lineEdit_date->setText(QString::fromStdString (date));
+
 
     /*logForm.logInput[0] = ui->nameLineEdit->text().toStdString();
     logForm.logInput[1] = ui->ageLineEdit->text().toStdString();
@@ -116,8 +128,8 @@ void LogGui::on_pushButton_enter_clicked()
             logForm.logInput[3],logForm.logInput[4],logForm.logInput[5],
             logForm.logInput[6],logForm.logInput[7]);*/
 
-    logForm->saveLogForm(logForm->name, logForm->age, logForm->phoneNumber, logForm->numOfAttempts,
-                       logForm->methodOfContact, logForm->reaction, logForm->date, logForm->committed);
+    //logForm->saveLogForm(logForm->name, logForm->age, logForm->phoneNumber, logForm->numOfAttempts,
+                       //logForm->methodOfContact, logForm->reaction, logForm->date, logForm->committed);
     //logForm.saveLogForm("John Cena", "19", "1111112", "3", "text", "unsure", "April 7th, 2022", "false");
 
     //logForm.deleteLog("111");
