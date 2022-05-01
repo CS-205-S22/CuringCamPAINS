@@ -50,10 +50,10 @@ int main(int argc, char* argv[])
     //    l.signUp("hounasm","look");
 
     ///Saved Messages Testing:
-        SavedMessages s(1,"../../database.sqlite");
-        s.createMessage("Test","testing this message");
-        vector<string> temp=s.readTitle("savedmessages","1","messageTitle");
-        cout<<temp.at(0)<<endl;
+//        SavedMessages s(1,"../../database.sqlite");
+//        s.createMessage("Test","testing this message");
+//        vector<string> temp=s.readTitle("savedmessages","1","messageTitle");
+//        cout<<temp.at(0)<<endl;
 //        s.deleteMessage("Test");
 
 
@@ -130,13 +130,16 @@ int main(int argc, char* argv[])
 ////    test.download(dbbName,"user",parameters,param_size,outFile);
 
 
-    Database db("../../database.sqlite");
-    cout<<db.getter("user","name","userId","1")<<endl;
+//    Database db("../../database.sqlite");
+//    cout<<db.getter("user","name","userId","1")<<endl;
 ////    db.updateColumn("user");
 //    db.tableToCsv("savedmessages","../../savedmessages.csv");
 
 //        Login db("../../database.sqlite");
 //        cout<<db.getUserId("rex")<<endl;
+
+
+        QFile::copy("/Users/tafitarakoto/Desktop/_MG_3441.jpeg", "../../test.jpeg");
 
     return 0;
 }

@@ -5,5 +5,4 @@ SUBDIRS += \
     Model \
     UnitTests \
     gui \
-    gui \
-    logIn
+    gui
