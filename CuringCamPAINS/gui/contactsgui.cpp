@@ -45,10 +45,12 @@ void ContactsGui::on_pushButton_save_clicked() {
     if (phoneNum.length() != 10) {
 //        ui->label_phoneErrorMessage->setStyleSheet("{color: #FF0000}");
         ui->label_phoneErrorMessage->setText("Invalid phone number!");
+        QMessageBox::information(this,tr("INVALID PHONE-NUMBER"), tr("The format for the phone-number is \n XXXXXXXXXX"));
     }
 
     if (stoi(age) < 18) {
         ui->label_ageErrorMessage->setText("The contact has to be above 18!");
+        QMessageBox::information(this,tr("INVALID AGE"), tr("This person has to be 18 or older!"));
         return;
     } else {
 
