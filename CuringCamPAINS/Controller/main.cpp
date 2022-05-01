@@ -139,7 +139,10 @@ int main(int argc, char* argv[])
 //        cout<<db.getUserId("rex")<<endl;
 
 
-        QFile::copy("/Users/tafitarakoto/Desktop/_MG_3441.jpeg", "../../test.jpeg");
+//        QFile::copy("/Users/tafitarakoto/Desktop/_MG_3441.jpeg", "../../test.jpeg");
+//        QString fileName = QFileDialog::getOpenFileName(this,
+//                tr("Upload Picture"), "/Desktop", tr("Upload Profile Picture (*.jpeg *.png)"));
+//            string fname = fileName.toStdString();
 
     return 0;
 }

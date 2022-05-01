@@ -11,14 +11,17 @@ DashboardGui::DashboardGui(int cur_usrId, QWidget *parent) :
     contactsGui = new ContactsGui(cur_usrId);
     logGui = new LogGui(cur_usrId);
 
-    QPixmap pix("../../../../../user.png");
-    int w=ui->label_image->width();
-    int h=ui->label_image->height();
-    ui->label_image->setPixmap(pix.scaled(w,h,Qt::KeepAspectRatio));
 
     Database *dbb=new Database("../../../../../database.sqlite");
     string name=dbb->getter("user","name","userId",std::to_string(cur_usrId));
      ui->label_name->setText(QString::fromStdString(name));
+     string outFile="../../../../../"+name+".jpeg";
+     cout<<outFile<<endl;
+     QPixmap pix(QString::fromStdString(outFile));
+     int w=ui->label_image->width();
+     int h=ui->label_image->height();
+     ui->label_image->setPixmap(pix.scaled(w,h,Qt::KeepAspectRatio));
+
     resourcesGui = new ResourcesGui(cur_usrId);
     ui->stackedWidget_main->addWidget(contactsGui);
     ui->stackedWidget_main->addWidget(resourcesGui);

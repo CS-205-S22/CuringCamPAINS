@@ -142,6 +142,32 @@
     </rect>
    </property>
   </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>177</x>
+     <y>420</y>
+     <width>81</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>profile photo</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="uploadPhoto">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>410</y>
+     <width>100</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>choose file</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections>
