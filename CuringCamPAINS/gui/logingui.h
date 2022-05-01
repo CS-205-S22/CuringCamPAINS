@@ -26,6 +26,8 @@ private slots:
 
     void on_registration_clicked();
 
+    void on_test_clicked();
+
 private:
     Ui::LoginGUI *ui;
     DashboardGui *dashboardGui;

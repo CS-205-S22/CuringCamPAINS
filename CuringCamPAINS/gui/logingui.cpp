@@ -42,3 +42,9 @@ void LoginGUI::on_registration_clicked()
     registration = new registrationGUI(this);
     registration->show();
 }
+
+void LoginGUI::on_test_clicked()
+{
+
+}
+
