@@ -73,12 +73,12 @@ void DashboardGui::displayButtons() {
         ui->verticalLayout->addWidget(button);
         /* Connect the signal to the slot pressing buttons produce numbers
            * */
-        /*cerr << "BEFORE" << endl;
+        //cerr << "BEFORE" << endl;
         con = contactsGui->contactList->treatmentGroup->at(i);
         cerr << con->firstName << endl;
         button->name = con->firstName;
         buttonList.push_back(button->name);
-        dynButtonList.push_back(button);*/
+        dynButtonList.push_back(button);
         connect(button, SIGNAL(clicked()), this, SLOT(openLogForm()));
 
 
