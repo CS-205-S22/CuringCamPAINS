@@ -182,7 +182,7 @@ void Database::remove(string table_name,string parameter,string conditions){
  * @brief DBTool::getMaxId
  * get the max id on the user row
  */
-int Database::getMaxId(string table_name,string id_name){
+int Database::getMaxId(string table_name, string id_name){
     try{
         QSqlQuery query;
         query.exec("SELECT COUNT(messageId) FROM savedmessages");

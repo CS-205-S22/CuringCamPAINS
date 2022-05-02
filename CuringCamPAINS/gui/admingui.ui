@@ -168,7 +168,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Contact</string>
+    <string>Name</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_group">
@@ -186,7 +186,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Group</string>
+    <string>Date</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_logCount">
@@ -204,20 +204,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Log Count</string>
-   </property>
-  </widget>
-  <widget class="Line" name="line">
-   <property name="geometry">
-    <rect>
-     <x>230</x>
-     <y>40</y>
-     <width>551</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Horizontal</enum>
+    <string>Attempts</string>
    </property>
   </widget>
   <widget class="QScrollArea" name="scrollArea_main">
@@ -226,7 +213,7 @@
      <x>230</x>
      <y>50</y>
      <width>551</width>
-     <height>491</height>
+     <height>511</height>
     </rect>
    </property>
    <property name="widgetResizable">
@@ -238,7 +225,7 @@
       <x>0</x>
       <y>0</y>
       <width>549</width>
-      <height>489</height>
+      <height>509</height>
      </rect>
     </property>
    </widget>

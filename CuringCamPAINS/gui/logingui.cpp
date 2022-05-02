@@ -30,8 +30,8 @@ void LoginGUI::on_submission_pressed()
     string password=pwd.toStdString();
 
     s = new Login("../../../../../database.sqlite");
-    if(s->signUp(username,password)==true) {
-        curr_usrId=s->getUserId(username);
+    if(s->signUp(username, password) == true) {
+        curr_usrId = s->getUserId(username);
 //        if (s->getIsResearcher()) {
             //adminGui = new AdminGui();
             //hide();

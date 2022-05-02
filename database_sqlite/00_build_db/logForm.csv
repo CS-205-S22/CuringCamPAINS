@@ -1,6 +1,6 @@
-1,1,Tafita Rakoto,20,1223438988,5,Call,Happy,11/12/20,yes
-2,1,Tft Rawww,20,1223438988,5,Call,Happy,11/12/20,yes
-3,2,Pool lkjjl,20,1223438988,5,Call,Happy,11/12/20,yes
-4,3,John Doe,38,1234567876,7,Text,Nervous,11/14/20,no
-5,3,Alice Jane,21,5787465787,3,Text,Excited,11/15/20,yes
-6,3,Michael Vey,20,8988765678,11,Text,Unsure,12/1/20,no
+1,1,Tafita Rakoto,20,1223438988,5,Call,Happy,11/12/2020,true
+2,1,Tft Rawww,20,1223438988,5,Call,Happy,11/12/2020,true
+3,2,Pool lkjjl,20,1223438988,5,Call,Happy,11/12/2020,true
+4,3,John Doe,38,1234567876,7,Text,Nervous,11/14/2020,false
+5,3,Alice Jane,21,5787465787,3,Text,Excited,11/15/2020,true
+6,3,Michael Vey,20,8988765678,11,Text,Unsure,12/01/2020,false

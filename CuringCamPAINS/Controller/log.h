@@ -8,6 +8,7 @@ using namespace std;
 
 class LogForm:public Database{
 public:
+    LogForm(string name);
     LogForm(int usr_id,string name);
     LogForm(int usr_id);
     //all of the get and set methods
@@ -18,9 +19,11 @@ public:
                      string isCommitted);
     void deleteLog(string phoneNumber);
     string boolToString(bool tof);
+    void readFromDB();
     int logId = 0;
     int usr_id;
 
+    vector<vector<string>*> *logVector;
 //private:
     string name;
     string phoneNumber;

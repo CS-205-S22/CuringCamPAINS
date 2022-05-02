@@ -56,6 +56,7 @@ void AdminGui::displayList()
         layout->addWidget(logCnt);
         layout->setAlignment(logCnt, Qt::AlignCenter);
 
+        vLayout->setAlignment(Qt::AlignTop);
         vLayout->addLayout(layout);
 //    }
 }
@@ -63,5 +64,22 @@ void AdminGui::displayList()
 void AdminGui::on_pushButton_test_clicked()
 {
     this->displayList();
+}
+
+
+void AdminGui::on_pushButton_data_clicked()
+{
+    Csv *c=new Csv();
+    QString fileName = QFileDialog::getOpenFileName(this,
+                                                    tr("Download Data"), "/Desktop", tr("Data File (*.csv)"));
+    string fname = fileName.toStdString();
+    if(fname != ""){
+        cerr << "CSV FILE NAME: " << fname << endl;
+
+        if (fname.compare("") != 0) {
+            c->download("../../../../../database.sqlite", "logForm", fname);
+            QMessageBox::warning(this,"Download", "The csv file is downloaded in main file");
+        }
+    }
 }
 

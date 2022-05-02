@@ -24,7 +24,15 @@ int main(int argc, char* argv[])
 
 
 
-    //LogForm log = LogForm("../../database.sqlite");
+    LogForm log = LogForm("../../database.sqlite");
+    for(int i=0;i<6;i++){
+        for (int j=0;j<6;j++){
+            string temp=log.logVector->at(i)->at(j);
+            cout<<temp<<" ";
+        }
+        cout<<""<<endl;
+    }
+
     //log.saveLogForm("Joshua Garcia", 19, "1111112", 3, "text", "unsure", "April 7th, 2022", false);
     //log.saveLogForm("Oyu Gantumur", 21, "2222222", 8, "text", "excited", "March 7th, 2022", false);
     //log.saveLogForm("Max Turkot", 20, "3333333", 1, "text", "happy", "January 5th, 2022", false);
@@ -89,15 +97,15 @@ int main(int argc, char* argv[])
 
 
     ////Used to test the contact List
-    //        ContactList cl;
+//            ContactList cl;
     //        cl.getUserInput();
-    //        ContactList cl("../../database.sqlite");
-    //        cl.remove("contact", "firstName", "Oyu");
-    //        cl.remove("contact", "firstName", "Max");
-    //        cl.remove("contact", "firstName", "Josh");
-    //        cl.remove("contact", "firstName", "Tafita");
-    //        cl.remove("contact", "firstName", "Rory");
-    //        cl.remove("contact", "firstName", "Justin");
+//            ContactList cl("../../database.sqlite");
+//            cl.remove("contact", "firstName", "Oyu");
+//            cl.remove("contact", "firstName", "Max");
+//            cl.remove("contact", "firstName", "Josh");
+//            cl.remove("contact", "firstName", "Tafita");
+//            cl.remove("contact", "firstName", "Rory");
+//            cl.remove("contact", "firstName", "Justin");
     //    cl.getUserInput();
     //    ContactList cl("../../test.sqlite");
     //    cl.remove("contact", "firstName", "Justin");

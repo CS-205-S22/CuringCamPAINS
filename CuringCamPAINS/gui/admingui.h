@@ -5,6 +5,11 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include "../Controller/contactlist.h"
+#include <QMessageBox>
+#include <QPixmap>
+#include "../Controller/csv.h"
+#include <QDialog>
+#include <QFileDialog>
 
 namespace Ui {
 class AdminGui;
@@ -20,6 +25,8 @@ public:
 
 private slots:
     void on_pushButton_test_clicked();
+
+    void on_pushButton_data_clicked();
 
 private:
     Ui::AdminGui *ui;

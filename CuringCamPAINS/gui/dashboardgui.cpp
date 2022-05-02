@@ -13,20 +13,32 @@ DashboardGui::DashboardGui(int cur_usrId, QWidget *parent) :
     resourcesGui = new ResourcesGui(cur_usrId);
 
 
-    Database *dbb=new Database("../../../../../database.sqlite");
-    string name=dbb->getter("user","name","userId",std::to_string(cur_usrId));
-     ui->label_name->setText(QString::fromStdString(name));
-     string outFile="../../../../../"+name+".jpeg";
-     cout<<outFile<<endl;
-     QPixmap pix(QString::fromStdString(outFile));
-     int w=ui->label_image->width();
-     int h=ui->label_image->height();
-     ui->label_image->setPixmap(pix.scaled(w,h,Qt::KeepAspectRatio));
+    QPixmap pix1(QString::fromStdString("../../../../../letter_logo.png"));
+    int w1=ui->label_title->width();
+    int h1=ui->label_title->height();
+    ui->label_title->setPixmap(pix1.scaled(w1,h1,Qt::KeepAspectRatio));
+
+    //    QPixmap pix("../../../../../user.png");
+    //    int w = ui->label_image->width();
+    //    int h = ui->label_image->height();
+    //    ui->label_image->setPixmap(pix.scaled(w, h, Qt::KeepAspectRatio));
+
+
+    Database *dbb = new Database("../../../../../database.sqlite");
+    string name = dbb->getter("user", "name", "userId", std::to_string(cur_usrId));
+    ui->label_name->setText(QString::fromStdString(name));
+    string outFile="../../../../../"+name+".jpeg";
+    cout<<outFile<<endl;
+    QPixmap pix(QString::fromStdString(outFile));
+    int w=ui->label_image->width();
+    int h=ui->label_image->height();
+    ui->label_image->setPixmap(pix.scaled(w,h,Qt::KeepAspectRatio));
 
 
     ui->stackedWidget_main->addWidget(contactsGui);
     ui->stackedWidget_main->addWidget(resourcesGui);
     ui->stackedWidget_main->addWidget(logGui);
+    this->displayButtons();
 
     connect(resourcesGui, SIGNAL(changeColorSignal()), this, SLOT(changeColor()));
 }
@@ -44,18 +56,15 @@ DashboardGui::~DashboardGui()
 void DashboardGui::on_pushButton_dashboard_clicked()
 {
     ui->stackedWidget_main->setCurrentIndex(0);
-    cerr << "NUM CONTACTS BEFORE: " << numContacts << endl;
+    //cerr << "NUM CONTACTS BEFORE: " << numContacts << endl;
     if (numContacts != (int)contactsGui->contactList->treatmentGroup->size()) {
         this->displayButtons();
         numContacts = (int)contactsGui->contactList->treatmentGroup->size();
-        cerr << "NUM CONTACTS IN IF STATMENT: " << numContacts << endl;
+        //cerr << "NUM CONTACTS IN IF STATMENT: " << numContacts << endl;
     }
-    cerr << "NUM CONTACTS OUTSIDE IF STATMENT: " << numContacts << endl;
-    cerr << "SIZE OF TREATMENT GROUP: " << (int)contactsGui->contactList->treatmentGroup->size() << endl;
+    //cerr << "NUM CONTACTS OUTSIDE IF STATMENT: " << numContacts << endl;
+    //cerr << "SIZE OF TREATMENT GROUP: " << (int)contactsGui->contactList->treatmentGroup->size() << endl;
 
-
-     //It seems like the problem is the size of the treatment group is not increasing when a contact is being
-     //manually added
 
 }
 
@@ -86,7 +95,8 @@ void DashboardGui::displayButtons() {
         ui->verticalLayout->addWidget(button);
         /* Connect the signal to the slot pressing buttons produce numbers
            * */
-        //cerr << "BEFORE" << endl;
+        //        cerr << "BEFORE" << endl;
+
         con = contactsGui->contactList->treatmentGroup->at(i);
         cerr << con->firstName << endl;
         button->name = con->firstName;
@@ -113,17 +123,16 @@ void DashboardGui::openLogForm()
     /* To determine the object that caused the signal
      * */
 
-//<<<<<<< HEAD
         DynamicButton *button = (DynamicButton*) sender();
-        cerr << "AFTER CLICKED: " << con->firstName << endl;
+        //cerr << "AFTER CLICKED: " << con->firstName << endl;
         Contact* treatmentContact = contactsGui->contactList->findByFirstName(button->name);
         //open log form
-        cerr << "BEFORE CHANGE SCREEN" << endl;
+        //cerr << "BEFORE CHANGE SCREEN" << endl;
         ui->stackedWidget_main->setCurrentIndex(3);
-        cerr << "AFTER CHANGE SCREEN" << endl;
+        //cerr << "AFTER CHANGE SCREEN" << endl;
         string fullName = treatmentContact->firstName + " " + treatmentContact->lastName;
         logGui->autofill(fullName, to_string(treatmentContact->age), treatmentContact->cellNum);
-        cerr << "AFTER AUTOFILL" << endl;
+        //cerr << "AFTER AUTOFILL" << endl;
         int pos = button->resID - 1;
         Contact* save = contactsGui->contactList->treatmentGroup->at(pos);
         contactsGui->contactList->treatmentGroup->erase(contactsGui->contactList->treatmentGroup->begin() + pos);
@@ -134,39 +143,6 @@ void DashboardGui::openLogForm()
         this->deleteButtons();
         this->displayButtons();
     }
-
-
-    //void DashboardGui::deleteButtons() {
-        //for(int i = 0; i < ui->verticalLayout->count(); i++){
-            //ui->verticalLayout->itemAt(i)->widget()->hide();
-            //delete ui->verticalLayout->itemAt(i)->widget();
-            /*DynamicButton *button = qobject_cast<DynamicButton*>(ui->verticalLayout->itemAt(i)->widget());
-        button->hide();
-        delete button;*/
-        //}
-    //}
-//=======
-    /*DynamicButton *button = (DynamicButton*) sender();
-    cerr << "AFTER CLICKED: " << con->firstName << endl;
-    Contact* treatmentContact = contactsGui->contactList->findByFirstName(button->name);
-    //open log form
-    cerr << "BEFORE CHANGE SCREEN" << endl;
-    ui->stackedWidget_main->setCurrentIndex(3);
-    cerr << "AFTER CHANGE SCREEN" << endl;
-    logGui->autofill(button->text().toStdString(), to_string(treatmentContact->age), treatmentContact->cellNum);
-
-    cerr << "AFTER AUTOFILL" << endl;
-    int pos = button->resID - 1;
-    Contact* save = contactsGui->contactList->treatmentGroup->at(pos);
-    contactsGui->contactList->treatmentGroup->erase(contactsGui->contactList->treatmentGroup->begin() + pos);
-    contactsGui->contactList->treatmentGroup->push_back(save);
-
-
-    //now shuffle buttons
-    this->deleteButtons();
-    this->displayButtons();
-}*/
-//>>>>>>> 9a1c2a23493275f18c352f324ba6f78f3c8a59f9
 
 /**
  * @brief Function deletes all buttons from the dashboard display. Loops through the vertical layout while it is not null. At each
@@ -206,14 +182,17 @@ void DashboardGui::on_pushButton_data_clicked()
 {
     Csv *c=new Csv();
     QString fileName = QFileDialog::getOpenFileName(this,
-        tr("Download Data"), "/Desktop", tr("Data File (*.csv)"));
+                                                    tr("Download Data"), "/Desktop", tr("Data File (*.csv)"));
     string fname = fileName.toStdString();
-    if(fname!=""){
-    cerr << "CSV FILE NAME: " << fname << endl;
+    if(fname != ""){
+        cerr << "CSV FILE NAME: " << fname << endl;
 
-    c->download("../../../../../database.sqlite", "logForm", fname);
-    QMessageBox::warning(this,"Download", "The csv file is downloaded in main file");}
-    ui->stackedWidget_main->setCurrentIndex(0);
+        if (fname.compare("") != 0) {
+            c->download("../../../../../database.sqlite", "logForm", fname);
+            QMessageBox::warning(this,"Download", "The csv file is downloaded in main file");
+            ui->stackedWidget_main->setCurrentIndex(0);
+        }
+    }
 }
 
 /**
@@ -222,6 +201,7 @@ void DashboardGui::on_pushButton_data_clicked()
  */
 void DashboardGui::on_pushButton_logout_clicked()
 {
+    ui->pushButton_logout->setStyleSheet("QPushButton{ background-color: yellow }");
     LoginGUI *l= new LoginGUI();
     hide();
     l->show();
