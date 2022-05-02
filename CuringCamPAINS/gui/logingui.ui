@@ -28,7 +28,7 @@
    <widget class="QPushButton" name="submission">
     <property name="geometry">
      <rect>
-      <x>160</x>
+      <x>170</x>
       <y>200</y>
       <width>186</width>
       <height>41</height>
@@ -48,7 +48,7 @@
     padding: 6px;</string>
     </property>
     <property name="text">
-     <string>Submit</string>
+     <string>Log In</string>
     </property>
    </widget>
    <widget class="QWidget" name="layoutWidget">
@@ -99,49 +99,24 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="layoutWidget">
+   <widget class="QPushButton" name="registration">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>284</y>
-      <width>241</width>
+      <x>200</x>
+      <y>270</y>
+      <width>131</width>
       <height>41</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_3">
-     <item>
-      <widget class="QLabel" name="label_4">
-       <property name="maximumSize">
-        <size>
-         <width>16777180</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>New user ? Register </string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="registration">
-       <property name="maximumSize">
-        <size>
-         <width>100</width>
-         <height>33</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color:rgb(220,20,60);
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(220,20,60);
     border-width: 2px;
     border-radius: 10px;
 </string>
-       </property>
-       <property name="text">
-        <string>here</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
+    </property>
+    <property name="text">
+     <string>Create new account</string>
+    </property>
    </widget>
   </widget>
   <widget class="QLabel" name="logo">
