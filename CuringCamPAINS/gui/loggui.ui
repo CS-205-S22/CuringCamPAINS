@@ -75,6 +75,9 @@
          <height>32</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:rgb(30,144,255);</string>
+       </property>
        <property name="text">
         <string>Enter</string>
        </property>

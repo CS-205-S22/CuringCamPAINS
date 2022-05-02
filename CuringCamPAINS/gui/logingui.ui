@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>832</width>
+    <width>840</width>
     <height>580</height>
    </rect>
   </property>
@@ -28,9 +28,9 @@
    <widget class="QPushButton" name="submission">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>220</y>
-      <width>301</width>
+      <x>160</x>
+      <y>200</y>
+      <width>186</width>
       <height>41</height>
      </rect>
     </property>
@@ -38,7 +38,14 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgb(30,144,255);</string>
+     <string notr="true">background-color:rgb(30,144,255);
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: beige;
+    font: bold 14px;
+    min-width: 10em;
+    padding: 6px;</string>
     </property>
     <property name="text">
      <string>Submit</string>
@@ -96,14 +103,20 @@
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>290</y>
-      <width>239</width>
-      <height>32</height>
+      <y>284</y>
+      <width>241</width>
+      <height>41</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
       <widget class="QLabel" name="label_4">
+       <property name="maximumSize">
+        <size>
+         <width>16777180</width>
+         <height>16777215</height>
+        </size>
+       </property>
        <property name="text">
         <string>New user ? Register </string>
        </property>
@@ -111,8 +124,16 @@
      </item>
      <item>
       <widget class="QPushButton" name="registration">
+       <property name="maximumSize">
+        <size>
+         <width>100</width>
+         <height>33</height>
+        </size>
+       </property>
        <property name="styleSheet">
         <string notr="true">background-color:rgb(220,20,60);
+    border-width: 2px;
+    border-radius: 10px;
 </string>
        </property>
        <property name="text">

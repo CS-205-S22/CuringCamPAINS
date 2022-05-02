@@ -8,6 +8,11 @@ registrationGUI::registrationGUI(QWidget *parent) :
     ui(new Ui::registrationGUI)
 {
     ui->setupUi(this);
+     QPixmap pix("../../../../../CuringCamPAINS.png");
+     int w=ui->logo->width();
+     int h=ui->logo->height();
+     ui->logo->setPixmap(pix.scaled(w,h,Qt::KeepAspectRatio));
+     ui->logo->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
 }
 
 registrationGUI::~registrationGUI()
