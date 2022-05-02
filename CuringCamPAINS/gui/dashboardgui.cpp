@@ -11,6 +11,10 @@ DashboardGui::DashboardGui(int cur_usrId, QWidget *parent) :
     contactsGui = new ContactsGui(cur_usrId);
     logGui = new LogGui(cur_usrId);
 
+    QPixmap pix1(QString::fromStdString("../../../../../letter_logo.png"));
+    int w1=ui->label_title->width();
+    int h1=ui->label_title->height();
+    ui->label_title->setPixmap(pix1.scaled(w1,h1,Qt::KeepAspectRatio));
 
     Database *dbb=new Database("../../../../../database.sqlite");
     string name=dbb->getter("user","name","userId",std::to_string(cur_usrId));
@@ -178,6 +182,7 @@ void DashboardGui::on_pushButton_data_clicked()
  */
 void DashboardGui::on_pushButton_logout_clicked()
 {
+    ui->pushButton_logout->setStyleSheet("QPushButton{ background-color: yellow }");
     LoginGUI *l= new LoginGUI();
     hide();
     l->show();
