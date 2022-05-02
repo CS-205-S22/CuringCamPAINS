@@ -12,17 +12,18 @@ DashboardGui::DashboardGui(int cur_usrId, QWidget *parent) :
     logGui = new LogGui(cur_usrId);
 
     QPixmap pix("../../../../../user.png");
-    int w=ui->label_image->width();
-    int h=ui->label_image->height();
-    ui->label_image->setPixmap(pix.scaled(w,h,Qt::KeepAspectRatio));
+    int w = ui->label_image->width();
+    int h = ui->label_image->height();
+    ui->label_image->setPixmap(pix.scaled(w, h, Qt::KeepAspectRatio));
 
-    Database *dbb=new Database("../../../../../database.sqlite");
-    string name=dbb->getter("user","name","userId",std::to_string(cur_usrId));
+    Database *dbb = new Database("../../../../../database.sqlite");
+    string name = dbb->getter("user", "name", "userId", std::to_string(cur_usrId));
      ui->label_name->setText(QString::fromStdString(name));
     resourcesGui = new ResourcesGui(cur_usrId);
     ui->stackedWidget_main->addWidget(contactsGui);
     ui->stackedWidget_main->addWidget(resourcesGui);
     ui->stackedWidget_main->addWidget(logGui);
+    this->displayButtons();
 
     connect(resourcesGui, SIGNAL(changeColorSignal()), this, SLOT(changeColor()));
 }
@@ -73,12 +74,12 @@ void DashboardGui::displayButtons() {
         ui->verticalLayout->addWidget(button);
         /* Connect the signal to the slot pressing buttons produce numbers
            * */
-        /*cerr << "BEFORE" << endl;
+        cerr << "BEFORE" << endl;
         con = contactsGui->contactList->treatmentGroup->at(i);
         cerr << con->firstName << endl;
         button->name = con->firstName;
         buttonList.push_back(button->name);
-        dynButtonList.push_back(button);*/
+        dynButtonList.push_back(button);
         connect(button, SIGNAL(clicked()), this, SLOT(openLogForm()));
 
 
@@ -164,10 +165,13 @@ void DashboardGui::on_pushButton_data_clicked()
 
     cerr << "CSV FILE NAME: " << fname << endl;
 
-    c->download("../../../../../database.sqlite", "logForm", fname);
-//    c->download("../../../../../database.sqlite", "logForm", "../../../../../data_downloaded.csv");
-    QMessageBox::warning(this,"Download", "The csv file is downloaded in main file");
-    ui->stackedWidget_main->setCurrentIndex(0);
+    if (fname.compare("") != 0) {
+        c->download("../../../../../database.sqlite", "logForm", fname);
+    //    c->download("../../../../../database.sqlite", "logForm", "../../../../../data_downloaded.csv");
+        QMessageBox::warning(this,"Download", "The csv file is downloaded in main file");
+        ui->stackedWidget_main->setCurrentIndex(0);
+    }
+
 }
 
 /**

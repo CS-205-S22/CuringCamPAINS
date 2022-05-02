@@ -2,7 +2,6 @@
 #include "ui_contactsgui.h"
 
 
-
 ContactsGui::ContactsGui(int usr, QWidget *parent) :
         QWidget(parent),
         ui(new Ui::ContactsGui) {
@@ -10,19 +9,35 @@ ContactsGui::ContactsGui(int usr, QWidget *parent) :
     ui->setupUi(this);
     ui->stackedWidget_contacts->setCurrentIndex(0);
     contactList = new ContactList(cur_usr, "../../../../../database.sqlite");
+
+    contactList->remove("contact", "userId", "7");
+//    contactList->remove("contact", "userId", "Max");
+//    contactList->remove("contact", "userId", "Josh");
+//    contactList->remove("contact", "userId", "efhl`l]]");
+//    contactList->remove("contact", "userId", "Rory");
+//    contactList->remove("contact", "userId", "Tafita");
 }
 
 ContactsGui::~ContactsGui() {
     delete ui;
 }
 
+/**
+ * @brief ContactsGui::on_pushButton_uploadFile_clicked
+ *
+ */
 void ContactsGui::on_pushButton_uploadFile_clicked() {
     QString fileName = QFileDialog::getOpenFileName(this,
         tr("Upload Contacts"), "/Desktop", tr("Contacts Files (*.csv)"));
     string fname = fileName.toStdString();
 
     cerr << "FILE NAME: " << fname << endl;
-    contactList->readFile(fname);
+
+    if (fname.compare("") != 0) {
+        contactList->readFile(fname);
+        QMessageBox::information(this, tr("Successful upload!"), tr("Your file is successfully uploaded"));
+    }
+
 //    contactList->readFile("../../../contacts.csv");
 
 //    QString path = QFileDialog::getExistingDirectory (this, tr("Directory"), directory.path());
@@ -30,8 +45,6 @@ void ContactsGui::on_pushButton_uploadFile_clicked() {
 //    {
 //        directory.setPath(path);
 //    }
-
-    QMessageBox::information(this, tr("Successful upload!"), tr("Your file is successfully uploaded"));
 }
 
 void ContactsGui::on_pushButton_save_clicked() {

@@ -6,11 +6,11 @@ int Contact::counter = 0;
 
 Contact::Contact(int usr_cur)
 {
-usr_id=usr_cur;
+    usr_id = usr_cur;
 }
 
-Contact::Contact(int usr_cur,int id, int listId, string fn, string ln, string num, string email, string hAdd, int a) {
-    usr_id=usr_cur;
+Contact::Contact(int usr_cur, int id, int listId, string fn, string ln, string num, string email, string hAdd, int a) {
+    usr_id = usr_cur;
     this->id = id;
     contactListId = listId;
     firstName = fn;
@@ -24,7 +24,7 @@ Contact::Contact(int usr_cur,int id, int listId, string fn, string ln, string nu
 //    cerr << "ID: " << to_string(id) << endl;
 }
 
-Contact::Contact(int usr_cur,string fn, string ln, string num, int a) {
+Contact::Contact(int usr_cur, string fn, string ln, string num, int a) {
     usr_id=usr_cur;
     id = ++counter;
     firstName = fn;
@@ -36,7 +36,7 @@ Contact::Contact(int usr_cur,string fn, string ln, string num, int a) {
     contactListId = id % 3;
 }
 
-Contact::Contact(int usr_cur,string fn, string ln, string num, string email, int a) {
+Contact::Contact(int usr_cur, string fn, string ln, string num, string email, int a) {
     usr_id=usr_cur;
     id = ++counter;
     firstName = fn;
@@ -48,7 +48,7 @@ Contact::Contact(int usr_cur,string fn, string ln, string num, string email, int
     contactListId = id % 3;
 }
 
-Contact::Contact(int usr_cur,string fn, string ln, string num, string email, string hAdd, int a) {
+Contact::Contact(int usr_cur, string fn, string ln, string num, string email, string hAdd, int a) {
     usr_id=usr_cur;
     id = ++counter;
     firstName = fn;
@@ -57,10 +57,20 @@ Contact::Contact(int usr_cur,string fn, string ln, string num, string email, str
     age = a;
     emailAddress = email;
     homeAddress = hAdd;
-//    contactListId = listId;
     contactListId = id % 3;
-//    cerr << "First name: " << fn << endl;
-//    cerr << to_string(id) << endl;
+}
+
+Contact::Contact(int usr_cur, int id, string fn, string ln, string num, string email, string hAdd, int a) {
+    usr_id = usr_cur;
+    this->id = id;
+    firstName = fn;
+    lastName = ln;
+    cellNum = num;
+    age = a;
+    emailAddress = email;
+    homeAddress = hAdd;
+    contactListId = id % 3;
+    counter = id;
 }
 
 void Contact::setCellNum(string num) {
