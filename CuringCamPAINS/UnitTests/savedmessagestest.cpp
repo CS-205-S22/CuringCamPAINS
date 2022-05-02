@@ -24,19 +24,21 @@ TEST(createMessage, createMessageTest) {
     ASSERT_EQ(ret, "TestClass");
 }
 
-TEST(viewMessage, createMessageTest) {
+TEST(viewMessage, viewMessageTest) {
     vector<string> ret;
     ret = sm.viewMessage("TestClass");
     ASSERT_EQ("Is this working?", ret.at(0));
 }
 
-TEST(deleteMessage, createMessageTest) {
+TEST(deleteMessage, deleteMessageTest) {
     sm.createMessage("One", "one");
     int ret = sm.getMessageMaxId();
     ASSERT_EQ(2, ret);
     sm.deleteMessage("One");
     int ret2 = sm.getMessageMaxId();
     ASSERT_EQ(1, ret2);
+    //empty table
+    sm.deleteMessage("TestClass");
 }
 
 
