@@ -170,7 +170,9 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color:rgb(220,20,60);</string>
+    <string notr="true">background-color:rgb(220,20,60);
+    border-width: 2px;
+    border-radius: 10px;</string>
    </property>
    <property name="text">
     <string>choose file</string>
