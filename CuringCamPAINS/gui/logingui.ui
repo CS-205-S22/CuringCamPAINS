@@ -42,6 +42,7 @@
     </property>
     <property name="styleSheet">
      <string notr="true">background-color:rgb(30,144,255);
+color:rgb(255,255,255);
     border-style: outset;
     border-width: 2px;
     border-radius: 10px;
@@ -113,8 +114,10 @@
     </property>
     <property name="styleSheet">
      <string notr="true">background-color:rgb(220,20,60);
+color:rgb(255,255,255);
     border-width: 2px;
     border-radius: 10px;
+  border-color: beige;
 </string>
     </property>
     <property name="text">

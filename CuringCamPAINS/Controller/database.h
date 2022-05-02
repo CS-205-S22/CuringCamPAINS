@@ -129,11 +129,10 @@ public:
      * Get the name of the fields name for the designated table
      * @param table_name: name of the table
      */
-
     void updateColumn(string table_name);
 
-    vector<string> parameters;
-    int param_size;
+    vector<string> parameters; // columns names
+    int param_size; //size of the columns
 };
 
 #endif // DATABASE_H
