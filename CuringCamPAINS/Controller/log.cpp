@@ -83,3 +83,43 @@ void LogForm::deleteLog(string phoneNumber){
 
 //}
 
+
+void LogForm::readFromDB() {
+    QSqlQuery query;
+    QString  temp = QString::fromStdString(std::to_string(usr_id));
+    QString str = "select * from logForm where userId = " + temp + ";";
+//    QString str = "select * from contact";
+    int id;
+    int listId;
+    int currUserId;
+    string firstName;
+    string lastName;
+    string cellStr;
+    string email;
+    string homeAdd;
+    int age;
+
+    if (!query.exec(str)){
+        qDebug()<<"error running query\n";
+    } else {
+        while (query.next()) {
+            id = stoi(query.value("contactId").toString().toStdString());
+            listId = stoi(query.value("treatmentId").toString().toStdString());
+            currUserId = stoi(query.value("userId").toString().toStdString());
+            firstName = query.value("firstName").toString().toStdString();
+            lastName = query.value("lastName").toString().toStdString();
+            cellStr = query.value("phoneNumber").toString().toStdString();
+            email = query.value("emailAddress").toString().toStdString();
+            homeAdd = query.value("homeAddress").toString().toStdString();
+            age = stoi(query.value("age").toString().toStdString());
+
+////            cerr << "NAME: " << firstName << endl;
+
+//            if (!containsContact(cellStr)) {
+//                Contact* c = new Contact(usr_id, id, listId, firstName, lastName, cellStr, email, homeAdd, age);
+//                masterList->push_back(c);
+//                divideIntoGroups(c);
+//            }
+        }
+    }
+}

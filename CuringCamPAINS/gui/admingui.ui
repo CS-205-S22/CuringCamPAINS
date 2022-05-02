@@ -168,7 +168,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Contact</string>
+    <string>Name</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_group">

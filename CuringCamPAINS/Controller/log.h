@@ -18,6 +18,7 @@ public:
                      string isCommitted);
     void deleteLog(string phoneNumber);
     string boolToString(bool tof);
+    void readFromDB();
     int logId = 0;
     int usr_id;
 
