@@ -10,10 +10,11 @@ class Contact
 {
 public:
     Contact(int usr_cur);
-    Contact(int usr_cur,int id, int listId, string fn, string ln, string num, string email, string hAdd, int age);
-    Contact(int usr_cur,string fn, string ln, string num, int age); //required sections
-    Contact(int usr_cur,string fn, string ln, string num, string email, int age);
-    Contact(int usr_cur,string fn, string ln, string num, string email, string hAdd, int age);
+    Contact(int usr_cur, int id, int listId, string fn, string ln, string num, string email, string hAdd, int age);
+    Contact(int usr_cur, string fn, string ln, string num, int age); //required sections
+    Contact(int usr_cur, string fn, string ln, string num, string email, int age);
+    Contact(int usr_cur, string fn, string ln, string num, string email, string hAdd, int age);
+    Contact(int usr_cur, int id, string fn, string ln, string num, string email, string hAdd, int age);
     void setCellNum(string num);
     void setEmail(string email);
     void setHomeAdd(string hAdd);

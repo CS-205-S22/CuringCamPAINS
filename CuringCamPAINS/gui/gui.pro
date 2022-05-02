@@ -18,6 +18,7 @@ CONFIG += c++11
 #TEMPLATE = app
 
 SOURCES += \
+    admingui.cpp \
     contactsgui.cpp \
     dashboardgui.cpp \
     dynamicbutton.cpp \
@@ -35,6 +36,7 @@ SOURCES += \
     resourcesgui.cpp
 
 HEADERS += \
+    admingui.h \
     contactsgui.h \
     ../Controller/contactlist.h \
     ../Controller/database.h \
@@ -51,6 +53,7 @@ HEADERS += \
     resourcesgui.h
 
 FORMS += \
+    admingui.ui \
     contactsgui.ui \
     dashboardgui.ui \
     loggui.ui \

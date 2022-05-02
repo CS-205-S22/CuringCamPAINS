@@ -58,7 +58,6 @@ vector<string> SavedMessages::viewTitles() {
  */
 void SavedMessages::deleteMessage(string title) {
     remove("savedmessages",std::to_string(cur_id), "messageTitle", title);
-    //check if now empty, can reset id
 }
 
 /**

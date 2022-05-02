@@ -30,11 +30,17 @@ void LoginGUI::on_submission_pressed()
     string password=pwd.toStdString();
 
     s = new Login("../../../../../database.sqlite");
-    if(s->signUp(username,password)==true) {
-        curr_usrId=s->getUserId(username);
-        dashboardGui = new DashboardGui(curr_usrId);
-        hide();
-        dashboardGui->show();
+    if(s->signUp(username, password) == true) {
+        curr_usrId = s->getUserId(username);
+//        if (s->getIsResearcher()) {
+//            adminGui = new AdminGui();
+//            hide();
+//            adminGui->show();
+//        } else {
+            dashboardGui = new DashboardGui(curr_usrId);
+            hide();
+            dashboardGui->show();
+//        }
     }
     else {
         QMessageBox::warning(this,"Login", "Username and password is not correct");
