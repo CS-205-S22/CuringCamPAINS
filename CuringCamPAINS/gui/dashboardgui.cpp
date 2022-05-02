@@ -10,6 +10,7 @@ DashboardGui::DashboardGui(int cur_usrId, QWidget *parent) :
     ui->setupUi(this);
     contactsGui = new ContactsGui(cur_usrId);
     logGui = new LogGui(cur_usrId);
+    resourcesGui = new ResourcesGui(cur_usrId);
 
 
     Database *dbb=new Database("../../../../../database.sqlite");
@@ -22,7 +23,7 @@ DashboardGui::DashboardGui(int cur_usrId, QWidget *parent) :
      int h=ui->label_image->height();
      ui->label_image->setPixmap(pix.scaled(w,h,Qt::KeepAspectRatio));
 
-    resourcesGui = new ResourcesGui(cur_usrId);
+
     ui->stackedWidget_main->addWidget(contactsGui);
     ui->stackedWidget_main->addWidget(resourcesGui);
     ui->stackedWidget_main->addWidget(logGui);
@@ -182,7 +183,6 @@ void DashboardGui::on_pushButton_logout_clicked()
     LoginGUI *l= new LoginGUI();
     hide();
     l->show();
-    //    this->close();
 }
 
 /**
