@@ -19,6 +19,9 @@ public:
 private slots:
     void on_buttonBox_accepted();
 
+
+    void on_uploadPhoto_clicked();
+
 private:
     Ui::registrationGUI *ui;
     Database *dbb;

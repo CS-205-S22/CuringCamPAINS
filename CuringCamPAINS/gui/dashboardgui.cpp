@@ -10,16 +10,20 @@ DashboardGui::DashboardGui(int cur_usrId, QWidget *parent) :
     ui->setupUi(this);
     contactsGui = new ContactsGui(cur_usrId);
     logGui = new LogGui(cur_usrId);
+    resourcesGui = new ResourcesGui(cur_usrId);
 
-    QPixmap pix("../../../../../user.png");
-    int w=ui->label_image->width();
-    int h=ui->label_image->height();
-    ui->label_image->setPixmap(pix.scaled(w,h,Qt::KeepAspectRatio));
 
     Database *dbb=new Database("../../../../../database.sqlite");
     string name=dbb->getter("user","name","userId",std::to_string(cur_usrId));
      ui->label_name->setText(QString::fromStdString(name));
-    resourcesGui = new ResourcesGui(cur_usrId);
+     string outFile="../../../../../"+name+".jpeg";
+     cout<<outFile<<endl;
+     QPixmap pix(QString::fromStdString(outFile));
+     int w=ui->label_image->width();
+     int h=ui->label_image->height();
+     ui->label_image->setPixmap(pix.scaled(w,h,Qt::KeepAspectRatio));
+
+
     ui->stackedWidget_main->addWidget(contactsGui);
     ui->stackedWidget_main->addWidget(resourcesGui);
     ui->stackedWidget_main->addWidget(logGui);
@@ -204,12 +208,11 @@ void DashboardGui::on_pushButton_data_clicked()
     QString fileName = QFileDialog::getOpenFileName(this,
         tr("Download Data"), "/Desktop", tr("Data File (*.csv)"));
     string fname = fileName.toStdString();
-
+    if(fname!=""){
     cerr << "CSV FILE NAME: " << fname << endl;
 
     c->download("../../../../../database.sqlite", "logForm", fname);
-//    c->download("../../../../../database.sqlite", "logForm", "../../../../../data_downloaded.csv");
-    QMessageBox::warning(this,"Download", "The csv file is downloaded in main file");
+    QMessageBox::warning(this,"Download", "The csv file is downloaded in main file");}
     ui->stackedWidget_main->setCurrentIndex(0);
 }
 
@@ -222,7 +225,6 @@ void DashboardGui::on_pushButton_logout_clicked()
     LoginGUI *l= new LoginGUI();
     hide();
     l->show();
-    //    this->close();
 }
 
 /**

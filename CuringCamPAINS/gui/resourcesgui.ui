@@ -17,7 +17,7 @@
    <item row="0" column="0">
     <widget class="QStackedWidget" name="stackedWidget_resources">
      <property name="currentIndex">
-      <number>1</number>
+      <number>4</number>
      </property>
      <widget class="QWidget" name="buttonsPage">
       <widget class="QWidget" name="layoutWidget">
@@ -32,6 +32,15 @@
        <layout class="QVBoxLayout" name="verticalLayout_resources">
         <item>
          <widget class="QPushButton" name="pushButton_changeColor">
+          <property name="styleSheet">
+           <string notr="true">background-color:rgb(30,144,255);
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: beige;
+    font: bold 14px;
+    padding: 6px;</string>
+          </property>
           <property name="text">
            <string>Change Color</string>
           </property>
@@ -39,6 +48,15 @@
         </item>
         <item>
          <widget class="QPushButton" name="pushButton_createMessage">
+          <property name="styleSheet">
+           <string notr="true">background-color:rgb(30,144,255);
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: beige;
+    font: bold 14px;
+    padding: 6px;</string>
+          </property>
           <property name="text">
            <string>Create Message</string>
           </property>
@@ -46,6 +64,15 @@
         </item>
         <item>
          <widget class="QPushButton" name="pushButton_viewMessage">
+          <property name="styleSheet">
+           <string notr="true">background-color:rgb(30,144,255);
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: beige;
+    font: bold 14px;
+    padding: 6px;</string>
+          </property>
           <property name="text">
            <string>View Message</string>
           </property>
@@ -53,6 +80,16 @@
         </item>
         <item>
          <widget class="QPushButton" name="pushButton_deleteMessage">
+          <property name="styleSheet">
+           <string notr="true">background-color:rgb(30,144,255);
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: beige;
+    font: bold 14px;
+    min-width: 10em;
+    padding: 6px;</string>
+          </property>
           <property name="text">
            <string>Delete Message</string>
           </property>
@@ -65,21 +102,31 @@
       <widget class="QLineEdit" name="lineEdit_text">
        <property name="geometry">
         <rect>
-         <x>230</x>
+         <x>190</x>
          <y>230</y>
-         <width>121</width>
-         <height>31</height>
+         <width>321</width>
+         <height>221</height>
         </rect>
        </property>
       </widget>
       <widget class="QPushButton" name="pushButton_saveMessage">
        <property name="geometry">
         <rect>
-         <x>220</x>
-         <y>290</y>
-         <width>141</width>
+         <x>280</x>
+         <y>480</y>
+         <width>186</width>
          <height>51</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:rgb(30,144,255);
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: beige;
+    font: bold 14px;
+    min-width: 10em;
+    padding: 6px;</string>
        </property>
        <property name="text">
         <string>Save Message</string>
@@ -88,9 +135,9 @@
       <widget class="QLineEdit" name="lineEdit_title">
        <property name="geometry">
         <rect>
-         <x>230</x>
+         <x>200</x>
          <y>150</y>
-         <width>121</width>
+         <width>311</width>
          <height>31</height>
         </rect>
        </property>
@@ -98,8 +145,8 @@
       <widget class="QLabel" name="label_title">
        <property name="geometry">
         <rect>
-         <x>160</x>
-         <y>145</y>
+         <x>80</x>
+         <y>150</y>
          <width>81</width>
          <height>41</height>
         </rect>
@@ -119,7 +166,7 @@
       <widget class="QLabel" name="label_text">
        <property name="geometry">
         <rect>
-         <x>160</x>
+         <x>90</x>
          <y>230</y>
          <width>71</width>
          <height>31</height>
@@ -142,9 +189,19 @@
         <rect>
          <x>429</x>
          <y>20</y>
-         <width>101</width>
+         <width>186</width>
          <height>41</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:rgb(200,0,0);
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: beige;
+    font: bold 14px;
+    min-width: 10em;
+    padding: 6px;</string>
        </property>
        <property name="text">
         <string>Back</string>
@@ -184,8 +241,19 @@
          <widget class="QPushButton" name="pushButton_view">
           <property name="font">
            <font>
-            <pointsize>15</pointsize>
+            <pointsize>-1</pointsize>
+            <italic>false</italic>
+            <bold>true</bold>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color:rgb(30,144,255);
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: beige;
+    font: bold 14px;
+    padding: 6px;</string>
           </property>
           <property name="text">
            <string>View</string>
@@ -199,14 +267,26 @@
         <rect>
          <x>379</x>
          <y>21</y>
-         <width>101</width>
+         <width>186</width>
          <height>41</height>
         </rect>
        </property>
        <property name="font">
         <font>
-         <pointsize>15</pointsize>
+         <pointsize>-1</pointsize>
+         <italic>false</italic>
+         <bold>true</bold>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:rgb(200,0,0);
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: beige;
+    font: bold 14px;
+    min-width: 10em;
+    padding: 6px;</string>
        </property>
        <property name="text">
         <string>Back</string>
@@ -218,7 +298,7 @@
          <x>150</x>
          <y>250</y>
          <width>331</width>
-         <height>131</height>
+         <height>151</height>
         </rect>
        </property>
        <property name="autoFillBackground">
@@ -232,7 +312,7 @@
         <rect>
          <x>143</x>
          <y>240</y>
-         <width>331</width>
+         <width>411</width>
          <height>61</height>
         </rect>
        </property>
@@ -259,8 +339,19 @@
          <widget class="QPushButton" name="pushButton_delete">
           <property name="font">
            <font>
-            <pointsize>15</pointsize>
+            <pointsize>-1</pointsize>
+            <italic>false</italic>
+            <bold>true</bold>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color:rgb(30,144,255);
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: beige;
+    font: bold 14px;
+    padding: 6px;</string>
           </property>
           <property name="text">
            <string>Delete</string>
@@ -274,14 +365,26 @@
         <rect>
          <x>390</x>
          <y>20</y>
-         <width>100</width>
+         <width>186</width>
          <height>41</height>
         </rect>
        </property>
        <property name="font">
         <font>
-         <pointsize>17</pointsize>
+         <pointsize>-1</pointsize>
+         <italic>false</italic>
+         <bold>true</bold>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:rgb(200,0,0);
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: beige;
+    font: bold 14px;
+    min-width: 10em;
+    padding: 6px;</string>
        </property>
        <property name="text">
         <string>Back</string>
