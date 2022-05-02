@@ -43,7 +43,6 @@ vector<string> SavedMessages::viewMessage(string title) {
  * @brief Function reads a saved message from the savedmessages table within the system's database for the user to view.
  * Function has one parameter, string title. This is the title of the desired message. The function inherits the
  * Database's read function and inputs the necessary parameters.
- * @param title - title of the message
  */
 vector<string> SavedMessages::viewTitles() {
     this->retStrings.clear();
@@ -63,9 +62,9 @@ void SavedMessages::deleteMessage(string title) {
 }
 
 /**
- * @brief Database:readText
- * Method get the content of a table on for a specific conditions
+ * @brief Method get the content of a table on for a specific conditions
  * @param table_name : name of the table in the database
+ * @param usr_id : user's unique id number
  * @param parameters: column names in the table
  * @param condition: values of the condition
  */
@@ -78,7 +77,7 @@ vector<string> SavedMessages::readText(string table_name,string usr_id,string pa
     query.exec(); //execute the command
     vector<string> messages;
     while(query.next()) {
-        QString text = query.value(2).toString();
+        QString text = query.value(3).toString();
         messages.push_back(text.toStdString());
     }
     return messages;
@@ -89,11 +88,10 @@ int SavedMessages::getMessageMaxId() {
 }
 
 /**
- * @brief SavedMessages:readTitle
- * Method get the the title from savedmessage table
+ * @brief Method gets the the title from savedmessage table
  * @param table_name : name of the table in the database
+ * @param usr_id : user's unique id number
  * @param parameters: column names in the table
- * @param condition: values of the condition
  */
 vector<string> SavedMessages::readTitle(string table_name,string usr_id, string parameter) {
     QSqlQuery query;
@@ -113,6 +111,7 @@ vector<string> SavedMessages::readTitle(string table_name,string usr_id, string 
  * @brief Database:remove
  * Method to remove a row in the database based on a given condition
  * @param table_name : name of the table in the database
+ * @param usr_id : user's unique id number
  * @param parameters: column names in the table
  * @param condition: values of the condition
  * Example: DELETE * FROM user where name="Tafita"

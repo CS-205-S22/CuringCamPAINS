@@ -32,9 +32,7 @@ void Csv::readFile(string fname){
         while(getline(file, line))
         {
             row.clear();
-
             stringstream str(line);
-
             while(getline(str, word, ','))
                 row.push_back(word);
             content.push_back(row);
@@ -52,13 +50,13 @@ void Csv::readFile(string fname){
 void Csv::printFileReading(string fname){
     readFile( fname);
     // print the array
-    for(int i=0;i<content.size();i++)
+    for(int i = 0; i < (int)content.size(); i++)
     {
-        for(int j=0;j<content[i].size();j++)
+        for(int j = 0; j < (int)content[i].size(); j++)
         {
-            cout<<content[i][j]<<" ";
+            cout << content[i][j] << " ";
         }
-        cout<<"\n";
+        cout << "\n";
     }
 
 }

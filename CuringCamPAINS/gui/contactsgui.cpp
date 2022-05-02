@@ -18,11 +18,26 @@ ContactsGui::~ContactsGui() {
 }
 
 void ContactsGui::on_pushButton_uploadFile_clicked() {
-    contactList->readFile("../../../../contacts.csv");
+    QString fileName = QFileDialog::getOpenFileName(this,
+        tr("Upload Contacts"), "/Desktop", tr("Contacts Files (*.csv)"));
+    string fname = fileName.toStdString();
+
+    cerr << "FILE NAME: " << fname << endl;
+    contactList->readFile(fname);
+//    contactList->readFile("../../../contacts.csv");
+
+//    QString path = QFileDialog::getExistingDirectory (this, tr("Directory"), directory.path());
+//    if ( path.isNull() == false )
+//    {
+//        directory.setPath(path);
+//    }
+
+    QMessageBox::information(this, tr("Successful upload!"), tr("Your file is successfully uploaded"));
 }
 
 void ContactsGui::on_pushButton_save_clicked() {
-    contactList->addContact((ui->lineEdit_firstName->text()).toStdString(), (ui->lineEdit_lastName->text()).toStdString(),
+//<<<<<<< HEAD
+    /*contactList->addContact((ui->lineEdit_firstName->text()).toStdString(), (ui->lineEdit_lastName->text()).toStdString(),
                             (ui->lineEdit_phone->text()).toStdString(), (ui->lineEdit_email->text()).toStdString(),
                             (ui->lineEdit_address->text()).toStdString(), (ui->lineEdit_age->text()).toStdString());
 
@@ -31,8 +46,41 @@ void ContactsGui::on_pushButton_save_clicked() {
     ui->lineEdit_phone->clear();
     ui->lineEdit_email->clear();
     ui->lineEdit_address->clear();
-    ui->lineEdit_age->clear();
+    ui->lineEdit_age->clear();*/
 
 
+//=======
+    string firstName = (ui->lineEdit_firstName->text()).toStdString();
+    string lastName = (ui->lineEdit_lastName->text()).toStdString();
+    string phoneNum = (ui->lineEdit_phone->text()).toStdString();
+    string email = (ui->lineEdit_email->text()).toStdString();
+    string address = (ui->lineEdit_address->text()).toStdString();
+    string age = (ui->lineEdit_age->text()).toStdString();
+
+    if (phoneNum.length() != 10) {
+//        ui->label_phoneErrorMessage->setStyleSheet("{color: #FF0000}");
+        ui->label_phoneErrorMessage->setText("Invalid phone number!");
+        QMessageBox::information(this,tr("INVALID PHONE-NUMBER"), tr("The format for the phone-number is \n XXXXXXXXXX"));
+    }
+
+    if (stoi(age) < 18) {
+        ui->label_ageErrorMessage->setText("The contact has to be above 18!");
+        QMessageBox::information(this,tr("INVALID AGE"), tr("This person has to be 18 or older!"));
+        return;
+    } else {
+
+        contactList->addContact(firstName, lastName, phoneNum, email, address, age);
+        QMessageBox::information(this, tr("Successful entry!"), tr("The contact is saved!"));
+
+        ui->lineEdit_firstName->clear();
+        ui->lineEdit_lastName->clear();
+        ui->lineEdit_phone->clear();
+        ui->lineEdit_email->clear();
+        ui->lineEdit_address->clear();
+        ui->lineEdit_age->clear();
+        ui->label_ageErrorMessage->clear();
+        ui->label_phoneErrorMessage->clear();
+    }
+//>>>>>>> 9a1c2a23493275f18c352f324ba6f78f3c8a59f9
 }
 

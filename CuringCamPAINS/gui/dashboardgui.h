@@ -38,8 +38,6 @@ private slots:
 
     void on_pushButton_data_clicked();
 
-    void on_pushButton_update_clicked();
-
     void changeColor();
 
 private:

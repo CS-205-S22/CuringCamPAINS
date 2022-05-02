@@ -18,6 +18,15 @@ public:
      * Get the user password input through command line
      */
     void getPasswordInput();
+
+    /**
+     * @brief Database:authenticate
+     * Method to verify if a user with a certain username and passwrd is in the database
+     * @param usr : the username
+     * @param pwd : password
+     */
+    bool authenticate(QString usr, QString pwd);
+
     /**
      * @brief Login::signUp
      * Verify if the user is valid

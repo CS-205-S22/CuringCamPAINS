@@ -69,15 +69,41 @@ void ResourcesGui::on_pushButton_viewMessage_clicked()
     ui->stackedWidget_resources->setCurrentIndex(2);
     vector<string> titles = sm->viewTitles();
     if (titles.empty()) {
-        ui->label_titlesOutput->setText("No saved messages.");
+        return;
     } else {
-        QString display = "Saved Titles: ";
         for (int i = 0; i < (int)titles.size() - 1; i++) {
-            display += QString::fromUtf8(titles.at(i).c_str()) += ",  ";
+            ui->comboBox_choices->addItem(QString::fromUtf8(titles.at(i).c_str()));
         }
-        display += QString::fromUtf8(titles.at(titles.size() -1).c_str());
-        ui->label_titlesOutput->setText(display);
+        ui->comboBox_choices->addItem(QString::fromUtf8(titles.at(titles.size() -1).c_str()));
     }
+}
+
+/**
+ * @brief The viewButton is on the view message page. Once the view button is pressed, the title is updated to be the input string
+ * on the label. If the user inputs multiple titles, then the multipleTitles function is called. The function creates a vector
+ * that is set equal to the SavedMessages viewMessage function that takes the updated title. If the vector is empty,
+ * the function outputs an error message informing the user of the mistake. Otherwise, the function creates a QString and
+ * loops through the vector. At each iteration, the QString gets the index messsage appended to the string. After the loop breaks,
+ * the QString is displayed on a label on the page. Lastly, the input is cleared.
+ */
+void ResourcesGui::on_pushButton_view_clicked()
+{
+    vector<string> text;
+    text = sm->viewMessage(ui->comboBox_choices->currentText().toStdString());
+    for (int i = 0; i < (int)text.size(); i++) {
+        ui->textEdit_textOutput->append(QString::fromUtf8(text.at(i).c_str()));
+    }
+}
+
+/**
+ * @brief On pressing the back button on page 3, the view message page, the program clears the label and resets the view to the
+ * resources page.
+ */
+void ResourcesGui::on_pushButton_back_clicked()
+{
+    ui->textEdit_textOutput->clear();
+    ui->comboBox_choices->clear();
+    ui->stackedWidget_resources->setCurrentIndex(0);
 }
 
 /**
@@ -88,16 +114,28 @@ void ResourcesGui::on_pushButton_deleteMessage_clicked()
 {
     ui->stackedWidget_resources->setCurrentIndex(3);
     vector<string> titles = sm->viewTitles();
-    if (titles.empty()) {
-        ui->label_titleDeleteMessage->setText("No saved messages.");
-    } else {
-        QString display = "Saved Titles: ";
-        for (int i = 0; i < (int)titles.size() - 1; i++) {
-            display += QString::fromUtf8(titles.at(i).c_str()) += ",  ";
-        }
-        display += QString::fromUtf8(titles.at(titles.size() -1).c_str());
-        ui->label_allTitles->setText(display);
+    if (title.empty()) {
+        return;
     }
+    for (int i = 0; i < (int)titles.size() - 1; i++) {
+        ui->comboBox_choicesDelete->addItem(QString::fromUtf8(titles.at(i).c_str()));
+    }
+    ui->comboBox_choicesDelete->addItem(QString::fromUtf8(titles.at(titles.size() -1).c_str()));
+
+}
+
+/**
+ * @brief The deleteButton is on the delete message page. Once the title is inserted by the user, the title variable is updated
+ * to be the input string on the label. If the user inputs multiple titles, the function will seperate the substrings and delete
+ * each of the input titles. The SavedMessages deleteMessage function is called on the new title(s). The function then
+ * clears the label and returns the user back to the resources page.
+ */
+void ResourcesGui::on_pushButton_delete_clicked()
+{
+    this->title = ui->comboBox_choicesDelete->currentText().toStdString();
+    sm->deleteMessage(this->title);
+    ui->comboBox_choicesDelete->clear();
+    ui->stackedWidget_resources->setCurrentIndex(0);
 }
 
 /**
@@ -115,107 +153,15 @@ void ResourcesGui::on_pushButton_saveMessage_clicked()
     ui->stackedWidget_resources->setCurrentIndex(0);
 }
 
-/**
- * @brief The viewButton is on the view message page. Once the view button is pressed, the title is updated to be the input string
- * on the label. If the user inputs multiple titles, then the multipleTitles function is called. The function creates a vector
- * that is set equal to the SavedMessages viewMessage function that takes the updated title. If the vector is empty,
- * the function outputs an error message informing the user of the mistake. Otherwise, the function creates a QString and
- * loops through the vector. At each iteration, the QString gets the index messsage appended to the string. After the loop breaks,
- * the QString is displayed on a label on the page. Lastly, the input is cleared.
- */
-void ResourcesGui::on_pushButton_view_clicked()
+
+void ResourcesGui::on_pushButton_back2_clicked()
 {
-    this->title = ui->lineEdit_titleView->text().toStdString();
-    if (title.find(",") != std::string::npos) {
-        this->multipleTitles();
-    } else {
-        vector<string> toView = sm->viewMessage(this->title);
-        if (toView.empty()) {
-            ui->textEdit_textOutput->setText("No messages with input title.");
-        } else {
-            QString insert;
-            for (int i = 0; i < (int)toView.size(); i++) {
-                insert += QString::fromUtf8(toView.at(i).c_str());
-                ui->textEdit_textOutput->append(insert);
-                ui->textEdit_textOutput->append("\n");
-            }
-        }
-    }
-    ui->lineEdit_titleView->clear();
-}
-
-
-/**
- * @brief Accessory method if user inputs multiple titles to view. Method first seperates the strings by a comma and adds each
- * substring to a vector called titles. A vector of string vectors is then created, and at each index is the vector of text
- * associated with each title. If this vector is empty, the user is made aware of the lack of saved messages. Otherwise, the method
- * loops through the vector of vectors and each vector to display all of the text onto the text edit. The texts are seperated
- * by a newline space.
- */
-void ResourcesGui::multipleTitles() {
-    vector<string> titles;
-    stringstream s_stream(this->title); //create string stream from the string
-    while(s_stream.good()) {
-        string substr;
-        getline(s_stream, substr, ','); //get first string delimited by comma
-        titles.push_back(substr);
-    }
-    vector<vector<string>> messages;
-    for(int i = 0; i < (int)titles.size(); i++) {
-        messages.push_back(sm->viewMessage(titles.at(i)));
-    }
-    if(messages.empty()) {
-        ui->textEdit_textOutput->setText("No messages with input titles.");
-    } else {
-        QString display;
-        vector<string> vect;
-        for (int i = 0; i < (int)messages.size(); i++) {
-            vect = messages.at(i);
-            for (int j = 0; j < (int)vect.size(); j++) {
-                display = QString::fromUtf8(vect.at(j).c_str());
-                ui->textEdit_textOutput->append(display);
-                ui->textEdit_textOutput->append("\n");
-            }
-        }
-    }
-}
-
-/**
- * @brief On pressing the back button on page 3, the view message page, the program clears the label and resets the view to the
- * resources page.
- */
-void ResourcesGui::on_pushButton_back_clicked()
-{
-    ui->textEdit_textOutput->clear();
     ui->stackedWidget_resources->setCurrentIndex(0);
 }
 
-/**
- * @brief The deleteButton is on the delete message page. Once the title is inserted by the user, the title variable is updated
- * to be the input string on the label. If the user inputs multiple titles, the function will seperate the substrings and delete
- * each of the input titles. The SavedMessages deleteMessage function is called on the new title(s). The function then
- * clears the label and returns the user back to the resources page.
- */
-void ResourcesGui::on_pushButton_delete_clicked()
-{
-    this->title = ui->inputTitle_3->text().toStdString();
 
-    if (title.find(",") != string::npos) {
-        vector<string> titles;
-        stringstream s_stream(this->title); //create string stream from the string
-        while(s_stream.good()) {
-            string substr;
-            getline(s_stream, substr, ','); //get first string delimited by comma
-            titles.push_back(substr);
-        }
-        for (int i = 0; i < (int)titles.size(); i++) {
-            sm->deleteMessage(titles.at(i));
-        }
-    } else {
-        sm->deleteMessage(this->title);
-    }
-    ui->inputTitle_3->clear();
-    ui->label_allTitles->clear();
+void ResourcesGui::on_pushButton_back3_clicked()
+{
     ui->stackedWidget_resources->setCurrentIndex(0);
 }
 

@@ -72,25 +72,6 @@ public:
     void write(string table_name,string values[] );
 
 
-
-    /**
-     * @brief Database:readText
-     * Method get the content of a table on for a specific conditions
-     * @param table_name : name of the table in the database
-     * @param parameters: column names in the table
-     * @param condition: values of the condition
-     */
-    vector<string> readText(string table_name,string parameter,string conditions);
-
-    /**
-     * @brief Database:readTitle
-     * Method get the the title from savedmessage table
-     * @param table_name : name of the table in the database
-     * @param parameters: column names in the table
-     * @param condition: values of the condition
-     */
-    vector<string> readTitle(string table_name,string parameter);
-
     /**
      * @brief Database:remove
      * Method to remove a row in the database based on a given condition
@@ -101,16 +82,6 @@ public:
      * In this specific example table_name="user" , parameter=name , condition = "Tafita"
      */
     void remove(string table_name,string parameter,string condition);
-
-    void check();
-
-    /**
-     * @brief Database:authenticate
-     * Method to verify if a user with a certain username and passwrd is in the database
-     * @param usr : the username
-     * @param pwd : password
-     */
-    bool authenticate(QString usr, QString pwd);
 
     /**
      * @brief Database:getMaxId
@@ -142,7 +113,25 @@ public:
      */
     void exportTableToCsv(string table_name,string outFile);
 
+
+    /**
+     * @brief Database:getter
+     * Get the element on a sepecific field with a specific argument
+     * @param table_name: name of the table
+     * @param targetColumn: name of the table column
+     * @param paramater: name of the chosen column
+     * @param condition: the condition value
+     */
+    string getter(string table_name,string targetColumn, string paramater,string condition);
+
+    /**
+     * @brief Database:updateColumn
+     * Get the name of the fields name for the designated table
+     * @param table_name: name of the table
+     */
+
     void updateColumn(string table_name);
+
     vector<string> parameters;
     int param_size;
 };

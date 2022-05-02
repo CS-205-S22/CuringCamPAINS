@@ -16,10 +16,13 @@ Contact::Contact(int usr_cur,int id, int listId, string fn, string ln, string nu
     firstName = fn;
     lastName = ln;
     cellNum = num;
+    cerr << "cel num in contact " << cellNum << endl;
     age = a;
     emailAddress = email;
     homeAddress = hAdd;
     counter = id;
+//    cerr << "First name: " << fn << endl;
+//    cerr << "ID: " << to_string(id) << endl;
 }
 
 Contact::Contact(int usr_cur,string fn, string ln, string num, int a) {
@@ -28,6 +31,7 @@ Contact::Contact(int usr_cur,string fn, string ln, string num, int a) {
     firstName = fn;
     lastName = ln;
     cellNum = num;
+    cerr << "cel num in contact " << cellNum << endl;
     age = a;
     emailAddress = "";
     homeAddress = "";
@@ -40,6 +44,7 @@ Contact::Contact(int usr_cur,string fn, string ln, string num, string email, int
     firstName = fn;
     lastName = ln;
     cellNum = num;
+    cerr << "cel num in contact " << cellNum << endl;
     age = a;
     emailAddress = email;
     homeAddress = "";
@@ -57,8 +62,8 @@ Contact::Contact(int usr_cur,string fn, string ln, string num, string email, str
     homeAddress = hAdd;
 //    contactListId = listId;
     contactListId = id % 3;
-    cerr << "First name: " << fn << endl;
-    cerr << to_string(id) << endl;
+//    cerr << "First name: " << fn << endl;
+//    cerr << to_string(id) << endl;
 }
 
 void Contact::setCellNum(string num) {

@@ -2,6 +2,8 @@
 #define CONTACTSGUI_H
 
 #include <QWidget>
+#include <QMessageBox>
+#include <QFileDialog>
 #include "../Controller/contactlist.h"
 // #include "../Controller/database.h"
 

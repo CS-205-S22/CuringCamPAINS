@@ -77,6 +77,8 @@ void ContactList::readFile(string name) {
             getline(strStream, hAdd, ',');
             getline(strStream, ageStr, ',');
 
+            cout << "NAME: " << firstName << endl;
+
             if (containsContact(cellStr)) {
                 cout << "Contact is already saved!" << endl;
                 continue;
@@ -160,7 +162,7 @@ void ContactList::addContact(Contact *c) {
 //    int size = masterList->size();
     masterList->push_back(c);
 
-    cerr << "Master list size: " << masterList->size() << endl;
+//    cerr << "Master list size: " << masterList->size() << endl;
 
     string id = to_string(c->id);
     string listIdStr = to_string(c->contactListId);

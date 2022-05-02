@@ -24,7 +24,6 @@ void LogGui::autofill(string buttonName, string contactAge, string contactPN) {
     QString age = QString::fromStdString(contactAge);
     QString phoneNumber = QString::fromStdString(contactPN);
     QString committed = QString("false");
-
     time_t now = time(0);
     tm *ltm = localtime(&now);
     int mon = 1 + ltm->tm_mon;
@@ -44,7 +43,6 @@ void LogGui::autofill(string buttonName, string contactAge, string contactPN) {
 
 
     string date = mon_string + "/" + day_string + "/" + year_string;
-
     ui->lineEdit_name->setText(name);
     ui->lineEdit_age->setText(age);
     ui->lineEdit_numOfAttempts->setText("");

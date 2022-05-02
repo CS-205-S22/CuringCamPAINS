@@ -81,3 +81,34 @@ int Login::getUserId( string usrname){
     return out;
 
 }
+
+/**
+ * @brief Database:authenticate
+ * Method to verify if a user with a certain username and passwrd is in the database
+ * @param usr : the username
+ * @param pwd : password
+ */
+bool Login::authenticate(QString usr, QString pwd){
+
+    try{
+        QSqlQuery query;
+        QString query_str_id = "SELECT password FROM user WHERE userName='"+usr+"' ;"; //get password
+        query.exec(query_str_id);
+        query.next();
+        //    cout<<"Here"<<endl;
+        std::string result=query.value(0).toString().toStdString();
+        std::string temp=pwd.toStdString();
+
+        if(temp==result){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    catch(...){
+        cout<<"error occured"<<endl;
+        return false;
+    }
+}

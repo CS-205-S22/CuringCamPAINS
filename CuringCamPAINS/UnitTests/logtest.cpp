@@ -4,19 +4,10 @@ LogTest::LogTest() {
 }
 
 //LogForm logFile = LogForm("../../../../../database.sqlite");
-
-
-
-//LogForm logFile = LogForm();
-
-//LogForm logFile = LogForm("../../../../../database.sqlite");
 LogForm logFile = LogForm(1,"../../test.sqlite");
 
-
-
-
 TEST(Log, saveLogFormTest) {
-    //ASSERT_TRUE(false) << "This test was not implemented. Failing...";
+
     ASSERT_EQ(logFile.name, "");
     ASSERT_EQ(logFile.age, "");
     ASSERT_EQ(logFile.phoneNumber, "");
@@ -26,7 +17,7 @@ TEST(Log, saveLogFormTest) {
     ASSERT_EQ(logFile.date, "");
     ASSERT_EQ(logFile.committed, "");
 
-    //logFile.saveLogForm("John Doe", "21", "123123", "5", "text", "excited", "March 20th, 2022", "false");
+    logFile.saveLogForm("John Doe", "21", "123123", "5", "text", "excited", "March 20th, 2022", "false");
     QSqlQuery q;
     q.exec("SELECT fullName FROM logForm");
     string str;
@@ -72,31 +63,6 @@ TEST(Log, saveLogFormTest) {
     ASSERT_EQ(str,"false");
 
 }
-
-/*TEST(Log, deleteFromDatabase) {
-
-    logFile.saveLogForm("Josh G", "19", "717-111-2222", "5", "text", "excited", "04/12/2022", "false");
-
-    QSqlQuery q;
-    q.exec("SELECT logId FROM logForm");
-    string str;
-    while(q.next()){
-        str = q.value(0).toString().toStdString();
-    }
-    cout << "STR:" << str << endl;
-
-    logFile.deleteLog("717-111-2222");
-
-    q.exec("SELECT logId FROM logForm");
-    string strTwo;
-    while(q.next()){
-        strTwo = q.value(0).toString().toStdString();
-    }
-    cout << "STR_TWO:" << strTwo << endl;
-
-    ASSERT_EQ(str,"23");
-    ASSERT_EQ(strTwo,"22");
-}*/
 
 TEST(Log, betterDeleteFromDatabase){
     //count how many entries match the exact entry that I am about to pass
