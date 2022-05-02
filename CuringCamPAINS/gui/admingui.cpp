@@ -56,6 +56,7 @@ void AdminGui::displayList()
         layout->addWidget(logCnt);
         layout->setAlignment(logCnt, Qt::AlignCenter);
 
+        vLayout->setAlignment(Qt::AlignTop);
         vLayout->addLayout(layout);
 //    }
 }
