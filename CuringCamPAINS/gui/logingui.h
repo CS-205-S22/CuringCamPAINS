@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "dashboardgui.h"
+#include "admingui.h"
 #include "../Controller/login.h"
 #include "../Controller/database.h"
 #include "registrationgui.h"
@@ -26,9 +27,12 @@ private slots:
 
     void on_registration_clicked();
 
+    void on_test_clicked();
+
 private:
     Ui::LoginGUI *ui;
     DashboardGui *dashboardGui;
+    AdminGui *adminGui;
     registrationGUI *registration;
     Login *s;
 
