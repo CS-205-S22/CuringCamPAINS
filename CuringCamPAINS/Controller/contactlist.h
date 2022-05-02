@@ -10,6 +10,7 @@
 class ContactList:public Database
 {
 public:
+    ContactList(string name);
     ContactList(int cur_id);
     ContactList(int cur_id,string name);
 //    ContactList(Database d);

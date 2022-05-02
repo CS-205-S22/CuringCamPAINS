@@ -3,19 +3,19 @@
 
 
 ContactsGui::ContactsGui(int usr, QWidget *parent) :
-        QWidget(parent),
-        ui(new Ui::ContactsGui) {
+    QWidget(parent),
+    ui(new Ui::ContactsGui) {
     cur_usr=usr;
     ui->setupUi(this);
     ui->stackedWidget_contacts->setCurrentIndex(0);
     contactList = new ContactList(cur_usr, "../../../../../database.sqlite");
 
     contactList->remove("contact", "userId", "7");
-//    contactList->remove("contact", "userId", "Max");
-//    contactList->remove("contact", "userId", "Josh");
-//    contactList->remove("contact", "userId", "efhl`l]]");
-//    contactList->remove("contact", "userId", "Rory");
-//    contactList->remove("contact", "userId", "Tafita");
+    //    contactList->remove("contact", "userId", "Max");
+    //    contactList->remove("contact", "userId", "Josh");
+    //    contactList->remove("contact", "userId", "efhl`l]]");
+    //    contactList->remove("contact", "userId", "Rory");
+    //    contactList->remove("contact", "userId", "Tafita");
 }
 
 ContactsGui::~ContactsGui() {
@@ -28,7 +28,7 @@ ContactsGui::~ContactsGui() {
  */
 void ContactsGui::on_pushButton_uploadFile_clicked() {
     QString fileName = QFileDialog::getOpenFileName(this,
-        tr("Upload Contacts"), "/Desktop", tr("Contacts Files (*.csv)"));
+                                                    tr("Upload Contacts"), "/Desktop", tr("Contacts Files (*.csv)"));
     string fname = fileName.toStdString();
 
     cerr << "FILE NAME: " << fname << endl;
@@ -38,13 +38,16 @@ void ContactsGui::on_pushButton_uploadFile_clicked() {
         QMessageBox::information(this, tr("Successful upload!"), tr("Your file is successfully uploaded"));
     }
 
-//    contactList->readFile("../../../contacts.csv");
+    //    contactList->readFile("../../../contacts.csv");
 
-//    QString path = QFileDialog::getExistingDirectory (this, tr("Directory"), directory.path());
-//    if ( path.isNull() == false )
-//    {
-//        directory.setPath(path);
-//    }
+    //    QString path = QFileDialog::getExistingDirectory (this, tr("Directory"), directory.path());
+    //    if ( path.isNull() == false )
+    //    {
+    //        directory.setPath(path);
+    //    }
+
+    QMessageBox::information(this, tr("Successful upload!"), tr("Your file is successfully uploaded"));
+
 }
 
 void ContactsGui::on_pushButton_save_clicked() {
@@ -56,12 +59,14 @@ void ContactsGui::on_pushButton_save_clicked() {
     string age = (ui->lineEdit_age->text()).toStdString();
 
     if (phoneNum.length() != 10) {
-//        ui->label_phoneErrorMessage->setStyleSheet("{color: #FF0000}");
+        //        ui->label_phoneErrorMessage->setStyleSheet("{color: #FF0000}");
         ui->label_phoneErrorMessage->setText("Invalid phone number!");
+        QMessageBox::information(this, tr("INVALID PHONE-NUMBER"), tr("The format for the phone-number is \n XXXXXXXXXX"));
     }
 
     if (stoi(age) < 18) {
         ui->label_ageErrorMessage->setText("The contact has to be above 18!");
+        QMessageBox::information(this,tr("INVALID AGE"), tr("This person has to be 18 or older!"));
         return;
     } else {
 
