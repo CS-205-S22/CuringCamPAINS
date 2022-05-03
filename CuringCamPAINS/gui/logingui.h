@@ -35,7 +35,6 @@ private:
     AdminGui *adminGui;
     registrationGUI *registration;
     Login *s;
-
 };
 
 #endif // LOGINGUI_H

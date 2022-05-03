@@ -25,11 +25,11 @@
    <property name="title">
     <string/>
    </property>
-   <widget class="QPushButton" name="pushButton_data">
+   <widget class="QPushButton" name="pushButton_logs">
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>270</y>
+      <y>300</y>
       <width>184</width>
       <height>61</height>
      </rect>
@@ -39,8 +39,17 @@
       <pointsize>22</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(30,144,255);
+color:rgb(255,255,255);
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: beige;
+    padding: 6px;</string>
+    </property>
     <property name="text">
-     <string>Download Data</string>
+     <string>Logs</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_title">
@@ -104,6 +113,15 @@
       <pointsize>18</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(220,20,60);
+color:rgb(255,255,255);
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: beige;
+    padding: 6px;</string>
+    </property>
     <property name="text">
      <string>Logout</string>
     </property>
@@ -121,17 +139,49 @@
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_test">
+   <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>430</y>
-      <width>80</width>
-      <height>24</height>
+      <y>270</y>
+      <width>91</width>
+      <height>16</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>18</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>Test</string>
+     <string>Downloads</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_contacts">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>360</y>
+      <width>184</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>22</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(30,144,255);
+color:rgb(255,255,255);
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: beige;
+    padding: 6px;</string>
+    </property>
+    <property name="text">
+     <string>Contacts</string>
     </property>
    </widget>
   </widget>
@@ -156,7 +206,7 @@
   <widget class="QLabel" name="label_contactName">
    <property name="geometry">
     <rect>
-     <x>370</x>
+     <x>377</x>
      <y>20</y>
      <width>121</width>
      <height>21</height>
@@ -174,9 +224,9 @@
   <widget class="QLabel" name="label_group">
    <property name="geometry">
     <rect>
-     <x>560</x>
+     <x>559</x>
      <y>20</y>
-     <width>51</width>
+     <width>71</width>
      <height>21</height>
     </rect>
    </property>
@@ -186,13 +236,13 @@
     </font>
    </property>
    <property name="text">
-    <string>Date</string>
+    <string>Method</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_logCount">
    <property name="geometry">
     <rect>
-     <x>690</x>
+     <x>700</x>
      <y>20</y>
      <width>91</width>
      <height>21</height>
