@@ -101,7 +101,6 @@ public:
      * @brief Database:tableToCsv
      * Export the data from a table into a csv file
      * @param table_name : name of the table
-     * @param parameters[]: name of the table headers
      * @param outFile: Address of the output file
      */
     void tableToCsv(string table_name,string outFile);
