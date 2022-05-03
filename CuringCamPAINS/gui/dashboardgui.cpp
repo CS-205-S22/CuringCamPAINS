@@ -236,10 +236,9 @@ void DashboardGui::on_pushButton_data_clicked()
  */
 void DashboardGui::on_pushButton_logout_clicked()
 {
-    ui->pushButton_logout->setStyleSheet("QPushButton{ background-color: yellow }");
-    LoginGUI *l= new LoginGUI();
+    LoginGUI *t= new LoginGUI();
     hide();
-    l->show();
+    t->show();
 }
 
 /**

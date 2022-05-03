@@ -9,6 +9,7 @@ logVector=new vector<vector<string>*>();
 LogForm::LogForm(string name):Database(name){
     logVector=new vector<vector<string>*>();
 }
+
 LogForm::LogForm(int id){
 usr_id=id;
 logVector=new vector<vector<string>*>();

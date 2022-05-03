@@ -33,13 +33,13 @@ void LoginGUI::on_submission_pressed()
     if(s->signUp(username, password) == true) {
         curr_usrId = s->getUserId(username);
 //        if (s->getIsResearcher()) {
-            //adminGui = new AdminGui();
-            //hide();
-            //adminGui->show();
-//        } else {
-            dashboardGui = new DashboardGui(curr_usrId);
+            adminGui = new AdminGui();
             hide();
-            dashboardGui->show();
+            adminGui->show();
+//        } else {
+//            dashboardGui = new DashboardGui(curr_usrId);
+//            hide();
+//            dashboardGui->show();
 //        }
     }
     else {
