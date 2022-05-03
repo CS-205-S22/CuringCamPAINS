@@ -1,6 +1,12 @@
-1,1,Tafita Rakoto,20,1223438988,5,Call,Happy,11/12/2020,true
-2,1,Tft Rawww,20,1223438988,5,Call,Happy,11/12/2020,true
-3,2,Pool lkjjl,20,1223438988,5,Call,Happy,11/12/2020,true
-4,3,John Doe,38,1234567876,7,Text,Nervous,11/14/2020,false
-5,3,Alice Jane,21,5787465787,3,Text,Excited,11/15/2020,true
-6,3,Michael Vey,20,8988765678,11,Text,Unsure,12/01/2020,false
+1,1,Tafita Rakoto,20,1223438988,5,Call,Happy,11/12/20,TRUE
+2,1,Michael Jordan,20,1223438988,5,Call,Happy,11/12/20,TRUE
+3,2,Albert Einsten ,20,1223438988,5,Call,Happy,11/12/20,TRUE
+4,3,John Doe,38,1234567876,7,Text,Nervous,11/14/20,FALSE
+5,3,Alice Jane,21,5787465787,3,Text,Excited,11/15/20,TRUE
+6,3,Michael Vey,20,8988765678,11,Text,Unsure,12/1/20,FALSE
+7,1,Tafita Rakoto,20,1223438988,5,Call,Happy,11/12/20,TRUE
+8,1,Michael Jordan,20,1223438988,5,Call,Happy,11/12/20,TRUE
+9,2,Albert Einsten ,20,1223438988,5,Call,Happy,11/12/20,TRUE
+10,3,John Doe,38,1234567876,7,Text,Nervous,11/14/20,FALSE
+11,4,Alice Jane,21,5787465787,3,Text,Excited,11/15/20,TRUE
+12,3,Michael Vey,20,8988765678,11,Text,Unsure,12/1/20,FALSE
