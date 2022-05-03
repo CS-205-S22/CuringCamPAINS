@@ -1,4 +1,16 @@
+<<<<<<< HEAD
+logId,userId,fullName,age,phoneNumber,numOfAttempts,methodOfContact,reaction,dateContacted,isCommitted
+1,1,Tafita Rakoto,20,122343,5,Call,Happy,11/12/20,yes
+2,1,Tft Rawww,20,122343,5,Call,Happy,11/12/20,yes
+3,2,Pool lkjjl,20,122343,5,Call,Happy,11/12/20,yes
+4,7,Josh,34,3456789012,5,text,excited,05/01/2022,false
+5,7,Josh,34,3456789012,5,text,excited,05/01/2022,false
+6,7,Josh,34,3456789012,6,call,nervous,05/01/2022,false
+7,7,Josh,34,3456789012,7,text,nervous again,05/01/2022,false
+8,7,Josh,34,3456789012,8,email,warming up to the idea,05/01/2022,false
+=======
 logId,fullName,age,phoneNumber,numOfAttempts,methodOfContact,reaction,dateContacted,isCommitted
 2,John Doe,18,1111111,4,text,happy,4/20/2022,false
 3,John Doe,23,adfaddag,2,3,fsgf,4/21/2022,false
 4,John Doe,23,adfaddag,2,3,fsgf,4/21/2022,false
+>>>>>>> dae1c4b3750e9a75ee60e866eb3734ccfb55f236

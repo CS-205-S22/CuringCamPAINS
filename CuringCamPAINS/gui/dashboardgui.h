@@ -2,6 +2,7 @@
 #define DASHBOARDGUI_H
 
 #include <QWidget>
+#include <QVBoxLayout>
 #include "contactsgui.h"
 #include "loggui.h"
 #include "resourcesgui.h"
@@ -21,6 +22,7 @@ public:
     explicit DashboardGui(int userId,QWidget *parent = nullptr);
     void deleteButtons();
     void displayButtons();
+    void increaseNumContacts();
     ~DashboardGui();
     Contact* con;
 
@@ -35,14 +37,14 @@ private slots:
 
     void on_pushButton_logout_clicked();
 
-    void on_pushButton_data_clicked();
-
     void changeColor();
 
 private:
     Ui::DashboardGui *ui;
     vector<string> buttonList;
     vector<DynamicButton*> dynButtonList;
+    QVBoxLayout *vLayout;
+    QHBoxLayout *hLayout;
     int count = 1;
 //    ContactsGui *contactsGui = new ContactsGui();
 //    LogGui *logGui = new LogGui();

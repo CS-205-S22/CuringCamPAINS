@@ -61,7 +61,7 @@
        </property>
        <property name="styleSheet">
         <string notr="true">background-color:rgb(30,144,255);
-background-color:rgb(30,144,255);
+color:rgb(255,255,255);
     border-style: outset;
     border-width: 2px;
     border-radius: 10px;
@@ -106,7 +106,8 @@ background-color:rgb(30,144,255);
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:rgb(250,0,0);
+        <string notr="true">background-color:rgb(220,20,60);
+color:rgb(255,255,255);
     border-style: outset;
     border-width: 2px;
     border-radius: 10px;
