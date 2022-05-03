@@ -98,6 +98,7 @@ void ResourcesGui::on_pushButton_viewMessage_clicked()
  */
 void ResourcesGui::on_pushButton_view_clicked()
 {
+    ui->textEdit_textOutput->clear();
     vector<string> text;
     text = sm->viewMessage(ui->comboBox_choices->currentText().toStdString());
     for (int i = 0; i < (int)text.size(); i++) {
@@ -155,7 +156,7 @@ void ResourcesGui::on_pushButton_delete_clicked()
 void ResourcesGui::on_pushButton_saveMessage_clicked()
 {
     this->title = ui->lineEdit_title->text().toStdString();
-    this->text = ui->lineEdit_text->text().toStdString();
+    this->text = ui->lineEdit_text->toPlainText().toStdString();
     //call saved messages create message
     sm->createMessage(this->title, this->text);
     ui->lineEdit_title->clear();

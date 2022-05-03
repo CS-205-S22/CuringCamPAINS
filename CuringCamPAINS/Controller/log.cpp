@@ -2,8 +2,8 @@
 
 LogForm::LogForm(int id,string name):Database(name)
 {
-usr_id=id;
-logVector=new vector<vector<string>*>();
+    usr_id=id;
+    logVector=new vector<vector<string>*>();
 }
 
 LogForm::LogForm(string name):Database(name){
@@ -11,8 +11,8 @@ LogForm::LogForm(string name):Database(name){
 }
 
 LogForm::LogForm(int id){
-usr_id=id;
-logVector=new vector<vector<string>*>();
+    usr_id=id;
+    logVector=new vector<vector<string>*>();
 }
 
 void LogForm::clearLogForm(){
@@ -103,6 +103,7 @@ void LogForm::readFromDB() {
 
             string logId = query.value("logId").toString().toStdString();
             string userId=query.value("userId").toString().toStdString();
+            string user_Name=getter("user","name","userId",userId);
             string fullName=query.value("fullName").toString().toStdString();
             string age=query.value("age").toString().toStdString();
             string phoneNumber=query.value("phoneNumber").toString().toStdString();
@@ -113,7 +114,7 @@ void LogForm::readFromDB() {
             vector<string>*temp = new vector<string>;
 
             temp->push_back(logId);
-            temp->push_back(userId);
+            temp->push_back(user_Name);
             temp->push_back(fullName);
             temp->push_back(age);
             temp->push_back(phoneNumber);
@@ -123,11 +124,9 @@ void LogForm::readFromDB() {
             temp->push_back(dateContacted);
 
             logVector->push_back(temp);
-        }   
+        }
 
     }
-
-
 }
 
 /**
@@ -137,7 +136,7 @@ void LogForm::readFromDB() {
 int  LogForm::logCount() {
     QSqlQuery query;
     QString str = "select count(*) from logForm ;";
-   query.exec(str);
-   query.next();
-   return stoi(query.value(0).toString().toStdString());
+    query.exec(str);
+    query.next();
+    return stoi(query.value(0).toString().toStdString());
 }

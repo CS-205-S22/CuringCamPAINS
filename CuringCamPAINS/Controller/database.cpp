@@ -253,14 +253,16 @@ void Database::tableToCsv(string table_name, string outFile){
             out=out+","+query.value(i).toString().toStdString();
         }
         myfile <<out+"\n";
-
     }
-
     //close the database
     myfile.close();
     cout<<"Writing successful"<<endl;
 
 }
+
+
+
+
 
 /**
  * @brief Database:updateColumn

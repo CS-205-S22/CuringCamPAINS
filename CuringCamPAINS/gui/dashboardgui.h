@@ -37,8 +37,6 @@ private slots:
 
     void on_pushButton_logout_clicked();
 
-    void on_pushButton_data_clicked();
-
     void changeColor();
 
 private:
