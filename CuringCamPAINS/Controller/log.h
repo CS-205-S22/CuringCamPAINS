@@ -8,6 +8,7 @@ using namespace std;
 
 class LogForm:public Database{
 public:
+    LogForm(string name);
     LogForm(int usr_id,string name);
     LogForm(int usr_id);
     LogForm();
@@ -23,6 +24,7 @@ public:
     int logId = 0;
     int usr_id;
 
+    vector<vector<string>*> *logVector;
 //private:
     string name;
     string phoneNumber;

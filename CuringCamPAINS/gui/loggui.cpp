@@ -1,9 +1,6 @@
 #include "loggui.h"
 #include "ui_loggui.h"
 
-
-
-
 LogGui::LogGui(int usr,QWidget *parent) :
     QWidget(parent),
     ui(new Ui::LogGui)
@@ -45,6 +42,9 @@ void LogGui::autofill(string buttonName, string contactAge, string contactPN) {
     string date = mon_string + "/" + day_string + "/" + year_string;
     ui->lineEdit_name->setText(name);
     ui->lineEdit_age->setText(age);
+    ui->lineEdit_numOfAttempts->setText("");
+    ui->lineEdit_methodOfContact->setText("");
+    ui->lineEdit_reaction->setText("");
     ui->lineEdit_committed->setText(committed);
     ui->lineEdit_phoneNumber->setText(phoneNumber);
     ui->lineEdit_date->setText(QString::fromStdString (date));
@@ -101,25 +101,10 @@ void LogGui::on_pushButton_enter_clicked()
     logForm->saveLogForm(logForm->name, logForm->age, logForm->phoneNumber, logForm->numOfAttempts,
                        logForm->methodOfContact, logForm->reaction, logForm->date, logForm->committed);
 
-    /*logForm.logInput[0] = ui->nameLineEdit->text().toStdString();
-    logForm.logInput[1] = ui->ageLineEdit->text().toStdString();
-    logForm.logInput[2] = ui->pnLineEdit->text().toStdString();
-    logForm.logInput[3] = ui->numAttemptsLineEdit->text().toStdString();
-    logForm.logInput[4] = ui->methodOfContactLineEdit->text().toStdString();
-    logForm.logInput[5] = ui->reactionLineEdit->text().toStdString();
-    logForm.logInput[6] = ui->dateContactedLineEdit->text().toStdString();
-    logForm.logInput[7] = ui->isCommittedLineEdit->text().toStdString();
+    ui->lineEdit_numOfAttempts->setText("");
+    ui->lineEdit_methodOfContact->setText("");
+    ui->lineEdit_reaction->setText("");
 
-    logForm.saveLogForm(logForm.logInput[0],logForm.logInput[1],logForm.logInput[2],
-            logForm.logInput[3],logForm.logInput[4],logForm.logInput[5],
-            logForm.logInput[6],logForm.logInput[7]);*/
-
-    logForm->saveLogForm(logForm->name, logForm->age, logForm->phoneNumber, logForm->numOfAttempts,
-                       logForm->methodOfContact, logForm->reaction, logForm->date, logForm->committed);
-    //logForm.saveLogForm("John Cena", "19", "1111112", "3", "text", "unsure", "April 7th, 2022", "false");
-
-    //logForm.deleteLog("111");
     }
 
-    //ui->stackedWidget_main->setCurrentIndex(0);
 }

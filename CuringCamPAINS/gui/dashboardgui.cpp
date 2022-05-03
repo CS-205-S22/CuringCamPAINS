@@ -56,10 +56,16 @@ DashboardGui::~DashboardGui()
 void DashboardGui::on_pushButton_dashboard_clicked()
 {
     ui->stackedWidget_main->setCurrentIndex(0);
+    //cerr << "NUM CONTACTS BEFORE: " << numContacts << endl;
     if (numContacts != (int)contactsGui->contactList->treatmentGroup->size()) {
         this->displayButtons();
         numContacts = (int)contactsGui->contactList->treatmentGroup->size();
+        //cerr << "NUM CONTACTS IN IF STATMENT: " << numContacts << endl;
     }
+    //cerr << "NUM CONTACTS OUTSIDE IF STATMENT: " << numContacts << endl;
+    //cerr << "SIZE OF TREATMENT GROUP: " << (int)contactsGui->contactList->treatmentGroup->size() << endl;
+
+
 }
 
 /**
@@ -117,26 +123,26 @@ void DashboardGui::openLogForm()
     /* To determine the object that caused the signal
      * */
 
-    DynamicButton *button = (DynamicButton*) sender();
-    cerr << "AFTER CLICKED: " << con->firstName << endl;
-    Contact* treatmentContact = contactsGui->contactList->findByFirstName(button->name);
-    //open log form
-    cerr << "BEFORE CHANGE SCREEN" << endl;
-    ui->stackedWidget_main->setCurrentIndex(3);
-    cerr << "AFTER CHANGE SCREEN" << endl;
-    logGui->autofill(button->text().toStdString(), to_string(treatmentContact->age), treatmentContact->cellNum);
+        DynamicButton *button = (DynamicButton*) sender();
+        //cerr << "AFTER CLICKED: " << con->firstName << endl;
+        Contact* treatmentContact = contactsGui->contactList->findByFirstName(button->name);
+        //open log form
+        //cerr << "BEFORE CHANGE SCREEN" << endl;
+        ui->stackedWidget_main->setCurrentIndex(3);
+        //cerr << "AFTER CHANGE SCREEN" << endl;
+        string fullName = treatmentContact->firstName + " " + treatmentContact->lastName;
+        logGui->autofill(fullName, to_string(treatmentContact->age), treatmentContact->cellNum);
+        //cerr << "AFTER AUTOFILL" << endl;
+        int pos = button->resID - 1;
+        Contact* save = contactsGui->contactList->treatmentGroup->at(pos);
+        contactsGui->contactList->treatmentGroup->erase(contactsGui->contactList->treatmentGroup->begin() + pos);
+        contactsGui->contactList->treatmentGroup->push_back(save);
 
-    cerr << "AFTER AUTOFILL" << endl;
-    int pos = button->resID - 1;
-    Contact* save = contactsGui->contactList->treatmentGroup->at(pos);
-    contactsGui->contactList->treatmentGroup->erase(contactsGui->contactList->treatmentGroup->begin() + pos);
-    contactsGui->contactList->treatmentGroup->push_back(save);
 
-
-    //now shuffle buttons
-    this->deleteButtons();
-    this->displayButtons();
-}
+        //now shuffle buttons
+        this->deleteButtons();
+        this->displayButtons();
+    }
 
 /**
  * @brief Function deletes all buttons from the dashboard display. Loops through the vertical layout while it is not null. At each
@@ -207,5 +213,9 @@ void DashboardGui::on_pushButton_logout_clicked()
 void DashboardGui::changeColor()
 {
     setStyleSheet(resourcesGui->getSyle());
+}
+
+void DashboardGui::increaseNumContacts(){
+    numContacts++;
 }
 
