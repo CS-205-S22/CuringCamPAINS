@@ -34,7 +34,7 @@ void AdminGui::displayList()
     QLabel *conName;
     QLabel *group;
     QLabel *logCnt;
-    QHBoxLayout *layout;
+    QHBoxLayout *hLayout;
 
 
 //    for (int i = 0; i < (int) contacts->size(); i++) {
@@ -42,7 +42,7 @@ void AdminGui::displayList()
         conName = new QLabel();
         group   = new QLabel();
         logCnt  = new QLabel();
-        layout  = new QHBoxLayout();
+        hLayout  = new QHBoxLayout();
 
 //        recName->setText(contacts->at(i)->getRectuiterName);
         recName->setText("test");
@@ -52,17 +52,17 @@ void AdminGui::displayList()
         group->setText("111");
         logCnt->setText("000");
 
-        layout->addWidget(recName);
-        layout->setAlignment(recName, Qt::AlignLeft);
-        layout->addWidget(conName);
-        layout->setAlignment(conName, Qt::AlignLeft);
-        layout->addWidget(group);
-        layout->setAlignment(group, Qt::AlignHCenter);
-        layout->addWidget(logCnt);
-        layout->setAlignment(logCnt, Qt::AlignCenter);
+        hLayout->addWidget(recName);
+        hLayout->setAlignment(recName, Qt::AlignLeft);
+        hLayout->addWidget(conName);
+        hLayout->setAlignment(conName, Qt::AlignLeft);
+        hLayout->addWidget(group);
+        hLayout->setAlignment(group, Qt::AlignHCenter);
+        hLayout->addWidget(logCnt);
+        hLayout->setAlignment(logCnt, Qt::AlignCenter);
 
         vLayout->setAlignment(Qt::AlignTop);
-        vLayout->addLayout(layout);
+        vLayout->addLayout(hLayout);
 //    }
 }
 

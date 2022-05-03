@@ -12,6 +12,10 @@ DashboardGui::DashboardGui(int cur_usrId, QWidget *parent) :
     logGui = new LogGui(cur_usrId);
     resourcesGui = new ResourcesGui(cur_usrId);
 
+    vLayout = new QVBoxLayout();
+    ui->scrollAreaWidgetContents_dashboard->setLayout(vLayout);
+    ui->scrollArea_dashboard->setWidgetResizable(true);
+
 
     QPixmap pix1(QString::fromStdString("../../../../../letter_logo.png"));
     int w1=ui->label_title->width();
@@ -76,26 +80,44 @@ void DashboardGui::on_pushButton_dashboard_clicked()
  * and .... The slot is created for each button and after the loop finishes the contact vector is cleared for the next use.
  */
 void DashboardGui::displayButtons() {
-    if (ui->verticalLayout->count() != 0) {
+    if (vLayout->count() != 0) {
         deleteButtons();
     }
-    vector<string> contacts;
-    for (int i = 0; i < (int)contactsGui->contactList->treatmentGroup->size(); i++) {
-        contacts.push_back(contactsGui->contactList->treatmentGroup->at(i)->firstName);
+    vector<Contact*> *contacts = new vector<Contact*>;
+    for (int i = 0; i < (int) contactsGui->contactList->treatmentGroup->size(); i++) {
+        contacts->push_back(contactsGui->contactList->treatmentGroup->at(i));
     }
 
     DynamicButton *button;
     DynamicButton::setID();
-    for (int i = 0; i < (int)contacts.size(); i++) {
+    for (int i = 0; i < (int)contacts->size(); i++) {
+        QLabel *name;
+        QLabel *email;
+        QLabel *phone;
+
+        name = new QLabel();
+        email = new QLabel();
+        phone   = new QLabel();
+        hLayout  = new QHBoxLayout();
+
         button = new DynamicButton(this);  // Create a dynamic button object
 
-        button->setText(QString::fromStdString(contacts.at(i)));
-        /* Adding a button to the bed with a vertical layout
-           * */
-        ui->verticalLayout->addWidget(button);
-        /* Connect the signal to the slot pressing buttons produce numbers
-           * */
-        //        cerr << "BEFORE" << endl;
+        name->setText(QString::fromStdString(contacts->at(i)->firstName + " " + contacts->at(i)->lastName));
+        email->setText(QString::fromStdString(contacts->at(i)->emailAddress));
+        phone->setText(QString::fromStdString(contacts->at(i)->cellNum));
+        button->setText(QString::fromStdString("Log"));
+
+        hLayout->addWidget(name);
+        hLayout->setAlignment(name, Qt::AlignLeft);
+        hLayout->addWidget(email);
+        hLayout->setAlignment(email, Qt::AlignLeft);
+        hLayout->addWidget(phone);
+        hLayout->setAlignment(phone, Qt::AlignRight);
+        hLayout->addWidget(button);
+        hLayout->setAlignment(button, Qt::AlignRight);
+
+        vLayout->setAlignment(Qt::AlignTop);
+        vLayout->addLayout(hLayout);
 
         con = contactsGui->contactList->treatmentGroup->at(i);
         cerr << con->firstName << endl;
@@ -104,10 +126,9 @@ void DashboardGui::displayButtons() {
         dynButtonList.push_back(button);
         connect(button, SIGNAL(clicked()), this, SLOT(openLogForm()));
 
-
         count++;
     }
-    contacts.clear();
+    contacts->clear();
 }
 
 /**
@@ -145,16 +166,30 @@ void DashboardGui::openLogForm()
     }
 
 /**
- * @brief Function deletes all buttons from the dashboard display. Loops through the vertical layout while it is not null. At each
- * iteration it deletes each of the items on the layout at the 0th index.
+ * @brief Function deletes items in the vLayout, sublayouts at these items, items in the sublayouts, and widgets in these items.
  */
 void DashboardGui::deleteButtons() {
-    if ( ui->verticalLayout != NULL )
+    if ( vLayout != NULL )
     {
         QLayoutItem* item;
-        while ( ( item = ui->verticalLayout->itemAt(0) ) != NULL )
+        QLayout *sublayout;
+        QWidget *widget;
+        while (item = vLayout->takeAt(0))
         {
-            delete item->widget();
+            if ((sublayout = item->layout()) != 0) {
+                QLayoutItem *subItem;
+                while (subItem = sublayout->takeAt(0))
+                {
+                    if ((widget = subItem->widget()) != 0) {
+                        widget->hide();
+                        delete widget;
+                    } else {
+                        delete subItem;
+                    }
+                }
+            } else {
+                delete item;
+            }
         }
     }
 }

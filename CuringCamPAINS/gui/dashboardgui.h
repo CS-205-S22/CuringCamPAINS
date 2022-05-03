@@ -2,6 +2,7 @@
 #define DASHBOARDGUI_H
 
 #include <QWidget>
+#include <QVBoxLayout>
 #include "contactsgui.h"
 #include "loggui.h"
 #include "resourcesgui.h"
@@ -44,6 +45,8 @@ private:
     Ui::DashboardGui *ui;
     vector<string> buttonList;
     vector<DynamicButton*> dynButtonList;
+    QVBoxLayout *vLayout;
+    QHBoxLayout *hLayout;
     int count = 1;
 //    ContactsGui *contactsGui = new ContactsGui();
 //    LogGui *logGui = new LogGui();

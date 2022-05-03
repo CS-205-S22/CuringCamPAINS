@@ -50,6 +50,16 @@ void ResourcesGui::on_pushButton_changeColor_clicked()
     feed += to_string(g) += ", ";
     feed += to_string(b) += ", ";
     feed += to_string(25) += ") }\n";
+    feed += "QScrollArea { background-color: rgb(";
+    feed += to_string(r) += ", ";
+    feed += to_string(g) += ", ";
+    feed += to_string(b) += ", ";
+    feed += to_string(25) += ") }\n";
+    feed += "QVBoxLayout { background-color: rgb(";
+    feed += to_string(r) += ", ";
+    feed += to_string(g) += ", ";
+    feed += to_string(b) += ", ";
+    feed += to_string(25) += ") }\n";
     QString style = QString::fromUtf8(feed.c_str());
     this->style = style;
     emit changeColorSignal();
