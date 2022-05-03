@@ -229,7 +229,11 @@ void DashboardGui::changeColor()
     setStyleSheet(resourcesGui->getSyle());
 }
 
-void DashboardGui::increaseNumContacts(){
+/**
+ * @brief Function increments the number of contacts by one.
+ */
+void DashboardGui::increaseNumContacts()
+{
     numContacts++;
 }
 

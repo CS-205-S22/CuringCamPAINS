@@ -70,6 +70,7 @@ public:
 
     vector<string> retStrings;
 
+    //so each system is specific to user
     int cur_id;
 };
 
