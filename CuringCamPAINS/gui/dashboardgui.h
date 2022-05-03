@@ -2,6 +2,7 @@
 #define DASHBOARDGUI_H
 
 #include <QWidget>
+#include <QVBoxLayout>
 #include "contactsgui.h"
 #include "loggui.h"
 #include "resourcesgui.h"
@@ -52,6 +53,7 @@ private:
     ResourcesGui *resourcesGui;
     int numContacts = 0;
 
+    QVBoxLayout* layout;
 
 };
 

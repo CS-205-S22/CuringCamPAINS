@@ -23,12 +23,14 @@ DashboardGui::DashboardGui(int cur_usrId, QWidget *parent) :
     //    int h = ui->label_image->height();
     //    ui->label_image->setPixmap(pix.scaled(w, h, Qt::KeepAspectRatio));
 
+    layout = new QVBoxLayout(this);
+//    ui->scrollArea_dashboard->setLayout(layout);
 
     Database *dbb = new Database("../../../../../database.sqlite");
     string name = dbb->getter("user", "name", "userId", std::to_string(cur_usrId));
     ui->label_name->setText(QString::fromStdString(name));
     string outFile="../../../../../"+name+".jpeg";
-    cout<<outFile<<endl;
+    cout << outFile << endl;
     QPixmap pix(QString::fromStdString(outFile));
     int w=ui->label_image->width();
     int h=ui->label_image->height();
@@ -38,6 +40,7 @@ DashboardGui::DashboardGui(int cur_usrId, QWidget *parent) :
     ui->stackedWidget_main->addWidget(contactsGui);
     ui->stackedWidget_main->addWidget(resourcesGui);
     ui->stackedWidget_main->addWidget(logGui);
+    cerr << "BEFORE DISPLAY" << endl;
     this->displayButtons();
 
     connect(resourcesGui, SIGNAL(changeColorSignal()), this, SLOT(changeColor()));
@@ -73,35 +76,55 @@ void DashboardGui::displayButtons() {
     if (ui->verticalLayout->count() != 0) {
         deleteButtons();
     }
-    vector<string> contacts;
+    vector<string> firstNames;
+    vector<string> lastNames;
     for (int i = 0; i < (int)contactsGui->contactList->treatmentGroup->size(); i++) {
-        contacts.push_back(contactsGui->contactList->treatmentGroup->at(i)->firstName);
+        firstNames.push_back(contactsGui->contactList->treatmentGroup->at(i)->firstName);
+        lastNames.push_back(contactsGui->contactList->treatmentGroup->at(i)->lastName);
     }
 
     DynamicButton *button;
     DynamicButton::setID();
-    for (int i = 0; i < (int)contacts.size(); i++) {
-        button = new DynamicButton(this);  // Create a dynamic button object
+    for (int i = 0; i < (int)firstNames.size(); i++) {
 
-        button->setText(QString::fromStdString(contacts.at(i)));
-        /* Adding a button to the bed with a vertical layout
-           * */
+        button = new DynamicButton(this);  // Create a dynamic button object
+        const QSize BUTTON_SIZE = QSize(200, 50);
+        button->setMinimumSize(BUTTON_SIZE);
+        button->setStyleSheet(QString::fromUtf8("QPushButton{background-color: grey;"
+          "border-style: solid;"
+          "border-radius: 15px;}"));
+
+        cerr << "BEFORE LAYOUT" << endl;
+//        layout->addWidget(button);
+        cerr << "AFTER LAYOUT" << endl;
+
+        button->setText(QString::fromStdString(firstNames.at(i) + " " + lastNames.at(i)));
+        /* Adding a button to the bed with a vertical layout*/
         ui->verticalLayout->addWidget(button);
-        /* Connect the signal to the slot pressing buttons produce numbers
-           * */
+        /* Connect the signal to the slot pressing buttons produce numbers */
         //        cerr << "BEFORE" << endl;
 
         con = contactsGui->contactList->treatmentGroup->at(i);
         cerr << con->firstName << endl;
-        button->name = con->firstName;
+        button->name = con->cellNum;
         buttonList.push_back(button->name);
         dynButtonList.push_back(button);
         connect(button, SIGNAL(clicked()), this, SLOT(openLogForm()));
 
-
         count++;
     }
-    contacts.clear();
+
+    /*
+    ui->scrollArea->takeWidget();
+    //set this property
+    ui->scrollArea->setWidgetResizable(false);
+    //reset widget
+    ui->scrollArea->setWidget(ui->verticalLayoutWidget);
+//    ui->scrollArea_dashboard->setLayout(ui->verticalLayout);
+//    ui->scrollArea->setLayout(layout);
+*/
+    firstNames.clear();
+    cerr << "AFTER LAYOUT LOOP" << endl;
 }
 
 /**
@@ -119,14 +142,14 @@ void DashboardGui::openLogForm()
 
     DynamicButton *button = (DynamicButton*) sender();
     cerr << "AFTER CLICKED: " << con->firstName << endl;
-    Contact* treatmentContact = contactsGui->contactList->findByFirstName(button->name);
+    Contact* treatmentContact = contactsGui->contactList->findContact(button->name);
     //open log form
-    cerr << "BEFORE CHANGE SCREEN" << endl;
+//    cerr << "BEFORE CHANGE SCREEN" << endl;
     ui->stackedWidget_main->setCurrentIndex(3);
-    cerr << "AFTER CHANGE SCREEN" << endl;
+//    cerr << "AFTER CHANGE SCREEN" << endl;
     logGui->autofill(button->text().toStdString(), to_string(treatmentContact->age), treatmentContact->cellNum);
 
-    cerr << "AFTER AUTOFILL" << endl;
+//    cerr << "AFTER AUTOFILL" << endl;
     int pos = button->resID - 1;
     Contact* save = contactsGui->contactList->treatmentGroup->at(pos);
     contactsGui->contactList->treatmentGroup->erase(contactsGui->contactList->treatmentGroup->begin() + pos);

@@ -1,12 +1,12 @@
 #include "contactlist.h"
 #include <QDir>
 
-const int TREATMENT = 0;
-const int CONTROL = 1;
+const int TREATMENT = 1;
+const int CONTROL = 0;
 const int NOCONTACT = 2;
 
 /**
- * @brief ContactList::ContactList reads all contacts from the database.
+ * @brief ContactList::ContactList reads and stores all contacts
  * @param name of the database path.
  */
 ContactList::ContactList(string name):Database(name)
@@ -19,10 +19,11 @@ ContactList::ContactList(string name):Database(name)
     readFromDB();
 }
 
-ContactList::ContactList(int cur_id) {
-    usr_id = cur_id;
-}
-
+/**
+ * @brief ContactList::ContactList
+ * @param cur_id - current user ID
+ * @param name - database file name
+ */
 ContactList::ContactList(int cur_id, string name):Database(name)
 {
     usr_id=cur_id;
@@ -34,6 +35,12 @@ ContactList::ContactList(int cur_id, string name):Database(name)
     readFromDB();
 }
 
+/**
+ * @brief ContactList::getUserInput
+ * Gets the user input when run in TUI
+ * M for getting contact information from manual entry
+ * F for reading a file to create contact objects.
+ */
 void ContactList::getUserInput() {
     char ch;
     string filename;
@@ -57,6 +64,12 @@ void ContactList::getUserInput() {
     }
 }
 
+/**
+ * @brief ContactList::readFile
+ * @param name - filename to read
+ * Reads the file with the given name; creates a contact object with necessary info;
+ * Saves the information in the database and assigns it to one of the 3 groups.
+ */
 void ContactList::readFile(string name) {
     ifstream file;
     string line;
@@ -67,7 +80,6 @@ void ContactList::readFile(string name) {
     string email;
     string hAdd;
     string ageStr;
-//    string cols[] = {"contactId", "treatmentId", "userId", "firstName", "lastName", "phoneNumber", "emailAddress", "homeAddress", "dateOfBirth"};
 
     cerr << name << endl;
     cerr << QDir::currentPath().toStdString() << endl;
@@ -81,7 +93,6 @@ void ContactList::readFile(string name) {
         getline(file, line);  //first row
 
         cerr << "Reading the file." << endl;
-//        int maxId = getMaxId("contact", "contactId");
 
         while(getline(file, line)) {
             stringstream strStream(line);
@@ -112,7 +123,11 @@ void ContactList::readFile(string name) {
 
     file.close();
 }
-
+/**
+ * @brief ContactList::getManualEntry
+ * When run in TUI, reads the information manually entered and
+ * adds the contact to the system and database.
+ */
 void ContactList::getManualEntry() {
     string firstName;
     string lastName;
@@ -137,19 +152,37 @@ void ContactList::getManualEntry() {
     addContact(firstName, lastName, cellStr, email, hAdd, ageStr);
 }
 
+/**
+ * @brief ContactList::divideIntoGroups
+ * @param c - Contact object to be assigned a group
+ * Adds the contact to its corresponding group. If the contactListId is:
+ * 0 - Control group
+ * 1 - Treatment group
+ * 2 - No contact group
+ */
 void ContactList::divideIntoGroups(Contact* c) {
-    if (c->contactListId == 1) {
+    if (c->contactListId == TREATMENT) {
         treatmentGroup->push_back(c);
-    } else if (c->contactListId == 0) {
+    } else if (c->contactListId == CONTROL) {
         controlGroup->push_back(c);
     } else {
         noContactGroup->push_back(c);
     }
 }
 
-void ContactList::addContact(string fn, string ln, string cellNum, string email, string hAdd, string age){
-    int size = masterList->size();
 
+/**
+ * @brief ContactList::addContact
+ * @param fn - first name
+ * @param ln - last name
+ * @param cellNum - phone number
+ * @param email - email address
+ * @param hAdd - home address
+ * @param age
+ * Checks if the same contact is already saved. If not, creates the contact, assigns to a group,
+ * and saves to the database.
+ */
+void ContactList::addContact(string fn, string ln, string cellNum, string email, string hAdd, string age){
     if (containsContact(cellNum)) {
         cout << "Contact is already saved!" << endl;
         return;
@@ -165,37 +198,51 @@ void ContactList::addContact(string fn, string ln, string cellNum, string email,
     write("contact", inputs);
 
     divideIntoGroups(c);
-//    print();
 }
 
+/**
+ * @brief ContactList::addContact
+ * @param c - Contact object to be added
+ * Checks if the same contact is already saved. If not, creates the contact, assigns to a group,
+ * and saves to the database.
+ */
 void ContactList::addContact(Contact *c) {
     if (containsContact(c->cellNum)){
         cout << "Contact is already saved." << endl;
         return;
     }
-//    int size = masterList->size();
     masterList->push_back(c);
-
-//    cerr << "Master list size: " << masterList->size() << endl;
 
     string id = to_string(c->id);
     string listIdStr = to_string(c->contactListId);
-    string inputs[] = {id, listIdStr, c->firstName, c->lastName, c->cellNum, c->emailAddress, c->homeAddress, to_string(c->age)};
+    string inputs[] = {id, listIdStr, c->firstName, c->lastName, c->cellNum, c->emailAddress,
+                       c->homeAddress, to_string(c->age)};
     write("contact", inputs);
 
     divideIntoGroups(c);
 }
 
+/**
+ * @brief ContactList::containsContact
+ * @param str - phone number of a contact
+ * @return true if the contact is already saved in the database
+ * Phone number should be unique to each contact. This method checks i
+ * f a contact is already saved in the database using its phone number.
+ */
 bool ContactList::containsContact(string str) {
 
     for (unsigned i = 0; i < masterList->size(); i++) {
-        if (str.compare(masterList->at(i)->cellNum) == 0)
-            return true;
+        if (str.compare(masterList->at(i)->cellNum) == 0) return true;
     }
-
     return false;
 }
 
+
+/**
+ * @brief ContactList::deleteContact
+ * @param cellStr - phone number
+ * Deletes a contact from the system and database using its phone number
+ */
 void ContactList::deleteContact(string cellStr) {
     for (unsigned i = 0; i < masterList->size(); i++) {
         if (cellStr.compare(masterList->at(i)->cellNum) == 0) {
@@ -206,6 +253,11 @@ void ContactList::deleteContact(string cellStr) {
     remove("contact", "phoneNumber", cellStr);
 }
 
+
+/**
+ * @brief ContactList::print
+ * Prints the contacts in the three groups - used for debugging purposes.
+ */
 void ContactList::print() {
     cout << "Treatment group: " << endl;
     for (unsigned i = 0; i < treatmentGroup->size(); i++) {
@@ -223,11 +275,14 @@ void ContactList::print() {
     }
 }
 
+
+/**
+ * @brief ContactList::readFromDB
+ * Reads the database and creates the contacts that are associated with the current user.
+ * That way, the system is the same as how the user left when they log in again.
+ */
 void ContactList::readFromDB() {
     QSqlQuery query;
-    QString  temp = QString::fromStdString(std::to_string(usr_id));
-    QString str = "select * from contact where userId = " + temp + ";";
-//    QString str = "select * from contact";
     int id;
     int listId;
     int currUserId;
@@ -237,6 +292,8 @@ void ContactList::readFromDB() {
     string email;
     string homeAdd;
     int age;
+    QString  temp = QString::fromStdString(std::to_string(usr_id));
+    QString str = "select * from contact where userId = " + temp + ";";
 
     if (!query.exec(str)){
         qDebug()<<"error running query\n";
@@ -252,8 +309,6 @@ void ContactList::readFromDB() {
             homeAdd = query.value("homeAddress").toString().toStdString();
             age = stoi(query.value("age").toString().toStdString());
 
-//            cerr << "NAME: " << firstName << endl;
-
             if (!containsContact(cellStr)) {
                 Contact* c = new Contact(usr_id, id, listId, firstName, lastName, cellStr, email, homeAdd, age);
                 masterList->push_back(c);
@@ -263,9 +318,15 @@ void ContactList::readFromDB() {
     }
 }
 
-Contact* ContactList::findByFirstName(string name) {
+/**
+ * @brief ContactList::findContact
+ * @param name - phone number
+ * @return contact found
+ * Finds a specific contact from the system using its phone number
+ */
+Contact* ContactList::findContact(string name) {
     for (unsigned i = 0; i < treatmentGroup->size(); i++) {
-        if(name.compare(treatmentGroup->at(i)->firstName) == 0) {
+        if (name.compare(treatmentGroup->at(i)->cellNum) == 0) {
             return treatmentGroup->at(i);
         }
     }

@@ -4,11 +4,18 @@ using namespace std;
 
 int Contact::counter = 0;
 
-Contact::Contact(int usr_cur)
-{
-    usr_id = usr_cur;
-}
-
+/**
+ * @brief Contact::Contact
+ * @param usr_cur - current user ID
+ * @param id - contact ID
+ * @param listId - contactList / group ID
+ * @param fn - first name
+ * @param ln - last name
+ * @param num - phone number
+ * @param email - email address
+ * @param hAdd - home address
+ * @param a - age
+ */
 Contact::Contact(int usr_cur, int id, int listId, string fn, string ln, string num, string email, string hAdd, int a) {
     usr_id = usr_cur;
     this->id = id;
@@ -16,39 +23,10 @@ Contact::Contact(int usr_cur, int id, int listId, string fn, string ln, string n
     firstName = fn;
     lastName = ln;
     cellNum = num;
-    cerr << "cel num in contact " << cellNum << endl;
     age = a;
     emailAddress = email;
     homeAddress = hAdd;
     counter = id;
-//    cerr << "First name: " << fn << endl;
-//    cerr << "ID: " << to_string(id) << endl;
-}
-
-Contact::Contact(int usr_cur, string fn, string ln, string num, int a) {
-    usr_id=usr_cur;
-    id = ++counter;
-    firstName = fn;
-    lastName = ln;
-    cellNum = num;
-    cerr << "cel num in contact " << cellNum << endl;
-    age = a;
-    emailAddress = "";
-    homeAddress = "";
-    contactListId = id % 3;
-}
-
-Contact::Contact(int usr_cur, string fn, string ln, string num, string email, int a) {
-    usr_id=usr_cur;
-    id = ++counter;
-    firstName = fn;
-    lastName = ln;
-    cellNum = num;
-    cerr << "cel num in contact " << cellNum << endl;
-    age = a;
-    emailAddress = email;
-    homeAddress = "";
-    contactListId = id % 3;
 }
 
 Contact::Contact(int usr_cur, string fn, string ln, string num, string email, string hAdd, int a) {
@@ -76,22 +54,16 @@ Contact::Contact(int usr_cur, int id, string fn, string ln, string num, string e
     counter = id;
 }
 
-void Contact::setCellNum(string num) {
-    cellNum = num;
-}
-
-void Contact::setAge(int a) {
-    age = a;
-}
-
-void Contact::setEmail(string email) {
-    emailAddress = email;
-}
-
-void Contact::setHomeAdd(string hAdd) {
-    homeAddress = hAdd;
-}
-
+/**
+ * @brief Contact::update
+ * @param fn
+ * @param ln
+ * @param num
+ * @param email
+ * @param hAdd
+ * @param a
+ * Updates information in the contact with the given new info
+ */
 void Contact::update(string fn, string ln, string num, string email, string hAdd, int a) {
     firstName = fn;
     lastName = ln;
