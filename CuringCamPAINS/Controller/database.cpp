@@ -1,7 +1,6 @@
 #include "database.h"
 #include <cstdlib>
 
-
 Database::Database() {
     std::cerr << "Name must be provided to Database Class "
               << "during creation.\n";
@@ -199,10 +198,11 @@ int Database::getMaxId(string table_name, string id_name){
     }
 }
 
-
+/**
+ * @brief DBTool::closeDB
+ * close the database
+ */
 void Database::closeDB() {
-
-    //std::cerr << "closing object\n";
 
     curr_db->close();
     curr_db = NULL;

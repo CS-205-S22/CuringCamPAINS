@@ -27,11 +27,14 @@ DashboardGui::DashboardGui(int cur_usrId, QWidget *parent) :
     //    int h = ui->label_image->height();
     //    ui->label_image->setPixmap(pix.scaled(w, h, Qt::KeepAspectRatio));
 
+    layout = new QVBoxLayout(this);
+    //    ui->scrollArea_dashboard->setLayout(layout);
 
     Database *dbb = new Database("../../../../../database.sqlite");
     string name = dbb->getter("user", "name", "userId", std::to_string(cur_usrId));
     ui->label_name->setText(QString::fromStdString(name));
     string outFile="../../../../../"+name+".jpeg";
+
     QPixmap pix(QString::fromStdString(outFile));
     int w=ui->label_image->width();
     int h=ui->label_image->height();
@@ -41,6 +44,7 @@ DashboardGui::DashboardGui(int cur_usrId, QWidget *parent) :
     ui->stackedWidget_main->addWidget(contactsGui);
     ui->stackedWidget_main->addWidget(resourcesGui);
     ui->stackedWidget_main->addWidget(logGui);
+    cerr << "BEFORE DISPLAY" << endl;
     this->displayButtons();
 
     connect(resourcesGui, SIGNAL(changeColorSignal()), this, SLOT(changeColor()));
@@ -67,8 +71,6 @@ void DashboardGui::on_pushButton_dashboard_clicked()
     }
     //cerr << "NUM CONTACTS OUTSIDE IF STATMENT: " << numContacts << endl;
     //cerr << "SIZE OF TREATMENT GROUP: " << (int)contactsGui->contactList->treatmentGroup->size() << endl;
-
-
 }
 
 /**
@@ -82,6 +84,7 @@ void DashboardGui::displayButtons() {
     if (vLayout->count() != 0) {
         deleteButtons();
     }
+
     vector<Contact*> *contacts = new vector<Contact*>;
     for (int i = 0; i < (int) contactsGui->contactList->treatmentGroup->size(); i++) {
         contacts->push_back(contactsGui->contactList->treatmentGroup->at(i));
@@ -89,6 +92,7 @@ void DashboardGui::displayButtons() {
 
     DynamicButton *button;
     DynamicButton::setID();
+
     for (int i = 0; i < (int)contacts->size(); i++) {
         QLabel *name;
         QLabel *email;
@@ -120,13 +124,14 @@ void DashboardGui::displayButtons() {
 
         con = contactsGui->contactList->treatmentGroup->at(i);
         cerr << con->firstName << endl;
-        button->name = con->firstName;
+        button->name = con->cellNum;
         buttonList.push_back(button->name);
         dynButtonList.push_back(button);
         connect(button, SIGNAL(clicked()), this, SLOT(openLogForm()));
 
         count++;
     }
+
     contacts->clear();
 }
 
@@ -140,29 +145,25 @@ void DashboardGui::displayButtons() {
  */
 void DashboardGui::openLogForm()
 {
-    /* To determine the object that caused the signal
-     * */
+    //To determine the object that caused the signal
 
-        DynamicButton *button = (DynamicButton*) sender();
-        //cerr << "AFTER CLICKED: " << con->firstName << endl;
-        Contact* treatmentContact = contactsGui->contactList->findByFirstName(button->name);
-        //open log form
-        //cerr << "BEFORE CHANGE SCREEN" << endl;
-        ui->stackedWidget_main->setCurrentIndex(3);
-        //cerr << "AFTER CHANGE SCREEN" << endl;
-        string fullName = treatmentContact->firstName + " " + treatmentContact->lastName;
-        logGui->autofill(fullName, to_string(treatmentContact->age), treatmentContact->cellNum);
-        //cerr << "AFTER AUTOFILL" << endl;
-        int pos = button->resID - 1;
-        Contact* save = contactsGui->contactList->treatmentGroup->at(pos);
-        contactsGui->contactList->treatmentGroup->erase(contactsGui->contactList->treatmentGroup->begin() + pos);
-        contactsGui->contactList->treatmentGroup->push_back(save);
+    DynamicButton *button = (DynamicButton*) sender();
+    Contact* treatmentContact = contactsGui->contactList->findContact(button->name);
+
+    //open log form
+    ui->stackedWidget_main->setCurrentIndex(3);
+    string fullName = treatmentContact->firstName + " " + treatmentContact->lastName;
+    logGui->autofill(fullName, to_string(treatmentContact->age), treatmentContact->cellNum);
+    int pos = button->resID - 1;
+    Contact* save = contactsGui->contactList->treatmentGroup->at(pos);
+    contactsGui->contactList->treatmentGroup->erase(contactsGui->contactList->treatmentGroup->begin() + pos);
+    contactsGui->contactList->treatmentGroup->push_back(save);
 
 
-        //now shuffle buttons
-        this->deleteButtons();
-        this->displayButtons();
-    }
+    //now shuffle buttons
+    this->deleteButtons();
+    this->displayButtons();
+}
 
 /**
  * @brief Function deletes items in the vLayout, sublayouts at these items, items in the sublayouts, and widgets in these items.

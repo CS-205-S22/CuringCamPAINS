@@ -54,6 +54,7 @@ private:
     ResourcesGui *resourcesGui;
     int numContacts = 0;
 
+    QVBoxLayout* layout;
 
 };
 

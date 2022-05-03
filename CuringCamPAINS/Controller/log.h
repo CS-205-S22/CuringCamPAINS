@@ -12,9 +12,7 @@ public:
     LogForm(int usr_id,string name);
     LogForm(int usr_id);
     LogForm();
-    //all of the get and set methods
     void clearLogForm();
-    void editLogForm();
     void saveLogForm(string fullName, string age, string phoneNumber, string numOfAttempts,
                      string methodOfContact, string reaction, string dateContacted,
                      string isCommitted);

@@ -17,7 +17,6 @@ public:
     explicit LogGui(int usr,QWidget *parent = nullptr);
     ~LogGui();
     void autofill(string buttonName, string contactAge, string contactPN);
-
     void autofill();
     int cur_usr;
 

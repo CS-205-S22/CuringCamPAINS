@@ -69,7 +69,7 @@ int Login::getUserId( string usrname){
     QSqlQuery query;
     string table_name="user";
     string parameter="userName";
-     string output="userId";
+    string output="userId";
     std::string com = "SELECT "+output+" FROM "+ table_name + " WHERE "+parameter+"=:"+parameter;
     query.prepare(QString::fromStdString(com));
     string temp =":"+parameter;
