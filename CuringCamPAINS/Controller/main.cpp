@@ -26,7 +26,7 @@ int main(int argc, char* argv[])
 
     LogForm log = LogForm("../../database.sqlite");
     log.readFromDB();
-//    cout<<to_string(log.logCount())<<endl;
+
     for(int i=0;i<log.logCount();i++){
         for (int j=0;j<6;j++){
             string temp=log.logVector->at(i)->at(j);
