@@ -97,9 +97,9 @@ void AdminGui::on_pushButton_contacts_clicked()
 
 void AdminGui::on_pushButton_logout_clicked()
 {
-//    ui->pushButton_logout->setStyleSheet("QPushButton{ background-color: yellow }");
-//    LoginGUI *l = new LoginGUI();
-//    hide();
-//    l->show();
+    ui->pushButton_logout->setStyleSheet("QPushButton{ background-color: yellow }");
+    LoginGUI *l = new LoginGUI();
+    hide();
+    l->show();
 }
 

@@ -8,6 +8,8 @@
 #include "../Controller/database.h"
 #include "registrationgui.h"
 
+class AdminGui;
+
 namespace Ui {
 class LoginGUI;
 }

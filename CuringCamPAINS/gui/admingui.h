@@ -10,7 +10,9 @@
 #include <QDialog>
 #include <QFileDialog>
 #include "../Controller/log.h"
-//#include "logingui.h"
+#include "logingui.h"
+
+class LoginGui;
 
 namespace Ui {
 class AdminGui;
