@@ -1,12 +1,12 @@
 #include "admingui.h"
 #include "ui_admingui.h"
 
-AdminGui::AdminGui(QWidget *parent) :
+AdminGui::AdminGui(int usr_id,QWidget *parent) :
     QWidget(parent),
     ui(new Ui::AdminGui)
 {
     ui->setupUi(this);
-
+    cur_usrId=usr_id;
     QPixmap pix1(QString::fromStdString("../../../../../letter_logo.png"));
     int w1=ui->label_title->width();
     int h1=ui->label_title->height();
@@ -16,9 +16,20 @@ AdminGui::AdminGui(QWidget *parent) :
     ui->scrollAreaWidgetContents_main->setLayout(vLayout);
     ui->scrollArea_main->setWidgetResizable(true);
 
+    Database *dbb = new Database("../../../../../database.sqlite");
+    string name = dbb->getter("user", "name", "userId", std::to_string(cur_usrId));
+    ui->label_name->setText(QString::fromStdString(name));
+    string outFile="../../../../../"+name+".jpeg";
+    QPixmap pix(QString::fromStdString(outFile));
+    int w=ui->label_image->width();
+    int h=ui->label_image->height();
+    ui->label_image->setPixmap(pix.scaled(w,h,Qt::KeepAspectRatio));
+
     log = new LogForm("../../../../../database.sqlite");
     log->readFromDB();
     this->displayList();
+
+
 }
 
 AdminGui::~AdminGui()

@@ -23,7 +23,7 @@ class AdminGui : public QWidget
     Q_OBJECT
 
 public:
-    explicit AdminGui(QWidget *parent = nullptr);
+    explicit AdminGui(int usr_id,QWidget *parent = nullptr);
     ~AdminGui();
 
 private slots:
@@ -38,6 +38,7 @@ private:
     void displayList();
     QVBoxLayout *vLayout;
     LogForm *log;
+    int cur_usrId;
 };
 
 #endif // ADMINGUI_H

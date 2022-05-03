@@ -32,7 +32,6 @@ DashboardGui::DashboardGui(int cur_usrId, QWidget *parent) :
     string name = dbb->getter("user", "name", "userId", std::to_string(cur_usrId));
     ui->label_name->setText(QString::fromStdString(name));
     string outFile="../../../../../"+name+".jpeg";
-    cout<<outFile<<endl;
     QPixmap pix(QString::fromStdString(outFile));
     int w=ui->label_image->width();
     int h=ui->label_image->height();
