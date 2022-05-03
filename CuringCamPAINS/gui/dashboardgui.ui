@@ -39,6 +39,15 @@
       <pointsize>22</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(30,144,255);
+color:rgb(255,255,255);
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: beige;
+    padding: 6px;</string>
+    </property>
     <property name="text">
      <string>Dashboard</string>
     </property>
@@ -47,7 +56,7 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>280</y>
+      <y>290</y>
       <width>184</width>
       <height>61</height>
      </rect>
@@ -56,35 +65,26 @@
      <font>
       <pointsize>22</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(30,144,255);
+color:rgb(255,255,255);
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: beige;
+    padding: 6px;</string>
     </property>
     <property name="text">
      <string>Contacts</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_data">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>380</y>
-      <width>184</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>22</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Data</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_title">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>10</x>
       <y>10</y>
-      <width>181</width>
+      <width>161</width>
       <height>41</height>
      </rect>
     </property>
@@ -137,19 +137,18 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>-1</pointsize>
+      <pointsize>18</pointsize>
       <italic>false</italic>
       <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgb(30,144,255);
+     <string notr="true">background-color:rgb(220,20,60);
 color:rgb(255,255,255);
     border-style: outset;
     border-width: 2px;
     border-radius: 10px;
     border-color: beige;
-    font: bold 14px;
     padding: 6px;</string>
     </property>
     <property name="text">
@@ -160,7 +159,7 @@ color:rgb(255,255,255);
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>330</y>
+      <y>350</y>
       <width>184</width>
       <height>61</height>
      </rect>
@@ -170,6 +169,15 @@ color:rgb(255,255,255);
       <pointsize>22</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(30,144,255);
+color:rgb(255,255,255);
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: beige;
+    padding: 6px;</string>
+    </property>
     <property name="text">
      <string>Resources</string>
     </property>
@@ -177,7 +185,7 @@ color:rgb(255,255,255);
    <widget class="QLabel" name="label_image">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>38</x>
       <y>60</y>
       <width>111</width>
       <height>121</height>
@@ -198,15 +206,39 @@ color:rgb(255,255,255);
     </rect>
    </property>
    <widget class="QWidget" name="page">
-    <widget class="QWidget" name="verticalLayoutWidget">
+    <widget class="QScrollArea" name="scrollArea_dashboard">
      <property name="geometry">
       <rect>
-       <x>29</x>
-       <y>39</y>
-       <width>481</width>
-       <height>451</height>
+       <x>39</x>
+       <y>49</y>
+       <width>571</width>
+       <height>521</height>
       </rect>
      </property>
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents_dashboard">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>569</width>
+        <height>519</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>51</x>
+       <y>20</y>
+       <width>58</width>
+       <height>16</height>
+      </rect>
+     </property>
+<!--<<<<<<< HEAD
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
        <widget class="QScrollArea" name="scrollArea">
@@ -226,6 +258,52 @@ color:rgb(255,255,255);
        </widget>
       </item>
      </layout>
+=======-->
+     <property name="font">
+      <font>
+       <pointsize>18</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Name</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>186</x>
+       <y>20</y>
+       <width>58</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>18</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>E-mail</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>382</x>
+       <y>20</y>
+       <width>58</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>18</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Phone</string>
+     </property>
+<!-->>>>>>> d56ad766ba4c21c671197afec5d92e212ef59afb-->
     </widget>
    </widget>
   </widget>

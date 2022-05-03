@@ -24,7 +24,17 @@ int main(int argc, char* argv[])
 
 
 
-    //LogForm log = LogForm("../../database.sqlite");
+    LogForm log = LogForm("../../database.sqlite");
+    log.readFromDB();
+
+    for(int i=0;i<log.logCount();i++){
+        for (int j=0;j<6;j++){
+            string temp=log.logVector->at(i)->at(j);
+            cout<<temp<<" ";
+        }
+        cout<<""<<endl;
+    }
+
     //log.saveLogForm("Joshua Garcia", 19, "1111112", 3, "text", "unsure", "April 7th, 2022", false);
     //log.saveLogForm("Oyu Gantumur", 21, "2222222", 8, "text", "excited", "March 7th, 2022", false);
     //log.saveLogForm("Max Turkot", 20, "3333333", 1, "text", "happy", "January 5th, 2022", false);

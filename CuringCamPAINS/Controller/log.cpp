@@ -2,11 +2,17 @@
 
 LogForm::LogForm(int id,string name):Database(name)
 {
-usr_id=id;
+    usr_id=id;
+    logVector=new vector<vector<string>*>();
+}
+
+LogForm::LogForm(string name):Database(name){
+    logVector=new vector<vector<string>*>();
 }
 
 LogForm::LogForm(int id){
-usr_id=id;
+    usr_id=id;
+    logVector=new vector<vector<string>*>();
 }
 
 void LogForm::clearLogForm(){
@@ -83,43 +89,54 @@ void LogForm::deleteLog(string phoneNumber){
 
 //}
 
-
+/**
+ * @brief LogForm:readFromDB
+ * Read the data from the logForm Database and save them in the logVector
+ */
 void LogForm::readFromDB() {
     QSqlQuery query;
-    QString  temp = QString::fromStdString(std::to_string(usr_id));
-    QString str = "select * from logForm where userId = " + temp + ";";
-//    QString str = "select * from contact";
-    int id;
-    int listId;
-    int currUserId;
-    string firstName;
-    string lastName;
-    string cellStr;
-    string email;
-    string homeAdd;
-    int age;
-
+    QString str = "select * from logForm ;";
     if (!query.exec(str)){
         qDebug()<<"error running query\n";
     } else {
         while (query.next()) {
-            id = stoi(query.value("contactId").toString().toStdString());
-            listId = stoi(query.value("treatmentId").toString().toStdString());
-            currUserId = stoi(query.value("userId").toString().toStdString());
-            firstName = query.value("firstName").toString().toStdString();
-            lastName = query.value("lastName").toString().toStdString();
-            cellStr = query.value("phoneNumber").toString().toStdString();
-            email = query.value("emailAddress").toString().toStdString();
-            homeAdd = query.value("homeAddress").toString().toStdString();
-            age = stoi(query.value("age").toString().toStdString());
 
-////            cerr << "NAME: " << firstName << endl;
+            string logId = query.value("logId").toString().toStdString();
+            string userId=query.value("userId").toString().toStdString();
+            string user_Name=getter("user","name","userId",userId);
+            string fullName=query.value("fullName").toString().toStdString();
+            string age=query.value("age").toString().toStdString();
+            string phoneNumber=query.value("phoneNumber").toString().toStdString();
+            string numOfAttempts = query.value("numOfAttempts").toString().toStdString();
+            string methodOfContact= query.value("methodOfContact").toString().toStdString();
+            string reaction =query.value("reaction").toString().toStdString();
+            string dateContacted =query.value("dateContacted").toString().toStdString();
+            vector<string>*temp = new vector<string>;
 
-//            if (!containsContact(cellStr)) {
-//                Contact* c = new Contact(usr_id, id, listId, firstName, lastName, cellStr, email, homeAdd, age);
-//                masterList->push_back(c);
-//                divideIntoGroups(c);
-//            }
+            temp->push_back(logId);
+            temp->push_back(user_Name);
+            temp->push_back(fullName);
+            temp->push_back(age);
+            temp->push_back(phoneNumber);
+            temp->push_back(numOfAttempts);
+            temp->push_back(methodOfContact);
+            temp->push_back(reaction);
+            temp->push_back(dateContacted);
+
+            logVector->push_back(temp);
         }
+
     }
+}
+
+/**
+ * @brief LogForm:logCount
+ * Count the data in the logForm database
+ */
+int  LogForm::logCount() {
+    QSqlQuery query;
+    QString str = "select count(*) from logForm ;";
+    query.exec(str);
+    query.next();
+    return stoi(query.value(0).toString().toStdString());
 }

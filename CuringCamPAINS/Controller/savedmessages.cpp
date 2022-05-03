@@ -119,10 +119,8 @@ vector<string> SavedMessages::readTitle(string table_name,string usr_id, string 
 void SavedMessages::remove(string table_name,string usr_id, string parameter,string conditions){
     QSqlQuery query;
     std::string com = "DELETE FROM "+ table_name+ " WHERE "+parameter+"=:"+parameter+" AND userId="+usr_id;
-    //    cout<<com<<endl;
     query.prepare(QString::fromStdString(com));
     string temp =":"+parameter;
     query.bindValue(QString::fromStdString(temp),QString::fromStdString(conditions));
     query.exec(); //execute the command
-    //    cout<<"Succesful delete"<<endl;
 }

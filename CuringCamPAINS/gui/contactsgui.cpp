@@ -1,5 +1,6 @@
 #include "contactsgui.h"
 #include "ui_contactsgui.h"
+#include "dashboardgui.h"
 
 ContactsGui::ContactsGui(int usr, QWidget *parent) :
     QWidget(parent),
@@ -43,6 +44,7 @@ void ContactsGui::on_pushButton_uploadFile_clicked() {
  * If the information provided is valid, it creates the contact object and saves it.
  */
 void ContactsGui::on_pushButton_save_clicked() {
+
     string firstName = (ui->lineEdit_firstName->text()).toStdString();
     string lastName = (ui->lineEdit_lastName->text()).toStdString();
     string phoneNum = (ui->lineEdit_phone->text()).toStdString();
@@ -92,5 +94,6 @@ void ContactsGui::on_pushButton_save_clicked() {
         ui->label_ageErrorMessage->clear();
         ui->label_phoneErrorMessage->clear();
     }
+
 }
 

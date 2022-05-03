@@ -50,6 +50,16 @@ void ResourcesGui::on_pushButton_changeColor_clicked()
     feed += to_string(g) += ", ";
     feed += to_string(b) += ", ";
     feed += to_string(25) += ") }\n";
+    feed += "QScrollArea { background-color: rgb(";
+    feed += to_string(r) += ", ";
+    feed += to_string(g) += ", ";
+    feed += to_string(b) += ", ";
+    feed += to_string(25) += ") }\n";
+    feed += "QWidget#scrollAreaWidgetContents_dashboard { background-color:rgb(";
+    feed += to_string(r) += ", ";
+    feed += to_string(g) += ", ";
+    feed += to_string(b) += ", ";
+    feed += to_string(25) += ") }\n";
     QString style = QString::fromUtf8(feed.c_str());
     this->style = style;
     emit changeColorSignal();
@@ -88,6 +98,7 @@ void ResourcesGui::on_pushButton_viewMessage_clicked()
  */
 void ResourcesGui::on_pushButton_view_clicked()
 {
+    ui->textEdit_textOutput->clear();
     vector<string> text;
     text = sm->viewMessage(ui->comboBox_choices->currentText().toStdString());
     for (int i = 0; i < (int)text.size(); i++) {
@@ -145,7 +156,7 @@ void ResourcesGui::on_pushButton_delete_clicked()
 void ResourcesGui::on_pushButton_saveMessage_clicked()
 {
     this->title = ui->lineEdit_title->text().toStdString();
-    this->text = ui->lineEdit_text->text().toStdString();
+    this->text = ui->lineEdit_text->toPlainText().toStdString();
     //call saved messages create message
     sm->createMessage(this->title, this->text);
     ui->lineEdit_title->clear();
