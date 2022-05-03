@@ -53,8 +53,5 @@ void LoginGUI::on_registration_clicked()
     registration->show();
 }
 
-void LoginGUI::on_test_clicked()
-{
 
-}
 
