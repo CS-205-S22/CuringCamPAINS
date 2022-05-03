@@ -185,11 +185,6 @@ void Database::remove(string table_name,string parameter,string conditions){
 int Database::getMaxId(string table_name, string id_name){
     try{
         QSqlQuery query;
-        query.exec("SELECT COUNT(messageId) FROM savedmessages");
-        query.next();
-        if (query.value(0).toString() == "0") {
-            return 0;
-        }
         QString id= QString::fromStdString(id_name);
         QString table=QString::fromStdString(table_name);
         QString query_str_id = "select MAX("+id+") from "+table;
