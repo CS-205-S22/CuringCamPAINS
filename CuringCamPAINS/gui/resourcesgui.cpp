@@ -81,10 +81,9 @@ void ResourcesGui::on_pushButton_viewMessage_clicked()
     if (titles.empty()) {
         return;
     } else {
-        for (int i = 0; i < (int)titles.size() - 1; i++) {
+        for (int i = 0; i < (int)titles.size(); i++) {
             ui->comboBox_choices->addItem(QString::fromUtf8(titles.at(i).c_str()));
         }
-        ui->comboBox_choices->addItem(QString::fromUtf8(titles.at(titles.size() -1).c_str()));
     }
 }
 
@@ -125,13 +124,13 @@ void ResourcesGui::on_pushButton_deleteMessage_clicked()
 {
     ui->stackedWidget_resources->setCurrentIndex(3);
     vector<string> titles = sm->viewTitles();
-    if (title.empty()) {
+    if (titles.empty()) {
         return;
+    } else {
+        for (int i = 0; i < (int)titles.size(); i++) {
+            ui->comboBox_choicesDelete->addItem(QString::fromUtf8(titles.at(i).c_str()));
+        }
     }
-    for (int i = 0; i < (int)titles.size() - 1; i++) {
-        ui->comboBox_choicesDelete->addItem(QString::fromUtf8(titles.at(i).c_str()));
-    }
-    ui->comboBox_choicesDelete->addItem(QString::fromUtf8(titles.at(titles.size() -1).c_str()));
 
 }
 
@@ -173,6 +172,7 @@ void ResourcesGui::on_pushButton_back2_clicked()
 
 void ResourcesGui::on_pushButton_back3_clicked()
 {
+    ui->comboBox_choicesDelete->clear();
     ui->stackedWidget_resources->setCurrentIndex(0);
 }
 
