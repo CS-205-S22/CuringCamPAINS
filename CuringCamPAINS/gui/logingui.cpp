@@ -31,16 +31,17 @@ void LoginGUI::on_submission_pressed()
 
     s = new Login("../../../../../database.sqlite");
     if(s->signUp(username, password) == true) {
+        string userType= s->getter("user","isResearcher", "username",username);
         curr_usrId = s->getUserId(username);
-//        if (s->getIsResearcher()) {
-            //adminGui = new AdminGui();
-            //hide();
-            //adminGui->show();
-//        } else {
+        if (userType==std::to_string(1)) {
+            adminGui = new AdminGui(curr_usrId);
+            hide();
+            adminGui->show();
+        } else {
             dashboardGui = new DashboardGui(curr_usrId);
             hide();
             dashboardGui->show();
-//        }
+        }
     }
     else {
         QMessageBox::warning(this,"Login", "Username and password is not correct");
@@ -53,8 +54,5 @@ void LoginGUI::on_registration_clicked()
     registration->show();
 }
 
-void LoginGUI::on_test_clicked()
-{
 
-}
 

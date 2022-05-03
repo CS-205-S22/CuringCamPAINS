@@ -34,6 +34,7 @@
          <widget class="QPushButton" name="pushButton_changeColor">
           <property name="styleSheet">
            <string notr="true">background-color:rgb(30,144,255);
+color:rgb(255,255,255);
     border-style: outset;
     border-width: 2px;
     border-radius: 10px;
@@ -50,6 +51,7 @@
          <widget class="QPushButton" name="pushButton_createMessage">
           <property name="styleSheet">
            <string notr="true">background-color:rgb(30,144,255);
+color:rgb(255,255,255);
     border-style: outset;
     border-width: 2px;
     border-radius: 10px;
@@ -66,6 +68,7 @@
          <widget class="QPushButton" name="pushButton_viewMessage">
           <property name="styleSheet">
            <string notr="true">background-color:rgb(30,144,255);
+color:rgb(255,255,255);
     border-style: outset;
     border-width: 2px;
     border-radius: 10px;
@@ -82,6 +85,7 @@
          <widget class="QPushButton" name="pushButton_deleteMessage">
           <property name="styleSheet">
            <string notr="true">background-color:rgb(30,144,255);
+color:rgb(255,255,255);
     border-style: outset;
     border-width: 2px;
     border-radius: 10px;
@@ -99,16 +103,6 @@
       </widget>
      </widget>
      <widget class="QWidget" name="createMessagePage">
-      <widget class="QLineEdit" name="lineEdit_text">
-       <property name="geometry">
-        <rect>
-         <x>190</x>
-         <y>230</y>
-         <width>321</width>
-         <height>221</height>
-        </rect>
-       </property>
-      </widget>
       <widget class="QPushButton" name="pushButton_saveMessage">
        <property name="geometry">
         <rect>
@@ -120,6 +114,7 @@
        </property>
        <property name="styleSheet">
         <string notr="true">background-color:rgb(30,144,255);
+color:rgb(255,255,255);
     border-style: outset;
     border-width: 2px;
     border-radius: 10px;
@@ -194,7 +189,8 @@
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:rgb(200,0,0);
+        <string notr="true">background-color:rgb(220,20,60);
+color:rgb(255,255,255);
     border-style: outset;
     border-width: 2px;
     border-radius: 10px;
@@ -205,6 +201,19 @@
        </property>
        <property name="text">
         <string>Back</string>
+       </property>
+      </widget>
+      <widget class="QTextEdit" name="lineEdit_text">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>220</y>
+         <width>311</width>
+         <height>231</height>
+        </rect>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
        </property>
       </widget>
      </widget>
@@ -248,6 +257,7 @@
           </property>
           <property name="styleSheet">
            <string notr="true">background-color:rgb(30,144,255);
+color:rgb(255,255,255);
     border-style: outset;
     border-width: 2px;
     border-radius: 10px;
@@ -279,7 +289,8 @@
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:rgb(200,0,0);
+        <string notr="true">background-color:rgb(220,20,60);
+color:rgb(255,255,255);
     border-style: outset;
     border-width: 2px;
     border-radius: 10px;
@@ -346,6 +357,7 @@
           </property>
           <property name="styleSheet">
            <string notr="true">background-color:rgb(30,144,255);
+color:rgb(255,255,255);
     border-style: outset;
     border-width: 2px;
     border-radius: 10px;
@@ -377,7 +389,8 @@
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:rgb(200,0,0);
+        <string notr="true">background-color:rgb(220,20,60);
+color:rgb(255,255,255);
     border-style: outset;
     border-width: 2px;
     border-radius: 10px;

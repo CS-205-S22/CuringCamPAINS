@@ -6,6 +6,7 @@ LogTest::LogTest() {
 //LogForm logFile = LogForm("../../../../../database.sqlite");
 LogForm logFile = LogForm(1,"../../test.sqlite");
 
+//This tests to make sure saving to the logForm table in the database works correctly
 TEST(Log, saveLogFormTest) {
 
     ASSERT_EQ(logFile.name, "");
@@ -64,6 +65,7 @@ TEST(Log, saveLogFormTest) {
 
 }
 
+//This tests to make sure deleting from the logForm table in the database works properly
 TEST(Log, betterDeleteFromDatabase){
     //count how many entries match the exact entry that I am about to pass
     //then add the new entry
