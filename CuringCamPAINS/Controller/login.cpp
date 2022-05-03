@@ -71,7 +71,6 @@ int Login::getUserId( string usrname){
     string parameter="userName";
      string output="userId";
     std::string com = "SELECT "+output+" FROM "+ table_name + " WHERE "+parameter+"=:"+parameter;
-    cout<<com<<endl;
     query.prepare(QString::fromStdString(com));
     string temp =":"+parameter;
     query.bindValue(QString::fromStdString(temp),QString::fromStdString(usrname));
@@ -95,7 +94,6 @@ bool Login::authenticate(QString usr, QString pwd){
         QString query_str_id = "SELECT password FROM user WHERE userName='"+usr+"' ;"; //get password
         query.exec(query_str_id);
         query.next();
-        //    cout<<"Here"<<endl;
         std::string result=query.value(0).toString().toStdString();
         std::string temp=pwd.toStdString();
 

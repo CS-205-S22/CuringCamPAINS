@@ -20,11 +20,22 @@ public:
                      string isCommitted);
     void deleteLog(string phoneNumber);
     string boolToString(bool tof);
+
+    /**
+     * @brief LogForm:readFromDB
+     * Read the data from the logForm Database and save them in the logVector
+     */
     void readFromDB();
     int logId = 0;
     int usr_id;
-
+    /**
+     * @brief LogForm:logCount
+     * Count the data in the logForm database
+     */
+    int logCount();
     vector<vector<string>*> *logVector;
+//    int *data_size;
+//    int column_size;
 //private:
     string name;
     string phoneNumber;
@@ -35,6 +46,7 @@ public:
     string date;
     string committed;
     string logInput[8];
+
 
     //int logId = 0;
 };
