@@ -1,6 +1,6 @@
 #include "resourcesgui.h"
 #include "ui_resourcesgui.h"
-
+#include "QFileDialog"
 
 ResourcesGui::ResourcesGui(QWidget *parent) :
     QWidget(parent),
@@ -174,5 +174,20 @@ void ResourcesGui::on_pushButton_back3_clicked()
 {
     ui->comboBox_choicesDelete->clear();
     ui->stackedWidget_resources->setCurrentIndex(0);
+}
+
+
+void ResourcesGui::on_pushButton_profileUpdate_clicked()
+{
+    QString fileName = QFileDialog::getOpenFileName(this,
+            tr("Upload Picture"), "/Desktop", tr("Upload Profile Picture (*.jpeg *.png)"));
+    string outputName=sm->getter("user","name", "userId",std::to_string(cur_usr));
+    string fname = fileName.toStdString();
+    string outputAddress="../../../../../"+outputName+".jpeg";
+    if (QFile::exists(QString::fromStdString(outputAddress)))
+    {
+        QFile::remove(QString::fromStdString(outputAddress));
+    }
+        QFile::copy(QString::fromStdString(fname), QString::fromStdString(outputAddress));
 }
 
