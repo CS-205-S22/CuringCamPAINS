@@ -113,7 +113,7 @@ void LogForm::readFromDB() {
             homeAdd = query.value("homeAddress").toString().toStdString();
             age = stoi(query.value("age").toString().toStdString());
 
-////            cerr << "NAME: " << firstName << endl;
+//            cerr << "NAME: " << firstName << endl;
 
 //            if (!containsContact(cellStr)) {
 //                Contact* c = new Contact(usr_id, id, listId, firstName, lastName, cellStr, email, homeAdd, age);

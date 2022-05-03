@@ -63,7 +63,7 @@
      <string notr="true">font: 20pt &quot;Baskerville&quot;;</string>
     </property>
     <property name="text">
-     <string>Curing CamPAINs</string>
+     <string/>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>

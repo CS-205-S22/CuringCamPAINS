@@ -39,6 +39,15 @@
       <pointsize>22</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(30,144,255);
+color:rgb(255,255,255);
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: beige;
+    padding: 6px;</string>
+    </property>
     <property name="text">
      <string>Dashboard</string>
     </property>
@@ -47,7 +56,7 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>280</y>
+      <y>290</y>
       <width>184</width>
       <height>61</height>
      </rect>
@@ -56,6 +65,15 @@
      <font>
       <pointsize>22</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(30,144,255);
+color:rgb(255,255,255);
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: beige;
+    padding: 6px;</string>
     </property>
     <property name="text">
      <string>Contacts</string>
@@ -65,7 +83,7 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>380</y>
+      <y>410</y>
       <width>184</width>
       <height>61</height>
      </rect>
@@ -74,6 +92,15 @@
      <font>
       <pointsize>22</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(30,144,255);
+color:rgb(255,255,255);
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: beige;
+    padding: 6px;</string>
     </property>
     <property name="text">
      <string>Data</string>
@@ -137,7 +164,7 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>-1</pointsize>
+      <pointsize>18</pointsize>
       <italic>false</italic>
       <bold>true</bold>
      </font>
@@ -149,7 +176,6 @@ color:rgb(255,255,255);
     border-width: 2px;
     border-radius: 10px;
     border-color: beige;
-    font: bold 14px;
     padding: 6px;</string>
     </property>
     <property name="text">
@@ -160,7 +186,7 @@ color:rgb(255,255,255);
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>330</y>
+      <y>350</y>
       <width>184</width>
       <height>61</height>
      </rect>
@@ -169,6 +195,15 @@ color:rgb(255,255,255);
      <font>
       <pointsize>22</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(30,144,255);
+color:rgb(255,255,255);
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: beige;
+    padding: 6px;</string>
     </property>
     <property name="text">
      <string>Resources</string>

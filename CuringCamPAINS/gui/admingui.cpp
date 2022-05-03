@@ -7,6 +7,11 @@ AdminGui::AdminGui(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    QPixmap pix1(QString::fromStdString("../../../../../letter_logo.png"));
+    int w1=ui->label_title->width();
+    int h1=ui->label_title->height();
+    ui->label_title->setPixmap(pix1.scaled(w1,h1,Qt::KeepAspectRatio));
+
     this->contactList = new ContactList("../../../../../database.sqlite");
 
     for (int i = 0; i < (int) contactList->masterList->size(); i++) {
