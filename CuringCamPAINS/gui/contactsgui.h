@@ -5,7 +5,6 @@
 #include <QMessageBox>
 #include <QFileDialog>
 #include "../Controller/contactlist.h"
-// #include "../Controller/database.h"
 
 namespace Ui {
 class ContactsGui;
@@ -22,9 +21,9 @@ public:
     int cur_usr;
 
 private slots:
-    void on_pushButton_uploadFile_clicked();
+    void on_pushButton_uploadFile_clicked(); //when uploading a file
 
-    void on_pushButton_save_clicked();
+    void on_pushButton_save_clicked(); //when entering information manually
 
 private:
     Ui::ContactsGui *ui;
