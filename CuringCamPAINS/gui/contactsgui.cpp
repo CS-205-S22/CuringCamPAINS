@@ -1,3 +1,12 @@
+/**
+ * @file: contactsgui.cpp
+ * ------------------
+ * @brief Implement the GUI functionality of the contacts page.
+ *
+ * @authors: Max Turkot, Oyu Gantumur
+ * @version: 05/02/22
+ */
+
 #include "contactsgui.h"
 #include "ui_contactsgui.h"
 #include "dashboardgui.h"

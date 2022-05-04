@@ -1,3 +1,12 @@
+/**
+ * @file: dashboardgui.cpp
+ * ------------------
+ * @brief Implements the GUI functionality of the dashboard page.
+ *
+ * @authors: Max Turkot, Rory Schauder
+ * @version: 05/02/22
+ */
+
 #include "dashboardgui.h"
 #include "ui_dashboardgui.h"
 #include <QPixmap>
@@ -78,7 +87,8 @@ void DashboardGui::on_pushButton_dashboard_clicked()
  * is to ensure repeat buttons are not displayed. Afterwards, the contacts vector is built from the name of each of the contacts in
  * the treatment group. A dynamic button object is then created, and the button Ids are reset to 0. The loop goes through the entire
  * vector of names and at each iteration creates a button, sets the name as the text of the button, adds the button to the layout
- * and .... The slot is created for each button and after the loop finishes the contact vector is cleared for the next use.
+ * and .... The slot is created for each button and after the loop finishes the contact vector is cleared for the next use. Inserts
+ * the buttons into the scroll layout.
  */
 void DashboardGui::displayButtons() {
     if (vLayout->count() != 0) {

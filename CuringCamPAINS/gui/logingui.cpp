@@ -1,3 +1,12 @@
+/**
+ * @file: logingui.cpp
+ * ------------------
+ * @brief Implements the GUI functionality of the login page.
+ *
+ * @authors: Tafita Rakotozandry
+ * @version: 05/02/22
+ */
+
 #include "logingui.h"
 #include "ui_logingui.h"
 #include <QMessageBox>
@@ -20,6 +29,9 @@ LoginGUI::~LoginGUI()
     delete ui;
 }
 
+/**
+ * @brief LoginGUI::on_submission_pressed logs the user in by chacking credentials in the databse, and whether user is a recruiter or not.
+ */
 void LoginGUI::on_submission_pressed()
 {
     QString usr = ui->lineEdit_usr->text();
@@ -47,6 +59,9 @@ void LoginGUI::on_submission_pressed()
     }
 }
 
+/**
+ * @brief LoginGUI::on_registration_clicked opens the registration gui.
+ */
 void LoginGUI::on_registration_clicked()
 {
     registration = new registrationGUI(this);

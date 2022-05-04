@@ -1,3 +1,12 @@
+/**
+ * @file: loggui.h
+ * ------------------
+ * @brief Defines the GUI functionality of the log page.
+ *
+ * @authors: Joshua Garcia
+ * @version: 05/02/22
+ */
+
 #ifndef LOGGUI_H
 #define LOGGUI_H
 
@@ -16,6 +25,13 @@ class LogGui : public QWidget
 public:
     explicit LogGui(int usr,QWidget *parent = nullptr);
     ~LogGui();
+
+    /**
+     * @brief autofill automatically fills out fields in the form.
+     * @param buttonName
+     * @param contactAge
+     * @param contactPN
+     */
     void autofill(string buttonName, string contactAge, string contactPN);
     void autofill();
     int cur_usr;

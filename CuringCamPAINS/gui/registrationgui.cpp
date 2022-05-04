@@ -1,8 +1,16 @@
+/**
+ * @file: registrationgui.cpp
+ * ------------------
+ * @brief Implements the GUI functionality of the registration page.
+ *
+ * @authors: Tafita Rakotozandry
+ * @version: 05/02/22
+ */
+
 #include "registrationgui.h"
 #include "ui_registrationgui.h"
 #include <QDialog>
 #include"QFileDialog"
-
 
 registrationGUI::registrationGUI(QWidget *parent) :
     QDialog(parent),
@@ -21,6 +29,9 @@ registrationGUI::~registrationGUI()
     delete ui;
 }
 
+/**
+ * @brief on_buttonBox_accepted saves the new contact.
+ */
 void registrationGUI::on_buttonBox_accepted()
 {
     dbb=new Database("../../../../../database.sqlite");
@@ -40,6 +51,9 @@ void registrationGUI::on_buttonBox_accepted()
 }
 
 
+/**
+ * @brief on_buttonBox_accepted saves the new contact.
+ */
 void registrationGUI::on_uploadPhoto_clicked()
 {
     QString fileName = QFileDialog::getOpenFileName(this,

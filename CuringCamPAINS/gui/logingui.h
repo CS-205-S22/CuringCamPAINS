@@ -1,3 +1,12 @@
+/**
+ * @file: logingui.h
+ * ------------------
+ * @brief Defines the GUI functionality of the login page.
+ *
+ * @authors: Tafita Rakotozandry
+ * @version: 05/02/22
+ */
+
 #ifndef LOGINGUI_H
 #define LOGINGUI_H
 
@@ -25,8 +34,14 @@ public:
 
 
 private slots:
+    /**
+     * @brief on_submission_pressed logs the user in.
+     */
     void on_submission_pressed();
 
+    /**
+     * @brief on_registration_clicked opens the registration page.
+     */
     void on_registration_clicked();
 
 

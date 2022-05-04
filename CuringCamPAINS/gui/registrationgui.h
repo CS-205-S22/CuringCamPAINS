@@ -1,3 +1,12 @@
+/**
+ * @file: registrationgui.h
+ * ------------------
+ * @brief Defines the GUI functionality of the registration page.
+ *
+ * @authors: Tafita Rakotozandry
+ * @version: 05/02/22
+ */
+
 #ifndef REGISTRATIONGUI_H
 #define REGISTRATIONGUI_H
 
@@ -17,9 +26,14 @@ public:
     ~registrationGUI();
 
 private slots:
+    /**
+     * @brief on_buttonBox_accepted saves the new contact.
+     */
     void on_buttonBox_accepted();
 
-
+    /**
+     * @brief on_uploadPhoto_clicked opens a window to choose a file and uploads the photo.
+     */
     void on_uploadPhoto_clicked();
 
 private:

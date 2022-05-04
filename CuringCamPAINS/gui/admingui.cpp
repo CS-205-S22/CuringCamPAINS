@@ -1,6 +1,20 @@
+/**
+ * @file: admingui.cpp
+ * ------------------
+ * @brief Implements the GUI functionality of the admin page.
+ *
+ * @authors: Max Turkot, Tafita Rakotkzandry
+ * @version: 05/02/22
+ */
+
 #include "admingui.h"
 #include "ui_admingui.h"
 
+/**
+ * @brief AdminGui::AdminGui sets up the gui, including images and scroll area.
+ * @param usr_id
+ * @param parent
+ */
 AdminGui::AdminGui(int usr_id,QWidget *parent) :
     QWidget(parent),
     ui(new Ui::AdminGui)
@@ -28,15 +42,20 @@ AdminGui::AdminGui(int usr_id,QWidget *parent) :
     log = new LogForm("../../../../../database.sqlite");
     log->readFromDB();
     this->displayList();
-
-
 }
 
+/**
+ * @brief AdminGui::~AdminGui destructor.
+ */
 AdminGui::~AdminGui()
 {
     delete ui;
 }
 
+/**
+ * @brief AdminGui::displayList displays the list of logs for the admin to view. Creates a layout, sublayout, inserts labels
+ * with text loaded from the database into each sublayout.
+ */
 void AdminGui::displayList()
 {
     QLabel *recName;
@@ -45,7 +64,7 @@ void AdminGui::displayList()
     QLabel *logCnt;
     QHBoxLayout *hLayout;
 
-
+    // For each log in the databse.
     for (int i = 0; i < (int) log->logVector->size(); i++) {
         recName = new QLabel();
         conName = new QLabel();
@@ -72,6 +91,9 @@ void AdminGui::displayList()
     }
 }
 
+/**
+ * @brief AdminGui::on_pushButton_logs_clicked downloads the log data to a specified file.
+ */
 void AdminGui::on_pushButton_logs_clicked()
 {
     Csv *c=new Csv();
@@ -88,7 +110,9 @@ void AdminGui::on_pushButton_logs_clicked()
     }
 }
 
-
+/**
+ * @brief AdminGui::on_pushButton_contacts_clicked downloads the contacts data to a specified file.
+ */
 void AdminGui::on_pushButton_contacts_clicked()
 {
     Csv *c = new Csv();
@@ -105,7 +129,9 @@ void AdminGui::on_pushButton_contacts_clicked()
     }
 }
 
-
+/**
+ * @brief AdminGui::on_pushButton_logout_clicked logs out from the admin account.
+ */
 void AdminGui::on_pushButton_logout_clicked()
 {
     ui->pushButton_logout->setStyleSheet("QPushButton{ background-color: yellow }");

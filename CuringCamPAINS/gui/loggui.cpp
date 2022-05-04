@@ -1,3 +1,12 @@
+/**
+ * @file: loggui.cpp
+ * ------------------
+ * @brief Implements the GUI functionality of the log page.
+ *
+ * @authors: Joshua Garcia
+ * @version: 05/02/22
+ */
+
 #include "loggui.h"
 #include "ui_loggui.h"
 

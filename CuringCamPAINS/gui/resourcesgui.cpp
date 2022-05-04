@@ -1,3 +1,12 @@
+/**
+ * @file: resourcesgui.cpp
+ * ------------------
+ * @brief Implements the GUI functionality of the resources page.
+ *
+ * @authors: Rory Schauder, Max Turkot
+ * @version: 05/02/22
+ */
+
 #include "resourcesgui.h"
 #include "ui_resourcesgui.h"
 #include "QFileDialog"
@@ -27,10 +36,17 @@ ResourcesGui::~ResourcesGui()
     delete ui;
 }
 
+/**
+ * @brief ResourcesGui::getSyle gets the style of the system.
+ * @return style of the sistem.
+ */
 QString ResourcesGui::getSyle() {
     return this->style;
 }
 
+/**
+ * @brief ResourcesGui::on_pushButton_changeColor_clicked opens a color picker that is used to change the color of the system.
+ */
 void ResourcesGui::on_pushButton_changeColor_clicked()
 {
     QColorDialog dialog;
@@ -65,6 +81,9 @@ void ResourcesGui::on_pushButton_changeColor_clicked()
     emit changeColorSignal();
 }
 
+/**
+ * @brief ResourcesGui::on_pushButton_createMessage_clicked opens the window to save a message.
+ */
 void ResourcesGui::on_pushButton_createMessage_clicked()
 {
     //will now prompt user to enter title and text of desired message
@@ -163,20 +182,26 @@ void ResourcesGui::on_pushButton_saveMessage_clicked()
     ui->stackedWidget_resources->setCurrentIndex(0);
 }
 
-
+/**
+ * @brief ResourcesGui::on_pushButton_back2_clicked returns to the main resources page.
+ */
 void ResourcesGui::on_pushButton_back2_clicked()
 {
     ui->stackedWidget_resources->setCurrentIndex(0);
 }
 
-
+/**
+ * @brief ResourcesGui::on_pushButton_back3_clicked returns to the main resources page.
+ */
 void ResourcesGui::on_pushButton_back3_clicked()
 {
     ui->comboBox_choicesDelete->clear();
     ui->stackedWidget_resources->setCurrentIndex(0);
 }
 
-
+/**
+ * @brief ResourcesGui::on_pushButton_profileUpdate_clicked updates the profile information.
+ */
 void ResourcesGui::on_pushButton_profileUpdate_clicked()
 {
     QString fileName = QFileDialog::getOpenFileName(this,

@@ -1,3 +1,12 @@
+/**
+ * @file: dashboardgui.h
+ * ------------------
+ * @brief Defines the GUI functionality of the dashboard page.
+ *
+ * @authors: Max Turkot, Rory Schauder
+ * @version: 05/02/22
+ */
+
 #ifndef DASHBOARDGUI_H
 #define DASHBOARDGUI_H
 
@@ -27,16 +36,34 @@ public:
     Contact* con;
 
 private slots:
+    /**
+     * @brief openLogForm opens a log form when one of the log buttons is clicked.
+     */
     void openLogForm();
 
+    /**
+     * @brief on_pushButton_dashboard_clicked opens the dashboard page.
+     */
     void on_pushButton_dashboard_clicked();
 
+    /**
+     * @brief on_pushButton_contacts_clicked opens the contacts page.
+     */
     void on_pushButton_contacts_clicked();
 
+    /**
+     * @brief on_pushButton_resources_clicked opens the resources page.
+     */
     void on_pushButton_resources_clicked();
 
+    /**
+     * @brief on_pushButton_logout_clicked logs out of the system.
+     */
     void on_pushButton_logout_clicked();
 
+    /**
+     * @brief changeColor slot changes color of the system.
+     */
     void changeColor();
 
 private:
@@ -46,9 +73,6 @@ private:
     QVBoxLayout *vLayout;
     QHBoxLayout *hLayout;
     int count = 1;
-//    ContactsGui *contactsGui = new ContactsGui();
-//    LogGui *logGui = new LogGui();
-//    ResourcesGui *resourcesGui = new ResourcesGui();
     ContactsGui *contactsGui;
     LogGui *logGui;
     ResourcesGui *resourcesGui;

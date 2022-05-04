@@ -1,3 +1,12 @@
+/**
+ * @file: dynamicbutton.h
+ * ------------------
+ * @brief Defines the GUI functionality of the dynamic buttons.
+ *
+ * @authors: Rory Schauder
+ * @version: 05/02/22
+ */
+
 #ifndef DYNAMICBUTTON_H
 #define DYNAMICBUTTON_H
 
