@@ -17,7 +17,7 @@
    <item row="0" column="0">
     <widget class="QStackedWidget" name="stackedWidget_resources">
      <property name="currentIndex">
-      <number>1</number>
+      <number>3</number>
      </property>
      <widget class="QWidget" name="buttonsPage">
       <widget class="QWidget" name="layoutWidget">
@@ -173,10 +173,10 @@ color:rgb(255,255,255);
       <widget class="QLabel" name="label_title">
        <property name="geometry">
         <rect>
-         <x>80</x>
-         <y>150</y>
+         <x>90</x>
+         <y>155</y>
          <width>81</width>
-         <height>41</height>
+         <height>21</height>
         </rect>
        </property>
        <property name="font">
@@ -194,8 +194,8 @@ color:rgb(255,255,255);
       <widget class="QLabel" name="label_text">
        <property name="geometry">
         <rect>
-         <x>90</x>
-         <y>230</y>
+         <x>96</x>
+         <y>213</y>
          <width>71</width>
          <height>31</height>
         </rect>
@@ -215,10 +215,10 @@ color:rgb(255,255,255);
       <widget class="QPushButton" name="pushButton_back2">
        <property name="geometry">
         <rect>
-         <x>429</x>
-         <y>20</y>
-         <width>186</width>
-         <height>41</height>
+         <x>40</x>
+         <y>490</y>
+         <width>101</width>
+         <height>31</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -229,7 +229,6 @@ color:rgb(255,255,255);
     border-radius: 10px;
     border-color: beige;
     font: bold 14px;
-    min-width: 10em;
     padding: 6px;</string>
        </property>
        <property name="text">
@@ -324,10 +323,10 @@ color:rgb(255,255,255);
       <widget class="QPushButton" name="pushButton_back">
        <property name="geometry">
         <rect>
-         <x>379</x>
-         <y>21</y>
-         <width>186</width>
-         <height>41</height>
+         <x>40</x>
+         <y>490</y>
+         <width>101</width>
+         <height>31</height>
         </rect>
        </property>
        <property name="font">
@@ -345,7 +344,6 @@ color:rgb(255,255,255);
     border-radius: 10px;
     border-color: beige;
     font: bold 14px;
-    min-width: 10em;
     padding: 6px;</string>
        </property>
        <property name="text">
@@ -440,10 +438,10 @@ color:rgb(255,255,255);
       <widget class="QPushButton" name="pushButton_back3">
        <property name="geometry">
         <rect>
-         <x>390</x>
-         <y>20</y>
-         <width>186</width>
-         <height>41</height>
+         <x>40</x>
+         <y>490</y>
+         <width>101</width>
+         <height>31</height>
         </rect>
        </property>
        <property name="font">
@@ -461,7 +459,6 @@ color:rgb(255,255,255);
     border-radius: 10px;
     border-color: beige;
     font: bold 14px;
-    min-width: 10em;
     padding: 6px;</string>
        </property>
        <property name="text">
