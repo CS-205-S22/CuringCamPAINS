@@ -44,6 +44,8 @@ private slots:
 
     void on_pushButton_back3_clicked();
 
+    void on_pushButton_profileUpdate_clicked();
+
 private:
     Ui::ResourcesGui *ui;
     string title, text;

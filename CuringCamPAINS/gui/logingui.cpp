@@ -13,8 +13,6 @@ LoginGUI::LoginGUI(QWidget *parent) :
     ui->logo->setPixmap(pix.scaled(w,h,Qt::KeepAspectRatio));
     ui->logo->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
 
-//    ui->logo->setPixmap(pix.scaled(w,h));
-
 }
 
 LoginGUI::~LoginGUI()

@@ -1,6 +1,6 @@
 #include "resourcesgui.h"
 #include "ui_resourcesgui.h"
-
+#include "QFileDialog"
 
 ResourcesGui::ResourcesGui(QWidget *parent) :
     QWidget(parent),
@@ -81,10 +81,9 @@ void ResourcesGui::on_pushButton_viewMessage_clicked()
     if (titles.empty()) {
         return;
     } else {
-        for (int i = 0; i < (int)titles.size() - 1; i++) {
+        for (int i = 0; i < (int)titles.size(); i++) {
             ui->comboBox_choices->addItem(QString::fromUtf8(titles.at(i).c_str()));
         }
-        ui->comboBox_choices->addItem(QString::fromUtf8(titles.at(titles.size() -1).c_str()));
     }
 }
 
@@ -125,13 +124,13 @@ void ResourcesGui::on_pushButton_deleteMessage_clicked()
 {
     ui->stackedWidget_resources->setCurrentIndex(3);
     vector<string> titles = sm->viewTitles();
-    if (title.empty()) {
+    if (titles.empty()) {
         return;
+    } else {
+        for (int i = 0; i < (int)titles.size(); i++) {
+            ui->comboBox_choicesDelete->addItem(QString::fromUtf8(titles.at(i).c_str()));
+        }
     }
-    for (int i = 0; i < (int)titles.size() - 1; i++) {
-        ui->comboBox_choicesDelete->addItem(QString::fromUtf8(titles.at(i).c_str()));
-    }
-    ui->comboBox_choicesDelete->addItem(QString::fromUtf8(titles.at(titles.size() -1).c_str()));
 
 }
 
@@ -173,6 +172,22 @@ void ResourcesGui::on_pushButton_back2_clicked()
 
 void ResourcesGui::on_pushButton_back3_clicked()
 {
+    ui->comboBox_choicesDelete->clear();
     ui->stackedWidget_resources->setCurrentIndex(0);
+}
+
+
+void ResourcesGui::on_pushButton_profileUpdate_clicked()
+{
+    QString fileName = QFileDialog::getOpenFileName(this,
+            tr("Upload Picture"), "/Desktop", tr("Upload Profile Picture (*.jpeg *.png)"));
+    string outputName=sm->getter("user","name", "userId",std::to_string(cur_usr));
+    string fname = fileName.toStdString();
+    string outputAddress="../../../../../"+outputName+".jpeg";
+    if (QFile::exists(QString::fromStdString(outputAddress)))
+    {
+        QFile::remove(QString::fromStdString(outputAddress));
+    }
+        QFile::copy(QString::fromStdString(fname), QString::fromStdString(outputAddress));
 }
 

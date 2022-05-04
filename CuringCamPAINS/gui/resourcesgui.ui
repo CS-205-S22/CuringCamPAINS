@@ -17,7 +17,7 @@
    <item row="0" column="0">
     <widget class="QStackedWidget" name="stackedWidget_resources">
      <property name="currentIndex">
-      <number>2</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="buttonsPage">
       <widget class="QWidget" name="layoutWidget">
@@ -30,6 +30,23 @@
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_resources">
+        <item>
+         <widget class="QPushButton" name="pushButton_profileUpdate">
+          <property name="styleSheet">
+           <string notr="true">background-color:rgb(30,144,255);
+color:rgb(255,255,255);
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: beige;
+    font: bold 14px;
+    padding: 6px;</string>
+          </property>
+          <property name="text">
+           <string>Update Profile Photo</string>
+          </property>
+         </widget>
+        </item>
         <item>
          <widget class="QPushButton" name="pushButton_changeColor">
           <property name="styleSheet">
@@ -100,6 +117,22 @@ color:rgb(255,255,255);
          </widget>
         </item>
        </layout>
+      </widget>
+      <widget class="QLabel" name="label_2">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>30</y>
+         <width>491</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 20pt &quot;.AppleSystemUIFont&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Costumize your exprience with the following resources</string>
+       </property>
       </widget>
      </widget>
      <widget class="QWidget" name="createMessagePage">
@@ -216,6 +249,22 @@ color:rgb(255,255,255);
         <bool>false</bool>
        </property>
       </widget>
+      <widget class="QLabel" name="label_3">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>80</y>
+         <width>311</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 20pt &quot;.AppleSystemUIFont&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Write and save your message here</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QWidget" name="viewMessagePage">
       <widget class="QWidget" name="layoutWidget_2">
@@ -316,6 +365,22 @@ color:rgb(255,255,255);
         <bool>false</bool>
        </property>
       </widget>
+      <widget class="QLabel" name="label_4">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>100</y>
+         <width>281</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 20pt &quot;.AppleSystemUIFont&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Read your saved messages</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QWidget" name="deleteMessagePage">
       <widget class="QWidget" name="layoutWidget_3">
@@ -401,6 +466,22 @@ color:rgb(255,255,255);
        </property>
        <property name="text">
         <string>Back</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_5">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>140</y>
+         <width>281</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 20pt &quot;.AppleSystemUIFont&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Delete undesriable message</string>
        </property>
       </widget>
      </widget>

@@ -60,11 +60,11 @@ int main(int argc, char* argv[])
     //    l.signUp("hounasm","look");
 
     ///Saved Messages Testing:
-//        SavedMessages s(1,"../../database.sqlite");
-//        s.createMessage("Test","testing this message");
-//        vector<string> temp=s.readTitle("savedmessages","1","messageTitle");
-//        cout<<temp.at(0)<<endl;
-//        s.deleteMessage("Test");
+    //        SavedMessages s(1,"../../database.sqlite");
+    //        s.createMessage("Test","testing this message");
+    //        vector<string> temp=s.readTitle("savedmessages","1","messageTitle");
+    //        cout<<temp.at(0)<<endl;
+    //        s.deleteMessage("Test");
 
 
     //    //    QCoreApplication a(argc, argv); //Need to initialize
@@ -99,15 +99,15 @@ int main(int argc, char* argv[])
 
 
     ////Used to test the contact List
-//            ContactList cl;
+    //            ContactList cl;
     //        cl.getUserInput();
-//            ContactList cl("../../database.sqlite");
-//            cl.remove("contact", "firstName", "Oyu");
-//            cl.remove("contact", "firstName", "Max");
-//            cl.remove("contact", "firstName", "Josh");
-//            cl.remove("contact", "firstName", "Tafita");
-//            cl.remove("contact", "firstName", "Rory");
-//            cl.remove("contact", "firstName", "Justin");
+    //            ContactList cl("../../database.sqlite");
+    //            cl.remove("contact", "firstName", "Oyu");
+    //            cl.remove("contact", "firstName", "Max");
+    //            cl.remove("contact", "firstName", "Josh");
+    //            cl.remove("contact", "firstName", "Tafita");
+    //            cl.remove("contact", "firstName", "Rory");
+    //            cl.remove("contact", "firstName", "Justin");
     //    cl.getUserInput();
     //    ContactList cl("../../test.sqlite");
     //    cl.remove("contact", "firstName", "Justin");
@@ -132,27 +132,27 @@ int main(int argc, char* argv[])
     //    db.tableToCsv("user",parameters,param_size,outFile);
 
     //Used to test the csv table
-//    Csv test=Csv();
-//    string dbbName="../../database.sqlite";
-//    string parameters[]={"userId","name","password","userName","isResearcher"};
-//    int param_size=5;
-//    string outFile="../../test2.csv";
-////    test.download(dbbName,"user",parameters,param_size,outFile);
+    //    Csv test=Csv();
+    //    string dbbName="../../database.sqlite";
+    //    string parameters[]={"userId","name","password","userName","isResearcher"};
+    //    int param_size=5;
+    //    string outFile="../../test2.csv";
+    ////    test.download(dbbName,"user",parameters,param_size,outFile);
 
 
-//    Database db("../../database.sqlite");
-//    cout<<db.getter("user","name","userId","1")<<endl;
-////    db.updateColumn("user");
-//    db.tableToCsv("savedmessages","../../savedmessages.csv");
+    //    Database db("../../database.sqlite");
+    //    cout<<db.getter("user","name","userId","1")<<endl;
+    ////    db.updateColumn("user");
+    //    db.tableToCsv("savedmessages","../../savedmessages.csv");
 
-//        Login db("../../database.sqlite");
-//        cout<<db.getUserId("rex")<<endl;
+    //        Login db("../../database.sqlite");
+    //        cout<<db.getUserId("rex")<<endl;
 
 
-//        QFile::copy("/Users/tafitarakoto/Desktop/_MG_3441.jpeg", "../../test.jpeg");
-//        QString fileName = QFileDialog::getOpenFileName(this,
-//                tr("Upload Picture"), "/Desktop", tr("Upload Profile Picture (*.jpeg *.png)"));
-//            string fname = fileName.toStdString();
+    //        QFile::copy("/Users/tafitarakoto/Desktop/_MG_3441.jpeg", "../../test.jpeg");
+    //        QString fileName = QFileDialog::getOpenFileName(this,
+    //                tr("Upload Picture"), "/Desktop", tr("Upload Profile Picture (*.jpeg *.png)"));
+    //            string fname = fileName.toStdString();
 
     return 0;
 }
