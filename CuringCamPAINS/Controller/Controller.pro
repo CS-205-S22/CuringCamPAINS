@@ -10,7 +10,6 @@ SOURCES += \
         contact.cpp \
         contactlist.cpp \
         csv.cpp \
-        custom.cpp \
         database.cpp \
         log.cpp \
         login.cpp \
@@ -21,7 +20,6 @@ HEADERS += \
     contact.h \
     contactlist.h \
     csv.h \
-    custom.h \
     database.h \
     log.h \
     login.h \

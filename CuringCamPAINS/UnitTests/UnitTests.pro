@@ -16,7 +16,6 @@ INCLUDEPATH +=  ../../gtest \
                 ../../gtest/googletest/include/gtest
 
 SOURCES += \
-        contacttest.cpp \
         contactlisttest.cpp \
         csvtest.cpp \
         customtest.cpp \
@@ -36,7 +35,6 @@ SOURCES += \
 
 HEADERS += \
         contactlisttest.h \
-        contacttest.h \
         csvtest.h \
         customtest.h \
         databasetest.h \
