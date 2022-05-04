@@ -1,6 +1,13 @@
 #include "loggui.h"
 #include "ui_loggui.h"
 
+/**
+ * @brief LogGui::LogGui
+ * @param usr
+ * @param parent
+ *
+ * This is the constructor of the logGui object.
+ */
 LogGui::LogGui(int usr,QWidget *parent) :
     QWidget(parent),
     ui(new Ui::LogGui)
@@ -11,11 +18,31 @@ LogGui::LogGui(int usr,QWidget *parent) :
     logForm=new LogForm(usr,"../../../../../database.sqlite");
 }
 
+
+/**
+ * @brief LogGui::~LogGui
+ * This is the destructor of the logGui
+ */
 LogGui::~LogGui()
 {
     delete ui;
 }
 
+
+
+/**
+ * @brief LogGui::autofill
+ * @param buttonName
+ * @param contactAge
+ * @param contactPN
+ *
+ * This method fills the logForm with the information that the system already knows.
+ * This is useful because the organizer doesn't have to keep entering the same
+ * information that doesn't change every time they want to add to the logForm.
+ * The information is gathered from the contacts that the user put into the system.
+ * The parameters are the pieces of information that we already know about the
+ * potential volunteer from the contact information.
+ */
 void LogGui::autofill(string buttonName, string contactAge, string contactPN) {
     QString name = QString::fromStdString(buttonName);
     QString age = QString::fromStdString(contactAge);
@@ -50,6 +77,20 @@ void LogGui::autofill(string buttonName, string contactAge, string contactPN) {
     ui->lineEdit_date->setText(QString::fromStdString (date));
 }
 
+
+
+/**
+ * @brief LogGui::on_pushButton_enter_clicked
+ * This method does a lot of the error handeling. It checks to make sure that
+ * every box is filled out, the potential volunteer is at least 18, the phone number is
+ * the correct length, the date is correct and in the right form, and the response to the
+ * last prompt is valid.
+ *
+ * Then it saves all of the user input into the logForm table of the database.
+ *
+ * Lastly, it sets the approprite prompts to empty so that the organizer can
+ * enter another logForm if they wish to.
+ */
 void LogGui::on_pushButton_enter_clicked()
 {
     //logForm.deleteLog("qwertyuiop");
@@ -97,7 +138,7 @@ void LogGui::on_pushButton_enter_clicked()
     logForm->date = ui->lineEdit_date->text().toStdString();
     logForm->committed = ui->lineEdit_committed->text().toStdString();
 
-
+    //saving the user input of the logForm into the database
     logForm->saveLogForm(logForm->name, logForm->age, logForm->phoneNumber, logForm->numOfAttempts,
                        logForm->methodOfContact, logForm->reaction, logForm->date, logForm->committed);
 

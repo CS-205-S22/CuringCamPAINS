@@ -12,9 +12,7 @@ public:
     LogForm(int usr_id,string name);
     LogForm(int usr_id);
     LogForm();
-    //all of the get and set methods
     void clearLogForm();
-    void editLogForm();
     void saveLogForm(string fullName, string age, string phoneNumber, string numOfAttempts,
                      string methodOfContact, string reaction, string dateContacted,
                      string isCommitted);
@@ -34,8 +32,6 @@ public:
      */
     int logCount();
     vector<vector<string>*> *logVector;
-//    int *data_size;
-//    int column_size;
 //private:
     string name;
     string phoneNumber;
@@ -46,9 +42,6 @@ public:
     string date;
     string committed;
     string logInput[8];
-
-
-    //int logId = 0;
 };
 
 #endif // LOG_H
