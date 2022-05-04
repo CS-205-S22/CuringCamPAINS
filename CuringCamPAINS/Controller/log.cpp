@@ -60,7 +60,6 @@ string LogForm::boolToString(bool tof){
     else{
         return "false";
     }
-    //return( "" );
 }
 
 /**

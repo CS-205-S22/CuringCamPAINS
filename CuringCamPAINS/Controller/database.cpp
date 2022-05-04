@@ -21,7 +21,6 @@ Database::Database(std::string name) {
 
 
 Database::Database(const char* name) {
-    //std::cerr << "constructing object 2\n";
 
     db_name     = name;
     db_location = ".";
@@ -30,7 +29,6 @@ Database::Database(const char* name) {
 }
 
 Database::Database(const char* location, const char* name) {
-    //std::cerr << "constructing object 3\n";
 
     db_name     = name;
     db_location = location;
@@ -40,7 +38,6 @@ Database::Database(const char* location, const char* name) {
 
 
 Database::Database(std::string location, std::string name) {
-    //std::cerr << "constructing object 4\n";
 
     db_name     = name;
     db_location = location;
@@ -51,7 +48,6 @@ Database::Database(std::string location, std::string name) {
 
 Database::~Database() {
 
-    //std::cerr << "closing object\n";
 
     curr_db->close();
     curr_db = NULL;
@@ -70,7 +66,6 @@ int Database::open_db() {
 
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName(QString::fromStdString(full_name));
-    //    db.setDatabaseName(":memory:"); use to create temporary in-memory db
 
     if(!db.open()){
         std::cerr << "Database does not open -- "
@@ -141,9 +136,7 @@ void Database::write(string table_name, string values[] ){
             string rec = ":" + parameters[i];
             query.bindValue(QString::fromStdString(rec), QString::fromStdString(values[i]));
         }
-        //    cout << "Here" << endl;
         query.exec(); //execute the command
-        //    cout << QDir::currentPath().toStdString() << endl;
         cout << "Succesful writing" << endl;
     }
     catch (const std::bad_alloc&) {

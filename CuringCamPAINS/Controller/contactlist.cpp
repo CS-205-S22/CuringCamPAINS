@@ -50,8 +50,6 @@ void ContactList::getUserInput() {
         cin >> ch;
 
         if (ch == 'F') {
-//            cout << "Enter the file name." << endl;
-//            cin >> filename;
             filename = "contacts.csv";
             readFile(filename);
         } else if (ch == 'M') {
@@ -123,6 +121,7 @@ void ContactList::readFile(string name) {
 
     file.close();
 }
+
 /**
  * @brief ContactList::getManualEntry
  * When run in TUI, reads the information manually entered and
@@ -191,7 +190,6 @@ void ContactList::addContact(string fn, string ln, string cellNum, string email,
     int maxId = getMaxId("contact", "contactId") + 1;
     Contact* c = new Contact(usr_id, maxId, fn, ln, cellNum, email, hAdd, stoi(age));
     masterList->push_back(c);
-    //treatmentGroup->push_back(c); //THIS IS WHAT JOSH ADDED
 
     string id = to_string(c->id);
     string listIdStr = to_string(c->contactListId);

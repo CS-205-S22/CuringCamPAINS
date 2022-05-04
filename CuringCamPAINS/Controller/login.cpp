@@ -59,7 +59,6 @@ bool Login::signUp(string usr, string pwd){
  */
 void Login::close(){
 
-    //std::cerr << "closing object\n";
 
     curr_db->close();
     curr_db = NULL;
