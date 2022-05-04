@@ -32,8 +32,6 @@ public:
      */
     int logCount();
     vector<vector<string>*> *logVector;
-//    int *data_size;
-//    int column_size;
 //private:
     string name;
     string phoneNumber;
@@ -44,9 +42,6 @@ public:
     string date;
     string committed;
     string logInput[8];
-
-
-    //int logId = 0;
 };
 
 #endif // LOG_H

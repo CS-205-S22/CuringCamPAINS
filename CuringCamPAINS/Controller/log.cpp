@@ -82,13 +82,10 @@ void LogForm::saveLogForm(string fullName, string age, string phoneNumber, strin
                           string methodOfContact, string reaction, string dateContacted,
                           string isCommitted){
 
-    //string logId = to_string(this->logId);
     string logId = to_string(getMaxId("logForm", "logId")+1);
-
     string messages[] = {logId, std::to_string(usr_id),fullName, age, phoneNumber, numOfAttempts, methodOfContact,
                          reaction, dateContacted, isCommitted};
     write("logForm", messages);
-    //this->logId = getMaxId("logForm", "logId");
     this->logId++;
 }
 
